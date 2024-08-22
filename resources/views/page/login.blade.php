@@ -15,7 +15,6 @@
         <input type="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1" style="border: 1px solid black; font-size: 14px; padding: 8px;"><br><br>
         <!--Submit-->
         <button type="submit" class="btn w-100" style="background-color: #28a745; color: white; border: 1px solid black; font-size: 14px; padding: 8px;">LOG IN</button>
-
         <!-- Links -->
         <div style="display: flex; justify-content: space-between; margin-top: 20px;">
             <a href="#" style="color: black; text-decoration: underline;">Forgot password?</a>
@@ -23,6 +22,5 @@
         </div>
     </div>
 </form>
-
 <!--Form Section End-->
 @endsection
