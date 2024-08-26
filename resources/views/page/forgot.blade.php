@@ -1,8 +1,7 @@
 @extends('layouts.layout')
 @section('contents')
 
-    <h1>contact page</h1>
-    <p>This is Login Page</p>
+    <h1>forgot page</h1>
     <br>
 <!--Form Section Start-->
 <form>
@@ -15,11 +14,6 @@
         <input type="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1" style="border: 1px solid black; font-size: 14px; padding: 8px;"><br><br>
         <!--Submit-->
         <button type="submit" class="btn w-100" style="background-color: #28a745; color: white; border: 1px solid black; font-size: 14px; padding: 8px;">LOG IN</button>
-        <!-- Links -->
-        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-            <a href="/forgot" style="color: black; text-decoration: underline;">Forgot password?</a>
-            <a href="/signup" style="color: black; text-decoration: underline;">No Account Yet? Register</a>
-        </div>
     </div>
 </form>
 <!--Form Section End-->

@@ -17,3 +17,11 @@ Route::get('/transaction', function () {
 Route::get('/login', function () {
     return view('page.login');
 });
+
+Route::get('/signup', function () {
+    return view('page.signup');
+});
+
+Route::get('/forgot', function () {
+    return view('page.forgot');
+});
