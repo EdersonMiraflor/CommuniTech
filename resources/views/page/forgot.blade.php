@@ -1,5 +1,5 @@
-@extends('layouts.layout')
-@section('contents')
+@extends('layouts.layout2')
+@section('contents2')
 
     <h1>forgot page</h1>
     <br>
