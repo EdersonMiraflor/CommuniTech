@@ -58,4 +58,28 @@ class AccountController extends Controller
             return redirect('/home')->with('msg2', 'Login Successful'); // Password matches, redirect to home
         }
     }
+
+    public function update(Request $request)
+    {
+        // Validate the form data
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        // Find the user by email
+        $user = Account::where('email_address', $request->input('email'))->first();
+
+        if ($user) {
+            // Update the user's password
+            $user->password = $request->input('password');
+            $user->save();
+
+            // Redirect to a success page or back to the login page
+            return redirect('/login')->with('msg3', 'Password updated successfully.');
+        } else {
+            // If the email does not exist, return an error
+            return back()->withErrors(['email' => 'This email does not exist in our records.'])->withInput();
+        }
+    }
 }

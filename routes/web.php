@@ -23,6 +23,9 @@ Route::get('/login', function () {
     return view('page.login');
 });
 
+//Update inputs in forgot page
+Route::post('/forgot', [AccountController::class, 'update']);
+
 Route::get('/home', function () {
     return view('page.home');
 });

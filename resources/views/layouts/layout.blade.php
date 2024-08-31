@@ -17,20 +17,80 @@
             <link href="css/main.css" rel="stylesheet">
          -->
 
-        <style>
-        /*Css Script*/
-        </style>
-    </head>
-    <body>
-        @yield('contents')
-        <!--Bootstrap JS, If You Choose To Use A Framework-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+         <style>
+        .header-bar {
+            background-color: #e8f7ec;
+            padding: 10px;
+            display: flex;
+            justify-content: center; /* Center all items within the header */
+            align-items: center;
+            flex-wrap: wrap; /* Allow wrapping of content */
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Adds equal spacing between elements */
+            text-align: center;
+            flex: 1; /* Allows header-title to take available space */
+        }
+        .header-title img {
+            height: 50px;
+            width: auto;
+        }
+        @media (max-width: 576px) {
+            /* Hide date/time and user info on small screens */
+            .hide-on-small {
+                display: none !important;
+            }
+            /* Adjust header title on small screens */
+            .header-title {
+                gap: 5px; /* Reduce gap for smaller screens */
+            }
+            .header-title img {
+                height: 40px; /* Adjust logo size for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-bar">
+        <!-- Date and time (hidden on small screens) -->
+        <div class="hide-on-small">
+            <span id="current-date-time"></span>
+        </div>
+        <!-- Header title, logos, and text -->
+        <div class="header-title">
+            <!-- Left Logo -->
+            <img src="{{ asset('img/communitechlogo.png') }}" alt="Logo of Communitech" class="img-fluid">
+            <!-- Center Text -->
+            <span>
+                Republic of the Philippines<br>
+                Province of Albay<br>
+                Municipality of Manito
+            </span>
+            <!-- Right Logo -->
+            <img src="{{ asset('img/manito-logo.png') }}" alt="Logo of Manito" class="img-fluid">
+        </div>
+        <!-- User info (hidden on small screens) -->
+        <div class="d-flex align-items-center hide-on-small">
+            <span>Logged in as User</span>
+            <i class="bi bi-person ms-2"></i> <!-- User icon -->
+        </div>
+    </header>
 
-        <!--Bootstrap JS, If You Choose To Use A Framework-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </body>
+    <div class="container">
+        @yield('contents')
+    </div>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById('current-date-time').textContent = now.toLocaleString();
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
