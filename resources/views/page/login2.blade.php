@@ -1,5 +1,5 @@
-@extends('layouts.layout2')
-@section('contents2')
+@extends('layouts.layout')
+@section('contents')
 
 <h1>Login page</h1>
 <p>This is Login Page</p>
