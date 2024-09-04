@@ -1,0 +1,14 @@
+Now we can start our project bit by bit.
+
+Link of Project Prototype: https://www.figma.com/design/POlmBrEwlZrZunHDFoWCRv/CommuniTECH-prototype?node-id=1669-162202
+
+Link of Project Papers: https://docs.google.com/document/d/1mr4AN-IOFDQoGZ31CAkdQJlb6ZbkXUDf9xOotjHhaYk/edit?fbclid=IwY2xjawEsUHhleHRuA2FlbQIxMAABHV_5wQzDYrZmuG6IdYj_HBNGaOj5Lin099ay06Uypmzc_DzchgpMt3yx6w_aem_zkX1aqdnziX1BYkvmODk6Q&pli=1#heading=h.4oxnukqytgc0
+
+Laravel Version: 
+Laravel Installer 5.8.3
+
+Composer Version: 
+Composer version 2.7.7 
+
+PHP Version:
+PHP version 8.2.12 
