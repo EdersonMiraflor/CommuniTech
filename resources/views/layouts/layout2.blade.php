@@ -61,9 +61,6 @@
 </head>
 <body>
     <header class="header-bar">
-        <div class="hide-on-small">
-            <span id="current-date-time" style="margin-left: 50px;"></span>
-        </div>
         <div class="header-title">
             <img src="{{ asset('img/communitechlogo.png') }}" alt="Logo of Communitech" class="img-fluid">
             <span>
@@ -73,46 +70,10 @@
             </span>
             <img src="{{ asset('img/manito-logo.png') }}" alt="Logo of Manito" class="img-fluid">
         </div>
-        <div class="d-flex align-items-center hide-on-small">
-            <ul class="navbar-nav ms-auto" style="margin-right: 50px; display: inline-block;">
-                @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item inline-block">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                    @endif
-
-                    @if (Route::has('register'))
-                        <li class="nav-item inline-block">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                @endguest
-            </ul>
-            <i class="bi bi-person ms-2"></i>
-        </div>
     </header>
 
     <div class="container">
-        @yield('contents')
+        @yield('content')
     </div>
 
     <script>
