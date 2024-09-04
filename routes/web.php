@@ -38,6 +38,7 @@ Route::get('/home/transaction', function () {
 
 Route::get('/forgot', function () {
     return view('page.forgot');
+
 })->middleware('auth');
 
 

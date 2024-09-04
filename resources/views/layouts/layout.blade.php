@@ -6,6 +6,24 @@
 
     <title>Basic Pages</title>
 
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+
+        <!--Bootstrap CSS, If You Choose To Use A Framework-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+       
+        <!-- Styles -->
+        <style>
+            .header-bar {
+                background-color: #e8f7ec;
+                padding: 10px;
+                display: flex;
+                justify-content: center; /* Center all items within the header */
+                align-items: center;
+                flex-wrap: wrap; /* Allow wrapping of content */ 
+            }
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />

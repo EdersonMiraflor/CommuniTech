@@ -7,6 +7,63 @@
     margin-bottom: 20px;
 }
 
+/* ABOUT PAGE */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.left-content {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.left-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #22AF4A;
+    font-weight: 900;
+}
+
+.left-content h2 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.left-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.right-content {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.image-caption {
+    margin-top: 10px;
+    font-style: italic;
+    color: #666;
+}
+
 .image {
     width: 350px;
     height: 350px;
