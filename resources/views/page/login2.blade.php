@@ -1,9 +1,25 @@
-@extends('layouts.layout2')
-@section('contents2')
+@extends('layouts.layout')
+@section('contents')
 
 <h1>Login page</h1>
 <p>This is Login Page</p>
 <br>
+@if(session('msg3'))
+        <div class="alert alert-success">
+            {{ session('msg3') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+            <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+        </div>
+    @endif
+
 <!--Form Section Start-->
 <form method="POST" action="/login">
     @csrf
@@ -28,7 +44,7 @@
                 @endif
         <!--Submit-->
         <button type="submit" class="btn w-100" style="background-color: #28a745; color: white; border: 1px solid black; font-size: 14px; padding: 8px;">LOG IN</button>
-        
+
         <!-- Links -->
         <div style="display: flex; justify-content: space-between; margin-top: 20px;">
             <a href="/forgot" style="color: black; text-decoration: underline;">Forgot password?</a>

@@ -9,40 +9,38 @@ Route::get('/', function () {
 
 //Storing Account Data from Signup
 //any input in the page signup will be operated by the controller and will use the function called store
-Route::post('/signup', [AccountController::class, 'store']);
+Route::post('/signup', [AccountController::class, 'store'])->middleware('auth');
 
 Route::get('/signup', function () {
     return view('page.signup');
-});
+})->middleware('auth');
 
 // Handling Login
-Route::post('/login', [AccountController::class, 'login']);
+Route::post('/login', [AccountController::class, 'login'])->middleware('auth');
 
 // Display Login Page
 Route::get('/login', function () {
     return view('page.login');
 });
 
-Route::get('/home', function () {
-    return view('page.home');
-});
+//Update inputs in forgot page
+Route::post('/forgot', [AccountController::class, 'update'])->middleware('auth');
 
 Route::get('/home/contact', function () {
     return view('page.contact');
-});
+})->middleware('auth');
 
 Route::get('/home/transaction', function () {
     return view('page.transaction');
-});
-
-Route::get('/login', function () {
-    return view('page.login');
-});
+})->middleware('auth');
 
 Route::get('/forgot', function () {
     return view('page.forgot');
-});
 
-Route::get('/about', function () {
-    return view('page.about');
-});
+})->middleware('auth');
+
+
+//Acts as Sessions
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
