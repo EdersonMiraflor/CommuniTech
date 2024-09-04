@@ -42,3 +42,7 @@ Route::get('/login', function () {
 Route::get('/forgot', function () {
     return view('page.forgot');
 });
+
+Route::get('/about', function () {
+    return view('page.about');
+});
