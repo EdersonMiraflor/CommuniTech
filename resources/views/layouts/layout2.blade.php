@@ -1,3 +1,5 @@
+<!--Layout for Form Pages that don't need the time and user, login, register dropdown-->
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -14,7 +16,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/main.css">
+    <!--Directory of this link is: Public Folder/css/main.css-->
+    <link rel="stylesheet" href="css/img-auth.css">
     <style>
         .header-bar {
             background-color: #e8f7ec;
