@@ -9,6 +9,11 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+Route::get('/about', function () {
+    return view('page.about');
+});
+
 //Storing Account Data from Signup
 //any input in the page signup will be operated by the controller and will use the function called store
 Route::post('/signup', [AccountController::class, 'store'])->middleware('auth');
