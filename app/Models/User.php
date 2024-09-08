@@ -16,10 +16,21 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $primaryKey = 'User_Id';
+
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'Credential',
+        'First_Name',
+        'Middle_Name',
+        'Last_Name',
+        'Birth_Date',
+        'Sex',
+        'Mobile_Number',
+        'Email_Address',
+        'Password',
+        'Address',
+        'Request_Id',
     ];
 
     /**
@@ -28,7 +39,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'Password',
         'remember_token',
     ];
 
@@ -41,7 +52,7 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'Password' => 'hashed',
         ];
     }
 }
