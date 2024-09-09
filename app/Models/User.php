@@ -11,27 +11,32 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+      protected $primaryKey = 'User_Id'; // Specify the custom primary key
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-
-    protected $primaryKey = 'User_Id';
-
     protected $fillable = [
+
         'Credential',
-        'First_Name',
+        'name',
         'Middle_Name',
         'Last_Name',
         'Birth_Date',
         'Sex',
         'Mobile_Number',
-        'Email_Address',
-        'Password',
+        'email',
+        'password',
         'Address',
         'Request_Id',
     ];
+
+/*
+        'name',
+        'email',
+        'password',
+*/
 
     /**
      * The attributes that should be hidden for serialization.
@@ -39,7 +44,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'Password',
+        'password',
         'remember_token',
     ];
 
@@ -52,7 +57,8 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'Password' => 'hashed',
+            'password' => 'hashed',
         ];
     }
 }
+
