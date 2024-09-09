@@ -4,38 +4,40 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Account;
+use App\Models\Contact;
 
-class AccountController extends Controller
+class ContactController extends Controller
 {
     //User the Elements in the model Account, and store it in a variable then save it basse on the variable from the views
     public function store()
     {
+        $userId = auth()->id();
         //Access Model to store the input from the views, to the database
-        $user_account = new Account();
-        //Store View input to database attribute, and store it in the model
-        $user_account->id = request('id');
-        $user_account->last_name = request('last_name');
-        $user_account->first_name = request('first_name');
-        $user_account->middle_name = request('middle_name');
-        $user_account->extension_name = request('extension_name');
-        $user_account->month = request('month');
-        $user_account->year = request('year');
-        $user_account->month = request('month');
-        $user_account->day = request('day');
-        $user_account->mobile_number = request('mobile_number');
-        $user_account->email_address = request('email_address');
-        $user_account->password = request('password');
-        $user_account->house_no = request('house_no');
-        $user_account->zone = request('zone');
-        $user_account->barangay = request('barangay');
+        $contact = new Contact();
+     
+        //Store View input to database attribute, and store it in the model 
+        $contact->User_Id = $userId;
+        $contact->First_Name = request('First_Name');
+        $contact->Last_Name = request('Last_Name');
+        $contact->Email_Address = request('Email_Address');
+        $contact->Query = request('Query');
 
-       $user_account->save();
+        $contact->save();
 
-       return redirect('/home')->with('msg', 'Account Created Successfully');
+       return redirect('/home')->with('msg', 'Inquiries Sent Successfully');
     }
 
-
+/*
+            $table->id('Inquire_No');
+            $table->unsignedBigInteger('User_Id');
+            $table->string('First_Name', 255);
+            $table->string('Last_Name', 255);
+            $table->string('Email_Address', 255);
+            $table->text('Query');
+            $table->timestamps();
+            
+            $table->foreign('User_Id')->references('User_Id')->on('users');
+*/
     public function login(Request $request)
     {
         // Get the email and password from the request
