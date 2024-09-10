@@ -10,17 +10,6 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
     use RegistersUsers;
 
     /**
@@ -50,8 +39,15 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'Middle_Name' => ['nullable', 'string', 'max:255'],
+            'Last_Name' => ['required', 'string', 'max:255'],
+            'Birth_Date' => ['required', 'date'],
+            'Sex' => ['required', 'in:male,female'],
+            'Mobile_Number' => ['required', 'string', 'max:15'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'], 
+            'Address' => ['nullable', 'string', 'max:255'],
+            'Credential' => ['required', 'in:user,admin'],
         ]);
     }
 
@@ -65,8 +61,16 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'Middle_Name' => $data['Middle_Name'],
+            'Last_Name' => $data['Last_Name'],
+            'Birth_Date' => $data['Birth_Date'],
+            'Sex' => $data['Sex'],
+            'Mobile_Number' => $data['Mobile_Number'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'password_confirmation' => ['required', 'string', 'same:password'],
+            'Address' => $data['Address'],
+            'Credential' => $data['Credential'],
         ]);
-    }
+    }    
 }

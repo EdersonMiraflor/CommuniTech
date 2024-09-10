@@ -13,5 +13,5 @@
         <img src="img/auth-img/img6.jpg" alt="Image 6" class="image" data-name="wrong">
     </div>
 <button class="button" id="verifyButton">Verify</button>
-<script src="js/main.js"></script>
+<script src="js/img-auth.js"></script>
 @endsection

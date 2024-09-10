@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AccountController; 
+use App\Http\Controllers\ContactController; 
 
 Auth::routes();
 
@@ -9,24 +9,16 @@ Route::get('/', function () {
     return view('index');
 });
 
-//Storing Account Data from Signup
-//any input in the page signup will be operated by the controller and will use the function called store
-Route::post('/signup', [AccountController::class, 'store'])->middleware('auth');
+//Storing Account Data from Contact
+//any input in the page Contact will be operated by the controller and will use the function called store
+Route::post('/contact', [ContactController::class, 'store'])->middleware('auth');
 
-Route::get('/signup', function () {
-    return view('page.signup');
+Route::get('/contact', function () {
+    return view('page.contact');
 })->middleware('auth');
 
-// Handling Login
-Route::post('/login', [AccountController::class, 'login'])->middleware('auth');
-
-// Display Login Page
-Route::get('/login', function () {
-    return view('page.login');
-});
-
 //Update inputs in forgot page
-Route::post('/forgot', [AccountController::class, 'update'])->middleware('auth');
+Route::post('/forgot', [ContactController::class, 'update'])->middleware('auth');
 
 Route::get('/home/contact', function () {
     return view('page.contact');
@@ -41,6 +33,10 @@ Route::get('/forgot', function () {
 
 })->middleware('auth');
 
+// Display services Page
+Route::get('/home/services', function () {
+    return view('page.services');
+})->middleware('auth');
 
 //Acts as Sessions
 Auth::routes();
