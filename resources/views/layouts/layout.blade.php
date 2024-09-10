@@ -180,6 +180,47 @@
             }
         }
 
+        /* Footer Styling */
+    .footer-bar {
+        background-color: #90d7a4; /* Light green color for the footer */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        color: #000;
+    }
+
+    .footer-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-logo {
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .footer-text {
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .footer-social-icons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .footer-social-icons .social-icon img {
+        height: 30px;
+        width: auto;
+        transition: transform 0.2s;
+    }
+
+    .footer-social-icons .social-icon img:hover {
+        transform: scale(1.1);
+    }
+
+
     </style>
 
     <!-- Scripts -->
@@ -249,32 +290,34 @@
     </header>
 
     <!-- Navbar Section -->
-    <nav class="navbar">
-        <span class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></span>
-        <div class="navbar-menu">
-            <a href="#" class="active">HOME</a>
-            <a href="#">SERVICES</a>
-            <a href="#">TRANSACTIONS</a>
-            <a href="#">USER MANUAL</a>
-            <a href="#">ABOUT</a>
-            <a href="#">PRIVACY POLICY</a>
-            <a href="#">CONTACT</a>
-        </div>
-        <div class="navbar-search">
-            <input type="text" placeholder="Search">
-        </div>
+<nav class="navbar">
+    <span class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></span>
+    <div class="navbar-menu">
+        <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
+        <a href="#" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
+        <a href="/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
+        <a href="/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
+        <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
+        <a href="/privacypolicy" class="{{ Request::is('privacypolicy') ? 'active' : '' }}">PRIVACY POLICY</a>
+        <a href="/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
+    </div>
+    <div class="navbar-search">
+        <input type="text" placeholder="Search">
+    </div>
 
-        <!-- Hidden Dropdown Menu for Small Screens -->
-        <div class="dropdown-menu" id="dropdown-menu">
-            <a href="#" class="active">HOME</a>
-            <a href="#">SERVICES</a>
-            <a href="#">TRANSACTIONS</a>
-            <a href="#">USER MANUAL</a>
-            <a href="#">ABOUT</a>
-            <a href="#">PRIVACY POLICY</a>
-            <a href="#">CONTACT</a>
-        </div>
-    </nav>
+    <!-- Hidden Dropdown Menu for Small Screens -->
+    <div class="dropdown-menu" id="dropdown-menu">
+        <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
+        <a href="#" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
+        <a href="/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
+        <a href="/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
+        <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
+        <a href="/privacypolicy" class="{{ Request::is('privacypolicy') ? 'active' : '' }}">PRIVACY POLICY</a>
+        <a href="/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
+    </div>
+</nav>
+
+
 
     <script>
         // JavaScript for Toggling the Dropdown Menu in Mobile View
@@ -292,10 +335,43 @@
         });
     </script>
 
+
+    <!-- Conditionally hide the navbar on the login page -->
+    @if (!request()->is('login'))
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <!-- Navbar content -->
+            </nav>
+        @endif
+
+
     <div class="container">
         @yield('contents')
     </div>
 
+    <!-- Footer Section -->
+    <footer class="footer-bar">
+        <div class="footer-content-left">
+            <img src="{{ asset('img/communitechlogo.png') }}" alt="CommuniTECH Logo" class="footer-logo">
+            <span class="footer-text">CommuniTECH</span>
+        </div>
+        <div class="footer-center">
+            <span>© 2024 CommuniTECH. All Rights Reserved.</span>
+        </div>
+        <div class="footer-social-icons">
+            <a href="#" class="social-icon">
+                <img src="{{ asset('img/facebook.png') }}" alt="Facebook">
+            </a>
+            <a href="#" class="social-icon">
+                <img src="{{ asset('img/instagram.png') }}" alt="Instagram">
+            </a>
+            <a href="#" class="social-icon">
+                <img src="{{ asset('img/youtube.png') }}" alt="YouTube">
+            </a>
+        </div>
+    </footer>
+
+
+    <!--time and date in header section-->
     <script>
         function updateDateTime() {
             const now = new Date();
@@ -309,5 +385,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz39BpwPqv92mGhFCc3C2wWwOtc1HbP5mrxG6ZAwXjC5K8tb1HBeI2xfPv" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-QTW0l0k/QwG7m8CZv/t5bO5PBWxP8MXZ3zFgLeMw6b00pYX/mbU8vcUQj9uZQe6b5" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-QTW0l0k/QwG7m8CZv/t5bO5PBWxP8MXZ3zFgLeMw6b00pYX/mbU8vcUQj9uZQe6b5" crossorigin="anonymous"></script>
-</bod   y>
+</body>
 </html>
