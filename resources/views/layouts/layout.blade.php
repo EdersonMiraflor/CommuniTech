@@ -293,14 +293,16 @@
 <nav class="navbar">
     <span class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></span>
     <div class="navbar-menu">
-        <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
-        <a href="#" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
-        <a href="/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
-        <a href="/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
-        <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
-        <a href="/privacypolicy" class="{{ Request::is('privacypolicy') ? 'active' : '' }}">PRIVACY POLICY</a>
-        <a href="/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
-    </div>
+    <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
+    <a href="/home/services" class="{{ Request::is('home/services') ? 'active' : '' }}">SERVICES</a> <!-- Updated URL -->
+    <a href="/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
+    <a href="/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
+    <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
+    <a href="/privacypolicy" class="{{ Request::is('privacypolicy') ? 'active' : '' }}">PRIVACY POLICY</a>
+    <a href="/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
+</div>
+
+
     <div class="navbar-search">
         <input type="text" placeholder="Search">
     </div>
