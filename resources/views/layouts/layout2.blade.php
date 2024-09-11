@@ -239,7 +239,6 @@
             <img src="{{ asset('img/manito-logo.png') }}" alt="Logo of Manito" class="img-fluid">
         </div>
         <div class="d-flex align-items-center hide-on-small">
-        <div class="d-flex align-items-center hide-on-small">
 </div>
 
 

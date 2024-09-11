@@ -1,8 +1,6 @@
 @extends('layouts.layout')
 @section('contents')
 
-    <h1>contact page</h1>
-    <p>This is Contact Page</p>
 <br><br>
 <!--Form Section Start-->
 <div style="background-color: #e8f7ec;  padding: 80px 100px 80px " class="container">
