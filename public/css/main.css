@@ -1,0 +1,10 @@
+/*css for login button*/
+.custom-btn {
+    background-color: #4ebf6e;
+    color: white;
+}
+
+.custom-btn:hover{
+    background-color: #90d7a4;
+}
+
