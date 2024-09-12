@@ -35,14 +35,13 @@ Route::get('/home/services', function () {
 })->middleware('auth');
 
 //DISPLAY ABOUT PAGE
-Route::post('/about', [AboutController::class, 'store'])->middleware('auth');
+
 
 Route::get('/about', function () {
     return view('page.about');
 })->middleware('auth');
 
 //DISPLAY PRIVACY POLICY PAGE
-Route::post('/privacy-policy', [PrivacyController::class, 'store'])->middleware('auth');
 
 Route::get('/privacy-policy', function () {
     return view('page.privacy-policy');

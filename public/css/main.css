@@ -9,7 +9,7 @@
 }
 
 /* ABOUT PAGE CSS */
-/* General Styling for About Section */
+
 .about {
     display: flex;
     flex-wrap: wrap;
@@ -20,54 +20,70 @@
     margin-bottom: 20px;
 }
 
-/* Left content*/
-.left-content {
+/* CONTENT1-2*/
+.left-content1 {
     flex: 1.5;
     padding: 20px;
 }
 
-.left-content h1 {
+.left-content1 h1 {
     font-size: 3rem;
     color: #28a745;
     margin-top: 10px;
     margin-bottom: 40px;
+    text-align: left;
+    text-indent: 0em;
+    margin-left: 40px;
 }
 
-.left-content h2 {
+.left-content1 h2 {
+    font-size: 24px;
+    color: #28a745;
+    margin-top: 40px;
+    text-indent: 0em;
+    margin-left: 40px;
+}
+
+.left-content2 h2 {
     font-size: 24px;
     color: #28a745;
     margin-top: 10px;
+    text-indent: 1.5em;
+    margin-left: 40px;
 }
 
-.left-content p,
-.left-content ul {
+.left-content1, .left-content2 p,
+.left-content1, .left-content2 ul {
     font-size: 18px;
     color: #333;
     line-height: 1.8;
     text-align: justify;
     text-indent: 3em;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
-.left-content ul {
+.left-content1, .left-content2 ul {
     list-style-type: disc;
-    margin-left: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
-/* Right content*/
+/*right content*/
 .right-content {
-    flex: 1;
+    flex: 0.9;
     padding: 20px;
     text-align: center; 
 }
 
 .about-image {
-    max-width: 110%;
+    max-width: 90%;
     height: auto;
-    padding: 100px 20px;
+    padding: 40px 20px;
 }
 
 .image-caption {
-    font-size: 2.5rem;
+    font-size: 2.0rem;
     color: #28a745;
     font-weight: bold;
     margin-top: 0%;
@@ -78,7 +94,6 @@
 }
 
 
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .about {
@@ -86,113 +101,139 @@
         padding: 50px 20px;
     }
 
-    .left-content, .right-content {
+    .left-content1, .right-content .left-content2 {
         width: 100%;
     }
 
-    .left-content h1 {
+    .left-content1 h1 {
         font-size: 28px;
     }
 
-    .left-content h2 {
+    .left-content1, .left-content2 h2 {
         font-size: 20px;
     }
 
-    .left-content p, 
-    .left-content ul, 
+    .left-content1, .left-content2 p, 
+    .left-content1, .left-content2 ul, 
     .image-caption {
         font-size: 16px;
     }
 }
 
-/*CSS FOR PRIVACY POLICY PAGE
-
-/* Basic Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    line-height: 1.6;
-}
-
-h1 {
-    text-align: center;
+/* PRIVACY POLICY SECTION */
+.privacypolicy {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #e8f7ec;
+    padding: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
     margin-bottom: 20px;
 }
 
-section {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 10px;
+/* Left Content Styling */
+.privacy-content1 {
+    flex: 1.5;
+    padding: 20px;
 }
 
-h2 {
-    margin-top: 20px;
-    font-size: 1.5em;
+.privacy-content1 h1 {
+    font-size: 3rem;
+    color: #28a745;
+    margin-bottom: 40px;
+    text-align: left;
+    margin-left: 40px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.privacy-content1 p {
+    text-indent: 2em;
+    text-align: justify;
+    font-size: 18px;
+    margin-left: 40px;
 }
 
-li {
-    margin: 10px 0;
+.privacy-content2  h2 {
+    font-size: 24px;
+    color: #28a745;
+    margin-top: 10px;
+    text-align: left;
+    margin-left: 40px;
 }
 
-ul ul {
-    margin-left: 20px;
+.privacy-content2 ul {
+    list-style-type: disc;
+    margin-left: 40px;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.8;
+    text-align: justify;
+    text-indent: 2em ;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
-/* Responsive Styles */
-@media (max-width: 1200px) {
-    h2 {
-        font-size: 1.4em;
-    }
+.privacy-content2 p, .privacy-content2 ul {
+    font-size: 18px;
+    text-indent: 2em;
+    text-align: justify;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
-@media (max-width: 992px) {
-    body {
-        margin: 10px;
-    }
-
-    section {
-        padding: 0 15px;
-    }
+/* ABOUT PICTURE */
+.right-content2 {
+    flex: 0.9;
+    padding: 20px;
+    text-align: center;
 }
 
+.policy-image {
+    max-width: 100%;
+    height: auto;
+    padding: 40px 20px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    h2 {
-        font-size: 1.2em;
+    .privacypolicy {
+        flex-direction: column;
+    }
+    
+    .right-content2 {
+        padding: 20px 0;
     }
 
-    section {
-        padding: 0 20px;
+    .privacy-content1 h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
     }
 
-    ul ul {
-        margin-left: 15px;
-    }
-}
-
-@media (max-width: 576px) {
-    h1 {
-        font-size: 1.8em;
+    .privacy-content2 h2 {
+        font-size: 20px;
+        margin-top: 20px;
     }
 
-    h2 {
-        font-size: 1.1em;
+    .privacy-content2 ul, .privacy-content2 p {
+        font-size: 16px;
+        text-indent: 1.5em;
     }
 
-    body {
-        margin: 5px;
-    }
-
-    section {
-        padding: 0 10px;
-    }
-
-    ul ul {
-        margin-left: 10px;
+    .policy-image {
+        max-width: 100%;
     }
 }
 
+@media (max-width: 480px) {
+    .privacy-content1 h1 {
+        font-size: 2rem;
+    }
+
+    .privacy-content2 h2 {
+        font-size: 18px;
+    }
+
+    .privacy-content2 ul, .privacy-content2 p {
+        font-size: 14px;
+        text-indent: 1em;
+    }
+}
