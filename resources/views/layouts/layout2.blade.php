@@ -22,7 +22,7 @@
     <style>
         /* Responsive Header Bar */
         .header-bar {
-            background-color: #e8f7ec;
+            background-color: #90D7A4;
             padding: 10px;
             display: flex;
             justify-content: center;

@@ -297,14 +297,7 @@
         <a href="#" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
         <a href="/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
         <a href="/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
-
-        @auth
-            {{-- Check if the user is admin --}}
-            @if (Auth::user()->Credential == 'admin')
-                <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
-            @endif
-        @endauth
-
+        <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
         <a href="/privacypolicy" class="{{ Request::is('privacypolicy') ? 'active' : '' }}">PRIVACY POLICY</a>
         <a href="/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
     </div>
