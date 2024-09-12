@@ -35,7 +35,7 @@ Route::get('/home/services', function () {
 })->middleware('auth');
 
 //DISPLAY ABOUT PAGE
-Route::post('/about', [AboutController::class, 'store'])->middleware('auth');
+# Route::post('/about', [AboutController::class, 'store'])->middleware('auth');
 
 Route::get('/about', function () {
     return view('page.about');
@@ -47,11 +47,7 @@ Route::get('/home/contact', function () {
 })->middleware('auth');
 
 //Acts as Sessions
-Auth::routes();
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes([
+    'verify' => true
+]);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
