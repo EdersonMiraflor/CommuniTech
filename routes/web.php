@@ -20,10 +20,6 @@ Route::get('/contact', function () {
 //Update inputs in forgot page
 Route::post('/forgot', [ContactController::class, 'update'])->middleware('auth');
 
-Route::get('/home/contact', function () {
-    return view('page.contact');
-})->middleware('auth');
-
 Route::get('/home/transaction', function () {
     return view('page.transaction');
 })->middleware('auth');
@@ -38,8 +34,21 @@ Route::get('/home/services', function () {
     return view('page.services');
 })->middleware('auth');
 
+//DISPLAY ABOUT PAGE
+Route::post('/about', [AboutController::class, 'store'])->middleware('auth');
+
+Route::get('/about', function () {
+    return view('page.about');
+})->middleware('auth');
+
+//DISPLAY CONTACT PAGE
+Route::get('/home/contact', function () {
+    return view('page.contact');
+})->middleware('auth');
+
 //Acts as Sessions
 Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
