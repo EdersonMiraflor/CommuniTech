@@ -6,9 +6,6 @@
          <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
     
-        <div class="container">
-            <div class="about">
-         <div class="left-content">
         <h1><strong>About Us</strong></h1>
         <p>At CommuniTech, we are dedicated to revolutionizing the way you interact with your local civil registry office in the Municipality of Manito, Albay. Our mission is to provide seamless, efficient, and accessible online services to meet all your civil registry needs.</p>
         <h2><strong>We offer services, including:</strong></h2>

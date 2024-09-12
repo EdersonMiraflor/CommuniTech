@@ -298,7 +298,7 @@
         <a href="/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
         <a href="/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
         <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
-        <a href="/privacypolicy" class="{{ Request::is('privacypolicy') ? 'active' : '' }}">PRIVACY POLICY</a>
+        <a href="/privacy-policy" class="{{ Request::is('privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
         <a href="/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
     </div>
     <div class="navbar-search">
@@ -312,7 +312,7 @@
         <a href="/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
         <a href="/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
         <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
-        <a href="/privacypolicy" class="{{ Request::is('privacypolicy') ? 'active' : '' }}">PRIVACY POLICY</a>
+        <a href="/privacy-policy" class="{{ Request::is('privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
         <a href="/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
     </div>
 </nav>

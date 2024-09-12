@@ -41,6 +41,14 @@ Route::get('/about', function () {
     return view('page.about');
 })->middleware('auth');
 
+//DISPLAY PRIVACY POLICY PAGE
+Route::post('/privacy-policy', [PrivacyController::class, 'store'])->middleware('auth');
+
+Route::get('/privacy-policy', function () {
+    return view('page.privacy-policy');
+})->middleware('auth');
+
+
 //DISPLAY CONTACT PAGE
 Route::get('/home/contact', function () {
     return view('page.contact');
