@@ -8,6 +8,14 @@ use App\Http\Controllers\ContactController;
 
 Auth::routes();
 
+Route::get('/privacy-policy', function () {
+    return view('page.privacy-policy');
+});
+
+Route::get('/about', function () {
+    return view('page.about');
+});
+
 Route::get('/', function () {
     return view('index');
 });
