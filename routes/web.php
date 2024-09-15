@@ -45,37 +45,20 @@ Route::get('/home/services', function () {
     return view('page.services');
 })->middleware('auth');
 
-//Acts as Sessions
-Auth::routes();
+//DISPLAY ABOUT PAGE
+# Route::post('/about', [AboutController::class, 'store'])->middleware('auth');
 
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-// Display services Page
-Route::get('/home/services', function () {
-    return view('page.services');
+Route::get('/about', function () {
+    return view('page.about');
 })->middleware('auth');
 
+//DISPLAY CONTACT PAGE
+Route::get('/home/contact', function () {
+    return view('page.contact');
+})->middleware('auth');
 
-use App\Http\Controllers\BirthController;
-use App\Http\Controllers\MarriageController;
-use App\Http\Controllers\DeathController;
-
-Route::get('/birth/registration', [BirthController::class, 'registration'])->name('birth.registration');
-Route::get('/birth/certificate', [BirthController::class, 'certificate'])->name('birth.certificate');
-Route::get('/birth/receipt', [BirthController::class, 'receipt'])->name('birth.receipt');
-
-Route::get('/marriage/registration', [MarriageController::class, 'registration'])->name('marriage.registration');
-Route::get('/marriage/certificate', [MarriageController::class, 'certificate'])->name('marriage.certificate');
-Route::get('/marriage/receipt', [MarriageController::class, 'receipt'])->name('marriage.receipt');
-
-Route::get('/death/registration', [DeathController::class, 'registration'])->name('death.registration');
-Route::get('/death/certificate', [DeathController::class, 'certificate'])->name('death.certificate');
-Route::get('/death/receipt', [DeathController::class, 'receipt'])->name('death.receipt');
-
-
+//Acts as Sessions
+Auth::routes([
+    'verify' => true
+]);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
