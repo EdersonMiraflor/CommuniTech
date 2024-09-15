@@ -2,7 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="css/main.css">
-
+<br><br><br>
 <div class="container my-5 py-5">
     <div class="row justify-content-center">
         <!-- Left Container for Images and Text -->

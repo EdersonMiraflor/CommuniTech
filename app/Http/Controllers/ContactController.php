@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 
@@ -23,6 +25,16 @@ class ContactController extends Controller
         $contact->Query = request('Query');
 
         $contact->save();
+
+                // Prepare email data
+                $emailData = [
+                'name' => request('First_Name') . ' ' . request('Last_Name'),
+                'email' => request('Email_Address'),
+                'message' => request('Query'),
+                ];
+
+                // Send email
+                Mail::to('miraflorederson@gmail.com')->send(new ContactMail($emailData));
 
        return redirect('/home')->with('msg', 'Inquiries Sent Successfully');
     }
