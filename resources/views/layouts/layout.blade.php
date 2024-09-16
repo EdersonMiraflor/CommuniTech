@@ -294,11 +294,7 @@
     <span class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></span>
     <div class="navbar-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
-<<<<<<< HEAD
-        <a href="/services" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
-=======
         <a href="/home/services" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
->>>>>>> Romeo
         <a href="/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
         <a href="/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
         <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
@@ -312,11 +308,7 @@
     <!-- Hidden Dropdown Menu for Small Screens -->
     <div class="dropdown-menu" id="dropdown-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
-<<<<<<< HEAD
-        <a href="/services" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
-=======
         <a href="/home/services" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
->>>>>>> Romeo
         <a href="/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
         <a href="/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
         <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
