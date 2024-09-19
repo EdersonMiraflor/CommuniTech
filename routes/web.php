@@ -46,9 +46,14 @@ Route::get('/home/services', function () {
 })->middleware('auth');
 
 //DISPLAY ABOUT PAGE
-
 Route::get('/about', function () {
     return view('page.about');
+})->middleware('auth');
+
+//DISPLAY USER MANUAL PAGE
+
+Route::get('/usermanual', function () {
+    return view('page.usermanual');
 })->middleware('auth');
 
 //DISPLAY CONTACT PAGE
