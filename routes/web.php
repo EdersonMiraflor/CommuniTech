@@ -46,7 +46,6 @@ Route::get('/home/services', function () {
 })->middleware('auth');
 
 //DISPLAY ABOUT PAGE
-# Route::post('/about', [AboutController::class, 'store'])->middleware('auth');
 
 Route::get('/about', function () {
     return view('page.about');
