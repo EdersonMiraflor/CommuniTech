@@ -8,6 +8,12 @@ use App\Http\Controllers\MailController;
 
 Auth::routes();
 
+Route::get('/home', function () {
+    return view('page.home');
+});
+
+
+
 Route::get('/privacy-policy', function () {
     return view('page.privacy-policy');
 });
@@ -19,6 +25,12 @@ Route::get('/about', function () {
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/home/user-profile', function () {
+    return view('page.user-profile');
+})->middleware('auth');
+
+
 
 //Storing Account Data from Contact
 //any input in the page Contact will be operated by the controller and will use the function called store
@@ -40,10 +52,18 @@ Route::get('/forgot', function () {
 
 })->middleware('auth');
 
+//DISPLAY HOME PAGE
+Route::get('/home', function () {
+    return view('page.home');
+})->middleware('auth');
+
+
 // Display services Page
 Route::get('/home/services', function () {
     return view('page.services');
 })->middleware('auth');
+
+
 
 //DISPLAY ABOUT PAGE
 Route::get('/about', function () {
@@ -60,6 +80,8 @@ Route::get('/usermanual', function () {
 Route::get('/home/contact', function () {
     return view('page.contact');
 })->middleware('auth');
+
+
 
 //Acts as Sessions
 Auth::routes([
