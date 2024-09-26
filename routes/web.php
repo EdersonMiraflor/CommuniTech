@@ -90,11 +90,16 @@ Auth::routes([
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
+//services
 use App\Http\Controllers\BirthController;
 use App\Http\Controllers\MarriageController;
 use App\Http\Controllers\DeathController;
 
 Route::get('/birth/registration', [BirthController::class, 'registration'])->name('birth.registration');
+    
+// Route to handle form submission
+Route::post('/birth/registration', [BirthController::class, 'store'])->name('birth.registration.submit');
+
 Route::get('/birth/certificate', [BirthController::class, 'certificate'])->name('birth.certificate');
 Route::get('/birth/receipt', [BirthController::class, 'receipt'])->name('birth.receipt');
 
@@ -105,3 +110,7 @@ Route::get('/marriage/receipt', [MarriageController::class, 'receipt'])->name('m
 Route::get('/death/registration', [DeathController::class, 'registration'])->name('death.registration');
 Route::get('/death/certificate', [DeathController::class, 'certificate'])->name('death.certificate');
 Route::get('/death/receipt', [DeathController::class, 'receipt'])->name('death.receipt');
+
+
+
+
