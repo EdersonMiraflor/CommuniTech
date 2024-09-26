@@ -1,14 +1,17 @@
 @extends('layouts.layout')
 @section('contents')
 
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
+
+<!--
 
 @if (session('msg'))
     <div class="alert alert-success">
         {{ session('msg') }}
     </div>
 @endif
-<!--
+
 <br><br>
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -38,8 +41,6 @@ Sample Bootstrap Usage
     <a href="/home/transaction" style="text-align:center;">Go to Transaction</a><br>
     <a href="/home/services" style="text-align:center;">Go to Services</a><br>
 -->
-
-
 
 
 @endsection

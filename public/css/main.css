@@ -1,3 +1,7 @@
+body{
+    height: 100%;
+}
+
 /*css for login button*/
 .custom-btn {
     background-color: #4ebf6e;
@@ -320,3 +324,10 @@
     }
 }
 
+/*USER PROFILE CSS*/
+.tab-content {
+    border: 1px solid #dee2e6;
+    padding: 20px;
+    border-radius: 0.25rem;
+    background-color: #fff;
+}

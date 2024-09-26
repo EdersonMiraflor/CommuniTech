@@ -269,6 +269,11 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <!--User Profile-->
+                    <a class="dropdown-item" href="/home/user-profile">
+                            {{ __('User Profile') }}
+                    </a>
+            <!--Logout -->
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
@@ -276,6 +281,7 @@
                         <i class="fas fa-sign-out-alt ms-2"></i> <!-- Icon for Logout -->
                     </a>
 
+                    
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
