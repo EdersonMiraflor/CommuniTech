@@ -3,7 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController; 
-
+use App\Http\Controllers\MailController;
 
 
 Auth::routes();
@@ -65,6 +65,7 @@ Route::get('/home/contact', function () {
 Auth::routes([
     'verify' => true
 ]);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 use App\Http\Controllers\BirthController;
