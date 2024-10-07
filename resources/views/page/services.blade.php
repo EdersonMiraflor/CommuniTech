@@ -108,9 +108,9 @@
         </div>
         <h3>BIRTH SERVICES</h3>
         <div class="service-buttons">
-            <a href="#" class="btn btn-primary">Birth Registration</a>
-            <a href="#" class="btn btn-secondary">View Certificate</a>
-            <a href="#" class="btn btn-secondary">Transaction Receipt</a>
+             <a href="{{ route('birth.registration') }}" class="btn btn-primary">Birth Registration</a>
+            <a href="{{ route('birth.certificate') }}" class="btn btn-secondary">View Certificate</a>
+            <a href="{{ route('birth.receipt') }}" class="btn btn-secondary">Transaction Receipt</a>
         </div>
     </div>
 
