@@ -8,6 +8,51 @@
     background-color: #90d7a4;
 }
 
+/* START OF USER PROFILE OVERRIDE */
+/* Override Bootstrap's default blue color for links */
+.nav-link, .nav-link.active {
+    color: black !important;
+}
+
+/* Override Bootstrap's primary buttons */
+.btn-primary {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+}
+
+/* Override hover and active states for primary buttons */
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #218838 !important; /* Darken shade */
+    border-color: #1e7e34 !important;
+}
+
+/* Override text colors that are not white or black */
+.text-primary, .text-info, .text-danger, .text-warning, .text-success {
+    color: #28a745 !important;
+}
+
+/* Override other Bootstrap components with default color */
+.nav-pills .nav-link.active,
+.navbar-light .navbar-nav .nav-link,
+.pagination .page-link {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+}
+
+/* Override card headers and alert backgrounds */
+.card-header,
+.alert-primary,
+.alert-info,
+.alert-warning,
+.alert-success {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: white !important;
+}
+/* END OF USER PROFILE OVERRIDE */
+
 
 /*HOME PAGE CSS*/
 .background-overlay {
