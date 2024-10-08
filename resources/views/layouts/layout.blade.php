@@ -295,11 +295,11 @@
     <div class="navbar-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
         <a href="/home/services" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
-        <a href="/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
-        <a href="/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
-        <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
-        <a href="/privacy-policy" class="{{ Request::is('privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
-        <a href="/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
+        <a href="/home/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
+        <a href="/home/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
+        <a href="/home/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
+        <a href="/home/privacy-policy" class="{{ Request::is('privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
+        <a href="/home/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
     </div>
     <div class="navbar-search">
         <input type="text" placeholder="Search">
@@ -309,10 +309,10 @@
     <div class="dropdown-menu" id="dropdown-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
         <a href="/home/services" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
-        <a href="/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
-        <a href="/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
-        <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
-        <a href="/privacy-policy" class="{{ Request::is('privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
+        <a href="/home/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
+        <a href="/home/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
+        <a href="/home/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
+        <a href="/home/privacy-policy" class="{{ Request::is('privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
 
         @auth
             {{-- Check if the user is admin --}}
@@ -321,8 +321,8 @@
             @endif
         @endauth
 
-        <a href="/privacypolicy" class="{{ Request::is('privacypolicy') ? 'active' : '' }}">PRIVACY POLICY</a>
-        <a href="/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
+        <a href="/home/privacypolicy" class="{{ Request::is('privacypolicy') ? 'active' : '' }}">PRIVACY POLICY</a>
+        <a href="/home/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
     </div>
 </nav>
 

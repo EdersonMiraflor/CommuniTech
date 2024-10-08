@@ -34,7 +34,7 @@ class ContactController extends Controller
                 ];
 
                 // Send email
-                Mail::to('miraflorederson@gmail.com')->send(new ContactMail($emailData));
+                Mail::to('communitech4@gmail.com')->send(new ContactMail($emailData));
 
        return redirect('/home')->with('msg', 'Inquiries Sent Successfully');
     }

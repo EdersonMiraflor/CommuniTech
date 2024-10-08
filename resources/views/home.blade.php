@@ -3,6 +3,11 @@
 @section('contents')
 
 
+@if (session('msg'))
+    <div class="alert alert-success">
+        {{ session('msg') }}
+    </div>
+@endif
 
 <!-- Home content -->
 
@@ -42,6 +47,4 @@
         </div>
     
 </section>
-
-
 @endsection

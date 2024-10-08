@@ -1,18 +1,18 @@
 <?php
-
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController; 
 
-
-
 Auth::routes();
 
-Route::get('/privacy-policy', function () {
+Route::get('/home/privacy-policy', function () {
     return view('page.privacy-policy');
 });
 
-Route::get('/about', function () {
+Route::get('/home/usermanual', function () {
+    return view('page.usermanual');
+});
+
+Route::get('/home/about', function () {
     return view('page.about');
 });
 
@@ -22,9 +22,9 @@ Route::get('/', function () {
 
 //Storing Account Data from Contact
 //any input in the page Contact will be operated by the controller and will use the function called store
-Route::post('/contact', [ContactController::class, 'store'])->middleware('auth');
+Route::post('/home/contact', [ContactController::class, 'store'])->middleware('auth');
 
-Route::get('/contact', function () {
+Route::get('/home/contact', function () {
     return view('page.contact');
 })->middleware('auth');
 
@@ -48,14 +48,10 @@ Route::get('/home/services', function () {
 //DISPLAY ABOUT PAGE
 # Route::post('/about', [AboutController::class, 'store'])->middleware('auth');
 
-Route::get('/about', function () {
+Route::get('/home/about', function () {
     return view('page.about');
 })->middleware('auth');
 
-//DISPLAY CONTACT PAGE
-Route::get('/home/contact', function () {
-    return view('page.contact');
-})->middleware('auth');
 
 //Acts as Sessions
 Auth::routes([
