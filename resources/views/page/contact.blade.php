@@ -3,20 +3,12 @@
 
 <br><br>
 <!--Form Section Start-->
-<div style="background-color: #e8f7ec; padding: 80px 100px; margin-bottom: 50px;" class="container">
-    <div class="row">
-        <!-- Left Side: Image and Description -->
-        <div class="col-12 col-md-5" style="padding-right: 20px;">
-            <h1 style="font-size: 3rem; text-align: center; color: #28a745; font-weight: bold;"> Contact Us! </h1>
-        <p style="font-size: 16px; color: #333; text-align: center;">For any inquiries, assistance, or feedback regarding the Manito Civil Registry online services, please reach out to our support team. We are here to help you with any concerns or questions you may have. </p>
-            <img src="img/contact.png" alt="Description Image" style="width: 80%; border-radius: 8px; margin-bottom: 20px;">
-        </div>
-        
-        <!-- Right Side: Form -->
-        <div class="col-12 col-md-7" style="background-color: #ffffff; padding: 20px; border: 1px solid black; border-radius: 8px;">
+<div style="background-color: #e8f7ec;  padding: 80px 100px 80px " class="container">
+    <div class="row justify-content-end">
+        <div class="col-12 col-md-8 col-lg-6" style="background-color: #ffffff; padding: 20px; border: 1px solid black; border-radius: 8px;">
             <!--Form Content-->
             <form action="/contact" method="POST">
-                @csrf
+            @csrf
                 <!--Name-->
                 <label for="firstName" class="form-label" style="font-size: 14px;">Name</label>
                 <input name="First_Name" type="text" placeholder="First Name" class="form-control" id="firstName" style="border: 1px solid black; font-size: 14px; padding: 8px; margin-bottom: 10px;">
@@ -34,10 +26,10 @@
                 <textarea name="Query" placeholder="Enter your message" class="form-control" id="message" style="border: 1px solid black; font-size: 14px; padding: 8px; margin-bottom: 20px; height: 100px;"></textarea>
 
                 <!--Submit-->
-                <button type="submit" class="btn w-100" style="background-color: #28a745; color: white; border: 1px solid black; font-size: 14px; padding: 8px;">Submit</button>
+                <button type="submit" class="btn w-100" style="background-color: #28a745; color: white; border: 1px solid black; font-size: 14px; padding: 8px;" onclick="window.location.href='{{ url('home') }}';">Submit</button>
             </form>
         </div>
     </div>
-</div>
+</div><br><br><br>
 <!--Form Section End-->
 @endsection

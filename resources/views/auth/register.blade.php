@@ -1,6 +1,6 @@
-@extends('layouts.layout2')
+@extends('layouts.layout')
 
-@section('content')
+@section('contents')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -130,7 +130,7 @@
                         <div class="row mb-3">
                             <label for="Credential" class="col-md-4 col-form-label text-md-end">{{ __('Credential') }}</label>
                             <div class="col-md-6">
-                                <select id="Credential" class="form-control @error('Credential') is-invalid @enderror" name="Credential">
+                                <select id="Credential" class="form-control @error('Credential') is-invalid @enderror" name="Credential" disabled>
                                     <option value="user" {{ old('Credential') == 'user' ? 'selected' : '' }}>{{ __('User') }}</option>
                                     <option value="admin" {{ old('Credential') == 'admin' ? 'selected' : '' }}>{{ __('Admin') }}</option>
                                 </select>
