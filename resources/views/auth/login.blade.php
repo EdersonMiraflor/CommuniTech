@@ -1,15 +1,15 @@
 @extends('layouts.layout2')
 
 @section('content')
-<link rel="stylesheet" href="css/main.css">
-<br><br><br>
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
 <div class="container my-5 py-5">
     <div class="row justify-content-center">
         <!-- Left Container for Images and Text -->
         <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
             <div class="text-center" style="margin-top: 60px;">
                 <h1 class="display-4">CommuniTECH</h1>
-                <p class="lead">A Web-Based Application For Civil Registry Office of Manito, Albay</p>
+                <p class="lead">A Web - Based Application For Civil Registry Office of Manito, Albay</p>
             </div>
             <div class="d-flex flex-column align-items-center mt-4">
                 <div class="d-flex flex-row justify-content-around w-100 mb-4">

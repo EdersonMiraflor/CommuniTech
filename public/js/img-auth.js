@@ -17,17 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
             { src: 'img/auth-img/img1.jpg', name: 'correct' },
             { src: 'img/auth-img/img2.jpg', name: 'wrong' },
             { src: 'img/auth-img/img3.jpg', name: 'wrong' },
-            { src: 'img/auth-img/img4.jpg', name: 'wrong' },
+            { src: 'img/auth-img/nagaso.jpg', name: 'correct' },
             { src: 'img/auth-img/img5.jpg', name: 'wrong' },
-            { src: 'img/auth-img/img6.jpg', name: 'wrong' }
+            { src: 'img/auth-img/img6.jpg', name: 'wrong' },
+            { src: 'img/auth-img/newImg1.jpg', name: 'correct' },
+            { src: 'img/auth-img/img4.jpg', name: 'wrong' },
+            { src: 'img/auth-img/shoreline.jpg', name: 'correct' }
         ],
         alternate: [
             { src: 'img/auth-img/newImg1.jpg', name: 'wrong' },
-            { src: 'img/auth-img/newImg2.jpg', name: 'wrong' },
+            { src: 'img/auth-img/nagaso.jpg', name: 'correct' },
             { src: 'img/auth-img/newImg3.jpg', name: 'wrong' },
-            { src: 'img/auth-img/newImg4.jpg', name: 'wrong' },
-            { src: 'img/auth-img/newImg5.jpg', name: 'correct' },
-            { src: 'img/auth-img/newImg6.jpg', name: 'wrong' }
+            { src: 'img/auth-img/shoreline.jpg', name: 'correct' },
+            { src: 'img/auth-img/newImg5.jpg', name: 'wrong' },
+            { src: 'img/auth-img/newImg6.jpg', name: 'wrong' },
+            { src: 'img/auth-img/img1.jpg', name: 'correct' },
+            { src: 'img/auth-img/newImg2.jpg', name: 'wrong' },
+            { src: 'img/auth-img/newImg4.jpg', name: 'wrong' }
         ]
     };
 
@@ -87,8 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     verifyButton.addEventListener('click', () => {
         const selectedImages = document.querySelectorAll('.image.selected');
-        if (selectedImages.length !== 1) {
-            alert('You must select exactly 1 images.');
+        if (selectedImages.length !== 3) {
+            alert('You must select exactly 3 images.');
             return;
         }
 
