@@ -5,7 +5,7 @@
          <link rel="stylesheet" href="{{ asset('css/main.css') }}">
          
 
-         <div class="container mt-5">
+<div class="container mt-5">
     <div class="row">
         <div class="col-md-3">
             <ul class="nav flex-column nav-pills" id="myTab" role="tablist">
@@ -61,6 +61,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </form>
+                <br><br><br><br>
                 </div>
 
                 <div class="tab-pane fade" id="other-settings" role="tabpanel">
@@ -83,11 +84,15 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </form>
+                    <br><br><br><br>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<br><br><br><br><br><br><br><br><br><br>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
