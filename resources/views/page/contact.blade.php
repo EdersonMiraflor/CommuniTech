@@ -7,7 +7,7 @@
     <div class="row justify-content-end">
         <div class="col-12 col-md-8 col-lg-6" style="background-color: #ffffff; padding: 20px; border: 1px solid black; border-radius: 8px;">
             <!--Form Content-->
-            <form action="/contact" method="POST">
+            <form action="/home/contact" method="POST">
             @csrf
                 <!--Name-->
                 <label for="firstName" class="form-label" style="font-size: 14px;">Name</label>

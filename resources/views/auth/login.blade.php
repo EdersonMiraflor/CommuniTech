@@ -3,6 +3,7 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
+
 <div class="container my-5 py-5">
     <div class="row justify-content-center">
         <!-- Left Container for Images and Text -->

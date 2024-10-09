@@ -26,22 +26,22 @@
     <div class="team-grid">
         <!-- Team members' information -->
         <div class="team-member">
-            <img src="{{ asset('img/romeo.jpg') }}" alt="Project Manager">
+            <img src="img/romeo.jpg" alt="Project Manager">
             <p class="name">Romeo Banzuela</p>
             <p class="role">Project Manager</p>
         </div>
         <div class="team-member">
-            <img src="{{ asset('imag/princess.jpg') }}" alt="System Analyst">
+            <img src="imag/princess.jpg" alt="System Analyst">
             <p class="name">Princess Malanyaon</p>
             <p class="role">System Analyst</p>
         </div>
         <div class="team-member">
-            <img src="{{ asset('img/coleen.png') }}" alt="Front-end Developer">
+            <img src="img/coleen.png" alt="Front-end Developer">
             <p class="name">Coleen Lustre</p>
             <p class="role">Front-end Developer</p>
         </div>
         <div class="team-member">
-            <img src="{{ asset('imag/ederson.jpg') }}" alt="Back-end Developer">
+            <img src="imag/ederson.jpg" alt="Back-end Developer">
             <p class="name">Ederson Miraflor</p>
             <p class="role">Back-end Developer</p>
         </div>
