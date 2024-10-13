@@ -12,6 +12,14 @@ Route::get('/home/usermanual', function () {
     return view('page.usermanual');
 });
 
+Route::get('/home/usermanagement', function () {
+    return view('page.usermanagement');
+})->middleware('auth');
+
+Route::get('/home/transactionhistory', function () {
+    return view('page.transactionhistory');
+})->middleware('auth');
+
 Route::get('/home/about', function () {
     return view('page.about');
 });

@@ -296,8 +296,24 @@
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
         <a href="/home/services" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
         <a href="/home/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
+
+        @auth
+            {{-- Check if the user is admin --}}
+            @if (Auth::user()->Credential == 'admin')
+                <a href="/home/transactionhistory" class="{{ Request::is('transactionhistory') ? 'active' : '' }}">TRANSACTION HISTORY</a>
+            @endif
+        @endauth
+
         <a href="/home/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
-        <a href="/home/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
+  
+        @auth
+            {{-- Check if the user is admin --}}
+            @if (Auth::user()->Credential == 'admin')
+                <a href="/home/usermanagement" class="{{ Request::is('usermanagement') ? 'active' : '' }}">USER MANAGEMENT</a>
+            @endif
+        @endauth
+
+        <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
         <a href="/home/privacy-policy" class="{{ Request::is('privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
         <a href="/home/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
     </div>
@@ -310,18 +326,25 @@
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
         <a href="/home/services" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
         <a href="/home/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
-        <a href="/home/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
-        <a href="/home/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
-        <a href="/home/privacy-policy" class="{{ Request::is('privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
 
         @auth
             {{-- Check if the user is admin --}}
             @if (Auth::user()->Credential == 'admin')
-                <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
+                <a href="/home/transactionhistory" class="{{ Request::is('transactionhistory') ? 'active' : '' }}">TRANSACTION HISTORY</a>
             @endif
         @endauth
 
-        <a href="/home/privacypolicy" class="{{ Request::is('privacypolicy') ? 'active' : '' }}">PRIVACY POLICY</a>
+        <a href="/home/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
+  
+        @auth
+            {{-- Check if the user is admin --}}
+            @if (Auth::user()->Credential == 'admin')
+                <a href="/home/usermanagement" class="{{ Request::is('usermanagement') ? 'active' : '' }}">USER MANAGEMENT</a>
+            @endif
+        @endauth
+
+        <a href="/home/privacy-policy" class="{{ Request::is('privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
+        <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
         <a href="/home/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
     </div>
 </nav>
