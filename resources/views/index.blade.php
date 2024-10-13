@@ -14,15 +14,15 @@
     </div>
     <div class="right-side">
         <div class="images">
-            <img src="img/auth-img/img1.jpg" alt="Image 1" class="image" data-name="correct">
-            <img src="img/auth-img/img2.jpg" alt="Image 2" class="image" data-name="wrong">
-            <img src="img/auth-img/img3.jpg" alt="Image 3" class="image" data-name="wrong">
-            <img src="img/auth-img/nagaso.jpg" alt="Image 4" class="image" data-name="correct">
-            <img src="img/auth-img/img5.jpg" alt="Image 5" class="image" data-name="wrong">
-            <img src="img/auth-img/img6.jpg" alt="Image 6" class="image" data-name="wrong">
-            <img src="img/auth-img/newImg1.jpg" alt="Image 4" class="image" data-name="wrong">
-            <img src="img/auth-img/img5.jpg" alt="Image 5" class="image" data-name="wrong">
-            <img src="img/auth-img/shoreline.jpg" alt="Image 6" class="image" data-name="correct">
+            <img src="#" alt="Image 1" class="image" data-name="correct">
+            <img src="#" alt="Image 2" class="image" data-name="wrong">
+            <img src="#" alt="Image 3" class="image" data-name="wrong">
+            <img src="#" alt="Image 4" class="image" data-name="correct">
+            <img src="#" alt="Image 5" class="image" data-name="wrong">
+            <img src="#" alt="Image 6" class="image" data-name="wrong">
+            <img src="#" alt="Image 7" class="image" data-name="wrong">
+            <img src="#" alt="Image 8" class="image" data-name="wrong">
+            <img src="#" alt="Image 9" class="image" data-name="correct">
         </div>
     </div>
 </div>
