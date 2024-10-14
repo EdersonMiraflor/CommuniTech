@@ -313,7 +313,7 @@
             @endif
         @endauth
 
-        <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
+        <a href="/home/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
         <a href="/home/privacy-policy" class="{{ Request::is('privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
         <a href="/home/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
     </div>
@@ -344,7 +344,7 @@
         @endauth
 
         <a href="/home/privacy-policy" class="{{ Request::is('privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
-        <a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
+        <a href="/home/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
         <a href="/home/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
     </div>
 </nav>

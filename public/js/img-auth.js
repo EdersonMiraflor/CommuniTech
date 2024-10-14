@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Check if failed attempts reached max attempts for image set change
                 currentImageSet = currentImageSet === 'default' ? 'alternate' : 'default'; // Switch image sets
                 updateImages(currentImageSet); // Update images
-                alert(`You have failed ${failedAttempts} times. The images have changed. Try again!`); // Alert user
+                alert(`You have failed ${failedAttempts} times. The images will change. Please ry again!`); // Alert user
             } else {
                 alert('Incorrect images. Please try again.'); // Alert for incorrect selection
                 clearSelected(); // Clear selected images
