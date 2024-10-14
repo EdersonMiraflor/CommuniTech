@@ -2,14 +2,15 @@
 
 @section('contents')
 
+<html>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <!-- Include DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
 
     <style>
+        
         .transaction-box-container {
             margin-top: 3rem;
-            margin-bottom: 20rem;
             background-color: #e8f7ec;
             padding: 20px;
             border-radius: 8px;
@@ -24,7 +25,7 @@
             padding: 12px; /* Add padding for table cells */
         }
     </style>
-
+<body>
     <div class="transaction-box-container">
         <table id="transaction" class="display">
             <thead>
@@ -66,6 +67,8 @@
         </table>
     </div>
 
+</body>
+
     <!-- Include DataTables JS -->
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
 
@@ -73,5 +76,6 @@
     // Initialize the DataTable
     let transactionTable = new DataTable('#transaction');
     </script>
+</html>
 
 @endsection

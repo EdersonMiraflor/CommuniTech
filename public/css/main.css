@@ -1,3 +1,49 @@
+html, body {
+    height: 100%; /* Make sure the body and html take the full height of the viewport */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0; /* Reset margins */
+    min-height: 100vh; /* Ensure the body is at least the height of the viewport */
+}
+
+/* sticky footer css */
+footer.footer-bar {
+    background-color: #90d7a4;;
+    color: black;
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+.footer-content-left, .footer-center, .footer-social-icons {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo {
+    height: 40px; /* Adjust the logo size as needed */
+    margin-right: 10px;
+}
+
+.footer-text {
+    font-size: 14px;
+}
+
+.footer-social-icons a {
+    margin-left: 10px;
+}
+
+.footer-social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
 /*css for login button*/
 .custom-btn {
     background-color: #4ebf6e;
@@ -9,39 +55,39 @@
 }
 
 /* START OF USER PROFILE OVERRIDE */
-/* Override Bootstrap's default blue color for links */
+/* Override Bootstrap's default blue color for links 
 .nav-link, .nav-link.active {
     color: black !important;
 }
 
-/* Override Bootstrap's primary buttons */
+/* Override Bootstrap's primary buttons 
 .btn-primary {
     background-color: #28a745 !important;
     border-color: #28a745 !important;
-}
+} */
 
-/* Override hover and active states for primary buttons */
+/* Override hover and active states for primary buttons 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-    background-color: #218838 !important; /* Darken shade */
+    background-color: #218838 !important; 
     border-color: #1e7e34 !important;
 }
 
-/* Override text colors that are not white or black */
+/* Override text colors that are not white or black 
 .text-primary, .text-info, .text-danger, .text-warning, .text-success {
     color: #28a745 !important;
 }
 
-/* Override other Bootstrap components with default color */
+/* Override other Bootstrap components with default color 
 .nav-pills .nav-link.active,
 .navbar-light .navbar-nav .nav-link,
 .pagination .page-link {
     background-color: #28a745 !important;
     border-color: #28a745 !important;
-}
+} */
 
-/* Override card headers and alert backgrounds */
+/* Override card headers and alert backgrounds 
 .card-header,
 .alert-primary,
 .alert-info,

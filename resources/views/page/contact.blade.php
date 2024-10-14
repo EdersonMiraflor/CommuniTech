@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 @section('contents')
 
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 <br><br>
 <!--Form Section Start-->
 <div style="background-color: #e8f7ec;  padding: 80px 100px 80px " class="container">

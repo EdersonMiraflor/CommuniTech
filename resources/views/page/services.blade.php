@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('contents')
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 <style>
     .service-container {
         display: flex;

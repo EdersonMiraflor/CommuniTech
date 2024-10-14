@@ -180,9 +180,9 @@
             }
         }
 
-        /* Footer Styling */
+        /* Footer Styling 
     .footer-bar {
-        background-color: #90d7a4; /* Light green color for the footer */
+        background-color: #90d7a4; 
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -219,6 +219,7 @@
     .footer-social-icons .social-icon img:hover {
         transform: scale(1.1);
     }
+        */
 
 
     </style>
