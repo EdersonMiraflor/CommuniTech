@@ -369,14 +369,12 @@
         });
     </script>
 
-
-    <!-- Conditionally hide the navbar on the login page -->
-    @if (!request()->is('login'))
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <!-- Navbar content -->
+ <!-- Conditionally hide the navbar on the login page -->
+<!-- @if (!request()->is('login')) 
+           <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                 Navbar content 
             </nav>
-        @endif
-
+        @endif -->
 
     <div class="container">
         @yield('contents')

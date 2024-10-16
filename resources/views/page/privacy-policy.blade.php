@@ -8,7 +8,7 @@
             <div class="container">
               <div class="privacypolicy">
                  <div class="privacy-content1">
-                     <h1><strong>Privacy Policy</strong></h1>
+                     <h1><b>Privacy Policy</b></h1>
                       <p>Welcome to CommuniTECH, the dedicated platform for the citizens of Manito. 
                         Our goal is to simplify the process of obtaining vital records.
                           This Privacy Policy outlines how we collect, use, and protect your personal information.</p>
