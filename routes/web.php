@@ -53,6 +53,10 @@ Route::get('/home/services', function () {
     return view('page.services');
 })->middleware('auth');
 
+Route::get('/home/services/form102', function () {
+    return view('page.form102');
+})->middleware('auth');
+
 //DISPLAY ABOUT PAGE
 # Route::post('/about', [AboutController::class, 'store'])->middleware('auth');
 
