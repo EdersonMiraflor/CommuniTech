@@ -180,6 +180,53 @@
             }
         }
 
+        
+        /* sticky footer css */
+        footer.footer-bar {
+            background-color: #90d7a4;;
+            color: black;
+            padding: 10px 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto; /* Pushes the footer to the bottom */
+        }
+
+        .footer-content-left, .footer-center, .footer-social-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo {
+            height: 40px; /* Adjust the logo size as needed */
+            margin-right: 10px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+        }
+
+        .footer-social-icons a {
+            margin-left: 10px;
+        }
+
+        .footer-social-icons img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /*css for login button*/
+        .custom-btn {
+            background-color: #4ebf6e;
+            color: white;
+        }
+
+        .custom-btn:hover{
+            background-color: #90d7a4;
+        }
+
+
         /* Footer Styling 
     .footer-bar {
         background-color: #90d7a4; 
@@ -295,28 +342,28 @@
     <span class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></span>
     <div class="navbar-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
-        <a href="/home/services" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
-        <a href="/home/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
+        <a href="/home/services" class="{{ Request::is('home/services') ? 'active' : '' }}">SERVICES</a>
+        <a href="/home/transaction" class="{{ Request::is('home/transaction') ? 'active' : '' }}">TRANSACTIONS</a>
 
         @auth
             {{-- Check if the user is admin --}}
             @if (Auth::user()->Credential == 'admin')
-                <a href="/home/transactionhistory" class="{{ Request::is('transactionhistory') ? 'active' : '' }}">TRANSACTION HISTORY</a>
+                <a href="/home/transactionhistory" class="{{ Request::is('home/transactionhistory') ? 'active' : '' }}">TRANSACTION HISTORY</a>
             @endif
         @endauth
 
-        <a href="/home/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
+        <a href="/home/usermanual" class="{{ Request::is('home/usermanual') ? 'active' : '' }}">USER MANUAL</a>
   
         @auth
             {{-- Check if the user is admin --}}
             @if (Auth::user()->Credential == 'admin')
-                <a href="/home/usermanagement" class="{{ Request::is('usermanagement') ? 'active' : '' }}">USER MANAGEMENT</a>
+                <a href="/home/usermanagement" class="{{ Request::is('home/usermanagement') ? 'active' : '' }}">USER MANAGEMENT</a>
             @endif
         @endauth
 
-        <a href="/home/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
-        <a href="/home/privacy-policy" class="{{ Request::is('privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
-        <a href="/home/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
+        <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
+        <a href="/home/privacy-policy" class="{{ Request::is('home/privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
+        <a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
     </div>
     <div class="navbar-search">
         <input type="text" placeholder="Search">
@@ -325,28 +372,28 @@
     <!-- Hidden Dropdown Menu for Small Screens -->
     <div class="dropdown-menu" id="dropdown-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
-        <a href="/home/services" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a>
-        <a href="/home/transaction" class="{{ Request::is('transaction') ? 'active' : '' }}">TRANSACTIONS</a>
+        <a href="/home/services" class="{{ Request::is('home/services') ? 'active' : '' }}">SERVICES</a>
+        <a href="/home/transaction" class="{{ Request::is('home/transaction') ? 'active' : '' }}">TRANSACTIONS</a>
 
         @auth
             {{-- Check if the user is admin --}}
             @if (Auth::user()->Credential == 'admin')
-                <a href="/home/transactionhistory" class="{{ Request::is('transactionhistory') ? 'active' : '' }}">TRANSACTION HISTORY</a>
+                <a href="/home/transactionhistory" class="{{ Request::is('home/transactionhistory') ? 'active' : '' }}">TRANSACTION HISTORY</a>
             @endif
         @endauth
 
-        <a href="/home/usermanual" class="{{ Request::is('usermanual') ? 'active' : '' }}">USER MANUAL</a>
+        <a href="/home/usermanual" class="{{ Request::is('home/usermanual') ? 'active' : '' }}">USER MANUAL</a>
   
         @auth
             {{-- Check if the user is admin --}}
             @if (Auth::user()->Credential == 'admin')
-                <a href="/home/usermanagement" class="{{ Request::is('usermanagement') ? 'active' : '' }}">USER MANAGEMENT</a>
+                <a href="/home/usermanagement" class="{{ Request::is('home/usermanagement') ? 'active' : '' }}">USER MANAGEMENT</a>
             @endif
         @endauth
 
-        <a href="/home/privacy-policy" class="{{ Request::is('privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
-        <a href="/home/about" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT</a>
-        <a href="/home/contact" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACT</a>
+        <a href="/home/privacy-policy" class="{{ Request::is('home/privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
+        <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
+        <a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
     </div>
 </nav>
 
