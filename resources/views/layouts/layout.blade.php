@@ -344,7 +344,8 @@
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
         <a href="/home/services" class="{{ Request::is('home/services') ? 'active' : '' }}">SERVICES</a>
         <a href="/home/transaction" class="{{ Request::is('home/transaction') ? 'active' : '' }}">TRANSACTIONS</a>
-
+        <a href="/home/usermanual" class="{{ Request::is('home/usermanual') ? 'active' : '' }}">USER MANUAL</a>
+        <!--
         @auth
             {{-- Check if the user is admin --}}
             @if (Auth::user()->Credential == 'admin')
@@ -352,7 +353,6 @@
             @endif
         @endauth
 
-        <a href="/home/usermanual" class="{{ Request::is('home/usermanual') ? 'active' : '' }}">USER MANUAL</a>
   
         @auth
             {{-- Check if the user is admin --}}
@@ -360,7 +360,7 @@
                 <a href="/home/usermanagement" class="{{ Request::is('home/usermanagement') ? 'active' : '' }}">USER MANAGEMENT</a>
             @endif
         @endauth
-
+    -->
         <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
         <a href="/home/privacy-policy" class="{{ Request::is('home/privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
         <a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
@@ -374,7 +374,7 @@
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
         <a href="/home/services" class="{{ Request::is('home/services') ? 'active' : '' }}">SERVICES</a>
         <a href="/home/transaction" class="{{ Request::is('home/transaction') ? 'active' : '' }}">TRANSACTIONS</a>
-
+<!--
         @auth
             {{-- Check if the user is admin --}}
             @if (Auth::user()->Credential == 'admin')
@@ -390,7 +390,7 @@
                 <a href="/home/usermanagement" class="{{ Request::is('home/usermanagement') ? 'active' : '' }}">USER MANAGEMENT</a>
             @endif
         @endauth
-
+    -->
         <a href="/home/privacy-policy" class="{{ Request::is('home/privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
         <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
         <a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
