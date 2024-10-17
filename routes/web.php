@@ -16,6 +16,10 @@ Route::get('/home/usermanagement', function () {
     return view('page.usermanagement');
 })->middleware('auth');
 
+Route::get('/home/user-profile', function () {
+    return view('page.user-profile');
+})->middleware('auth');
+
 Route::get('/home/transactionhistory', function () {
     return view('page.transactionhistory');
 })->middleware('auth');
