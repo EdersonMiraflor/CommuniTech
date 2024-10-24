@@ -1,9 +1,10 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Transaction; // You don't need DB if you're using Eloquent
+use App\Models\Transaction;
 
 class CertificateController extends Controller
 {

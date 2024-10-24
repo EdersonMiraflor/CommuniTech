@@ -1,12 +1,11 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController; 
-use App\Http\Controllers\CertificateController;
+
 Auth::routes();
 
 //Route::get('/home/report', [CertificateController::class, 'showIssuedCertificate'])->middleware('auth');
-Route::get('/home/report', [CertificateController::class, 'showTransactions']);
-
+Route::get('/home/report', [CertificateController::class, 'showTransactions']); 
 
 Route::get('/home/privacy-policy', function () {
     return view('page.privacy-policy');

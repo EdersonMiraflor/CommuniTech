@@ -8,7 +8,6 @@
     <script type="text/javascript">
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
-
         function drawChart() {
             // Create the data table
             var data = google.visualization.arrayToDataTable([
@@ -17,13 +16,11 @@
                     ['Document Type: {{ $transaction->Transaction_Id }}', {{ $transaction->Quantity }}],
                 @endforeach
             ]);
-
             // Set chart options
             var options = {
                 title: 'Weekly Issued Cert',
           
             };
-
             // Instantiate and draw our chart
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
