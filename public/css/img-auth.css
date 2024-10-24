@@ -9,13 +9,8 @@
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
-<<<<<<< Updated upstream
-    margin-top: 20px;
-    margin-bottom: 10px;
-=======
     padding-top: 20px;
-    margin-bottom: 20px;
->>>>>>> Stashed changes
+    margin-bottom: 10px;
 }
 
 .left-side {
@@ -59,10 +54,6 @@
     grid-gap: 10px;
     justify-content: center;
     margin-bottom: 10px;
-<<<<<<< Updated upstream
-    gap: 1px;
-=======
->>>>>>> Stashed changes
 }
 
 .image {

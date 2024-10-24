@@ -1,6 +1,6 @@
-@extends('layouts.layout2')
+@extends('layouts.layout')
 
-@section('content')
+@section('contents')
 
 <link rel="stylesheet" href="{{ asset('css/img-auth.css') }}">
 
