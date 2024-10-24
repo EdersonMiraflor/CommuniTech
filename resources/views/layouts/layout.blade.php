@@ -324,6 +324,10 @@
                         <i class="fas fa-sign-out-alt ms-2"></i> <!-- Icon for Logout -->
                     </a>
 
+                    <a class="dropdown-item" href="/home/user-profile">
+                        {{ __('User Profile') }}
+                    </a>
+
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
@@ -416,12 +420,6 @@
         });
     </script>
 
- <!-- Conditionally hide the navbar on the login page -->
-<!-- @if (!request()->is('login')) 
-           <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                 Navbar content 
-            </nav>
-        @endif -->
 
     <div class="container">
         @yield('contents')
