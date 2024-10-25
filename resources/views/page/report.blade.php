@@ -11,16 +11,17 @@
         function drawChart() {
             // Create the data table
             var data = google.visualization.arrayToDataTable([
-                ['Transaction ID', 'Quantity'],
+                ['Transaction ID', 'Total Quantity'],
                 @foreach($transactions as $transaction)
-                    ['Document Type: {{ $transaction->Transaction_Id }}', {{ $transaction->Quantity }}],
+                    ['Transaction ID: {{ $transaction->Transaction_Id }}', {{ $transaction->total_quantity }}],
                 @endforeach
             ]);
+
             // Set chart options
             var options = {
-                title: 'Weekly Issued Cert',
-          
+                title: 'Weekly Issued Certificates',
             };
+
             // Instantiate and draw our chart
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
