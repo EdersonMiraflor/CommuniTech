@@ -24,6 +24,7 @@ class Transaction extends Model
         'Quantity',
         'Request_Id',
         'Status',
+        'progress',
     ];
     // Define any relationships if necessary (e.g., if you have user and certificate models)
     public function user()

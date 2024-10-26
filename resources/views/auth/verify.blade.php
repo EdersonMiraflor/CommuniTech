@@ -1,12 +1,6 @@
 @extends('layouts.layout')
 @section('contents')
-<<<<<<< Updated upstream
-<link rel="stylesheet" href="{{ asset('css/main.css') }}">
-
-<div class="container" style="margin: 50px auto; text-align: center; width: 100%;">
-=======
 <div class="container" style="margin: 20px; padding: 20px;">
->>>>>>> Stashed changes
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" style="border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
