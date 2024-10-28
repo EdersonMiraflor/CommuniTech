@@ -6,7 +6,7 @@ use App\Http\Controllers\CertificateController;
 Auth::routes();
 
 //Route::get('/home/report', [CertificateController::class, 'showIssuedCertificate'])->middleware('auth');
-Route::get('/home/report', [CertificateController::class, 'showTransactions']); 
+Route::get('/home/report', [CertificateController::class, 'showReport'])->middleware('auth'); 
 
 Route::get('/home/privacy-policy', function () {
     return view('page.privacy-policy');
