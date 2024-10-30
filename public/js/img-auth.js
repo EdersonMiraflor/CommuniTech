@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts++; // Increment attempt counter
             failedAttempts++; // Increment failed attempt counter
             // Check if total attempts have been exceeded
-            if (attempts >= maxTotalAttempts) {
+            if (attempts >= maxTotalAttempts) { 
                 disableInteraction(); // Disable interaction
                 alert('You have reached the maximum number of attempts. Please wait 250 seconds before trying again.'); // Alert user
                 startCooldown(120); // Start cooldown
