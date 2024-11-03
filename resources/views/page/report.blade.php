@@ -4,41 +4,44 @@
 <!-- Load Google Charts library -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-    // Load Google Charts and specify the 'corechart' package
+    // Load the Google Charts library and specify that we want to use the 'corechart' package
     google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawCharts); // Set the drawCharts function to run when charts library is loaded
+    google.charts.setOnLoadCallback(drawCharts);  // Call the drawCharts function once the library is loaded
 
-    // Function to draw both pie and line charts
+    // Function that creates and displays the pie and line charts
     function drawCharts() {
-        // Line chart data passed from the controller as a JSON object
+         // Retrieve the line chart data that was passed from the controller in JSON format
         var lineChartData = @json($lineChartData);
         
 // Pie Chart Start
-        var pieData = new google.visualization.DataTable();
-        pieData.addColumn('string', 'Certificate Type'); // Certificate type column
-        pieData.addColumn('number', 'Total Issued'); // Quantity column
+        var pieData = new google.visualization.DataTable();// Create a new DataTable for the pie chart
+        pieData.addColumn('string', 'Certificate Type'); // Define the first column for certificate types
+        pieData.addColumn('number', 'Total Issued');  // Define the second column for the total quantity issued
 
+        // Loop through the certificates data to populate the pie chart
         @foreach($certificates as $certificate)
-            pieData.addRow(['{{ $certificate->Cert_Type }}', {{ $certificate->total_quantity }}]);
+            pieData.addRow(['{{ $certificate->Cert_Type }}', {{ $certificate->total_quantity }}]);// Add each certificate type and its total issued quantity
         @endforeach
 
+        // Options for the pie chart display
         var pieOptions = {
-            title: 'Total Issued Certificates by Type', // Chart title
-            pieHole: 0.4, // Converts pie chart to donut chart by setting a hole in the middle
-            colors: ['#bce7c8', '#90d7a4', '#4ebf6e'] // Define colors
+            title: 'Total Issued Certificates by Type', // Title of the pie chart
+            pieHole: 0.4, // Makes the pie chart a donut chart by creating a hole in the center
+            colors: ['#bce7c8', '#90d7a4', '#4ebf6e'] // Specify colors for the pie chart sections
         };
 
-        var pieChart = new google.visualization.PieChart(document.getElementById('piechart'));
-        pieChart.draw(pieData, pieOptions);
+        var pieChart = new google.visualization.PieChart(document.getElementById('piechart'));// Create a new PieChart instance
+        pieChart.draw(pieData, pieOptions);// Draw the pie chart with the data and options provided
 // Pie Chart End
 
 // Line Chart Start
-        var lineData = new google.visualization.DataTable();
-        lineData.addColumn('string', 'Day'); // Column for weekdays
-        lineData.addColumn('number', 'Birth Certificate'); // Birth certificate count
-        lineData.addColumn('number', 'Marriage Certificate'); // Marriage certificate count
-        lineData.addColumn('number', 'Death Certificate'); // Death certificate count
+        var lineData = new google.visualization.DataTable(); // Create a new DataTable for the line chart
+        lineData.addColumn('string', 'Day'); // Column for the days of the week
+        lineData.addColumn('number', 'Birth Certificate'); // Column for the count of birth certificates
+        lineData.addColumn('number', 'Marriage Certificate'); // Column for the count of marriage certificates
+        lineData.addColumn('number', 'Death Certificate'); // Column for the count of death certificates
 
+        // Populate the line chart with data for each weekday
         lineData.addRows([
             ['Monday', lineChartData['Birth Certificate'][0], lineChartData['Marriage Certificate'][0], lineChartData['Death Certificate'][0]],
             ['Tuesday', lineChartData['Birth Certificate'][1], lineChartData['Marriage Certificate'][1], lineChartData['Death Certificate'][1]],
@@ -47,21 +50,22 @@
             ['Friday', lineChartData['Birth Certificate'][4], lineChartData['Marriage Certificate'][4], lineChartData['Death Certificate'][4]],
         ]);
 
+        // Options for the line chart display
         var options = {
-            title: 'Appointments per Day',
-            hAxis: { title: 'Day' },
+            title: 'Appointments per Day',// Title of the line chart
+            hAxis: { title: 'Day' },// Title for the horizontal axis
             vAxis: {
-                title: 'Number of Appointments',
-                ticks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                gridlines: { count: 11 },
-                viewWindow: { min: 0, max: 10 }
+                title: 'Number of Appointments',// Title for the vertical axis
+                ticks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], // Specify ticks on the vertical axis
+                gridlines: { count: 11 },// Number of gridlines on the vertical axis
+                viewWindow: { min: 0, max: 10 }// Set the view window for the vertical axis
             },
-            legend: { position: 'right', alignment: 'center' },
-            colors: ['#bce7c8', '#90d7a4', '#4ebf6e'] // Define colors
+            legend: { position: 'right', alignment: 'center' },// Position and alignment of the legend
+            colors: ['#bce7c8', '#90d7a4', '#4ebf6e'] // Define colors for the line chart
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('line_chart_div'));
-        chart.draw(lineData, options);
+        var chart = new google.visualization.LineChart(document.getElementById('line_chart_div'));// Create a new LineChart instance
+        chart.draw(lineData, options);// Draw the line chart with the data and options provided
 // Line Chart End
     }
 </script>
@@ -70,12 +74,12 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        text-align: center;
+        text-align: center; /*Center-align text on the page*/
     }
     #chart_div, #piechart, #line_chart_div {
-        margin: auto;
-        width: 850px;
-        height: 400px;
+        margin: auto; /*Center the chart containers*/
+        width: 850px; /*Width of the chart containers*/
+        height: 400px; /*Height of the chart containers*/
     }
 </style>
 </head>

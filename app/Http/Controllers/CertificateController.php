@@ -12,20 +12,20 @@ class CertificateController extends Controller
     // Function to display the report page with chart data
     public function showReport()
     {
-        // Query to get total certificates issued (for pie chart data)
+        // Query to retrieve total quantities of certificates issued, filtering for ongoing transactions
         $certificates = Transaction::where('progress', 'Ongoing') // Filter transactions with 'Ongoing' status
-            ->select('Cert_Type', DB::raw('SUM(Quantity) as total_quantity')) // Sum quantities by certificate type
-            ->groupBy('Cert_Type') // Group results by certificate type
+            ->select('Cert_Type', DB::raw('SUM(Quantity) as total_quantity')) // Sum the quantity of each certificate type
+            ->groupBy('Cert_Type') // Group the results by certificate type
             ->get();
 
-        // Initialize data array for line chart (appointments per day for each certificate type)
+        // Initialize an array to store the counts of appointments for each certificate type by day of the week
         $lineChartData = [
-            'Birth Certificate' => [0, 0, 0, 0, 0], // Each day of the week (Monday to Friday)
+            'Birth Certificate' => [0, 0, 0, 0, 0], // Count for each day of the week (Monday to Friday)
             'Marriage Certificate' => [0, 0, 0, 0, 0],
             'Death Certificate' => [0, 0, 0, 0, 0],
         ];
 
-        // Mapping weekdays to indices for easy data entry
+        // Create a mapping of weekdays to indices for easy data entry into the line chart data array
         $daysMapping = [
             'Monday' => 0,
             'Tuesday' => 1,
@@ -34,23 +34,23 @@ class CertificateController extends Controller
             'Friday' => 4,
         ];
 
-        // Query to count appointments for each day by certificate type
-        $appointments = Transaction::where('progress', 'Ongoing') // Filter by ongoing transactions
-            ->whereIn('User_Appointment', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']) // Filter for weekdays only
-            ->select('User_Appointment', 'Cert_Type', DB::raw('COUNT(*) as count')) // Count appointments per type and day
-            ->groupBy('User_Appointment', 'Cert_Type') // Group by weekday and certificate type
+        // Query to count the number of appointments for each day of the week by certificate type
+        $appointments = Transaction::where('progress', 'Ongoing') // Filter for ongoing transactions
+            ->whereIn('User_Appointment', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']) // Filter to include only weekdays
+            ->select('User_Appointment', 'Cert_Type', DB::raw('COUNT(*) as count')) // Count appointments by type and day
+            ->groupBy('User_Appointment', 'Cert_Type') // Group results by day and certificate type
             ->get();
 
-        // Populate line chart data with the actual counts from the query results
+        // Populate the line chart data array with counts from the appointments query results
         foreach ($appointments as $appointment) {
-            $dayIndex = $daysMapping[$appointment->User_Appointment]; // Map day to array index
-            $lineChartData[$appointment->Cert_Type][$dayIndex] = $appointment->count; // Set count in corresponding day
+            $dayIndex = $daysMapping[$appointment->User_Appointment]; // Use the mapping to find the index for the day
+            $lineChartData[$appointment->Cert_Type][$dayIndex] = $appointment->count; // Set the count in the corresponding day's index
         }
 
-        // Pass data to the view for rendering charts
+        // Pass the retrieved data to the view for rendering the charts
         return view('page.report', [
-            'certificates' => $certificates, // Data for pie chart
-            'lineChartData' => $lineChartData, // Data for line chart
+            'certificates' => $certificates, // Data for the pie chart
+            'lineChartData' => $lineChartData, // Data for the line chart
         ]);
     }
 }
