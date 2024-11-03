@@ -13,7 +13,7 @@
         // Line chart data passed from the controller as a JSON object
         var lineChartData = @json($lineChartData);
         
-        // Pie Chart Start
+// Pie Chart Start
         var pieData = new google.visualization.DataTable();
         pieData.addColumn('string', 'Certificate Type'); // Certificate type column
         pieData.addColumn('number', 'Total Issued'); // Quantity column
@@ -25,14 +25,14 @@
         var pieOptions = {
             title: 'Total Issued Certificates by Type', // Chart title
             pieHole: 0.4, // Converts pie chart to donut chart by setting a hole in the middle
-            colors: ['#bce7c8', '#90d7a4', '#4ebf6e'] // Define colors for the slices
+            colors: ['#bce7c8', '#90d7a4', '#4ebf6e'] // Define colors
         };
 
         var pieChart = new google.visualization.PieChart(document.getElementById('piechart'));
         pieChart.draw(pieData, pieOptions);
-        // Pie Chart End
+// Pie Chart End
 
-        // Line Chart Start
+// Line Chart Start
         var lineData = new google.visualization.DataTable();
         lineData.addColumn('string', 'Day'); // Column for weekdays
         lineData.addColumn('number', 'Birth Certificate'); // Birth certificate count
@@ -57,12 +57,12 @@
                 viewWindow: { min: 0, max: 10 }
             },
             legend: { position: 'right', alignment: 'center' },
-            colors: ['#bce7c8', '#90d7a4', '#4ebf6e'] // Matching colors for each certificate type
+            colors: ['#bce7c8', '#90d7a4', '#4ebf6e'] // Define colors
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('line_chart_div'));
         chart.draw(lineData, options);
-        // Line Chart End
+// Line Chart End
     }
 </script>
 
