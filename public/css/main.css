@@ -519,3 +519,132 @@ h3 {
         margin-top: 20px;
     }
 }
+
+/*birth css*/
+
+/* Birth Container for the Form */
+:root {
+    --birth-bg-color: #E8F7EC;          /* Background color for the body */
+    --birth-label-color: #333;          /* Text color for labels */
+    --birth-input-bg-color: #fff;       /* Background for input fields */
+    --birth-input-border-color: #ccc;   /* Border color for input fields */
+    --birth-heading-color: #333;        /* Color for headings */
+    --birth-logo-width: 50px;           /* Logo size */
+    --birth-btn-success-bg: #28a745;    /* Success button background color */
+    --birth-btn-success-color: #fff;     /* Success button text color */
+    --birth-shadow-color: rgba(0, 0, 0, 0.1); /* Shadow color for the container */
+}
+.birth-container {
+    background-color: var(--birth-bg-color);  /* Use the defined background color */
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--birth-shadow-color);
+}
+.birth-header {
+    display: flex;
+    align-items: center; /* Vertically center the logo and heading */
+    margin-bottom: 20px;
+
+}
+.birth-heading {
+    display: flex;
+    align-items: center;  /* Vertically centers both the image and text */
+    justify-content: center; /* Horizontally center the logo and heading text */
+    margin: 0;
+    line-height: 1.5; /* Adjust line height for better vertical alignment */
+    background-color: #fff;
+    font-size: 100px; /* Heading font size */
+    font-weight: bolder;
+}
+    
+
+.birth-label {
+    color: var(--birth-label-color);
+    font-weight: bold;
+  
+}
+.birth-logo {
+    width: 80px;  /* Increase this value for a larger logo */
+    margin-right: 20px;  /* Closer space between logo and heading */
+    margin-left: 20px;   /* Closer space to the container */
+    height: auto;        /* Maintain aspect ratio */
+    vertical-align: middle; /* Align image with text baseline */
+    padding: 10px;
+}
+
+.birth-form-control {
+    background-color: var(--birth-input-bg-color);
+    border: 1px solid var(--birth-input-border-color);
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.birth-form-control:focus {
+    border-color: #80bdff; /* Bootstrap focus border color */
+    outline: none; /* Remove default outline */
+}
+
+.birth-submit {
+    background-color: var(--birth-btn-success-bg);
+    color: var(--birth-btn-success-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.birth-submit:hover {
+    background-color: darkgreen; /* Darker shade on hover */
+}
+/* Birth Input Fields */
+.birth-form-control {
+    background-color: var(--birth-input-bg-color);
+    border: 1px solid var(--birth-input-border-color);
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Birth Headings */
+.birth-heading {
+    color: var(--birth-heading-color);
+    font-size: 24px;
+    text-align: center;
+    position: relative;
+}
+/* Birth Logo Positioning */
+.birth-heading::before {
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--birth-logo-width);
+}
+
+/* Birth Submit Button */
+.birth-btn-success {
+    background-color: var(--birth-btn-success-bg);
+    color: var(--birth-btn-success-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.birth-btn-success:hover {
+    background-color: darkgreen; /* Darker shade on hover */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .birth-heading {
+        font-size: 20px;
+    }
+
+    .birth-heading::before {
+        width: 40px; /* Adjust logo size for smaller screens */
+        left: -45px;
+    }
+}
