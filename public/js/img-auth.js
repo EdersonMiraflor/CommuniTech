@@ -147,10 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts++; // Increment attempt counter
             failedAttempts++; // Increment failed attempt counter
             // Check if total attempts have been exceeded
-            if (attempts >= maxTotalAttempts) {
+            if (attempts >= maxTotalAttempts) { 
                 disableInteraction(); // Disable interaction
-                alert('You have reached the maximum number of attempts. Please wait 250 seconds before trying again.'); // Alert user
-                startCooldown(250); // Start cooldown
+                alert('You have reached the maximum number of attempts. Please wait 180 seconds before trying again.'); // Alert user
+                startCooldown(180); // Start cooldown
             } else if (failedAttempts % maxAttempts === 0) {
                 // Check if failed attempts reached max attempts for image set change
                 currentImageSet = currentImageSet === 'default' ? 'alternate' : 'default'; // Switch image sets

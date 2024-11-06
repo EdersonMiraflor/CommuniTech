@@ -1,13 +1,14 @@
 @extends('layouts.layout2')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+<link rel="stylesheet" href="{{ asset('css/img-auth.css') }}">
 
 
 <div class="container my-5 py-5">
     <div class="row justify-content-center">
         <!-- Left Container for Images and Text -->
-        <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+        <div class="col-lg-6 col-md-6 mb-6 mb-md-0">
             <div class="text-center" style="margin-top: 60px;">
                 <h1 class="display-4">CommuniTECH</h1>
                 <p class="lead">A Web - Based Application For Civil Registry Office of Manito, Albay</p>
@@ -31,9 +32,9 @@
         </div>
 
         <!-- Right Container for the Form -->
-        <div class="col-lg-6 col-md-6">
+        <div class="col-lg-8 col-md-8">
             <div class="card ">
-                <div class="card-header bg-white border-0 text-center display-6">{{ __('Login') }}</div>
+               
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -68,15 +69,16 @@
                             </button>
 
                             @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                         {{ __('Forgot Your Password?') }}
+                                    </a>
+                                    <a href="{{ route('register') }}">{{ __('No Account Yet? Register') }}</a>
+                                </div>
                             @endif
                         </div>
                     </form>
-                    <div class="text-center mt-4">
-                        <a href="{{ route('register') }}">{{ __('No Account Yet? Register') }}</a>
-                    </div>
+
                 </div>
             </div>
         </div>

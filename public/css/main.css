@@ -56,37 +56,48 @@ body {
 
 
 /*HOME PAGE CSS*/
+
 .background-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 550px;
     background-size: cover;
     background-position: center;
     opacity: 0.5; /* Mimicking the opacity effect */
     z-index: -1; /* Keeps the background behind the content */
 }
 
+
 .intro {
+    margin-top: 20px;
     z-index: 1;
     padding: 30px;
     border-radius: 10px;
-    max-width: 800px;
+    width: 100%;
     justify-content: center;
     align-items: center;
     text-align: center;
+    text-shadow: 2px 2px 3px rgba(104, 104, 104, 0.5);
+
+
 
 }
 
 h1 {
     font-size: 3rem;
     color:black;
+    justify-content: center;
+    align-items: center;
 }
 
 p {
+    padding: 30px;
     font-size: 1.2rem;
     color: #000000;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-apply {
@@ -104,8 +115,9 @@ p {
 }
 
 .team {
+    margin-top: 55px;
+    width: 100%;
     padding: 50px 0;
-    background-color: #f5f5f5;
     text-align: center;
 }
 
@@ -115,8 +127,9 @@ p {
 }
 
 .team-grid {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content:space-around;
     flex-wrap: wrap;
 }
 
@@ -378,139 +391,131 @@ p {
     }
 }
 
-/*birth css*/
-
-/* Birth Container for the Form */
-:root {
-    --birth-bg-color: #E8F7EC;          /* Background color for the body */
-    --birth-label-color: #333;          /* Text color for labels */
-    --birth-input-bg-color: #fff;       /* Background for input fields */
-    --birth-input-border-color: #ccc;   /* Border color for input fields */
-    --birth-heading-color: #333;        /* Color for headings */
-    --birth-logo-width: 50px;           /* Logo size */
-    --birth-btn-success-bg: #28a745;    /* Success button background color */
-    --birth-btn-success-color: #fff;     /* Success button text color */
-    --birth-shadow-color: rgba(0, 0, 0, 0.1); /* Shadow color for the container */
-}
-
-.birth-container {
-    background-color: var(--birth-bg-color);  /* Use the defined background color */
-    padding: 50px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px var(--birth-shadow-color);
-}
-.birth-header {
+/* SERVICES SECTION */
+.service-container {
     display: flex;
-    align-items: center; /* Vertically center the logo and heading */
-    margin-bottom: 20px;
-
-    
-    
-}
-.birth-heading {
-    display: flex;
-    align-items: center;  /* Vertically centers both the image and text */
-    justify-content: center; /* Horizontally center the logo and heading text */
-    margin: 0;
-    line-height: 1.5; /* Adjust line height for better vertical alignment */
-    background-color: #fff;
-    font-size: 100px; /* Heading font size */
-    font-weight: bolder;
-}
-    
-
-.birth-label {
-    color: var(--birth-label-color);
-    font-weight: bold;
-  
-}
-.birth-logo {
-    width: 80px;  /* Increase this value for a larger logo */
-    margin-right: 20px;  /* Closer space between logo and heading */
-    margin-left: 20px;   /* Closer space to the container */
-    height: auto;        /* Maintain aspect ratio */
-    vertical-align: middle; /* Align image with text baseline */
-    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
 }
 
-.birth-form-control {
-    background-color: var(--birth-input-bg-color);
-    border: 1px solid var(--birth-input-border-color);
-    border-radius: 4px;
-    padding: 10px;
-    margin-bottom: 15px;
-    width: 100%;
-}
-
-.birth-form-control:focus {
-    border-color: #80bdff; /* Bootstrap focus border color */
-    outline: none; /* Remove default outline */
-}
-
-.birth-submit {
-    background-color: var(--birth-btn-success-bg);
-    color: var(--birth-btn-success-color);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.birth-submit:hover {
-    background-color: darkgreen; /* Darker shade on hover */
-}
-
-
-/* Birth Input Fields */
-.birth-form-control {
-    background-color: var(--birth-input-bg-color);
-    border: 1px solid var(--birth-input-border-color);
-    padding: 10px;
-    border-radius: 4px;
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-/* Birth Headings */
-.birth-heading {
-    color: var(--birth-heading-color);
-    font-size: 24px;
+.service-card {
+    background-color: #BCE7C8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    position: relative;
+    width: 300px;
+    margin: 30px;
 }
 
-/* Birth Logo Positioning */
-.birth-heading::before {
-    position: absolute;
-    left: -60px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: var(--birth-logo-width);
+.image-container {
+    margin-bottom: 15px;
 }
 
-/* Birth Submit Button */
-.birth-btn-success {
-    background-color: var(--birth-btn-success-bg);
-    color: var(--birth-btn-success-color);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
+.service-image {
+    width: 100%; /* Make image responsive */
+    max-width: 220px; /* Limit image size */
+    height: auto;
+    margin-bottom: 10px;
 }
 
-.birth-btn-success:hover {
-    background-color: darkgreen; /* Darker shade on hover */
+h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
 }
 
-/* Mobile Responsiveness */
+.service-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.service-buttons .btn {
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.service-buttons .btn-primary {
+    background-color: #E8F7EC;
+    border-color: #000;
+}
+
+.service-buttons .btn-secondary {
+    background-color: #E8F7EC;
+    border-color: #000;
+}
+
+.service-buttons .btn-primary:hover {
+    background-color: #90D7A4; /* Slightly darker shade of the original background color */
+    border-color: #000; /* Slightly darker shade of the original border color */
+}
+
+.service-buttons .btn-secondary:hover {
+    background-color: #90D7A4; /* Slightly darker shade of the original background color */
+    border-color: #000; /* Slightly darker shade of the original border color */
+}
+
 @media (max-width: 768px) {
-    .birth-heading {
-        font-size: 20px;
+    .service-container {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .birth-heading::before {
-        width: 40px; /* Adjust logo size for smaller screens */
-        left: -45px;
+    .service-card {
+        width: 90%; /* Adjust card width on smaller screens */
+        margin: 10px 0;
+    }
+
+    h3 {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-card {
+        width: 100%; /* Full width on very small screens */
+    }
+
+    h3 {
+        font-size: 1em;
+    }
+}
+
+/*responsiveness of contact page*/
+
+/* Background color for the entire contact page */
+.contact-page {
+    background-color: #f4f6f8;
+    padding: 80px 50px;
+    border-radius: 8px;
+}
+
+/* Responsive Contact Page Styles */
+@media (min-width: 768px) {
+    .contact-page {
+        padding: 80px 100px;
+    }
+    .left-container img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+}
+
+/* For small screens (mobile devices) */
+@media (max-width: 767px) {
+    .left-container, .right-container {
+        margin-bottom: 20px;
+    }
+    .right-container {
+        margin-top: 20px;
     }
 }

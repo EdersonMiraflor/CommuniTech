@@ -1,8 +1,12 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController; 
+use App\Http\Controllers\CertificateController; 
 
 Auth::routes();
+
+//Route::get('/home/report', [CertificateController::class, 'showIssuedCertificate'])->middleware('auth');
+Route::get('/home/report', [CertificateController::class, 'showReport'])->middleware('auth'); 
 
 Route::get('/home/privacy-policy', function () {
     return view('page.privacy-policy');
@@ -14,6 +18,10 @@ Route::get('/home/usermanual', function () {
 
 Route::get('/home/usermanagement', function () {
     return view('page.usermanagement');
+})->middleware('auth');
+
+Route::get('/home/user-profile', function () {
+    return view('page.user-profile');
 })->middleware('auth');
 
 Route::get('/home/transactionhistory', function () {
@@ -70,3 +78,4 @@ Auth::routes([
     'verify' => true
 ]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+

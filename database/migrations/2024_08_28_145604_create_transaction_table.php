@@ -26,9 +26,10 @@ return new class extends Migration
             $table->string('Cert_Type', 255);
             $table->integer('Quantity');
             $table->unsignedBigInteger('Request_Id');
+            $table->string('User_Appointment')->nullable();
             $table->enum('Status', ['Pending', 'Confirmed']);
+            $table->enum('progress', ['Ongoing', 'Completed'])->default('Ongoing');
             $table->timestamps();
-
             $table->foreign('User_Id')->references('User_Id')->on('users');
             $table->foreign('Certificate_Id')->references('Certificate_Id')->on('certificates');
         });
