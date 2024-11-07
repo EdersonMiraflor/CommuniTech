@@ -3,6 +3,7 @@
 @extends('layouts.layout')
 
 @section('contents')
+<br><br>
 <div class="birth-container"> 
 <h2 class="text-center birth-heading">
     <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="birth-logo"> CERTIFICATE OF LIVE BIRTH
@@ -190,7 +191,7 @@
             </div>
         </div>
     </div>
-
-    <button type="submit" class="btn btn-success mt-3 birth-submit">Submit</button> <!-- Added birth-submit class -->
+    <button type="submit" class="btn btn-danger mt-3">Back</button>
+    <button type="submit" class="btn btn-success mt-3">Next</button> <!-- Added birth-submit class -->
 </div>
 @endsection

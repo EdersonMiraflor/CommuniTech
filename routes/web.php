@@ -65,6 +65,14 @@ Route::get('/home/services/form102', function () {
     return view('page.form102');
 })->middleware('auth');
 
+Route::get('/home/services/deathform', function () {
+    return view('page.deathform');
+})->middleware('auth');
+
+Route::get('/home/services/marriageform', function () {
+    return view('page.marriageform');
+})->middleware('auth');
+
 //DISPLAY ABOUT PAGE
 # Route::post('/about', [AboutController::class, 'store'])->middleware('auth');
 
