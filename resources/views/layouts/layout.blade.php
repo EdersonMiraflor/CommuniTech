@@ -156,6 +156,7 @@
                 font-size: 1rem;
             }
 
+  
             .dropdown-menu a:hover {
                 background-color: #f0f0f0; /* Light gray hover effect */
             }
@@ -424,28 +425,47 @@
     <div class="container">
         @yield('contents')
     </div>
+    
+<!-- Footer Section -->
+<!-- Footer Section -->
+<footer class="footer-bar">
+    <div class="footer-content-left">
+        <div class="footer-logo-container">
+            <img src="{{ asset('img/communitechlogo.png') }}" alt="Large Government Logo" class="large-logo">
+        </div>
+        <div class="footer-column">
+            <h3>REPUBLIC OF THE PHILIPPINES</h3>
+            <p>All content is in the public domain unless otherwise stated.</p>
+            <p>Learn more about the Philippine government, its structure, and how it works.</p>
+        </div>
+    </div>
+    <div class="footer-column">
+        <h3>SITE DIRECTORY</h3>
+        <ul>
+            <li>Home</li>
+            <li>Government Agencies</li>
+            <li>Requests</li>
+            <li>FAQ</li>
+            <li>Privacy Policy</li>
+            <li>Terms and Conditions</li>
+        </ul>
+    </div>
+    <div class="footer-column">
+        <h3>STAY CONNECTED</h3>
+        <div class="social-icons">
+            <a href="#"><img src="{{ asset('img/facebook.png') }}" alt="Facebook"></a>
+            <a href="#"><img src="{{ asset('img/instagram.png') }}" alt="Instagram"></a>
+            <a href="#"><img src="{{ asset('img/youtube.png') }}" alt="YouTube"></a>
+        </div>
+        <div class="government-logos">
+            <img src="{{ asset('img/manito-logo.png') }}" alt="Government Logo 1">
+            <img src="{{ asset('img/dpo.png') }}" alt="Government Logo 2">
+            <img src="{{ asset('img/bagongPH.png') }}" alt="Government Logo 3">
+        </div>
+    </div>
+</footer>
 
-    <!-- Footer Section -->
-    <footer class="footer-bar">
-        <div class="footer-content-left">
-            <img src="{{ asset('img/communitechlogo.png') }}" alt="CommuniTECH Logo" class="footer-logo">
-            <span class="footer-text">CommuniTECH</span>
-        </div>
-        <div class="footer-center">
-            <span>© 2024 CommuniTECH. All Rights Reserved.</span>
-        </div>
-        <div class="footer-social-icons">
-            <a href="#" class="social-icon">
-                <img src="{{ asset('img/facebook.png') }}" alt="Facebook">
-            </a>
-            <a href="#" class="social-icon">
-                <img src="{{ asset('img/instagram.png') }}" alt="Instagram">
-            </a>
-            <a href="#" class="social-icon">
-                <img src="{{ asset('img/youtube.png') }}" alt="YouTube">
-            </a>
-        </div>
-    </footer>
+
 
 
     <!--time and date in header section-->

@@ -10,10 +10,9 @@
 @endif
 
 <!-- Home content -->
+ <!-- Background with overlay to mimic opacity effect -->
 
-    <!-- Background with overlay to mimic opacity effect -->
-
-    <div class="background-overlay" style="background-image: url('{{ asset('img/municipalhall.jpg') }}');">
+ <div class="background-overlay" style="background-image: url('{{ asset('img/municipalhall.jpg') }}');">
     </div>
     <section class="intro">
             <h1>Manito Civil Registry Online Services</h1>
@@ -48,8 +47,6 @@
     
 </section>
 
+
+
 @endsection
-
-<!--
-
--->

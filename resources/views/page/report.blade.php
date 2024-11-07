@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('contents')
-
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 <!-- Load Google Charts library -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
