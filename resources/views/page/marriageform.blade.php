@@ -3,9 +3,9 @@
 @section('contents')
 <br><br>
 <div class="birth-container"> 
-<h2 class="text-center birth-heading">
+ <h2 class="text-center birth-heading">
     <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="birth-logo"> CERTIFICATE OF MARRIAGE
-</h2>
+ </h2>
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     @csrf
@@ -50,9 +50,9 @@
 
         <label for="officiant-name" class="birth-label">Name of Officiant:</label>
         <input type="text" id="officiant-name" name="officiant_name" class="birth-form-control" placeholder="Enter officiant's name" required />
-
-        <!-- Submit Button -->
-        <button type="submit" class="birth-submit">Submit Marriage Certificate</button>
-    </form>
+     
+     <button type="submit" class="btn btn-danger mt-3">Back</button>
+     <button type="submit" class="btn btn-success mt-3">Next</button> <!-- Added birth-submit class -->
+    </div> 
 </div>
 @endsection

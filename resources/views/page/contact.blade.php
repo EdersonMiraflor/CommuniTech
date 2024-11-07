@@ -14,7 +14,7 @@
         </div>
 
         <!-- Right Container: Contact Form -->
-        <div class="col-12 col-md-6 right-container" style="background-color: #ffffff; padding: 20px; border: 1px solid black; border-radius: 8px;">
+        <div class="col-12 col-md-6 right-container" style="background-color: #90D7A4; padding: 20px; border: 1px solid black; border-radius: 8px;">
             <!-- Form Content -->
             <form action="/home/contact" method="POST">
                 @csrf

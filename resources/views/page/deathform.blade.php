@@ -54,9 +54,9 @@
 
         <label for="informant-address" class="birth-label">Informant's Address:</label>
         <input type="text" id="informant-address" name="informant_address" class="birth-form-control" placeholder="Enter informant's address" required />
-
+     </form>
         <!-- Submit Button -->
-        <button type="submit" class="birth-submit">Submit Death Certificate</button>
-    </form>
+        <button type="submit" class="btn btn-danger mt-3">Back</button>
+        <button type="submit" class="btn btn-success mt-3">Next</button> 
 </div>
 @endsection

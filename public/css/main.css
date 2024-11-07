@@ -80,9 +80,6 @@ body {
     align-items: center;
     text-align: center;
     text-shadow: 2px 2px 3px rgba(104, 104, 104, 0.5);
-
-
-
 }
 
 h1 {
@@ -493,7 +490,7 @@ h3 {
 
 /* Background color for the entire contact page */
 .contact-page {
-    background-color: #f4f6f8;
+    background-color: #90D7A4;
     padding: 80px 50px;
     border-radius: 8px;
 }
