@@ -9,6 +9,98 @@ body {
     min-height: 100vh; /* Ensure the body is at least the height of the viewport */
 }
 
+/*START OF FOOTER*/
+
+/* Footer CSS */
+.footer-bar {
+    background-color: #2e2e2e;
+    color: #000000;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    flex-wrap: wrap; /* Enables wrapping for responsiveness */
+}
+
+.footer-content-left {
+    display: flex;
+    align-items: flex-start;
+    flex: 1 1 40%; /* Occupies 40% of the width, can be adjusted */
+    gap: 20px;
+}
+
+.footer-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.large-logo {
+    width: 100px; /* Set width for large screens */
+    max-width: 100%; /* Ensures it scales down on smaller screens */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.footer-column {
+    flex: 1 1 30%;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-column h3 {
+    color: #1f1f1f;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-column p, .footer-column ul {
+    font-size: 14px;
+    color: #000000;
+    line-height: 1.5;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin: 5px 0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.government-logos {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.government-logos img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-column, .footer-content-left {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+    .footer-logo-container {
+        justify-content: center;
+    }
+}
+
+
 /* START OF USER PROFILE OVERRIDE */
 /* Override Bootstrap's default blue color for links 
 .nav-link, .nav-link.active {
@@ -54,9 +146,9 @@ body {
 }
 /* END OF USER PROFILE OVERRIDE */
 
-
 /*HOME PAGE CSS*/
 
+/* Responsive Intro Section */
 .background-overlay {
     position: absolute;
     top: 0;
@@ -65,46 +157,69 @@ body {
     height: 550px;
     background-size: cover;
     background-position: center;
-    opacity: 0.5; /* Mimicking the opacity effect */
-    z-index: -1; /* Keeps the background behind the content */
+    opacity: 0.5;
+    z-index: -1;
 }
-
 
 .intro {
-    margin-top: 20px;
-    z-index: 1;
-    padding: 30px;
-    border-radius: 10px;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 0.625rem;
+    max-width: 90%;
+    max-height: 300px;
+    overflow:auto; 
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    text-shadow: 2px 2px 3px rgba(104, 104, 104, 0.5);
-}
-
-h1 {
-    font-size: 3rem;
-    color:black;
-    justify-content: center;
-    align-items: center;
-}
-
-p {
-    padding: 30px;
-    font-size: 1.2rem;
     color: #000000;
-    justify-content: center;
-    align-items: center;
+    text-shadow: 0.125rem 0.125rem 0.1875rem rgba(104, 104, 104, 0.5);
+}
+
+
+.intro h1 {
+    font-size: 2.5rem;
+    color: black;
+    margin-bottom: 1rem;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
 .btn-apply {
-    padding: 12px 25px;
+    padding: 0.75rem 1.5rem;
     background-color: #28a745;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     font-weight: bold;
+    font-size: 1rem; /* Ensure font size scales with responsiveness */
     transition: background-color 0.3s ease;
+}
+
+.btn-apply:hover {
+    background-color: #218838;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    .intro h1 {
+        font-size: 2rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    .btn-apply {
+        padding: 0.5rem 1rem; /* Smaller padding for mobile */
+        font-size: 0.9rem; /* Slightly smaller font size for button */
+    }
+
+    .intro {
+        padding: 1.5rem;
+    }
 }
 
 .btn-apply:hover {
