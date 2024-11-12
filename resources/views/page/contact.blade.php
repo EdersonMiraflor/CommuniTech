@@ -9,8 +9,8 @@
         <!-- Left Container: Image and Description -->
         <div class="col-12 col-md-5 left-container" style="text-align: center;">
             <h1 style="font-size: 3rem; color: #22AF4A; font-weight: bold;"> Contact Us! </h1>
-        <p style="margin-top: 20px; font-size: 16px; align-items: center;">For any inquiries, assistance, or feedback regarding the Manito Civil Registry online services, please reach out to our support team. We are here to help you with any concerns or questions you may have. </p>
-            <img src="{{ asset('img/contact.png') }}" alt="Contact Us Image" style="width: 70%; height: auto; border-radius: 8px;">
+        <p style="margin-top: 5px; font-size: 16px; align-items: justify;">For any inquiries, assistance, or feedback regarding the Manito Civil Registry online services, please reach out to our support team. We are here to help you with any concerns or questions you may have. </p>
+            <img src="{{ asset('img/contact.png') }}" alt="Contact Us Image" style="width: 60%; height: auto; margin-top: 5px; border-radius: 5px;">
         </div>
 
         <!-- Right Container: Contact Form -->

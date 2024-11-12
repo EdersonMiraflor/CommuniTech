@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 @section('contents')
 
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
 <!-- Load Google Charts library -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
@@ -74,23 +76,70 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        text-align: center; /*Center-align text on the page*/
+        text-align: center; /* Center-align text on the page */
+        margin: 0;
+        padding: 0;
     }
+    
+    .pie-container {
+        width: 100%;
+        max-width: 850px;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        align-items: center;
+        background-color: #E8F7EC;
+        margin-left: 190px;
+        margin-bottom: 50px;
+      
+    }
+
+    .line-container {
+        width: 100%;
+        max-width: 850px;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        align-items: center;
+        background-color: #E8F7EC;
+        margin-left: 190px;
+        margin-bottom: 20px;
+    }
+
     #chart_div, #piechart, #line_chart_div {
-        margin: auto; /*Center the chart containers*/
-        width: 850px; /*Width of the chart containers*/
-        height: 400px; /*Height of the chart containers*/
+        width: 100%; /* Adjust chart containers to fit the container */
+        height: 400px;
+    }
+    h1 {
+        font-size: 2em;
+        margin-top: 40px;
+        font-weight: bold;
+        margin-left: 110px;
+        margin-bottom: 20px;
+    }
+    h2 {
+        font-size: 1.3em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: bold;
     }
 </style>
 </head>
 
 <body>
-    <br><br><br>
+
     <h1>Weekly Certificates Report</h1>
-    <br><br>
-    <h2>Issued Certificates by Users</h2>
-    <div id="piechart"></div> <!-- Pie chart container -->
-    <h2>Users Appointment Day</h2>
-    <div id="line_chart_div"></div> <!-- Line chart container -->
+
+        <div class="pie-container">
+            <h2>Issued Certificates by Users</h2>
+            <div id="piechart"></div> <!-- Pie chart container -->
+        </div>
+        <div class="line-container">
+            <h2>Users Appointment Day</h2>
+            <div id="line_chart_div"></div> <!-- Line chart container -->
+        </div>
+   
 </body>
+
+
 @endsection

@@ -1,9 +1,9 @@
 @extends('layouts.layout')
 @section('contents')
 
-<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+<link rel="stylesheet" href="/css/main.css">
 
-<div class="container">
+<div class="reset-container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -65,3 +65,4 @@
     </div>
 </div>
 @endsection
+

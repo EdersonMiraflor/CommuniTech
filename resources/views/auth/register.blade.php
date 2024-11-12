@@ -1,15 +1,19 @@
 @extends('layouts.layout')
 
 @section('contents')
-<div class="container">
+
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+<div class="container" >
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('CREATE NEW CIVIL REGISTRY ONLINE ACCOUNT') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+
                         <!-- First Name -->
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>
@@ -155,9 +159,27 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                         <!-- Terms and Conditions -->
+                         <div class="terms-conditions"
+                                    <h3><strong>TERMS AND CONDITIONS</strong></h3>
+                           
+                                         <p> By registering on the website, you agree that all information provided is true and accurate to the best of your knowledge,
+                                     and you authorize Manito Government to verify this information. 
+                                     You consent to the use of your personal data solely for purposes related to this website and 
+                                     confirm that you are a resident of Manito. Your personal data will be safeguarded and
+                                      used exclusively for official purposes, and any false or misleading information provided may 
+                                      lead to legal action. </p>
+                                
+                            <div>
+                                <input type="checkbox" name="agree" required> I accept the terms and conditions
+                            </div>
+                        </div>
+                      
+                         <!-- Buttons -->
+                         <div class="row mb-0">
+                            <div class="col-md-6 offset-md-3 text-center">
+                                <button type="button" class="cancel-button"> {{ __('Cancel') }} </button>
+                                <button type="submit" class="register-button">
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -169,3 +191,4 @@
     </div>
 </div>
 @endsection
+
