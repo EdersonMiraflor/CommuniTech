@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="{{ asset('css/img-auth.css') }}">
 
 <div class="container">
+<img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="logo-overlay">
     <div class="left-side">
         <h1 class="title">CommuniTECH</h1>
         <h2 class="description">Are you a Citizen of Manito, Albay?</h2>

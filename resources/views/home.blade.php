@@ -10,15 +10,14 @@
 @endif
 
 <!-- Home content -->
+ <!-- Background with overlay to mimic opacity effect -->
 
-    <!-- Background with overlay to mimic opacity effect -->
-
-    <div class="background-overlay" style="background-image: url('{{ asset('img/municipalhall.jpg') }}');">
+ <div class="background-overlay" style="background-image: url('{{ asset('img/municipalhall.jpg') }}');">
     </div>
     <section class="intro">
             <h1>Manito Civil Registry Online Services</h1>
             <p>Welcome to Communitech, a dedicated platform for the citizens of Manito. At Communitech, you can easily apply for vital records, including Certificates of Live Birth, Death Certificates, and Marriage Certificates. Our goal is to simplify the process, ensuring you can access these essential documents quickly and conveniently. Thank you for choosing Communitech, where your vital records are just a few clicks away.</p>
-            <a href="#" class="btn-apply">Apply Certificate</a>
+            <a href="/home/services" class="btn-apply">Apply Certificate</a>
     </section>
 
     <section class="team">
@@ -48,8 +47,6 @@
     
 </section>
 
+
+
 @endsection
-
-<!--
-
--->

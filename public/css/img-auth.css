@@ -3,7 +3,7 @@
 /*Auth-Page Start*/
 /* Main container styling */
 .container {
-
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,6 +22,7 @@
     margin-bottom: 20px;
     margin-top: 20px;
 }
+
 
 .right-side {
     flex: 2;

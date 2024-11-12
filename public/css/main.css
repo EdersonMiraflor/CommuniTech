@@ -9,6 +9,98 @@ body {
     min-height: 100vh; /* Ensure the body is at least the height of the viewport */
 }
 
+/*START OF FOOTER*/
+
+/* Footer CSS */
+.footer-bar {
+    background-color: #2e2e2e;
+    color: #000000;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    flex-wrap: wrap; /* Enables wrapping for responsiveness */
+}
+
+.footer-content-left {
+    display: flex;
+    align-items: flex-start;
+    flex: 1 1 40%; /* Occupies 40% of the width, can be adjusted */
+    gap: 20px;
+}
+
+.footer-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.large-logo {
+    width: 100px; /* Set width for large screens */
+    max-width: 100%; /* Ensures it scales down on smaller screens */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.footer-column {
+    flex: 1 1 30%;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-column h3 {
+    color: #1f1f1f;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-column p, .footer-column ul {
+    font-size: 14px;
+    color: #000000;
+    line-height: 1.5;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin: 5px 0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.government-logos {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.government-logos img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-column, .footer-content-left {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+    .footer-logo-container {
+        justify-content: center;
+    }
+}
+
+
 /* START OF USER PROFILE OVERRIDE */
 /* Override Bootstrap's default blue color for links 
 .nav-link, .nav-link.active {
@@ -54,9 +146,9 @@ body {
 }
 /* END OF USER PROFILE OVERRIDE */
 
-
 /*HOME PAGE CSS*/
 
+/* Responsive Intro Section */
 .background-overlay {
     position: absolute;
     top: 0;
@@ -65,49 +157,69 @@ body {
     height: 550px;
     background-size: cover;
     background-position: center;
-    opacity: 0.5; /* Mimicking the opacity effect */
-    z-index: -1; /* Keeps the background behind the content */
+    opacity: 0.5;
+    z-index: -1;
 }
-
 
 .intro {
-    margin-top: 20px;
-    z-index: 1;
-    padding: 30px;
-    border-radius: 10px;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 0.625rem;
+    max-width: 90%;
+    max-height: 300px;
+    overflow:auto; 
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    text-shadow: 2px 2px 3px rgba(104, 104, 104, 0.5);
-
-
-
-}
-
-h1 {
-    font-size: 3rem;
-    color:black;
-    justify-content: center;
-    align-items: center;
-}
-
-p {
-    padding: 30px;
-    font-size: 1.2rem;
     color: #000000;
-    justify-content: center;
-    align-items: center;
+    text-shadow: 0.125rem 0.125rem 0.1875rem rgba(104, 104, 104, 0.5);
+}
+
+
+.intro h1 {
+    font-size: 2.5rem;
+    color: black;
+    margin-bottom: 1rem;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
 .btn-apply {
-    padding: 12px 25px;
+    padding: 0.75rem 1.5rem;
     background-color: #28a745;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     font-weight: bold;
+    font-size: 1rem; /* Ensure font size scales with responsiveness */
     transition: background-color 0.3s ease;
+}
+
+.btn-apply:hover {
+    background-color: #218838;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    .intro h1 {
+        font-size: 2rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    .btn-apply {
+        padding: 0.5rem 1rem; /* Smaller padding for mobile */
+        font-size: 0.9rem; /* Slightly smaller font size for button */
+    }
+
+    .intro {
+        padding: 1.5rem;
+    }
 }
 
 .btn-apply:hover {
@@ -496,7 +608,7 @@ h3 {
 
 /* Background color for the entire contact page */
 .contact-page {
-    background-color: #f4f6f8;
+    background-color: #90D7A4;
     padding: 80px 50px;
     border-radius: 8px;
 }
@@ -763,4 +875,133 @@ h3 {
     margin-bottom: 10px;
     margin-left: 50px;
     margin-right: 50px;
+}
+
+/*birth css*/
+
+/* Birth Container for the Form */
+:root {
+    --birth-bg-color: #E8F7EC;          /* Background color for the body */
+    --birth-label-color: #333;          /* Text color for labels */
+    --birth-input-bg-color: #fff;       /* Background for input fields */
+    --birth-input-border-color: #ccc;   /* Border color for input fields */
+    --birth-heading-color: #333;        /* Color for headings */
+    --birth-logo-width: 50px;           /* Logo size */
+    --birth-btn-success-bg: #28a745;    /* Success button background color */
+    --birth-btn-success-color: #fff;     /* Success button text color */
+    --birth-shadow-color: rgba(0, 0, 0, 0.1); /* Shadow color for the container */
+}
+.birth-container {
+    background-color: var(--birth-bg-color);  /* Use the defined background color */
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px var(--birth-shadow-color);
+}
+.birth-header {
+    display: flex;
+    align-items: center; /* Vertically center the logo and heading */
+    margin-bottom: 20px;
+
+}
+.birth-heading {
+    display: flex;
+    align-items: center;  /* Vertically centers both the image and text */
+    justify-content: center; /* Horizontally center the logo and heading text */
+    margin: 0;
+    line-height: 1.5; /* Adjust line height for better vertical alignment */
+    background-color: #fff;
+    font-size: 100px; /* Heading font size */
+    font-weight: bolder;
+}
+    
+
+.birth-label {
+    color: var(--birth-label-color);
+    font-weight: bold;
+  
+}
+.birth-logo {
+    width: 80px;  /* Increase this value for a larger logo */
+    margin-right: 20px;  /* Closer space between logo and heading */
+    margin-left: 20px;   /* Closer space to the container */
+    height: auto;        /* Maintain aspect ratio */
+    vertical-align: middle; /* Align image with text baseline */
+    padding: 10px;
+}
+
+.birth-form-control {
+    background-color: var(--birth-input-bg-color);
+    border: 1px solid var(--birth-input-border-color);
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.birth-form-control:focus {
+    border-color: #80bdff; /* Bootstrap focus border color */
+    outline: none; /* Remove default outline */
+}
+
+.birth-submit {
+    background-color: var(--birth-btn-success-bg);
+    color: var(--birth-btn-success-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.birth-submit:hover {
+    background-color: darkgreen; /* Darker shade on hover */
+}
+/* Birth Input Fields */
+.birth-form-control {
+    background-color: var(--birth-input-bg-color);
+    border: 1px solid var(--birth-input-border-color);
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Birth Headings */
+.birth-heading {
+    color: var(--birth-heading-color);
+    font-size: 24px;
+    text-align: center;
+    position: relative;
+}
+/* Birth Logo Positioning */
+.birth-heading::before {
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--birth-logo-width);
+}
+
+/* Birth Submit Button */
+.birth-btn-success {
+    background-color: var(--birth-btn-success-bg);
+    color: var(--birth-btn-success-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.birth-btn-success:hover {
+    background-color: darkgreen; /* Darker shade on hover */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .birth-heading {
+        font-size: 20px;
+    }
+
+    .birth-heading::before {
+        width: 40px; /* Adjust logo size for smaller screens */
+        left: -45px;
+    }
 }

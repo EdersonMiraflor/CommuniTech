@@ -3,7 +3,7 @@
 @section('contents')
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
-<div class="service-container">
+<div class="service-container" style="background-color: {{ $backgroundColor ?? '#E8F7EC' }};">
     <!-- Birth Services -->
     <div class="service-card">
         <div class="image-container">
@@ -11,7 +11,7 @@
         </div>
         <h3>BIRTH SERVICES</h3>
         <div class="service-buttons">
-            <a href="#" class="btn btn-primary">Birth Registration</a>
+            <a href="/home/services/form102" class="btn btn-primary">Birth Registration</a>
             <a href="#" class="btn btn-secondary">View Certificate</a>
             <a href="#" class="btn btn-secondary">Transaction Receipt</a>
         </div>
@@ -24,7 +24,7 @@
         </div>
         <h3>MARRIAGE SERVICES</h3>
         <div class="service-buttons">
-            <a href="#" class="btn btn-primary">Marriage Registration</a>
+            <a href="/home/services/marriageform" class="btn btn-primary">Marriage Registration</a>
             <a href="#" class="btn btn-secondary">View Certificate</a>
             <a href="#" class="btn btn-secondary">Transaction Receipt</a>
         </div>
@@ -37,7 +37,7 @@
         </div>
         <h3>DEATH SERVICES</h3>
         <div class="service-buttons">
-            <a href="#" class="btn btn-primary">Death Registration</a>
+            <a href="/home/services/deathform" class="btn btn-primary">Death Registration</a>
             <a href="#" class="btn btn-secondary">View Certificate</a>
             <a href="#" class="btn btn-secondary">Transaction Receipt</a>
         </div>
