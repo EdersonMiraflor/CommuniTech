@@ -4,6 +4,12 @@
 
 <h1 style="padding-top: 40px; text-align:center;">Users History</h1>
 
+<!--USER FORM ADDRESS 1
+Explanation:
+    -The variable useraddress in this view stores the value of variable userformadress in FormController at function showuserform
+    -After the(->), are the attributes(column) in the database 
+    -
+-->
 <div class="wrapper document-details"  style="">
     <h1>User Id: {{ $useraddress-> User_Id}}</h1>
     <p>Date of Delivery: {{ $useraddress-> Pick_Up_Date}}</p>

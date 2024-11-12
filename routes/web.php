@@ -95,6 +95,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Excusive for TransactionForm Only
 
+/*TRANSACTION HISTORY 2
+Explanation:
+    -After Directing the user to transactionhistory page, it fetch the program in FormsController then apply 
+    the function displaydocument
+*/
 Route::get('/transactionform', [FormsController::class, 'displaydocument']);
 Route::get('/transactionform/creates', [FormsController::class, 'createuserform']);
+/*USER FORM ADDRESS 2
+Explanation: 
+    -After Directing the user to transactionhistory/(user id) page, it fetch the program in FormsController then apply 
+    the function showuserform
+*/
 Route::get('/transactionform/{id}', [FormsController::class, 'showuserform']);
