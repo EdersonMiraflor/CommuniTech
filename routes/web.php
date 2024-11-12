@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormsController; 
 use App\Http\Controllers\ContactController; 
 use App\Http\Controllers\CertificateController; 
 
@@ -65,6 +66,10 @@ Route::get('/home/services/form102', function () {
     return view('page.form102');
 })->middleware('auth');
 
+Route::get('/home/services/form102/transactionform', function () {
+    return view('page.transactionform');
+})->middleware('auth');
+
 Route::get('/home/services/deathform', function () {
     return view('page.deathform');
 })->middleware('auth');
@@ -87,3 +92,9 @@ Auth::routes([
 ]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
+
+//Excusive for TransactionForm Only
+
+Route::get('/transactionform', [FormsController::class, 'displaydocument']);
+Route::get('/transactionform/creates', [FormsController::class, 'createuserform']);
+Route::get('/transactionform/{id}', [FormsController::class, 'showuserform']);
