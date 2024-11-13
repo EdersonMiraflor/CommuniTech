@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormsController; 
 use App\Http\Controllers\ContactController; 
 use App\Http\Controllers\CertificateController; 
+use App\Http\Controllers\PdfController; 
 
 Auth::routes();
 
@@ -93,7 +94,7 @@ Auth::routes([
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 
-//Excusive for TransactionForm Only
+                                                //Excusive for TransactionForm Only
 
 /*TRANSACTION HISTORY 2
 Explanation:
@@ -108,3 +109,6 @@ Explanation:
     the function showuserform
 */
 Route::get('/transactionform/{id}', [FormsController::class, 'showuserform']);
+
+                                            /*PDF Generator*/
+Route::get('/generatePDF', [PdfController::class, 'generatePdf']);
