@@ -1,8 +1,6 @@
 @extends('layouts.layout')
 
 @section('contents')
-
-
 @if (session('msg'))
     <div class="alert alert-success">
         {{ session('msg') }}

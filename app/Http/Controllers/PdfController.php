@@ -13,12 +13,12 @@ class PdfController extends Controller
 
         $requests = Forms::get();
         $data = [
-            'title' => 'Funda of Web IT',
+            'title' => 'Civil Registar Certificate',
             'date' => date('m/d/y'),
             'request' => $requests
         ];
 
-        $pdf = Pdf::loadView('page.pdfpage.generatePDF', $data);
+        $pdf = Pdf::loadView('page.pdf.generatePDF', $data);
         return $pdf->download('Unsealed_Certificate.pdf');
     }
 }
