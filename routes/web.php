@@ -4,6 +4,7 @@ use App\Http\Controllers\FormsController;
 use App\Http\Controllers\ContactController; 
 use App\Http\Controllers\CertificateController; 
 use App\Http\Controllers\PdfController; 
+use App\Http\Controllers\MailController; 
 
 Auth::routes();
 
@@ -112,3 +113,7 @@ Route::get('/transactionform/{id}', [FormsController::class, 'showuserform']);
 
                                             /*PDF Generator*/
 Route::get('/generatePDF', [PdfController::class, 'generatePdf']);
+                                            /*Sending Fil in Mail*/
+Route::get('/send_basic_email', [MailController::class, 'send_basic_email']);
+Route::get('/send_attach_email', [MailController::class, 'send_attach_email']);
+Route::get('/send_html_email', [MailController::class, 'send_html_email']);
