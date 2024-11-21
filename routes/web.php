@@ -5,7 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CertificateController; 
 use App\Http\Controllers\PdfController; 
 use App\Http\Controllers\OtpController; 
-
+use App\Http\Controllers\OtpHomeController;
 Auth::routes();
 
 //Route::get('/home/report', [CertificateController::class, 'showIssuedCertificate'])->middleware('auth');
@@ -115,6 +115,11 @@ Route::get('/transactionform/{id}', [FormsController::class, 'showuserform']);
 Route::get('/generatePDF', [PdfController::class, 'generatePdf']);
 
                                             /*OTP*/
+Route::get('/otphome', [OtpHomeController::class, 'index']);
+Route::get('/verify-account', [OtpHomeController::class, 'verifyaccount'])->name('verifyaccount');
+Route::post('/verifyotp', [OtpHomeController::class, 'useractivation'])->name('verifyotp');                                            
+
+
 Route::get('/otpform', function () {
     return view('page.otp.otpform');
 })->middleware('auth');

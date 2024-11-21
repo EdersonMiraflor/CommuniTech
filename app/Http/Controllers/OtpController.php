@@ -53,7 +53,7 @@ class OtpController extends Controller
         // Send email
         Mail::to($get_user_email)->send(new WelcomeMail($get_user_email, $validToken, $get_user_name));
 
-        return redirect('/otpform')->with('message', 'OTP created and email sent successfully.');
+        return redirect('/verify-account')->with('message', 'Please Check your email for OTP Code');
 
     }
 }

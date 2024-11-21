@@ -15,4 +15,9 @@ class Otpform extends Model
         'email',
         'is_activated'
     ];
+    protected $primaryKey = 'User_Id';
+
+    public $incrementing = false;
+
+    protected $keyType = 'string';
 }
