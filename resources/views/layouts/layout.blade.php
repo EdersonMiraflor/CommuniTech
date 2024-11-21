@@ -180,94 +180,218 @@
                 display: none; /* Hide menu icon on larger screens */
             }
         }
+    
+        /*START OF FOOTER*/
 
-        
-        /* sticky footer css */
-        footer.footer-bar {
-            background-color: #90d7a4;;
-            color: black;
-            padding: 10px 20px;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto; /* Pushes the footer to the bottom */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {}
+        a,
+        a:hover,
+        a:focus,
+        a:active {
+            text-decoration: none;
+            outline: none;
         }
 
-        .footer-content-left, .footer-center, .footer-social-icons {
-            display: flex;
-            align-items: center;
+        a,
+        a:active,
+        a:focus {
+            color: #333;
+            text-decoration: none;
+            transition-timing-function: ease-in-out;
+            -ms-transition-timing-function: ease-in-out;
+            -moz-transition-timing-function: ease-in-out;
+            -webkit-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+            transition-duration: .2s;
+            -ms-transition-duration: .2s;
+            -moz-transition-duration: .2s;
+            -webkit-transition-duration: .2s;
+            -o-transition-duration: .2s;
         }
 
-        .footer-logo {
-            height: 40px; /* Adjust the logo size as needed */
-            margin-right: 10px;
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img {
+        max-width: 100%;
+        height: auto;
+        }
+        section {
+            padding: 60px 0;
+        /* min-height: 100vh;*/
+        }
+        .btn {
+        padding: 14px 25px;
+        text-transform: uppercase;
+        -webkit-transition: all 0.8s;
+        -moz-transition: all 0.8s;
+        -o-transition: all 0.8s;
+        transition: all 0.8s;
+        }
+        .apply-btn {
+        background: #2253af;
+        border: 2px solid #2253af;
+        color: #fff;
         }
 
-        .footer-text {
-            font-size: 14px;
+        .apply-btn:hover{
+        background: #22AF4A;
+        color: #fff;
+        border-color: #ffffff;
         }
 
-        .footer-social-icons a {
-            margin-left: 10px;
-        }
-
-        .footer-social-icons img {
-            width: 24px;
-            height: 24px;
-        }
-
-        /*css for login button*/
-        .custom-btn {
-            background-color: #4ebf6e;
-            color: white;
-        }
-
-        .custom-btn:hover{
-            background-color: #90d7a4;
-        }
-
-
-        /* Footer Styling 
-    .footer-bar {
-        background-color: #90d7a4; 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        color: #000;
-    }
-
-    .footer-content {
-        display: flex;
-        align-items: center;
-    }
-
-    .footer-logo {
-        height: 40px;
-        margin-right: 10px;
-    }
-
-    .footer-text {
-        font-weight: bold;
-        font-size: 1.1rem;
-    }
-
-    .footer-social-icons {
-        display: flex;
-        gap: 10px;
-    }
-
-    .footer-social-icons .social-icon img {
-        height: 30px;
-        width: auto;
-        transition: transform 0.2s;
-    }
-
-    .footer-social-icons .social-icon img:hover {
-        transform: scale(1.1);
-    }
+        /*---------footer---------*/
+        footer {
+        background-color: #90D7A4;
+        /*
+        background-image: -webkit-linear-gradient( top, #222023, #1e2c47 );
+        background-image: -moz-linear-gradient( top, #222023, #1e2c47 );
+        background-image: -o-linear-gradient( top, #222023, #1e2c47 );
+        background-image: linear-gradient( to bottom, #222023, #1e2c47 );
         */
+
+        color: #333;
+        padding: 15px 0;
+        font-size: 15px;
+        }
+        footer h3 {
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        }
+        footer h4 {
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 1px;
+        }
+        .about-footer li i {
+        position: absolute;
+        left: 0;
+        }
+        .about-footer li {
+        padding-left: 40px;
+        position: relative;
+        margin-bottom: 40px;
+        }
+
+        .about-footer ul {
+        margin-top: 40px;
+        }
+
+        footer a {
+        color: #292929;
+        }
+
+        footer a:hover {
+        color: #22AF4A;
+        }
+        .footer-title {
+        border-bottom: 2px solid #22AF4A;
+        padding-bottom: 25px;
+        margin-bottom: 35px;
+        }
+
+        ul.footer-social {
+        float: right;
+        }
+
+        ul.footer-social li {
+        display: inline;
+        margin-right: 16px;
+        }
+
+        ul.footer-social i {
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        color: #222025;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 30px;
+        font-size: 16px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        font-weight: 800;
+        }
+
+        ul.footer-social li:last-child {
+        margin-right: 0px;
+        }
+
+        ul.footer-social i:hover {
+        background: #22AF4A;
+        color: #fff;
+        }
+
+        .page-more-info li {
+        margin-bottom: 31px;
+        }
+
+        footer .table td:first-child {
+        font-weight: 600;
+        padding-left: 33px;
+        background-color: #90D7A4;
+        }
+
+        footer .table td:last-child {text-align: right;}
+        footer .table td {
+        padding: 0px;
+        border: 0;
+        background-color: #90D7A4;
+        }
+
+        footer .table tr {
+            
+        }
+
+        footer .table td i {
+        position: absolute;
+        left: 0px;
+        font-size: 21px;
+        top: 6px;
+        }
+
+        footer .table td {
+        position: relative;
+        padding: 4px 0;
+        margin-bottom: 5rem;
+        }
+        .footer-logo td {
+        padding-right: 4px !important;
+        margin-bottom: 3rem;
+        }
+
+        .footer-logo td:last-child {
+        padding-right: 0px !important;
+        margin-bottom: 3rem;
+        }
+
+
+        footer hr {
+        border-color: #212121;
+        margin-top: 3rem;
+        }
+
+        .footer-bottom p {
+        text-align: right;
+        }
+        .footer-bottom {
+        margin-top: 30px;
+        }
+        .open-hours hr {
+        margin: 30px 0;
+        }
 
 
     </style>
@@ -426,46 +550,109 @@
         @yield('contents')
     </div>
     
+
+  
 <!-- Footer Section -->
-<!-- Footer Section -->
-<footer class="footer-bar">
-    <div class="footer-content-left">
-        <div class="footer-logo-container">
-            <img src="{{ asset('img/communitechlogo.png') }}" alt="Large Government Logo" class="large-logo">
+<footer>
+    <div class="container">
+        <div class="footer-top">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 about-footer">
+                    <h3>CommuniTECH </h3>
+                    <ul>
+                        <li><a href="tel:(010) 1234 4321"><i class="fas fa-phone fa-flip-horizontal"></i>(010) 1234 4321</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i>
+                            1 / 105 Bay Lights,
+                            <br/>Lorem Ipsum,
+                            <br/>LIC 3201
+                        </li>
+                    </ul>
+                    <a href="" class="btn apply-btn">Book Now</a>
+                </div>
+                <div class="col-md-6 col-lg-2 page-more-info">
+                    <div class="footer-title">
+                        <h4>Page links</h4>
+                    </div>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Testimonial</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6 col-lg-3 page-more-info">
+                    <div class="footer-title">
+                        <h4>More Info</h4>
+                    </div>
+                    <ul>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Dolor sit amet</a></li>
+                        <li><a href="#">Consectetur Adipisicing </a></li>
+                        <li><a href="#">Ed do eiusmod tempor incididunt</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-4 open-hours">
+                    <div class="footer-title">
+                        <h4>Open hours</h4>
+                        <ul class="footer-social">
+                            <li><a href="" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+
+                        </ul>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Monday Thursday</td>
+                                <td>9:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Friday</td>
+                                <td>9:00am - 4:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Sturday</td>
+                                <td>9:00am - 1:30pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Sunday</td>
+                                <td>9:30am - 12:00pm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr>
+                    <div class="footer-logo">
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><img src="img/communitechlogo.png"></td>
+                                <td><img src="img/manito-logo.png"></td>
+                                <td><img src="img/new-bagongPH.png"></td>
+                                <td><img src="img/new-dpo.png"></td>
+                                
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-column">
-            <h3>REPUBLIC OF THE PHILIPPINES</h3>
-            <p>All content is in the public domain unless otherwise stated.</p>
-            <p>Learn more about the Philippine government, its structure, and how it works.</p>
-        </div>
-    </div>
-    <div class="footer-column">
-        <h3>SITE DIRECTORY</h3>
-        <ul>
-            <li>Home</li>
-            <li>Government Agencies</li>
-            <li>Requests</li>
-            <li>FAQ</li>
-            <li>Privacy Policy</li>
-            <li>Terms and Conditions</li>
-        </ul>
-    </div>
-    <div class="footer-column">
-        <h3>STAY CONNECTED</h3>
-        <div class="social-icons">
-            <a href="#"><img src="{{ asset('img/facebook.png') }}" alt="Facebook"></a>
-            <a href="#"><img src="{{ asset('img/instagram.png') }}" alt="Instagram"></a>
-            <a href="#"><img src="{{ asset('img/youtube.png') }}" alt="YouTube"></a>
-        </div>
-        <div class="government-logos">
-            <img src="{{ asset('img/manito-logo.png') }}" alt="Government Logo 1">
-            <img src="{{ asset('img/dpo.png') }}" alt="Government Logo 2">
-            <img src="{{ asset('img/bagongPH.png') }}" alt="Government Logo 3">
+        <hr>
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="">Privacy policy</a>
+                </div>
+                <div class="col-sm-8">
+                    <p>Lorem ipsum dolor sit amet @ 2019 All rights reserved</p>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
-
-
 
 
     <!--time and date in header section-->
