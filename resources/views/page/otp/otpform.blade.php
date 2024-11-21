@@ -15,13 +15,6 @@
             <input type="email" name="Email" required>
             <button type="submit">Submit</button>
         </form>
-
-        @if (session('message'))
-    <div class="alert alert-success">
-        {{ session('message') }}
-    </div>
-@endif
-
     </div>
 </body>
 </html>
