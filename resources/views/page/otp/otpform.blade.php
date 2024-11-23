@@ -7,11 +7,16 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}"> <!-- Optional -->
 </head>
 <body>
+<!-- Sending OTP Code with OTP Form 7
+  Explanation: 
+    -Get the input of user in the form
+    -
+ -->
     <div class="container mt-5">
         <h1>OTP Form</h1>
         <form action="/otpform" method="POST">
         @csrf
-            <input type="text" name="Name" required>
+            <input type="text" name="Name" required><br>
             <input type="email" name="Email" required>
             <button type="submit">Submit</button>
         </form>

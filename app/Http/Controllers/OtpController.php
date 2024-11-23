@@ -21,6 +21,14 @@ class OtpController extends Controller
         ]);
     }
 
+/*Sending OTP Code with OTP Form 3
+  Explanation: 
+    -Use the model "Otpform" and put the form inputs to the table in database
+    -Use the model "Verifytoken", it generate a token then insert the input in the table "Verifytoken" in the database
+    -Base on the inputed Email in the form, the otp code will be send there and then that code will be use to the OTP Form
+    -After that, it will direct to verify-account page(url) and do the controller OtpHomeController
+ */
+
     // Updated create method to accept Request
     protected function create(Request $request)
     {
