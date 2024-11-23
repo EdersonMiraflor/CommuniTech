@@ -28,7 +28,6 @@ class OtpController extends Controller
     -Base on the inputed Email in the form, the otp code will be send there and then that code will be use to the OTP Form
     -After that, it will direct to verify-account page(url) and do the controller OtpHomeController
  */
-
     // Updated create method to accept Request
     protected function create(Request $request)
     {
