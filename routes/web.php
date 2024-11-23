@@ -116,12 +116,23 @@ Route::get('/generatePDF', [PdfController::class, 'generatePdf']);
 
                                             /*OTP*/
 Route::get('/otphome', [OtpHomeController::class, 'index']);
+/*Sending OTP Code with OTP Form 4
+Explanation: 
+    -When it direct to verify-account page, it will proceed to OtpHomeController which will do the function "verifyaccount".
+ */
 Route::get('/verify-account', [OtpHomeController::class, 'verifyaccount'])->name('verifyaccount');
+/*Sending OTP Code with OTP Form 7
+Explanation: 
+   -Once directing to verifyotp, it will go to OtpHomeController and do the function "useractivation".
+*/
 Route::post('/verifyotp', [OtpHomeController::class, 'useractivation'])->name('verifyotp');                                            
 
-
+/*Sending OTP Code with OTP Form 2
+Explanation: 
+    -After the user input, it will go to the OtpController and do the function "create" there
+    -If "/otpform" is sritten in the url, then it will direct to the otpform page
+ */
+Route::post('/otpform', [OtpController::class, 'create'])->name('otpform');
 Route::get('/otpform', function () {
     return view('page.otp.otpform');
 })->middleware('auth');
-
-Route::post('/otpform', [OtpController::class, 'create'])->name('otpform');

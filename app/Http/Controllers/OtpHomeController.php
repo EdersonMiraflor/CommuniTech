@@ -19,11 +19,19 @@ class OtpHomeController extends Controller
             return redirect('verify-account');
         }
     }
-
+/*Sending OTP Code with OTP Form 5
+Explanation: 
+    -When  directed to verify-account it will do this function then return the user to op_verification page in the views
+ */
     public function verifyaccount(){
         return view('/opt_verification');
     }
-
+/*Sending OTP Code with OTP Form 8
+Explanation: 
+   -Once it direct to verifyotp, it will access the model Verifytoken and Otpform
+   -It will check the table "is_activated" if its value is 1 or 0, if it is zero the user is required to insert the
+   otp code, if it is 1 they can proceed to OtpHome Page
+*/
     public function useractivation(Request $request){
         $get_token = $request->token;
         $get_token = Verifytoken::where('token', $get_token)->first();
