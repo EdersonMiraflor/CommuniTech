@@ -132,7 +132,8 @@ Explanation:
     -After the user input, it will go to the OtpController and do the function "create" there
     -If "/otpform" is sritten in the url, then it will direct to the otpform page
  */
-Route::post('/otpform', [OtpController::class, 'create'])->name('otpform');
 Route::get('/otpform', function () {
     return view('page.otp.otpform');
 })->middleware('auth');
+
+Route::post('/otpform', [OtpController::class, 'create'])->name('otpform');

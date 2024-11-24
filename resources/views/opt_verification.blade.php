@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-        <h3 class="mt-5 text-center text-warning">Email Verification</h3>
+            <h3 class="mt-5 text-center text-warning">Email Verification</h3>
             @if(session('activated'))
                 <div class="alert alert-success" role="alert">
                     {{ session('activated') }}
