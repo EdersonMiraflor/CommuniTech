@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class OtpController extends Controller
 { 
+
     // Validator method (no changes needed here)
     protected function validator(array $data)
     {
