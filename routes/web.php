@@ -112,8 +112,7 @@ Explanation:
 Route::get('/transactionform/{id}', [FormsController::class, 'showuserform']);
 
                                             /*PDF Generator*/
-Route::get('/generatePDF', [PdfController::class, 'generatePdf']);
-
+Route::get('/generatePDF', [PdfController::class, 'generatePdf'])->middleware('auth');
                                             /*OTP*/
 Route::get('/otphome', [OtpHomeController::class, 'index']);
 /*Sending OTP Code with OTP Form 4
