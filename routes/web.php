@@ -64,6 +64,29 @@ Route::get('/home/services', function () {
     return view('page.services');
 })->middleware('auth');
 
+
+Route::get('/home/adminmanagement', function () {
+    return view('page.adminmanagement');
+})->middleware('auth');
+
+
+Route::get('/home/rider_user_com', function () {
+    return view('page.rider_user_com');
+})->middleware('auth');
+
+Route::get('/home/rider_admin_com', function () {
+    return view('page.rider_admin_com');
+})->middleware('auth');
+
+Route::get('/home/ridermanagement', function () {
+    return view('page.ridermanagement');
+})->middleware('auth');
+
+Route::get('/home/userrequest', function () {
+    return view('page.userrequest');
+})->middleware('auth');
+/*Stop*/
+
 Route::get('/home/services/form102', function () {
     return view('page.form102');
 })->middleware('auth');
