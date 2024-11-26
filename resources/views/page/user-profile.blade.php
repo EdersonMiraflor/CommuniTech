@@ -13,7 +13,10 @@
                     <a class="nav-link active" id="personal-info-tab" data-bs-toggle="tab" href="#personal-info" role="tab">Personal Info</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="notifications-tab" data-bs-toggle="tab" href="#notifications" role="tab">Notifications</a>
+                    <a class="nav-link" id="admin-tab" data-bs-toggle="tab" href="#admin" role="tab">Admin Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="notifications-tab" data-bs-toggle="tab" href="#notifications" role="tab">Rider Management</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="other-settings-tab" data-bs-toggle="tab" href="#other-settings" role="tab">Other Settings</a>
@@ -38,12 +41,64 @@
                             <label for="confirm-password" class="form-label">Confirm Password</label>
                             <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password">
                         </div>
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
                     </form>
                 </div>
+<!--Admin Management-->
+    <!--Start-->
+            <div class="tab-pane fade" id="admin" role="tabpanel">
+            <h5>Admin Management</h5>
+                <form>
+                    <div class="mb-3">
+                        <label for="admin-lists" class="form-label">Admin Lists</label>
+                        <select class="form-select" id="admin-lists" name="admin">
+                        @if(isset($admins) && count($admins) > 0)
+                            @foreach ($admins as $admin)
+                                <option value="{{ $admin->User_Id }}">
+                                    
+                                    {{ $admin->name ?? 'N/A' }} {{ $admin->Middle_Name ?? '' }} {{ $admin->Last_Name ?? '' }}
+                                    - {{ $admin->created_at->format('Y-m-d') ?? 'N/A' }}
+                                    - {{ $admin->Credential ?? 'N/A' }}
+                                </option>
+                            @endforeach
+                        @else
+                            <option>No Admins Found</option>
+                        @endif
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="user-credential" class="form-label">User Lists</label>
+                        <select class="form-select" id="user-credential">
+                        @if(isset($users) && count($users) > 0)
+                            @foreach ($users as $user)
+                                <option value="{{ $user->User_Id }}">
+                                    
+                                    {{ $user->name ?? 'N/A' }} {{ $user->Middle_Name ?? '' }} {{ $user->Last_Name ?? '' }}
+                                    - {{ $user->created_at->format('Y-m-d') ?? 'N/A' }}
+                                    - {{ $user->Credential ?? 'N/A' }}
+                                </option>
+                            @endforeach
+                        @else
+                            <option>No Users Found</option>
+                        @endif  
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="user-credential" class="form-label">Change User Credential</label>
+                        <select class="form-select" id="user-credential">
+                            <option selected>Enabled</option>
+                            <option>Disabled</option>
+                        </select>
+                    </div>
+                    <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
+                </form>
+            </div>
+    <!--End-->
 
+<!--Rider Management-->
+    <!--Start-->
                 <div class="tab-pane fade" id="notifications" role="tabpanel">
-                    <h5>Notification Settings</h5>
+                    <h5>Rider Management</h5>
                     <form>
                         <div class="mb-3">
                             <label for="email-notifications" class="form-label">Email Notifications</label>
@@ -59,10 +114,11 @@
                                 <option>Disabled</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
                     </form>
                 <br><br><br><br>
                 </div>
+    <!--End-->
 
                 <div class="tab-pane fade" id="other-settings" role="tabpanel">
                     <h5>Other Settings</h5>
@@ -82,7 +138,7 @@
                                 <option>Dark</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
                     </form>
                     <br><br><br><br>
                 </div>

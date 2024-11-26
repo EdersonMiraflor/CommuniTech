@@ -6,6 +6,7 @@ use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\PdfController; 
 use App\Http\Controllers\OtpController; 
 use App\Http\Controllers\OtpHomeController;
+use App\Http\Controllers\AdminController;
 Auth::routes();
 
 //Route::get('/home/report', [CertificateController::class, 'showIssuedCertificate'])->middleware('auth');
@@ -26,6 +27,9 @@ Route::get('/home/usermanagement', function () {
 Route::get('/home/user-profile', function () {
     return view('page.user-profile');
 })->middleware('auth');
+
+Route::get('/home/user-profile', [AdminController::class, 'userProfile'])->name('user.profile')->middleware('auth');
+    
 
 Route::get('/home/transactionhistory', function () {
     return view('page.transactionhistory');

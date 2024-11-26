@@ -177,7 +177,7 @@ body {
 /* Ensure the sections don't overlap */
 .home-container + .team {
     margin-top: 0;
-}"
+}
 
 /*END OF HOME CSS*/
 
