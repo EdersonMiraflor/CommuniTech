@@ -472,7 +472,12 @@
     <div class="navbar-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
         <a href="/home/services" class="{{ Request::is('home/services') ? 'active' : '' }}">SERVICES</a>
-        <a href="/home/transaction" class="{{ Request::is('home/transaction') ? 'active' : '' }}">TRANSACTIONS</a>
+        @auth
+            {{-- Check if the user is admin --}}
+            @if (Auth::user()->Credential == 'admin')
+            <a href="/home/transaction" class="{{ Request::is('home/transaction') ? 'active' : '' }}">TRANSACTIONS</a>
+            @endif
+        @endauth
         <a href="/home/usermanual" class="{{ Request::is('home/usermanual') ? 'active' : '' }}">USER MANUAL</a>
         <!--
         @auth
@@ -525,9 +530,6 @@
         <a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
     </div>
 </nav>
-
-
-
 
     <script>
         // JavaScript for Toggling the Dropdown Menu in Mobile View
@@ -600,7 +602,6 @@
                             <li><a href="" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="" target="_blank"><i class="fab fa-instagram"></i></a></li>
                             <li><a href="" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-
                         </ul>
                     </div>
                     <table class="table">
