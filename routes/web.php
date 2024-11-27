@@ -25,7 +25,8 @@ Route::get('/home/usermanagement', function () {
 })->middleware('auth');
 
 Route::get('/home/user-profile', [AdminController::class, 'userProfile'])->name('user.profile')->middleware('auth');
-Route::patch('/change-credential/{User_Id}', [AdminController::class, 'changeCredential'])->name('change.credential');
+Route::patch('/change-credential', [AdminController::class, 'changeCredential'])->name('change.credential');
+
 
 
 Route::get('/home/transactionhistory', function () {

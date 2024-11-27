@@ -1,11 +1,12 @@
 @extends('layouts.layout')
 
 @section('contents')
-    <!-- Section Start-->
+    <!-- Section Start -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
     <div class="container mt-5">
         <div class="row">
+            <!-- Sidebar Navigation -->
             <div class="col-md-3">
                 <ul class="nav flex-column nav-pills" id="myTab" role="tablist">
                     <li class="nav-item">
@@ -23,9 +24,10 @@
                 </ul>
             </div>
 
-                        
+            <!-- Content Section -->
             <div class="col-md-9">
                 <div class="tab-content" id="myTabContent">
+                    <!-- Personal Info Tab -->
                     <div class="tab-pane fade show active" id="personal-info" role="tabpanel">
                         <h5>Personal Information</h5>
                         <form>
@@ -44,24 +46,17 @@
                             <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
                         </form>
                     </div>
-                    <br>
-<!-- Success/Error Messages -->
-@if(session('success'))
-    <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-    @if(session('error'))
-    <div class="alert alert-danger">{{ session('error') }}</div>
-    @endif
-    @if(session('info'))
-    <div class="alert alert-info">{{ session('info') }}</div>
-    @endif
-                    <!-- Admin Management -->
+
+                    <!-- Admin Management Tab -->
                     <div class="tab-pane fade" id="admin" role="tabpanel">
                         <h5>Admin Management</h5>
-                        <form>
+                        <form method="POST" action="{{ route('change.credential') }}">
+                            @csrf
+                            @method('PATCH')
+
                             <div class="mb-3">
                                 <label for="admin-lists" class="form-label">Admin Lists</label>
-                                <select class="form-select" id="admin-lists" name="admin">
+                                <select class="form-select" id="admin-lists" name="user_id">
                                     @if(isset($admins) && count($admins) > 0)
                                         @foreach ($admins as $admin)
                                             <option value="{{ $admin->User_Id }}">
@@ -78,7 +73,7 @@
 
                             <div class="mb-3">
                                 <label for="user-credential" class="form-label">User Lists</label>
-                                <select class="form-select" id="user-credential">
+                                <select class="form-select" id="user-credential" name="user_id">
                                     @if(isset($users) && count($users) > 0)
                                         @foreach ($users as $user)
                                             <option value="{{ $user->User_Id }}">
@@ -93,60 +88,15 @@
                                 </select>
                             </div>
 
-                            <!-- Credential Starts -->
                             <div class="mb-3">
-                                <label for="user-credential" class="form-label">Change User Credential</label>
-                                <select class="form-select" id="user-credential">
-                                    @if(isset($user_credential) && count($user_credential) > 0)
-                                        @foreach ($user_credential as $user)
-                                            <option value="{{ $user->User_Id }}">
-                                                {{ $user->First_Name }} {{ $user->Middle_Name ?? '' }} {{ $user->Last_Name }} 
-                                                - {{ $user->created_at->format('Y-m-d') }} 
-                                                - {{ $user->Credential }}
-                                            </option>
-                                        @endforeach
-                                    @else
-                                        <option>No Users Found</option>
-                                    @endif
-                                </select>
-                            </div>
-
-                            <!-- Buttons for Changing Credential -->
-                            <div>
-                                @if(isset($user_credential) && count($user_credential) > 0)
-                                    @foreach ($user_credential as $user)
-                                        <div class="mb-2">
-                                            <strong>{{ $user->First_Name }} {{ $user->Last_Name }}:</strong>
-                                            <!-- Change to Admin -->
-                                            @if ($user->Credential !== 'admin')
-                                                <form method="POST" action="{{ route('change.credential', $user->User_Id) }}" style="display:inline;">
-                                                    @csrf
-                                                    @method('PATCH')
-                                                    <button type="submit" class="btn btn-primary">Change to Admin</button>
-                                                </form>
-                                            @else
-                                                <button class="btn btn-secondary" disabled>Already Admin</button>
-                                            @endif
-
-                                            <!-- Change to User -->
-                                            @if ($user->Credential !== 'user')
-                                                <form method="POST" action="{{ route('change.credential', $user->User_Id) }}" style="display:inline;">
-                                                    @csrf
-                                                    @method('PATCH')
-                                                    <button type="submit" class="btn btn-warning">Change to User</button>
-                                                </form>
-                                            @else
-                                                <button class="btn btn-secondary" disabled>Already User</button>
-                                            @endif
-                                        </div>
-                                    @endforeach
-                                @endif
+                                <label for="change-credential" class="form-label">Change User Credential</label>
+                                <button type="submit" name="credential" value="admin" class="btn btn-primary">Make Admin</button>
+                                <button type="submit" name="credential" value="user" class="btn btn-warning">Make User</button>
                             </div>
                         </form>
                     </div>
-                    <!-- End Admin Management -->
 
-                    <!-- Rider Management -->
+                    <!-- Rider Management Tab -->
                     <div class="tab-pane fade" id="notifications" role="tabpanel">
                         <h5>Rider Management</h5>
                         <form>
@@ -168,7 +118,7 @@
                         </form>
                     </div>
 
-                    <!-- Other Settings -->
+                    <!-- Other Settings Tab -->
                     <div class="tab-pane fade" id="other-settings" role="tabpanel">
                         <h5>Other Settings</h5>
                         <form>
@@ -195,7 +145,17 @@
         </div>
     </div>
 
-    <br><br><br><br><br><br><br><br><br><br>
+    <!-- Success/Error Messages -->
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+    @if(session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
+    @if(session('info'))
+        <div class="alert alert-info">{{ session('info') }}</div>
+    @endif
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
