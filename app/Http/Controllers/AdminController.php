@@ -9,35 +9,37 @@ class AdminController extends Controller
 {
     public function userProfile(){
         $admins = User::where('Credential', 'admin')->get();
-        $users = User::where('Credential', 'user')->get();
-        $user_credential = User::all(); // Or filter it if needed
+        $users = User::whereIn('Credential', ['user', 'admin'])->get();
         
-        return view('page.user-profile', compact('admins', 'users', 'user_credential'));
+        return view('page.user-profile', compact('admins', 'users'));
     }
 
-    public function changeCredential($User_Id)
-    {
-        // Retrieve the specific user by User_Id
-        $user = User::where('User_Id', $User_Id)->first();
-    
-        if (!$user) {
-            // Return error if user not found
-            return redirect()->back()->with('error', 'User not found!');
-        }
-    
-        // Determine the new credential
-        $newCredential = $user->Credential === 'admin' ? 'user' : 'admin';
-    
-        // Update the user's credential and save it to the database
-        $user->Credential = $newCredential;
-    
-        if ($user->save()) {
-            return redirect()->back()->with('success', 'User credential updated successfully.');
-        }
-    
-        return redirect()->back()->with('error', 'Failed to update user credential.');
+    public function changeCredential(Request $request)
+{
+    // Validate the request data
+    $request->validate([
+        'user_id' => 'required|exists:users,User_Id',  // Ensure user_id exists
+        'credential' => 'required|in:admin,user',     // Ensure the credential is either 'admin' or 'user'
+    ]);
+
+    // Retrieve the user based on User_Id from the form
+    $user = User::where('User_Id', $request->user_id)->first();
+
+    if (!$user) {
+        // Return error if user not found
+        return redirect()->back()->with('error', 'User not found!');
     }
-    
+
+    // Update the user's credential
+    $user->Credential = $request->credential;
+
+    if ($user->save()) {
+        return redirect()->back()->with('success', 'User credential updated successfully.');
+    }
+
+    return redirect()->back()->with('error', 'Failed to update user credential.');
+}
+
 
 
 }
