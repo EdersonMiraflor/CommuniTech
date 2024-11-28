@@ -3,6 +3,78 @@
 @section('contents')
     <!-- Section Start -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+<!--Report Generator Script Start-->
+<!-- Load Google Charts library -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawCharts);
+
+    function drawCharts() {
+        // Retrieve the data passed from the controller
+        var lineChartData = @json($lineChartData);
+
+        // Pie Chart Start
+        var pieData = new google.visualization.DataTable();
+        pieData.addColumn('string', 'Certificate Type');
+        pieData.addColumn('number', 'Total Issued');
+
+        @foreach($certificates as $certificate)
+            pieData.addRow(['{{ $certificate->Cert_Type }}', {{ $certificate->total_quantity }}]);
+        @endforeach
+
+        var pieOptions = {
+            title: 'Total Issued Certificates by Type',
+            pieHole: 0.4,
+            colors: ['#bce7c8', '#90d7a4', '#4ebf6e']
+        };
+
+        var pieChart = new google.visualization.PieChart(document.getElementById('piechart'));
+        pieChart.draw(pieData, pieOptions);
+        // Pie Chart End
+
+        // Line Chart Start
+        var lineData = new google.visualization.DataTable();
+        lineData.addColumn('string', 'Day');
+        lineData.addColumn('number', 'Birth Certificate');
+        lineData.addColumn('number', 'Marriage Certificate');
+        lineData.addColumn('number', 'Death Certificate');
+
+        lineData.addRows([
+            ['Monday', lineChartData['Birth Certificate'][0], lineChartData['Marriage Certificate'][0], lineChartData['Death Certificate'][0]],
+            ['Tuesday', lineChartData['Birth Certificate'][1], lineChartData['Marriage Certificate'][1], lineChartData['Death Certificate'][1]],
+            ['Wednesday', lineChartData['Birth Certificate'][2], lineChartData['Marriage Certificate'][2], lineChartData['Death Certificate'][2]],
+            ['Thursday', lineChartData['Birth Certificate'][3], lineChartData['Marriage Certificate'][3], lineChartData['Death Certificate'][3]],
+            ['Friday', lineChartData['Birth Certificate'][4], lineChartData['Marriage Certificate'][4], lineChartData['Death Certificate'][4]],
+        ]);
+
+        var options = {
+            title: 'Appointments per Day',
+            hAxis: { title: 'Day' },
+            vAxis: {
+                title: 'Number of Appointments',
+                ticks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                gridlines: { count: 11 },
+                viewWindow: { min: 0, max: 10 }
+            },
+            legend: { position: 'right', alignment: 'center' },
+            colors: ['#bce7c8', '#90d7a4', '#4ebf6e']
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('line_chart_div'));
+        chart.draw(lineData, options);
+        // Line Chart End
+    }
+</script>
+
+<style>
+    /* Add styling here if necessary */
+    #piechart, #line_chart_div {
+        width: 100%;
+        height: 250px;
+    }
+</style>
+<!--Report Generator Script Ends-->
 
     <div class="container mt-5">
         <div class="row">
@@ -19,7 +91,7 @@
                         <a class="nav-link" id="notifications-tab" data-bs-toggle="tab" href="#notifications" role="tab">Rider Management</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="other-settings-tab" data-bs-toggle="tab" href="#other-settings" role="tab">Other Settings</a>
+                        <a class="nav-link" id="other-settings-tab" data-bs-toggle="tab" href="#other-settings" role="tab">Report Generator</a>
                     </li>
                 </ul>
             </div>
@@ -137,27 +209,26 @@
                         </form>
                     </div>
 
-                    <!-- Other Settings Tab -->
+                    <!-- Report Generator -->
+<!--Start-->
                     <div class="tab-pane fade" id="other-settings" role="tabpanel">
-                        <h5>Other Settings</h5>
-                        <form>
-                            <div class="mb-3">
-                                <label for="language" class="form-label">Language</label>
-                                <select class="form-select" id="language">
-                                    <option selected>English</option>
-                                    <option>Spanish</option>
-                                    <option>French</option>
-                                </select>
+
+                        <div class="container">
+                            <div class="row">
+                                <!-- Pie Chart -->
+                                <div class="col-md-4">
+                                    <h2>Issued Certificates</h2>
+                                    <div id="piechart"></div>
+                                </div>
+                                <br><br><br>
+                                <!-- Line Chart -->
+                                <div class="col-md-4">
+                                    <h2>Appointments per Day</h2>
+                                    <div id="line_chart_div"></div>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="theme" class="form-label">Theme</label>
-                                <select class="form-select" id="theme">
-                                    <option selected>Light</option>
-                                    <option>Dark</option>
-                                </select>
-                            </div>
-                            <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
-                        </form>
+                        </div>
+<!--End-->
                     </div>
                 </div>
             </div>
