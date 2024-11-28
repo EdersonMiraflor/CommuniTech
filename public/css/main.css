@@ -784,6 +784,72 @@ h3 {
     margin-left: 50px;
     margin-right: 50px;
 }
+/* Row styling to center the content */
+.auth-row {
+    display: flex;
+    justify-content: center;
+}
+
+/* Column width adjustment */
+.auth-col {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Card styling */
+.auth-card {
+    padding: 20px;
+    background-color: #E8F7EC;
+}
+
+/* Card header styling */
+.auth-card-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 70px;
+    background-color: #fcfcfc;
+}
+
+/* Card body styling */
+.auth-card-body {
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* Alert message styling */
+.auth-alert {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+/* Paragraph text styling */
+.auth-text {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Button link styling */
+.auth-button {
+    color: #007bff;
+    text-decoration: underline;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
 
 /*birth css*/
 

@@ -21,8 +21,7 @@ Explanation:
         @endif
     </div>
 
-    <h1>OTP Home</h2>
-    <p>You are logged in as: <strong>{{ auth()->user()->name }}</strong></p>
+    <h3>You are logged in as: <strong>{{ auth()->user()->name }}</strong></h3>
 
     <a href="{{ url('/generatePDF') }}" style="text-decoration: none; color: blue;">
             Click here to Download your Certificate

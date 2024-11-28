@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <!-- Left Container for Images and Text -->
         <div class="col-lg-6 col-md-6 mb-6 mb-md-0">
-            <div class="text-center" style="margin-top: 60px;">
+            <div class="text-center" style="margin-top: 60px; font-family: Arial, sans serif;">
                 <h1 class="display-4">CommuniTECH</h1>
                 <p class="lead">A Web - Based Application For Civil Registry Office of Manito, Albay</p>
             </div>
