@@ -567,7 +567,7 @@
                             <br/>LIC 3201
                         </li>
                     </ul>
-                    <a href="" class="btn apply-btn">Book Now</a>
+                    <a href="" class="btn apply-btn">Register Now</a>
                 </div>
                 <div class="col-md-6 col-lg-2 page-more-info">
                     <div class="footer-title">
@@ -575,9 +575,10 @@
                     </div>
                     <ul>
                         <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">User Manual</a></li>
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Testimonial</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
@@ -606,20 +607,32 @@
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td><i class="far fa-clock"></i>Monday Thursday</td>
-                                <td>9:00am - 5:00pm</td>
+                                <td><i class="far fa-clock"></i>Monday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Tuesday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Wednesday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Thursday</td>
+                                <td>8:00am - 5:00pm</td>
                             </tr>
                             <tr>
                                 <td><i class="far fa-clock"></i>Friday</td>
-                                <td>9:00am - 4:00pm</td>
+                                <td>8:00am - 5:00pm</td>
                             </tr>
                             <tr>
-                                <td><i class="far fa-clock"></i>Sturday</td>
-                                <td>9:00am - 1:30pm</td>
+                                <td><i class="far fa-clock"></i>Saturday</td>
+                                <td>CLOSED</td>
                             </tr>
                             <tr>
                                 <td><i class="far fa-clock"></i>Sunday</td>
-                                <td>9:30am - 12:00pm</td>
+                                <td>CLOSED</td>
                             </tr>
                         </tbody>
                     </table>
@@ -647,7 +660,7 @@
                     <a href="">Privacy policy</a>
                 </div>
                 <div class="col-sm-8">
-                    <p>Lorem ipsum dolor sit amet @ 2019 All rights reserved</p>
+                    <p>Communitech @ 2024 All rights reserved</p>
                 </div>
             </div>
         </div>
