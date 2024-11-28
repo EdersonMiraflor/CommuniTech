@@ -137,3 +137,19 @@ Route::get('/otpform', function () {
 })->middleware('auth');
 
 Route::post('/otpform', [OtpController::class, 'create'])->name('otpform');
+
+use App\Http\Controllers\BirthRegistrationController;
+
+Route::resource('birth_registrations', BirthRegistrationController::class);
+use App\Http\Controllers\RiderController;
+
+// Routes for rider signup (already working)
+Route::get('/rider-signup', [RiderController::class, 'create']);
+Route::post('/rider-signup', [RiderController::class, 'store']);
+
+// Resource route for CRUD operations on riders
+Route::resource('riders', RiderController::class);
+
+// Add the new routes for the rider home page and delivery history
+Route::get('riders/{id}/home', [RiderController::class, 'home'])->name('riders.home');
+Route::get('riders/{id}/delivery-history', [RiderController::class, 'deliveryHistory'])->name('riders.delivery-history');
