@@ -472,7 +472,12 @@
     <div class="navbar-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
         <a href="/home/services" class="{{ Request::is('home/services') ? 'active' : '' }}">SERVICES</a>
-        <a href="/home/transaction" class="{{ Request::is('home/transaction') ? 'active' : '' }}">TRANSACTIONS</a>
+        @auth
+            {{-- Check if the user is admin --}}
+            @if (Auth::user()->Credential == 'admin')
+            <a href="/home/transaction" class="{{ Request::is('home/transaction') ? 'active' : '' }}">TRANSACTIONS</a>
+            @endif
+        @endauth
         <a href="/home/usermanual" class="{{ Request::is('home/usermanual') ? 'active' : '' }}">USER MANUAL</a>
         <!--
         @auth
@@ -526,9 +531,6 @@
     </div>
 </nav>
 
-
-
-
     <script>
         // JavaScript for Toggling the Dropdown Menu in Mobile View
         document.getElementById('menu-icon').addEventListener('click', function() {
@@ -567,7 +569,7 @@
                             <br/>LIC 3201
                         </li>
                     </ul>
-                    <a href="" class="btn apply-btn">Book Now</a>
+                    <a href="" class="btn apply-btn">Register Now</a>
                 </div>
                 <div class="col-md-6 col-lg-2 page-more-info">
                     <div class="footer-title">
@@ -575,9 +577,10 @@
                     </div>
                     <ul>
                         <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">User Manual</a></li>
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Testimonial</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
@@ -600,26 +603,37 @@
                             <li><a href="" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="" target="_blank"><i class="fab fa-instagram"></i></a></li>
                             <li><a href="" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-
                         </ul>
                     </div>
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td><i class="far fa-clock"></i>Monday Thursday</td>
-                                <td>9:00am - 5:00pm</td>
+                                <td><i class="far fa-clock"></i>Monday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Tuesday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Wednesday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Thursday</td>
+                                <td>8:00am - 5:00pm</td>
                             </tr>
                             <tr>
                                 <td><i class="far fa-clock"></i>Friday</td>
-                                <td>9:00am - 4:00pm</td>
+                                <td>8:00am - 5:00pm</td>
                             </tr>
                             <tr>
-                                <td><i class="far fa-clock"></i>Sturday</td>
-                                <td>9:00am - 1:30pm</td>
+                                <td><i class="far fa-clock"></i>Saturday</td>
+                                <td>CLOSED</td>
                             </tr>
                             <tr>
                                 <td><i class="far fa-clock"></i>Sunday</td>
-                                <td>9:30am - 12:00pm</td>
+                                <td>CLOSED</td>
                             </tr>
                         </tbody>
                     </table>
@@ -647,7 +661,7 @@
                     <a href="">Privacy policy</a>
                 </div>
                 <div class="col-sm-8">
-                    <p>Lorem ipsum dolor sit amet @ 2019 All rights reserved</p>
+                    <p>Communitech @ 2024 All rights reserved</p>
                 </div>
             </div>
         </div>

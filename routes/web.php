@@ -6,6 +6,7 @@ use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\PdfController; 
 use App\Http\Controllers\OtpController; 
 use App\Http\Controllers\OtpHomeController;
+use App\Http\Controllers\AdminController;
 Auth::routes();
 
 //Route::get('/home/report', [CertificateController::class, 'showIssuedCertificate'])->middleware('auth');
@@ -23,9 +24,11 @@ Route::get('/home/usermanagement', function () {
     return view('page.usermanagement');
 })->middleware('auth');
 
-Route::get('/home/user-profile', function () {
-    return view('page.user-profile');
-})->middleware('auth');
+Route::get('/home/user-profile', [AdminController::class, 'userProfile'])->name('user.profile')->middleware('auth');
+Route::patch('/change-credential', [AdminController::class, 'changeCredential'])->name('change.credential');
+Route::get('home/user-profile', [CertificateController::class, 'showUserProfile'])->middleware('auth');
+
+
 
 Route::get('/home/transactionhistory', function () {
     return view('page.transactionhistory');
@@ -63,6 +66,29 @@ Route::get('/forgot', function () {
 Route::get('/home/services', function () {
     return view('page.services');
 })->middleware('auth');
+
+
+Route::get('/home/adminmanagement', function () {
+    return view('page.adminmanagement');
+})->middleware('auth');
+
+
+Route::get('/home/rider_user_com', function () {
+    return view('page.rider_user_com');
+})->middleware('auth');
+
+Route::get('/home/rider_admin_com', function () {
+    return view('page.rider_admin_com');
+})->middleware('auth');
+
+Route::get('/home/ridermanagement', function () {
+    return view('page.ridermanagement');
+})->middleware('auth');
+
+Route::get('/home/userrequest', function () {
+    return view('page.userrequest');
+})->middleware('auth');
+/*Stop*/
 
 Route::get('/home/services/form102', function () {
     return view('page.form102');
@@ -112,8 +138,7 @@ Explanation:
 Route::get('/transactionform/{id}', [FormsController::class, 'showuserform']);
 
                                             /*PDF Generator*/
-Route::get('/generatePDF', [PdfController::class, 'generatePdf']);
-
+Route::get('/generatePDF', [PdfController::class, 'generatePdf'])->middleware('auth');
                                             /*OTP*/
 Route::get('/otphome', [OtpHomeController::class, 'index']);
 /*Sending OTP Code with OTP Form 4
