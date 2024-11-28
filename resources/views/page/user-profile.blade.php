@@ -53,10 +53,11 @@
                         <form method="POST" action="{{ route('change.credential') }}">
                             @csrf
                             @method('PATCH')
-
+                            <!-- Admin Lists -->
                             <div class="mb-3">
                                 <label for="admin-lists" class="form-label">Admin Lists</label>
                                 <select class="form-select" id="admin-lists" name="user_id">
+                                    <option style="color: grey;">Select user</option>
                                     @if(isset($admins) && count($admins) > 0)
                                         @foreach ($admins as $admin)
                                             <option value="{{ $admin->User_Id }}">
@@ -66,14 +67,15 @@
                                             </option>
                                         @endforeach
                                     @else
-                                        <option>No Admins Found</option>
+                                        <option style="color: red;">No Admins Found</option>
                                     @endif
                                 </select>
                             </div>
-
+                            <!-- User Lists -->
                             <div class="mb-3">
-                                <label for="user-credential" class="form-label">User Lists</label>
-                                <select class="form-select" id="user-credential" name="user_id">
+                                <label for="user-lists" class="form-label">User Lists</label>
+                                <select class="form-select" id="user-lists" name="user_id">
+                                    <option style="color: grey;">Select user</option>
                                     @if(isset($users) && count($users) > 0)
                                         @foreach ($users as $user)
                                             <option value="{{ $user->User_Id }}">
@@ -83,13 +85,30 @@
                                             </option>
                                         @endforeach
                                     @else
-                                        <option>No Users Found</option>
+                                        <option style="color: red;">No User Found</option>
                                     @endif
                                 </select>
                             </div>
-
+                            <!-- All Lists -->
                             <div class="mb-3">
-                                <label for="change-credential" class="form-label">Change User Credential</label>
+                                <label for="user-credential" class="form-label">All Lists</label>
+                                <select class="form-select" id="user-credential" name="user_id">
+                                    <option style="color: grey;">Select user</option>
+                                    @if(isset($userlists) && count($userlists) > 0)
+                                        @foreach ($userlists as $user)
+                                            <option value="{{ $user->User_Id }}">
+                                                {{ $user->name ?? 'N/A' }} {{ $user->Middle_Name ?? '' }} {{ $user->Last_Name ?? '' }}
+                                                - {{ $user->created_at->format('Y-m-d') ?? 'N/A' }}
+                                                - {{ $user->Credential ?? 'N/A' }}
+                                            </option>
+                                        @endforeach
+                                    @else
+                                        <option style="color: red;">No Users or Admin Found</option>
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="change-credential" class="form-label">Change Credential (All Lists)</label>
                                 <button type="submit" name="credential" value="admin" class="btn btn-primary">Make Admin</button>
                                 <button type="submit" name="credential" value="user" class="btn btn-warning">Make User</button>
                             </div>
