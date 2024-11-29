@@ -13,8 +13,9 @@ class AdminController extends Controller
         $admins = User::where('Credential', 'admin')->get();
         $users = User::where('Credential', 'user')->get();
         $userlists = User::whereIn('Credential', ['user', 'admin'])->get();
-
-        return view('page.user-profile', compact('admins', 'users', 'userlists'));
+        $userdata = auth()->user();
+        
+        return view('page.user-profile', compact('admins', 'users', 'userlists', 'userdata'));
     }
 
     public function changeCredential(Request $request)

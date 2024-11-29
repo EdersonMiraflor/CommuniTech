@@ -24,9 +24,9 @@ Route::get('/home/usermanagement', function () {
     return view('page.usermanagement');
 })->middleware('auth');
 
-Route::get('/home/user-profile', [AdminController::class, 'showUserProfile'])->name('user.profile')->middleware('auth');
+Route::get('/home/user-profile', [AdminController::class, 'UserProfile'])->name('user.profile')->middleware('auth');
 Route::patch('/change-credential', [AdminController::class, 'changeCredential'])->name('change.credential');
-Route::get('/personal-info', [UsersController::class, 'showPersonalInfo'])->name('personal.info')->middleware('auth');
+Route::get('/home/user-personal', [UsersController::class, 'showPersonalInfo'])->name('personal.info')->middleware('auth');
 
 Route::get('/home/transactionhistory', function () {
     return view('page.transactionhistory');
