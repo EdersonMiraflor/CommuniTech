@@ -58,13 +58,47 @@
             <div class="col-md-9">
                 <div class="tab-content" id="myTabContent">
                     <!-- Personal Info Tab -->
-                    <div class="tab-pane fade show active" id="personal-info" role="tabpanel">
+                        <div class="tab-pane fade show active" id="personal-info" role="tabpanel">
                         <h5>Personal Information</h5>
                         <form>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            <div style="padding-left: 58px;">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" 
+                                        value="{{ $userdata->name }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Middle_Name" class="form-label">Middle Name</label>
+                                    <input type="text" class="form-control" id="Middle_Name" name="Middle_Name" 
+                                        value="{{ $userdata->Middle_Name }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Last_Name" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="Last_Name" name="Last_Name" 
+                                        value="{{ $userdata->Last_Name }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Birth_Date" class="form-label">Birth Date</label>
+                                    <input type="text" class="form-control" id="Birth_Date" name="Birth_Date" 
+                                        value="{{ $userdata->Birth_Date }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Mobile_Number" class="form-label">Mobile Number</label>
+                                    <input type="text" class="form-control" id="Mobile_Number" name="Mobile_Number" 
+                                        value="{{ $userdata->Mobile_Number }}" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="email" name="email" 
+                                        value="{{ $userdata->email }}" readonly>
+                                </div>
                             </div>
+                        </form>
+                    </div>
+
+
+                        <h5 style="padding-top: 60px;">Password Information</h5>
+                        <div style="padding-left: 58px;">
                             <div class="mb-3">
                                 <label for="password" class="form-label">New Password</label>
                                 <input type="password" class="form-control" id="password" placeholder="New password">
@@ -74,6 +108,7 @@
                                 <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password">
                             </div>
                             <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
+                        </div>
                         </form>
                     </div>
 
@@ -170,7 +205,7 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="change-credential" class="form-label">Change Credential (All Lists)</label>
+                                <label for="change-credential" class="form-label">Change Credential (All Lists)</label><br>
                                 <button type="submit" name="credential" value="admin" class="btn btn-primary">Make Admin</button>
                                 <button type="submit" name="credential" value="user" class="btn btn-warning" style="color: #fcfcff; background-color: #008080; border-color: #008080;">Make User</button>
                             </div>
