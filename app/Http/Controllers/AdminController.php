@@ -85,4 +85,35 @@ class AdminController extends Controller
         // Pass the authenticated user data to the 'page.user-profile' view.
         return view('page.user-profile', compact('userdata'));
     }
+
+        public function dataupdate(Request $request)
+    {
+        // Validate the input data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'Middle_Name' => 'nullable|string|max:255',
+            'Last_Name' => 'required|string|max:255',
+            'Birth_Date' => 'required|date',
+            'Mobile_Number' => 'required|string|max:15',
+            'email' => 'required|email|unique:users,email,' . auth()->user()->User_Id . ',User_Id',  // Corrected: use User_Id
+        ]);
+
+        // Retrieve the current user's data
+        $dataupdate = auth()->user(); // Using $dataupdate instead of $user
+
+        // Update the user's data
+        $dataupdate->name = $request->name;
+        $dataupdate->Middle_Name = $request->Middle_Name;
+        $dataupdate->Last_Name = $request->Last_Name;
+        $dataupdate->Birth_Date = $request->Birth_Date;
+        $dataupdate->Mobile_Number = $request->Mobile_Number;
+        $dataupdate->email = $request->email;
+
+        // Save the updated user information
+        $dataupdate->save();
+
+        // Redirect or return a response
+        return redirect()->route('user.profile')->with('success', 'Profile updated successfully!');
+    }
+
 }
