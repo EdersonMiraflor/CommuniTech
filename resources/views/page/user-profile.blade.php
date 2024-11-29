@@ -92,24 +92,9 @@
                                     <input type="email" class="form-control" id="email" name="email" 
                                         value="{{ $userdata->email }}" readonly>
                                 </div>
-                            </div>
-                        </form>
+                        <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
                     </div>
-
-
-                        <h5 style="padding-top: 60px;">Password Information</h5>
-                        <div style="padding-left: 58px;">
-                            <div class="mb-3">
-                                <label for="password" class="form-label">New Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="New password">
-                            </div>
-                            <div class="mb-3">
-                                <label for="confirm-password" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password">
-                            </div>
-                            <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
-                        </div>
-                        </form>
+                    </form>
                     </div>
 
                     <!-- Request History -->
