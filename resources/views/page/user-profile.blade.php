@@ -11,16 +11,47 @@
                     <li class="nav-item">
                         <a class="nav-link active" id="personal-info-tab" data-bs-toggle="tab" href="#personal-info" role="tab">Personal Info</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" id="request-history-tab" data-bs-toggle="tab" href="#request-history" role="tab">Requests History</a>
+                    </li>
+
+            @auth
+                {{-- Check if the user is admin --}}
+                @if (Auth::user()->Credential == 'admin')
                     <li class="nav-item">
                         <a class="nav-link" id="admin-tab" data-bs-toggle="tab" href="#admin" role="tab">Admin Management</a>
                     </li>
+                @endif
+            @endauth
+
+            @auth
+                {{-- Check if the user is admin --}}
+                @if (Auth::user()->Credential == 'admin')
                     <li class="nav-item">
-                        <a class="nav-link" id="notifications-tab" data-bs-toggle="tab" href="#notifications" role="tab">Rider Management</a>
+                        <a class="nav-link" id="riders-tab" data-bs-toggle="tab" href="#riders" role="tab">Rider Management</a>
                     </li>
+                    @endif
+            @endauth
+
+            @auth
+                {{-- Check if the user is admin --}}
+                @if (Auth::user()->Credential == 'admin')
                     <li class="nav-item">
-                        <a class="nav-link" href="/home/user-profile/report" style="color: green;">Go to Report Generator</a>
+                        <a class="nav-link" href="/otpform" style="color: #008080;">Go to User Requests</a>
+                    </li>
+                    @endif
+            @endauth
+
+            @auth
+                {{-- Check if the user is admin --}}
+                @if (Auth::user()->Credential == 'admin')
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home/user-profile/report" style="color: #008080;">Go to Report Generator</a>
                     </li>
                 </ul>
+                @endif
+            @endauth
             </div>
 
             <!-- Content Section -->
@@ -41,6 +72,38 @@
                             <div class="mb-3">
                                 <label for="confirm-password" class="form-label">Confirm Password</label>
                                 <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password">
+                            </div>
+                            <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
+                        </form>
+                    </div>
+
+                    <!-- Request History -->
+                    <div class="tab-pane fade" id="request-history" role="tabpanel">
+                        <h5>Request History</h5>
+                        <form>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Request Date</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Request Status</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Certificate Type</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Certificate Quantity</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Certificate Amount</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
                             </div>
                             <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
                         </form>
@@ -109,24 +172,17 @@
                             <div class="mb-3">
                                 <label for="change-credential" class="form-label">Change Credential (All Lists)</label>
                                 <button type="submit" name="credential" value="admin" class="btn btn-primary">Make Admin</button>
-                                <button type="submit" name="credential" value="user" class="btn btn-warning">Make User</button>
+                                <button type="submit" name="credential" value="user" class="btn btn-warning" style="color: #fcfcff; background-color: #008080; border-color: #008080;">Make User</button>
                             </div>
                         </form>
                     </div>
 
                     <!-- Rider Management Tab -->
-                    <div class="tab-pane fade" id="notifications" role="tabpanel">
+                    <div class="tab-pane fade" id="riders" role="tabpanel">
                         <h5>Rider Management</h5>
                         <form>
                             <div class="mb-3">
-                                <label for="email-notifications" class="form-label">Email Notifications</label>
-                                <select class="form-select" id="email-notifications">
-                                    <option selected>Enabled</option>
-                                    <option>Disabled</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="sms-notifications" class="form-label">SMS Notifications</label>
+                                <label for="sms-notifications" class="form-label">Riders Information</label>
                                 <select class="form-select" id="sms-notifications">
                                     <option selected>Enabled</option>
                                     <option>Disabled</option>
@@ -142,13 +198,13 @@
 
     <!-- Success/Error Messages -->
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+        <div class="alert alert-success" style="opacity: 1; transition: opacity 1s ease;">{{ session('success') }}</div>
     @endif
     @if(session('error'))
-        <div class="alert alert-danger">{{ session('error') }}</div>
+        <div class="alert alert-danger" style="opacity: 1; transition: opacity 1s ease;">{{ session('error') }}</div>
     @endif
     @if(session('info'))
-        <div class="alert alert-info">{{ session('info') }}</div>
+        <div class="alert alert-info" style="opacity: 1; transition: opacity 1s ease;">{{ session('info') }}</div>
     @endif
 
     <!-- Bootstrap JS -->
