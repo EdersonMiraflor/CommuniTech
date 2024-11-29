@@ -10,7 +10,7 @@ use App\Http\Controllers\AdminController;
 Auth::routes();
 
 //Route::get('/home/report', [CertificateController::class, 'showIssuedCertificate'])->middleware('auth');
-Route::get('/home/report', [CertificateController::class, 'showReport'])->middleware('auth'); 
+Route::get('/home/user-profile/report', [CertificateController::class, 'showReport'])->middleware('auth'); 
 
 Route::get('/home/privacy-policy', function () {
     return view('page.privacy-policy');
@@ -26,8 +26,6 @@ Route::get('/home/usermanagement', function () {
 
 Route::get('/home/user-profile', [AdminController::class, 'userProfile'])->name('user.profile')->middleware('auth');
 Route::patch('/change-credential', [AdminController::class, 'changeCredential'])->name('change.credential');
-
-
 
 Route::get('/home/transactionhistory', function () {
     return view('page.transactionhistory');

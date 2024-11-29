@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use App\Models\Transaction;
+use DB;
 class AdminController extends Controller
 {
     public function userProfile()
