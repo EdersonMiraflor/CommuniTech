@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OTP Form</title>
-</head>
-<body style="margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f5f5f5;">
+@extends('layouts.layout')
+@section('contents')
+
     <div style="background-color: #E8F7EC; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 100%; max-width: 600px; text-align: center;">
         <!-- Sending OTP Code with OTP Form 1 -->
         <h1 style="font-family: Arial, sans-serif; font-size: 28px; color: #333;">OTP Form</h1>
@@ -22,5 +17,5 @@
             <button type="submit" style="background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-family: Arial, sans-serif; font-size: 16px;">Submit</button>
         </form>
     </div>
-</body>
-</html>
+
+@endsection
