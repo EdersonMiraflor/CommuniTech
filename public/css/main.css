@@ -1,15 +1,18 @@
-html, body {
-    height: 100%; /* Make sure the body and html take the full height of the viewport */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+html,
 body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin: 0; /* Reset margins */
     min-height: 100vh; /* Ensure the body is at least the height of the viewport */
 }
-
-
 
 /* START OF USER PROFILE OVERRIDE */
 /* Override Bootstrap's default blue color for links 
@@ -57,82 +60,71 @@ body {
 /* END OF USER PROFILE OVERRIDE */
 
 /*HOME PAGE CSS*/
-
-/* Responsive Intro Section */
+/* Ensure the background overlay div covers the full screen */
 .background-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Full viewport height */
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center;
-    z-index: -1;
-    opacity: 0.5;
+    opacity: 0.5; /* Set the background opacity */
+    z-index: -1; /* Ensure the background stays behind content */
 }
 
-.intro {
-    margin-top: 3rem;
+/* Container for the intro section */
+.intro-container {
     position: relative;
-    height: 550px;
+    width: 100%;
+    height: 100vh; /* Ensures full screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
-
-
-.intro h1 {
-    font-size: 2.5rem;
-    color: black;
-    margin-bottom: 1rem;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Adds a slight whitish shadow */
+.intro-container::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('{{ asset('img/municipalhall.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* Set the background image opacity */
+    z-index: -1; /* Ensure the background stays behind the content */
 }
 
-.intro p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Adds a subtle effect */
+/* Intro section styling */
+.intro {
+    color: black;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Subtle whitish shadow */
+    max-width: 1200px; /* Limit width for readability */
+    padding: 1rem; /* Add padding for smaller screens */
+    z-index: 1; /* Ensure content stays above the background */
+}
+
+.intro h1{
+    font-size: 2rem;
+}
+
+.intro p{
+    font-size: 1.5rem;
 }
 
 .btn-apply {
-    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    margin-top: 20px;
+    padding: 10px 20px;
     background-color: #28a745;
-    color: #fff;
+    color: white;
     text-decoration: none;
-    border-radius: 0.3125rem;
-    font-weight: bold;
-    font-size: 1rem; /* Ensure font size scales with responsiveness */
-    transition: background-color 0.3s ease;
+    border-radius: 5px;
 }
 
-.btn-apply:hover {
-    background-color: #218838;
-}
-
-/* Adjust for smaller screens */
-@media (max-width: 768px) {
-    .intro h1 {
-        font-size: 2rem;
-    }
-
-    .intro p {
-        font-size: 1rem;
-    }
-
-    .btn-apply {
-        padding: 0.5rem 1rem; /* Smaller padding for mobile */
-        font-size: 0.9rem; /* Slightly smaller font size for button */
-    }
-
-    .intro {
-        padding: 1.5rem;
-    }
-}
-
-.btn-apply:hover {
-    background-color: #218838;
-}
-
+/* Team Section */
 .team {
     width: 100%;
     padding: 25px 0;
@@ -145,9 +137,8 @@ body {
 }
 
 .team-grid {
-    width: 100%;
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -174,10 +165,32 @@ body {
     font-size: 1rem;
 }
 
-/* Ensure the sections don't overlap */
-.home-container + .team {
-    margin-top: 0;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-member img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .intro h1 {
+        font-size: 1.5rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    .btn-apply {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
 }
+
 
 /*END OF HOME CSS*/
 
@@ -226,8 +239,10 @@ body {
     margin-left: 40px;
 }
 
-.left-content1, .left-content2 p,
-.left-content1, .left-content2 ul {
+.left-content1,
+.left-content2 p,
+.left-content1,
+.left-content2 ul {
     font-size: 18px;
     color: #333;
     line-height: 1.8;
@@ -237,7 +252,8 @@ body {
     margin-right: 40px;
 }
 
-.left-content1, .left-content2 ul {
+.left-content1,
+.left-content2 ul {
     list-style-type: disc;
     margin-left: 40px;
     margin-right: 40px;
@@ -247,7 +263,7 @@ body {
 .right-content {
     flex: 0.9;
     padding: 20px;
-    text-align: center; 
+    text-align: center;
 }
 
 .about-image {
@@ -257,16 +273,15 @@ body {
 }
 
 .image-caption {
-    font-size: 2.0rem;
+    font-size: 2rem;
     color: #28a745;
     font-weight: bold;
     margin-top: 0%;
 }
 
 .highlight {
-    color: #28a745; 
+    color: #28a745;
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -275,7 +290,8 @@ body {
         padding: 50px 20px;
     }
 
-    .left-content1, .right-content .left-content2 {
+    .left-content1,
+    .right-content .left-content2 {
         width: 100%;
     }
 
@@ -283,12 +299,15 @@ body {
         font-size: 28px;
     }
 
-    .left-content1, .left-content2 h2 {
+    .left-content1,
+    .left-content2 h2 {
         font-size: 20px;
     }
 
-    .left-content1, .left-content2 p, 
-    .left-content1, .left-content2 ul, 
+    .left-content1,
+    .left-content2 p,
+    .left-content1,
+    .left-content2 ul,
     .image-caption {
         font-size: 16px;
     }
@@ -327,7 +346,7 @@ body {
     margin-left: 40px;
 }
 
-.privacy-content2  h2 {
+.privacy-content2 h2 {
     font-size: 24px;
     color: #28a745;
     margin-top: 10px;
@@ -342,12 +361,13 @@ body {
     color: #333;
     line-height: 1.8;
     text-align: justify;
-    text-indent: 2em ;
+    text-indent: 2em;
     margin-left: 40px;
     margin-right: 40px;
 }
 
-.privacy-content2 p, .privacy-content2 ul {
+.privacy-content2 p,
+.privacy-content2 ul {
     font-size: 18px;
     text-indent: 2em;
     text-align: justify;
@@ -374,7 +394,7 @@ body {
     .privacypolicy {
         flex-direction: column;
     }
-    
+
     .right-content2 {
         padding: 20px 0;
     }
@@ -389,7 +409,8 @@ body {
         margin-top: 20px;
     }
 
-    .privacy-content2 ul, .privacy-content2 p {
+    .privacy-content2 ul,
+    .privacy-content2 p {
         font-size: 16px;
         text-indent: 1.5em;
     }
@@ -408,7 +429,8 @@ body {
         font-size: 18px;
     }
 
-    .privacy-content2 ul, .privacy-content2 p {
+    .privacy-content2 ul,
+    .privacy-content2 p {
         font-size: 14px;
         text-indent: 1em;
     }
@@ -423,7 +445,7 @@ body {
 }
 
 .service-card {
-    background-color: #BCE7C8;
+    background-color: #bce7c8;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -467,22 +489,22 @@ h3 {
 }
 
 .service-buttons .btn-primary {
-    background-color: #E8F7EC;
+    background-color: #e8f7ec;
     border-color: #000;
 }
 
 .service-buttons .btn-secondary {
-    background-color: #E8F7EC;
+    background-color: #e8f7ec;
     border-color: #000;
 }
 
 .service-buttons .btn-primary:hover {
-    background-color: #90D7A4; /* Slightly darker shade of the original background color */
+    background-color: #90d7a4; /* Slightly darker shade of the original background color */
     border-color: #000; /* Slightly darker shade of the original border color */
 }
 
 .service-buttons .btn-secondary:hover {
-    background-color: #90D7A4; /* Slightly darker shade of the original background color */
+    background-color: #90d7a4; /* Slightly darker shade of the original background color */
     border-color: #000; /* Slightly darker shade of the original border color */
 }
 
@@ -516,7 +538,7 @@ h3 {
 
 /* Background color for the entire contact page */
 .contact-page {
-    background-color: #90D7A4;
+    background-color: #90d7a4;
     padding: 80px 50px;
     border-radius: 8px;
 }
@@ -535,7 +557,8 @@ h3 {
 
 /* For small screens (mobile devices) */
 @media (max-width: 767px) {
-    .left-container, .right-container {
+    .left-container,
+    .right-container {
         margin-bottom: 20px;
     }
     .right-container {
@@ -544,7 +567,7 @@ h3 {
 }
 
 /* REGISTER SECTION */
-.container {
+.register-container {
     font-family: Arial, sans-serif;
     margin: 10px;
     padding: 20px;
@@ -556,7 +579,7 @@ h3 {
 /* Card styling */
 .card {
     padding: 20px;
-    background-color: #E8F7EC;
+    background-color: #e8f7ec;
 }
 
 .card-header {
@@ -617,7 +640,7 @@ h3 {
 
 /* Cancel Button */
 .cancel-button {
-    background-color: #FF6F6F;
+    background-color: #ff6f6f;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -628,7 +651,7 @@ h3 {
 
 /* Register Button */
 .register-button {
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -686,7 +709,8 @@ h3 {
         gap: 10px;
     }
 
-    .cancel-button, .register-button {
+    .cancel-button,
+    .register-button {
         width: 100%;
     }
 }
@@ -799,7 +823,7 @@ h3 {
 /* Card styling */
 .auth-card {
     padding: 20px;
-    background-color: #E8F7EC;
+    background-color: #e8f7ec;
 }
 
 /* Card header styling */
@@ -855,18 +879,25 @@ h3 {
 
 /* Birth Container for the Form */
 :root {
-    --birth-bg-color: #E8F7EC;          /* Background color for the body */
-    --birth-label-color: #333;          /* Text color for labels */
-    --birth-input-bg-color: #fff;       /* Background for input fields */
-    --birth-input-border-color: #ccc;   /* Border color for input fields */
-    --birth-heading-color: #333;        /* Color for headings */
-    --birth-logo-width: 50px;           /* Logo size */
-    --birth-btn-success-bg: #28a745;    /* Success button background color */
-    --birth-btn-success-color: #fff;     /* Success button text color */
-    --birth-shadow-color: rgba(0, 0, 0, 0.1); /* Shadow color for the container */
+    --birth-bg-color: #e8f7ec; /* Background color for the body */
+    --birth-label-color: #333; /* Text color for labels */
+    --birth-input-bg-color: #fff; /* Background for input fields */
+    --birth-input-border-color: #ccc; /* Border color for input fields */
+    --birth-heading-color: #333; /* Color for headings */
+    --birth-logo-width: 50px; /* Logo size */
+    --birth-btn-success-bg: #28a745; /* Success button background color */
+    --birth-btn-success-color: #fff; /* Success button text color */
+    --birth-shadow-color: rgba(
+        0,
+        0,
+        0,
+        0.1
+    ); /* Shadow color for the container */
 }
 .birth-container {
-    background-color: var(--birth-bg-color);  /* Use the defined background color */
+    background-color: var(
+        --birth-bg-color
+    ); /* Use the defined background color */
     padding: 50px;
     border-radius: 8px;
     box-shadow: 0 2px 5px var(--birth-shadow-color);
@@ -875,11 +906,10 @@ h3 {
     display: flex;
     align-items: center; /* Vertically center the logo and heading */
     margin-bottom: 20px;
-
 }
 .birth-heading {
     display: flex;
-    align-items: center;  /* Vertically centers both the image and text */
+    align-items: center; /* Vertically centers both the image and text */
     justify-content: center; /* Horizontally center the logo and heading text */
     margin: 0;
     line-height: 1.5; /* Adjust line height for better vertical alignment */
@@ -887,18 +917,16 @@ h3 {
     font-size: 100px; /* Heading font size */
     font-weight: bolder;
 }
-    
 
 .birth-label {
     color: var(--birth-label-color);
     font-weight: bold;
-  
 }
 .birth-logo {
-    width: 80px;  /* Increase this value for a larger logo */
-    margin-right: 20px;  /* Closer space between logo and heading */
-    margin-left: 20px;   /* Closer space to the container */
-    height: auto;        /* Maintain aspect ratio */
+    width: 80px; /* Increase this value for a larger logo */
+    margin-right: 20px; /* Closer space between logo and heading */
+    margin-left: 20px; /* Closer space to the container */
+    height: auto; /* Maintain aspect ratio */
     vertical-align: middle; /* Align image with text baseline */
     padding: 10px;
 }

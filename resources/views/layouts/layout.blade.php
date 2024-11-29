@@ -180,15 +180,9 @@
                 display: none; /* Hide menu icon on larger screens */
             }
         }
-    
+            
         /*START OF FOOTER*/
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {}
         a,
         a:hover,
         a:focus,
@@ -236,8 +230,8 @@
         transition: all 0.8s;
         }
         .apply-btn {
-        background: #2253af;
-        border: 2px solid #2253af;
+        background: #00bd2c;
+        border: 2px solid #00bd2c;
         color: #fff;
         }
 
@@ -248,19 +242,20 @@
         }
 
         /*---------footer---------*/
-        footer {
-        background-color: #90D7A4;
-        /*
-        background-image: -webkit-linear-gradient( top, #222023, #1e2c47 );
-        background-image: -moz-linear-gradient( top, #222023, #1e2c47 );
-        background-image: -o-linear-gradient( top, #222023, #1e2c47 );
-        background-image: linear-gradient( to bottom, #222023, #1e2c47 );
-        */
+        /* General Footer Styles */
+    footer {
+        background-color: #90D7A4; /* Footer background color */
+        color: #333; /* Text color */
+        font-size: 15px; /* Default font size */
+        padding: 10px 0; /* Adjust padding to reduce footer thickness */
+        line-height: 1; /* Improve readability */
+    }
 
-        color: #333;
-        padding: 15px 0;
-        font-size: 15px;
-        }
+    .footer-container {
+        max-width: 1500px; /* Restrict content width for better alignment */
+        margin: 0 auto; /* Center the container */
+        padding: 0 15px; /* Prevent content from touching edges */
+    }         
         footer h3 {
         font-size: 24px;
         font-weight: 600;
@@ -342,6 +337,7 @@
         font-weight: 600;
         padding-left: 33px;
         background-color: #90D7A4;
+        line-height: 1.9; /* Improve readability */
         }
 
         footer .table td:last-child {text-align: right;}
@@ -349,10 +345,6 @@
         padding: 0px;
         border: 0;
         background-color: #90D7A4;
-        }
-
-        footer .table tr {
-            
         }
 
         footer .table td i {
@@ -369,18 +361,17 @@
         }
         .footer-logo td {
         padding-right: 4px !important;
-        margin-bottom: 3rem;
         }
 
         .footer-logo td:last-child {
         padding-right: 0px !important;
-        margin-bottom: 3rem;
+        
         }
 
 
         footer hr {
         border-color: #212121;
-        margin-top: 3rem;
+  
         }
 
         .footer-bottom p {
@@ -554,12 +545,14 @@
     
 
   
-<!-- Footer Section -->
+<!-- Footer Section-->
 <footer>
-    <div class="container">
+    <div class="footer-container">
         <div class="footer-top">
+        <br>
             <div class="row">
                 <div class="col-md-6 col-lg-3 about-footer">
+                   
                     <h3>CommuniTECH </h3>
                     <ul>
                         <li><a href="tel:(010) 1234 4321"><i class="fas fa-phone fa-flip-horizontal"></i>(010) 1234 4321</a></li>
@@ -569,7 +562,24 @@
                             <br/>LIC 3201
                         </li>
                     </ul>
+
+    <!--
                     <a href="" class="btn apply-btn">Register Now</a>
+    -->
+                    
+                    <hr>
+                    <div class="footer-logo">
+                        <table>
+                            <tbody>
+                                <tr>
+                                <td><img src="{{ asset('img/communitechlogo.png') }}" alt="Communitech Logo"></td>
+                                <td><img src="{{ asset('img/manito-logo.png') }}" alt="Manito Logo"></td>
+                                <td><img src="{{ asset('img/new-bagongPH.png') }}" alt="Bagong Pilipinas Logo"></td>
+                                <td><img src="{{ asset('img/new-dpo.png') }}" alt="DPO Logo"></td>     
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
                 </div>
                 <div class="col-md-6 col-lg-2 page-more-info">
                     <div class="footer-title">
@@ -637,20 +647,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <hr>
-                    <div class="footer-logo">
-
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td><img src="img/communitechlogo.png"></td>
-                                <td><img src="img/manito-logo.png"></td>
-                                <td><img src="img/new-bagongPH.png"></td>
-                                <td><img src="img/new-dpo.png"></td>
-                                
-                        </tbody>
-                    </table>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -667,7 +664,7 @@
         </div>
     </div>
 </footer>
-
+    
 
     <!--time and date in header section-->
     <script>
