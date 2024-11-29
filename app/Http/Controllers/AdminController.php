@@ -9,7 +9,7 @@ use DB;
 class AdminController extends Controller
 {
     public function userProfile()
-    {
+{
         $admins = User::where('Credential', 'admin')->get();
         $users = User::where('Credential', 'user')->get();
         $userlists = User::whereIn('Credential', ['user', 'admin'])->get();
@@ -41,5 +41,13 @@ class AdminController extends Controller
         }
 
         return redirect()->back()->with('error', 'Failed to update user credential.');
+    }
+
+    public function showUserProfile()
+    {
+        $userdata = auth()->user();
+
+        // Return the view with user data
+        return view('page.user-profile', compact('userdata'));
     }
 }
