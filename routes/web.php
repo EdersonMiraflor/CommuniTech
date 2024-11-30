@@ -10,7 +10,7 @@ use App\Http\Controllers\AdminController;
 Auth::routes();
 
 //Route::get('/home/report', [CertificateController::class, 'showIssuedCertificate'])->middleware('auth');
-Route::get('/home/report', [CertificateController::class, 'showReport'])->middleware('auth'); 
+Route::get('/home/user-profile/report', [CertificateController::class, 'showReport'])->middleware('auth'); 
 
 Route::get('/home/privacy-policy', function () {
     return view('page.privacy-policy');
@@ -24,10 +24,10 @@ Route::get('/home/usermanagement', function () {
     return view('page.usermanagement');
 })->middleware('auth');
 
-Route::get('/home/user-profile', [AdminController::class, 'userProfile'])->name('user.profile')->middleware('auth');
+Route::get('/home/user-profile', [AdminController::class, 'UserProfile'])->name('user.profile')->middleware('auth');
 Route::patch('/change-credential', [AdminController::class, 'changeCredential'])->name('change.credential');
-Route::get('home/user-profile', [CertificateController::class, 'showUserProfile'])->middleware('auth');
-
+Route::get('/home/user-personal', [UsersController::class, 'showPersonalInfo'])->name('personal.info')->middleware('auth');
+Route::post('/user/update', [AdminController::class, 'dataupdate'])->name('user.update');
 
 
 Route::get('/home/transactionhistory', function () {

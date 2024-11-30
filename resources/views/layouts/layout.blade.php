@@ -416,6 +416,7 @@
         <div class="d-flex align-items-center hide-on-small">
         <div class="d-flex align-items-center hide-on-small">
     <ul class="navbar-nav ms-auto d-flex flex-row align-items-center" style="margin-right: 50px;">
+@if (!request()->is('home/user-profile'))
         @guest
             @if (Route::has('login'))
                 <li class="nav-item me-3"> <!-- Margin End for spacing -->
@@ -440,7 +441,6 @@
                     {{ Auth::user()->name }}
                     <i class="fas fa-user ms-2"></i> <!-- Icon for User -->
                 </a>
-
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
@@ -459,6 +459,7 @@
                 </div>
             </li>
         @endguest
+@endif
     </ul>
     <i class="bi bi-person ms-2"></i>
 </div>

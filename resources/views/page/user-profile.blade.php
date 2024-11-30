@@ -1,119 +1,205 @@
 @extends('layouts.layout')
 
 @section('contents')
-    <!-- Section Start -->
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-<!--Report Generator Script Start-->
-<!-- Load Google Charts library -->
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawCharts);
-
-    function drawCharts() {
-        // Retrieve the data passed from the controller
-        var lineChartData = @json($lineChartData);
-
-        // Pie Chart Start
-        var pieData = new google.visualization.DataTable();
-        pieData.addColumn('string', 'Certificate Type');
-        pieData.addColumn('number', 'Total Issued');
-
-        @foreach($certificates as $certificate)
-            pieData.addRow(['{{ $certificate->Cert_Type }}', {{ $certificate->total_quantity }}]);
-        @endforeach
-
-        var pieOptions = {
-            title: 'Total Issued Certificates by Type',
-            pieHole: 0.4,
-            colors: ['#bce7c8', '#90d7a4', '#4ebf6e']
-        };
-
-        var pieChart = new google.visualization.PieChart(document.getElementById('piechart'));
-        pieChart.draw(pieData, pieOptions);
-        // Pie Chart End
-
-        // Line Chart Start
-        var lineData = new google.visualization.DataTable();
-        lineData.addColumn('string', 'Day');
-        lineData.addColumn('number', 'Birth Certificate');
-        lineData.addColumn('number', 'Marriage Certificate');
-        lineData.addColumn('number', 'Death Certificate');
-
-        lineData.addRows([
-            ['Monday', lineChartData['Birth Certificate'][0], lineChartData['Marriage Certificate'][0], lineChartData['Death Certificate'][0]],
-            ['Tuesday', lineChartData['Birth Certificate'][1], lineChartData['Marriage Certificate'][1], lineChartData['Death Certificate'][1]],
-            ['Wednesday', lineChartData['Birth Certificate'][2], lineChartData['Marriage Certificate'][2], lineChartData['Death Certificate'][2]],
-            ['Thursday', lineChartData['Birth Certificate'][3], lineChartData['Marriage Certificate'][3], lineChartData['Death Certificate'][3]],
-            ['Friday', lineChartData['Birth Certificate'][4], lineChartData['Marriage Certificate'][4], lineChartData['Death Certificate'][4]],
-        ]);
-
-        var options = {
-            title: 'Appointments per Day',
-            hAxis: { title: 'Day' },
-            vAxis: {
-                title: 'Number of Appointments',
-                ticks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                gridlines: { count: 11 },
-                viewWindow: { min: 0, max: 10 }
-            },
-            legend: { position: 'right', alignment: 'center' },
-            colors: ['#bce7c8', '#90d7a4', '#4ebf6e']
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('line_chart_div'));
-        chart.draw(lineData, options);
-        // Line Chart End
-    }
-</script>
-
+   <!-- Section Start -->
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 <style>
-    /* Add styling here if necessary */
-    #piechart, #line_chart_div {
-        width: 100%;
-        height: 250px;
+    /* CSS for the fade-out effect */
+    .alert {
+        animation: fadeOut 5s ease forwards; /* Apply the fadeOut animation */
+    }
+
+    /* Define the fadeOut animation */
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            visibility: hidden; /* Ensures the element is hidden after the animation */
+        }
     }
 </style>
-<!--Report Generator Script Ends-->
 
     <div class="container mt-5">
         <div class="row">
             <!-- Sidebar Navigation -->
             <div class="col-md-3">
                 <ul class="nav flex-column nav-pills" id="myTab" role="tablist">
+
                     <li class="nav-item">
                         <a class="nav-link active" id="personal-info-tab" data-bs-toggle="tab" href="#personal-info" role="tab">Personal Info</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" id="request-history-tab" data-bs-toggle="tab" href="#request-history" role="tab">Requests History</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" id="edit-personal-info-tab" data-bs-toggle="tab" href="#edit-personal-info" role="tab" style="pointer-events: none; cursor: not-allowed; color: #FFFFFF;">Edit Profile</a>
+                    </li>
+
+            @auth
+                {{-- Check if the user is admin --}}
+                @if (Auth::user()->Credential == 'admin')
                     <li class="nav-item">
                         <a class="nav-link" id="admin-tab" data-bs-toggle="tab" href="#admin" role="tab">Admin Management</a>
                     </li>
+                @endif
+            @endauth
+
+            @auth
+                {{-- Check if the user is admin --}}
+                @if (Auth::user()->Credential == 'admin')
                     <li class="nav-item">
-                        <a class="nav-link" id="notifications-tab" data-bs-toggle="tab" href="#notifications" role="tab">Rider Management</a>
+                        <a class="nav-link" id="request-tab" data-bs-toggle="tab" href="#request" role="tab">Request Management</a>
                     </li>
+                @endif
+            @endauth
+
+            @auth
+                {{-- Check if the user is admin --}}
+                @if (Auth::user()->Credential == 'admin')
                     <li class="nav-item">
-                        <a class="nav-link" id="other-settings-tab" data-bs-toggle="tab" href="#other-settings" role="tab">Report Generator</a>
+                        <a class="nav-link" id="user-tab" data-bs-toggle="tab" href="#user" role="tab">User Management</a>
+                    </li>
+                @endif
+            @endauth
+
+            @auth
+                {{-- Check if the user is admin --}}
+                @if (Auth::user()->Credential == 'admin')
+                    <li class="nav-item">
+                        <a class="nav-link" id="riders-tab" data-bs-toggle="tab" href="#riders" role="tab">Rider Management</a>
+                    </li>
+                    @endif
+            @endauth
+
+            @auth
+                {{-- Check if the user is admin --}}
+                @if (Auth::user()->Credential == 'admin')
+                    <li class="nav-item">
+                        <a class="nav-link" href="/otpform" style="color: #0000FF;">Go to User Requests</a>
+                    </li>
+                    @endif
+            @endauth
+
+            @auth
+                {{-- Check if the user is admin --}}
+                @if (Auth::user()->Credential == 'admin')
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home/user-profile/report" style="color: #0000FF;">Go to Report Generator</a>
                     </li>
                 </ul>
+                @endif
+            @endauth
             </div>
 
             <!-- Content Section -->
             <div class="col-md-9">
                 <div class="tab-content" id="myTabContent">
-                    <!-- Personal Info Tab -->
-                    <div class="tab-pane fade show active" id="personal-info" role="tabpanel">
-                        <h5>Personal Information</h5>
+                    
+               <!-- Personal Info Section -->
+            <div class="tab-pane fade show active" id="personal-info" role="tabpanel">
+                <h5>Personal Information</h5>
+                <form>
+                    <div style="padding-left: 58px;">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ $userdata->name }}" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Middle_Name" class="form-label">Middle Name</label>
+                            <input type="text" class="form-control" id="Middle_Name" name="Middle_Name" value="{{ $userdata->Middle_Name }}" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Last_Name" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="Last_Name" name="Last_Name" value="{{ $userdata->Last_Name }}" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Birth_Date" class="form-label">Birth Date</label>
+                            <input type="text" class="form-control" id="Birth_Date" name="Birth_Date" value="{{ $userdata->Birth_Date }}" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Mobile_Number" class="form-label">Mobile Number</label>
+                            <input type="text" class="form-control" id="Mobile_Number" name="Mobile_Number" value="{{ $userdata->Mobile_Number }}" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ $userdata->email }}" readonly>
+                        </div>
+                    </div>
+                    <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
+                    <button type="button" id="edit-button" class="btn btn-primary">Edit Profile</button>
+                </form>
+            </div>
+
+           <!-- Edit Personal Info Section -->
+            <div class="tab-pane fade" id="edit-personal-info" role="tabpanel">
+                <h5>Edit Personal Information</h5>
+                <form action="{{ route('user.update') }}" method="POST">
+                    @csrf
+                    <div style="padding-left: 58px;">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ $userdata->name }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Middle_Name" class="form-label">Middle Name</label>
+                            <input type="text" class="form-control" id="Middle_Name" name="Middle_Name" value="{{ $userdata->Middle_Name }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Last_Name" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="Last_Name" name="Last_Name" value="{{ $userdata->Last_Name }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Birth_Date" class="form-label">Birth Date</label>
+                            <input type="text" class="form-control" id="Birth_Date" name="Birth_Date" value="{{ $userdata->Birth_Date }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Mobile_Number" class="form-label">Mobile Number</label>
+                            <input type="text" class="form-control" id="Mobile_Number" name="Mobile_Number" value="{{ $userdata->Mobile_Number }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ $userdata->email }}">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Done</button>
+                </form>
+            </div>
+
+
+                    <!-- Request History -->
+                    <div class="tab-pane fade" id="request-history" role="tabpanel">
+                        <h5>Request History</h5>
                         <form>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
+                                <label for="email" class="form-label">Request Date</label>
                                 <input type="email" class="form-control" id="email" placeholder="Enter your email">
                             </div>
+
                             <div class="mb-3">
-                                <label for="password" class="form-label">New Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="New password">
+                                <label for="email" class="form-label">Request Status</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
                             </div>
+
                             <div class="mb-3">
-                                <label for="confirm-password" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password">
+                                <label for="email" class="form-label">Certificate Type</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Certificate Quantity</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Certificate Amount</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
                             </div>
                             <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
                         </form>
@@ -180,26 +266,18 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="change-credential" class="form-label">Change Credential (All Lists)</label>
+                                <label for="change-credential" class="form-label">Change Credential (All Lists)</label><br>
                                 <button type="submit" name="credential" value="admin" class="btn btn-primary">Make Admin</button>
-                                <button type="submit" name="credential" value="user" class="btn btn-warning">Make User</button>
+                                <button type="submit" name="credential" value="user" class="btn btn-warning" style="color: #fcfcff; background-color: #008080; border-color: #008080;">Make User</button>
                             </div>
                         </form>
                     </div>
 
-                    <!-- Rider Management Tab -->
-                    <div class="tab-pane fade" id="notifications" role="tabpanel">
-                        <h5>Rider Management</h5>
+                    <div class="tab-pane fade" id="request" role="tabpanel">
+                        <h5>Request Management</h5>
                         <form>
                             <div class="mb-3">
-                                <label for="email-notifications" class="form-label">Email Notifications</label>
-                                <select class="form-select" id="email-notifications">
-                                    <option selected>Enabled</option>
-                                    <option>Disabled</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="sms-notifications" class="form-label">SMS Notifications</label>
+                                <label for="sms-notifications" class="form-label">Request Information</label>
                                 <select class="form-select" id="sms-notifications">
                                     <option selected>Enabled</option>
                                     <option>Disabled</option>
@@ -209,43 +287,69 @@
                         </form>
                     </div>
 
-                    <!-- Report Generator -->
-<!--Start-->
-                    <div class="tab-pane fade" id="other-settings" role="tabpanel">
-
-                        <div class="container">
-                            <div class="row">
-                                <!-- Pie Chart -->
-                                <div class="col-md-4">
-                                    <h2>Issued Certificates</h2>
-                                    <div id="piechart"></div>
-                                </div>
-                                <br><br><br>
-                                <!-- Line Chart -->
-                                <div class="col-md-4">
-                                    <h2>Appointments per Day</h2>
-                                    <div id="line_chart_div"></div>
-                                </div>
+                    
+                    <div class="tab-pane fade" id="user" role="tabpanel">
+                        <h5>User Management</h5>
+                        <form>
+                            <div class="mb-3">
+                                <label for="sms-notifications" class="form-label">User Information</label>
+                                <select class="form-select" id="sms-notifications">
+                                    <option selected>Enabled</option>
+                                    <option>Disabled</option>
+                                </select>
                             </div>
-                        </div>
-<!--End-->
+                            <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
+                        </form>
+                    </div>
+
+                    <!-- Rider Management Tab -->
+                    <div class="tab-pane fade" id="riders" role="tabpanel">
+                        <h5>Rider Management</h5>
+                        <form>
+                            <div class="mb-3">
+                                <label for="sms-notifications" class="form-label">Riders Information</label>
+                                <select class="form-select" id="sms-notifications">
+                                    <option selected>Enabled</option>
+                                    <option>Disabled</option>
+                                </select>
+                            </div>
+                            <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Success/Error Messages -->
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-    @if(session('error'))
-        <div class="alert alert-danger">{{ session('error') }}</div>
-    @endif
-    @if(session('info'))
-        <div class="alert alert-info">{{ session('info') }}</div>
-    @endif
+<!-- Success/Error Messages -->
+@if(session('success'))
+    <div class="alert alert-success" id="success-message">{{ session('success') }}</div>
+@endif
+@if(session('error'))
+    <div class="alert alert-danger" id="error-message">{{ session('error') }}</div>
+@endif
+@if(session('info'))
+    <div class="alert alert-info" id="info-message">{{ session('info') }}</div>
+@endif
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.getElementById('edit-button').addEventListener('click', function () {
+        // Show Edit Tab and hide Personal Info Tab
+        document.getElementById('personal-info-tab').classList.remove('active');
+        document.getElementById('edit-personal-info-tab').classList.add('active');
+        document.getElementById('personal-info').classList.remove('show', 'active');
+        document.getElementById('edit-personal-info').classList.add('show', 'active');
+    });
+
+    document.getElementById('done-button').addEventListener('click', function () {
+        // Return back to Personal Info Tab
+        document.getElementById('edit-personal-info-tab').classList.remove('active');
+        document.getElementById('personal-info-tab').classList.add('active');
+        document.getElementById('edit-personal-info').classList.remove('show', 'active');
+        document.getElementById('personal-info').classList.add('show', 'active');
+    });
+</script>
+
 @endsection
