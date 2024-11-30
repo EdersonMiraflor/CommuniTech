@@ -190,8 +190,12 @@
                 <input type="date" name="attendant_date_signed" class="birth-form-control" id="attendant_date_signed" required>
             </div>
         </div>
-    </div>
-    <button type="submit" class="btn btn-danger mt-3">Back</button>
-    <button type="submit" class="btn btn-success mt-3">Next</button> <!-- Added birth-submit class -->
-</div>
+     <!-- Back and Next Buttons -->
+     <div class="col-md-12 mt-3">
+                <!-- Back Button -->
+                <button type="button" class="btn btn-danger" onclick="window.history.back()">Back</button>
+
+                <!-- Next Button -->
+                <button type="submit" class="btn btn-success">Next</button>
+            </div>
 @endsection

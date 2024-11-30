@@ -165,7 +165,8 @@ Route::post('/otpform', [OtpController::class, 'create'])->name('otpform');
 
 use App\Http\Controllers\BirthRegistrationController;
 
-Route::resource('birth_registrations', BirthRegistrationController::class);
+Route::resource('birth-registration', BirthRegistrationController::class);
+
 use App\Http\Controllers\RiderController;
 
 // Routes for rider signup (already working)
