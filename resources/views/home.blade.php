@@ -26,7 +26,7 @@
 <!-- Team section -->
 <section class="team">
     <div class="team-container">
-        <h2>CommuniTECH Team</h2>
+        <h2 style="margin-top: 230px;">CommuniTECH Team</h2>
         <div class="team-grid">
             <div class="team-member">
                 <img src="img/romeo.jpg" alt="Project Manager">

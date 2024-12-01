@@ -75,27 +75,16 @@ body {
 
 /* Container for the intro section */
 .intro-container {
+    margin-top: 4rem;
     position: relative;
     width: 100%;
-    height: 100vh; /* Ensures full screen height */
-    display: flex;
-    align-items: center;
+    display: center;
+    align-items:center;
     justify-content: center;
     text-align: center;
+    overflow-y: hidden;
 }
 
-.intro-container::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('{{ asset('img/municipalhall.jpg') }}');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.5; /* Set the background image opacity */
-    z-index: -1; /* Ensure the background stays behind the content */
-}
 
 /* Intro section styling */
 .intro {
@@ -191,6 +180,50 @@ body {
     }
 }
 
+/* Responsive adjustments for screens at 950px width */
+@media (max-width: 950px) {
+    .intro h1 {
+        font-size: 2rem; /* Reduced text size */
+    }
+
+    .intro p {
+        font-size: 1rem; /* Reduced paragraph size */
+    }
+
+    .btn-apply {
+        font-size: 0.9rem; /* Reduced button text size */
+        padding: 8px 16px; /* Reduced button padding */
+    }
+}
+
+
+/* Responsive adjustments for 400px width */
+@media (max-width: 400px) {
+    .intro-container {
+        height: 400px; /* Fixed height for the intro section */
+        display: block; /* Allow content to flow vertically */
+        overflow: hidden; /* Prevent the container from overflowing */
+    }
+
+    .intro {
+        height: 100%; /* Use the full height of the container */
+        overflow: auto; /* Enable scrolling within the intro section */
+        padding: 10px; /* Add smaller padding for smaller screens */
+    }
+
+    .intro h1 {
+        font-size: 1.5rem; /* Further reduced size for small screens */
+    }
+
+    .intro p {
+        font-size: 0.8rem; /* Smaller paragraph text */
+    }
+
+    .btn-apply {
+        font-size: 0.7rem;
+        padding: 5px 10px; /* Smaller button dimensions */
+    }
+}
 
 /*END OF HOME CSS*/
 
