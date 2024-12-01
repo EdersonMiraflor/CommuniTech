@@ -1,7 +1,7 @@
 /* External CSS file, use this if you don't want to use a framework*/
 
 /*Auth-Page Start*/
-/* Main container styling */
+/* Main container styling 
 .container {
     
     display: flex;
@@ -12,9 +12,22 @@
     padding-top: 20px;
     margin-bottom: 10px;
 }
+*/
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px; /* Reduced padding */
+    margin: 30px auto; /* Center and reduce the margins */
+    max-width: 80%; /* Adjust overall width */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
 
 .left-side {
-    flex: 1.5;
+    flex: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -143,6 +156,29 @@
         font-size: 14px;
     }
 }
+
+
+.logo-overlay {
+    max-width: 100%; /* Ensures the logo does not exceed its container's width */
+    height: auto; /* Maintains the aspect ratio */
+    display: block; /* Ensures it behaves like a block element for proper alignment */
+    margin: 0 auto; /* Centers the logo */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .logo-overlay {
+        max-width: 80%; /* Shrinks logo to 80% of the container */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-overlay {
+        max-width: 60%; /* Further reduces size on very small screens */
+    }
+}
+
+
 /*Auth-Page End*/
 
 /*LOGIN PAGE CSS SECTION */

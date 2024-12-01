@@ -180,46 +180,209 @@
             }
         }
 
-        /* Footer Styling */
-    .footer-bar {
-        background-color: #90d7a4; /* Light green color for the footer */
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        color: #000;
+/* Footer Styling */
+    /*START OF FOOTER*/
+
+    a,
+        a:hover,
+        a:focus,
+        a:active {
+            text-decoration: none;
+            outline: none;
+        }
+
+        a,
+        a:active,
+        a:focus {
+            color: #333;
+            text-decoration: none;
+            transition-timing-function: ease-in-out;
+            -ms-transition-timing-function: ease-in-out;
+            -moz-transition-timing-function: ease-in-out;
+            -webkit-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+            transition-duration: .2s;
+            -ms-transition-duration: .2s;
+            -moz-transition-duration: .2s;
+            -webkit-transition-duration: .2s;
+            -o-transition-duration: .2s;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img {
+        max-width: 100%;
+        height: auto;
+        }
+        section {
+            padding: 60px 0;
+        /* min-height: 100vh;*/
+        }
+        .btn {
+        padding: 14px 25px;
+        text-transform: uppercase;
+        -webkit-transition: all 0.8s;
+        -moz-transition: all 0.8s;
+        -o-transition: all 0.8s;
+        transition: all 0.8s;
+        }
+        .apply-btn {
+        background: #00bd2c;
+        border: 2px solid #00bd2c;
+        color: #fff;
+        }
+
+        .apply-btn:hover{
+        background: #22AF4A;
+        color: #fff;
+        border-color: #ffffff;
+        }
+
+        /*---------footer---------*/
+        /* General Footer Styles */
+    footer {
+        background-color: #90D7A4; /* Footer background color */
+        color: #333; /* Text color */
+        font-size: 15px; /* Default font size */
+        padding: 10px 0; /* Adjust padding to reduce footer thickness */
+        line-height: 1; /* Improve readability */
     }
 
-    .footer-content {
-        display: flex;
-        align-items: center;
-    }
+    .footer-container {
+        max-width: 1500px; /* Restrict content width for better alignment */
+        margin: 0 auto; /* Center the container */
+        padding: 0 15px; /* Prevent content from touching edges */
+    }         
+        footer h3 {
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        }
+        footer h4 {
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 1px;
+        }
+        .about-footer li i {
+        position: absolute;
+        left: 0;
+        }
+        .about-footer li {
+        padding-left: 40px;
+        position: relative;
+        margin-bottom: 40px;
+        }
 
-    .footer-logo {
-        height: 40px;
-        margin-right: 10px;
-    }
+        .about-footer ul {
+        margin-top: 40px;
+        }
 
-    .footer-text {
-        font-weight: bold;
-        font-size: 1.1rem;
-    }
+        footer a {
+        color: #292929;
+        }
 
-    .footer-social-icons {
-        display: flex;
-        gap: 10px;
-    }
+        footer a:hover {
+        color: #22AF4A;
+        }
+        .footer-title {
+        border-bottom: 2px solid #22AF4A;
+        padding-bottom: 25px;
+        margin-bottom: 35px;
+        }
 
-    .footer-social-icons .social-icon img {
+        ul.footer-social {
+        float: right;
+        }
+
+        ul.footer-social li {
+        display: inline;
+        margin-right: 16px;
+        }
+
+        ul.footer-social i {
+        width: 30px;
         height: 30px;
-        width: auto;
-        transition: transform 0.2s;
-    }
+        background: #fff;
+        color: #222025;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 30px;
+        font-size: 16px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        font-weight: 800;
+        }
 
-    .footer-social-icons .social-icon img:hover {
-        transform: scale(1.1);
-    }
+        ul.footer-social li:last-child {
+        margin-right: 0px;
+        }
 
+        ul.footer-social i:hover {
+        background: #22AF4A;
+        color: #fff;
+        }
+
+        .page-more-info li {
+        margin-bottom: 31px;
+        }
+
+        footer .table td:first-child {
+        font-weight: 600;
+        padding-left: 33px;
+        background-color: #90D7A4;
+        line-height: 1.9; /* Improve readability */
+        }
+
+        footer .table td:last-child {text-align: right;}
+        footer .table td {
+        padding: 0px;
+        border: 0;
+        background-color: #90D7A4;
+        }
+
+        footer .table td i {
+        position: absolute;
+        left: 0px;
+        font-size: 21px;
+        top: 6px;
+        }
+
+        footer .table td {
+        position: relative;
+        padding: 4px 0;
+        margin-bottom: 5rem;
+        }
+        .footer-logo td {
+        padding-right: 4px !important;
+        }
+
+        .footer-logo td:last-child {
+        padding-right: 0px !important;
+        
+        }
+
+
+        footer hr {
+        border-color: #212121;
+  
+        }
+
+        .footer-bottom p {
+        text-align: right;
+        }
+        .footer-bottom {
+        margin-top: 30px;
+        }
+        .open-hours hr {
+        margin: 30px 0;
+        }
 
     </style>
 
@@ -266,27 +429,127 @@
         @yield('content')
     </div>
 
-    <!-- Footer Section -->
-    <footer class="footer-bar">
-        <div class="footer-content-left">
-            <img src="{{ asset('img/communitechlogo.png') }}" alt="CommuniTECH Logo" class="footer-logo">
-            <span class="footer-text">CommuniTECH</span>
+    
+<!-- Footer Section-->
+<footer>
+    <div class="footer-container">
+        <div class="footer-top">
+        <br>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 about-footer">
+                   
+                    <h3>CommuniTECH </h3>
+                    <ul>
+                        <li><a href="tel:(010) 1234 4321"><i class="fas fa-phone fa-flip-horizontal"></i>(010) 1234 4321</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i>
+                            1 / 105 Bay Lights,
+                            <br/>Lorem Ipsum,
+                            <br/>LIC 3201
+                        </li>
+                    </ul>
+
+    <!--
+                    <a href="" class="btn apply-btn">Register Now</a>
+    -->
+                    
+                    <hr>
+                    <div class="footer-logo">
+                        <table>
+                            <tbody>
+                                <tr>
+                                <td><img src="{{ asset('img/communitechlogo.png') }}" alt="Communitech Logo"></td>
+                                <td><img src="{{ asset('img/manito-logo.png') }}" alt="Manito Logo"></td>
+                                <td><img src="{{ asset('img/new-bagongPH.png') }}" alt="Bagong Pilipinas Logo"></td>
+                                <td><img src="{{ asset('img/new-dpo.png') }}" alt="DPO Logo"></td>     
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-md-6 col-lg-2 page-more-info">
+                    <div class="footer-title">
+                        <h4>Page links</h4>
+                    </div>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">User Manual</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6 col-lg-3 page-more-info">
+                    <div class="footer-title">
+                        <h4>More Info</h4>
+                    </div>
+                    <ul>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Dolor sit amet</a></li>
+                        <li><a href="#">Consectetur Adipisicing </a></li>
+                        <li><a href="#">Ed do eiusmod tempor incididunt</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-4 open-hours">
+                    <div class="footer-title">
+                        <h4>Open hours</h4>
+                        <ul class="footer-social">
+                            <li><a href="" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                        </ul>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Monday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Tuesday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Wednesday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Thursday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Friday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Saturday</td>
+                                <td>CLOSED</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Sunday</td>
+                                <td>CLOSED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
         </div>
-        <div class="footer-center">
-            <span>© 2024 CommuniTECH. All Rights Reserved.</span>
+        <hr>
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="">Privacy policy</a>
+                </div>
+                <div class="col-sm-8">
+                    <p>Communitech @ 2024 All rights reserved</p>
+                </div>
+            </div>
         </div>
-        <div class="footer-social-icons">
-            <a href="#" class="social-icon">
-                <img src="{{ asset('img/facebook.png') }}" alt="Facebook">
-            </a>
-            <a href="#" class="social-icon">
-                <img src="{{ asset('img/instagram.png') }}" alt="Instagram">
-            </a>
-            <a href="#" class="social-icon">
-                <img src="{{ asset('img/youtube.png') }}" alt="YouTube">
-            </a>
-        </div>
-    </footer>
+    </div>
+</footer>
+    
 
 
     <!--time and date in header section-->
