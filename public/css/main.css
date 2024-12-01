@@ -96,15 +96,17 @@ body {
 }
 
 .intro h1{
-    font-size: 2rem;
+    font-size: 2.2rem;
+    font-weight: bold;
 }
 
 .intro p{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    font-weight: bold;
 }
 
 .btn-apply {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #28a745;
@@ -168,10 +170,12 @@ body {
 
     .intro h1 {
         font-size: 1.5rem;
+        font-weight: bold;
     }
 
     .intro p {
         font-size: 1rem;
+        font-weight: bold;
     }
 
     .btn-apply {
@@ -184,10 +188,12 @@ body {
 @media (max-width: 950px) {
     .intro h1 {
         font-size: 2rem; /* Reduced text size */
+        font-weight: bold;
     }
 
     .intro p {
         font-size: 1rem; /* Reduced paragraph size */
+        font-weight: bold;
     }
 
     .btn-apply {
@@ -213,10 +219,12 @@ body {
 
     .intro h1 {
         font-size: 1.5rem; /* Further reduced size for small screens */
+        font-weight: bold;
     }
 
     .intro p {
         font-size: 0.8rem; /* Smaller paragraph text */
+        font-weight: bold;
     }
 
     .btn-apply {
