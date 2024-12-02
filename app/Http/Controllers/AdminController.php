@@ -86,33 +86,42 @@ class AdminController extends Controller
         return view('page.user-profile', compact('userdata'));
     }
 
-        public function dataupdate(Request $request)
+    public function dataupdate(Request $request)
     {
-        // Validate the input data
+        // Validate the input data (including password confirmation)
         $request->validate([
             'name' => 'required|string|max:255',
             'Middle_Name' => 'nullable|string|max:255',
             'Last_Name' => 'required|string|max:255',
             'Birth_Date' => 'required|date',
             'Mobile_Number' => 'required|string|max:15',
-            'email' => 'required|email|unique:users,email,' . auth()->user()->User_Id . ',User_Id',  // Corrected: use User_Id
+            'email' => 'required|email|unique:users,email,' . auth()->user()->User_Id . ',User_Id',
+            'password' => 'nullable|string|min:8|confirmed', // Confirmed ensures password matches password_confirmation
+        ], [
+             'password.confirmed' => 'Your password input does not matched, please try editing it again!'
         ]);
-
+    
         // Retrieve the current user's data
-        $dataupdate = auth()->user(); // Using $dataupdate instead of $user
-
-        // Update the user's data
+        $dataupdate = auth()->user();
+    
+        // Update user data (excluding password initially)
         $dataupdate->name = $request->name;
         $dataupdate->Middle_Name = $request->Middle_Name;
         $dataupdate->Last_Name = $request->Last_Name;
         $dataupdate->Birth_Date = $request->Birth_Date;
         $dataupdate->Mobile_Number = $request->Mobile_Number;
         $dataupdate->email = $request->email;
-
-        // Save the updated user information
+    
+        // Check if password field is filled
+        if ($request->filled('password')) {
+            // Update password if it's valid (confirmed validation ensures matching)
+            $dataupdate->password = bcrypt($request->password);
+        }
+    
+        // Save updated user data
         $dataupdate->save();
-
-        // Redirect or return a response
+    
+        // Redirect to profile page with success message
         return redirect()->route('user.profile')->with('success', 'Profile updated successfully!');
     }
 

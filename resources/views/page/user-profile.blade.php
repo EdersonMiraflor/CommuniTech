@@ -23,6 +23,23 @@
         }
     }
 </style>
+<!-- Success/Error Messages -->
+@if(session('success'))
+    <div class="alert alert-success" id="success-message">{{ session('success') }}</div>
+@endif
+@if(session('error'))
+    <div class="alert alert-danger" id="error-message">{{ session('error') }}</div>
+@endif
+@if(session('info'))
+    <div class="alert alert-info" id="info-message">{{ session('info') }}</div>
+@endif
+
+<!-- Error Messages for Specific Fields -->
+@if ($errors->has('password'))
+    <div class="alert alert-danger">{{ $errors->first('password') }}</div>
+@endif
+
+
 
     <div class="container mt-5">
         <div class="row">
@@ -82,7 +99,7 @@
                 {{-- Check if the user is admin --}}
                 @if (Auth::user()->Credential == 'admin')
                     <li class="nav-item">
-                        <a class="nav-link" href="/otpform" style="color: #0000FF;">Go to User Requests</a>
+                        <a class="nav-link" href="/otpform" style="color: #1DBC60;">Go to User Requests</a>
                     </li>
                     @endif
             @endauth
@@ -91,7 +108,7 @@
                 {{-- Check if the user is admin --}}
                 @if (Auth::user()->Credential == 'admin')
                     <li class="nav-item">
-                        <a class="nav-link" href="/home/user-profile/report" style="color: #0000FF;">Go to Report Generator</a>
+                        <a class="nav-link" href="/home/user-profile/report" style="color: #1DBC60;">Go to Report Generator</a>
                     </li>
                 </ul>
                 @endif
@@ -106,43 +123,45 @@
             <div class="tab-pane fade show active" id="personal-info" role="tabpanel">
                 <h5>Personal Information</h5>
                 <form>
-                    <div style="padding-left: 58px;">
+                    <div style="padding-left: 30px;">
                         <div class="mb-3">
                             <label for="name" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ $userdata->name }}" readonly>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ $userdata->name }}" style="color: #0D52BD;" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="Middle_Name" class="form-label">Middle Name</label>
-                            <input type="text" class="form-control" id="Middle_Name" name="Middle_Name" value="{{ $userdata->Middle_Name }}" readonly>
+                            <input type="text" class="form-control" id="Middle_Name" name="Middle_Name" value="{{ $userdata->Middle_Name }}" style="color: #0D52BD;" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="Last_Name" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="Last_Name" name="Last_Name" value="{{ $userdata->Last_Name }}" readonly>
+                            <input type="text" class="form-control" id="Last_Name" name="Last_Name" value="{{ $userdata->Last_Name }}" style="color: #0D52BD;" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="Birth_Date" class="form-label">Birth Date</label>
-                            <input type="text" class="form-control" id="Birth_Date" name="Birth_Date" value="{{ $userdata->Birth_Date }}" readonly>
+                            <input type="text" class="form-control" id="Birth_Date" name="Birth_Date" value="{{ $userdata->Birth_Date }}" style="color: #0D52BD;" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="Mobile_Number" class="form-label">Mobile Number</label>
-                            <input type="text" class="form-control" id="Mobile_Number" name="Mobile_Number" value="{{ $userdata->Mobile_Number }}" readonly>
+                            <input type="text" class="form-control" id="Mobile_Number" name="Mobile_Number" value="{{ $userdata->Mobile_Number }}" style="color: #0D52BD;" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ $userdata->email }}" readonly>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ $userdata->email }}" style="color: #0D52BD;" readonly>
                         </div>
                     </div>
-                    <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
-                    <button type="button" id="edit-button" class="btn btn-primary">Edit Profile</button>
+                    <div style="padding-left: 30px;">
+                        <a href="/home" class="btn btn-secondary">Home</a>
+                        <button type="button" id="edit-button" class="btn btn-primary" >Edit</button>
+                    </div>
                 </form>
             </div>
 
            <!-- Edit Personal Info Section -->
             <div class="tab-pane fade" id="edit-personal-info" role="tabpanel">
-                <h5>Edit Personal Information</h5>
                 <form action="{{ route('user.update') }}" method="POST">
                     @csrf
-                    <div style="padding-left: 58px;">
+                    <h5>Edit Personal Information</h5>
+                    <div style="padding-left: 30px;">
                         <div class="mb-3">
                             <label for="name" class="form-label">First Name</label>
                             <input type="text" class="form-control" id="name" name="name" value="{{ $userdata->name }}">
@@ -168,7 +187,22 @@
                             <input type="email" class="form-control" id="email" name="email" value="{{ $userdata->email }}">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Done</button>
+                    
+                    <h5 style="padding-top: 50px;">Edit Password</h5>
+                    <div style="padding-left: 30px;">
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter New Password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirm_password" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirm_password" name="password_confirmation" placeholder="Confirm Password">
+                        </div>
+                    </div>
+                <div style="padding-left: 30px;">
+                    <button type="button" onclick="window.location.href='/home/user-profile'" class="btn btn-secondary">Back</button>
+                    <button type="submit" class="btn btn-primary">Change</button>
+                </div>
                 </form>
             </div>
 
@@ -320,17 +354,6 @@
             </div>
         </div>
     </div>
-
-<!-- Success/Error Messages -->
-@if(session('success'))
-    <div class="alert alert-success" id="success-message">{{ session('success') }}</div>
-@endif
-@if(session('error'))
-    <div class="alert alert-danger" id="error-message">{{ session('error') }}</div>
-@endif
-@if(session('info'))
-    <div class="alert alert-info" id="info-message">{{ session('info') }}</div>
-@endif
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
