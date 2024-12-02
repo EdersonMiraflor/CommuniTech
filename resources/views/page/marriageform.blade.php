@@ -55,4 +55,8 @@
      <button type="submit" class="btn btn-success mt-3">Next</button> <!-- Added birth-submit class -->
     </div> 
 </div>
+
+</div> 
+</div> 
+<br><br>
 @endsection
