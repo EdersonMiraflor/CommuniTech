@@ -179,3 +179,4 @@ Route::resource('riders', RiderController::class);
 // Add the new routes for the rider home page and delivery history
 Route::get('riders/{id}/home', [RiderController::class, 'home'])->name('riders.home');
 Route::get('riders/{id}/delivery-history', [RiderController::class, 'deliveryHistory'])->name('riders.delivery-history');
+

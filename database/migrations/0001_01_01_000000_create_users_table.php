@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id('User_Id');
-            $table->enum('Credential', ['user', 'admin']);
+            $table->enum('Credential', ['user', 'admin', 'rider']);
             $table->string('name');
             $table->string('Middle_Name', 255   )->nullable();
             $table->string('Last_Name', 255);
