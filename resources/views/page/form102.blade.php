@@ -197,5 +197,9 @@
 
                 <!-- Next Button -->
                 <button type="submit" class="btn btn-success">Next</button>
-            </div>
+    </div>
+
+    </div> 
+</div> 
+<br><br>
 @endsection

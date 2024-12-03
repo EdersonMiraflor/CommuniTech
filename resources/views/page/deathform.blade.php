@@ -59,4 +59,8 @@
         <button type="submit" class="btn btn-danger mt-3">Back</button>
         <button type="submit" class="btn btn-success mt-3">Next</button> 
 </div>
+
+</div> 
+</div> 
+<br><br>
 @endsection
