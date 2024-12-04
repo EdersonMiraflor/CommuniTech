@@ -27,6 +27,9 @@ class AutoAddSeeder extends Seeder
             'password' => Hash::make('communitech4'), 
             'Address' => 'Manila, Philippines', 
             'Request_Id' => null, 
+            'email_verified_at' => now(),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }
