@@ -1,57 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birth Certificates</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- You can add a custom stylesheet here -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-5">
-        <h1 class="mb-4 text-center">Birth Certificates</h1>
+@extends('layouts.layout')
 
-        <div class="mb-3 text-right">
-            <a href="{{ route('birth-registration.create') }}" class="btn btn-primary">Add New Birth Certificate</a>
+@section('contents')
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">List of Birth Registrations</h2>
+
+        <!-- Success Message -->
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <!-- Error Message -->
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <!-- Table for Birth Registrations -->
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Child's Name</th>
+                    <th>Birth Date</th>
+                    <th>Mother's Name</th>
+                    <th>Father's Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($birthRegistrations as $registration)
+                    <tr>
+                        <td>{{ $registration->child_first_name }} {{ $registration->child_last_name }}</td>
+                        <td>{{ \Carbon\Carbon::parse($registration->child_date_of_birth)->format('F j, Y') }}</td>
+                        <td>{{ $registration->mother_first_name }} {{ $registration->mother_last_name }}</td>
+                        <td>{{ $registration->father_first_name }} {{ $registration->father_last_name }}</td>
+                        <td>
+                            <a href="{{ route('birth-registrations.show', $registration->id) }}" class="btn btn-info btn-sm">View</a>
+                            <!-- Add more actions like Edit or Delete if needed -->
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5" class="text-center">No birth registrations found.</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+
+        <!-- Pagination Links (if needed) -->
+        <div class="d-flex justify-content-center">
+            {!! $birthRegistrations->links() !!}
         </div>
 
-        <!-- Table of Birth Registrations -->
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>Child Name</th>
-                        <th>Date of Birth</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($birthRegistrations as $registration)
-                        <tr>
-                            <td>{{ $registration->id }}</td>
-                            <td>{{ $registration->child_first_name }} {{ $registration->child_last_name }}</td>
-                            <td>{{ $registration->child_dob }}</td>
-                            <td>
-                                <a href="{{ route('birth-registration.edit', $registration->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ route('birth-registration.destroy', $registration->id) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="4" class="text-center">No records found.</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+        <!-- Button to add new registration -->
+        <div class="mt-3 text-center">
+            <a href="{{ route('birth-registrations.create') }}" class="btn btn-primary">Add New Registration</a>
         </div>
     </div>
-
-    <script src="{{ asset('js/app.js') }}"></script>
-</body>
-</html>
+@endsection
