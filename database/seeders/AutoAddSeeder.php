@@ -25,7 +25,7 @@ class AutoAddSeeder extends Seeder
             'Mobile_Number' => '09092902988',
             'email' => 'communitech04@gmail.com', 
             'password' => Hash::make('communitech4'), 
-            'Address' => 'Manila, Philippines', 
+            'Address' => 'Manito, Philippines', 
             'Request_Id' => null, 
             'email_verified_at' => now(),
             'created_at' => now(),
