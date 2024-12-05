@@ -9,7 +9,7 @@
     <div class="background-image-container" style="position: relative; overflow: hidden;">
         <img src="{{ asset('img/1.png') }}" alt="Birth Certificate" style="width: 100%; height: auto; opacity: 0.8;">
         
-        <form action="{{ route('birth-registrations.store') }}" method="POST" id="birthForm">
+        <form action="/birthform" method="POST" id="birthForm">
             @csrf
             <div class="row">
                 <!-- Child's Information -->
