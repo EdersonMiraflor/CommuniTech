@@ -48,8 +48,8 @@ Route::get('/home/services/form102', [CertificateRequestController::class, 'crea
 Route::post('/home/services/form102', [CertificateRequestController::class, 'store']);
 
 // Birth Form Route
-Route::get('/home/services/form102/birthform', [CertificateDisplayController::class, 'create'])->name('birthform.create')->middleware('auth');
-Route::post('/home/services/form102/birthform', [CertificateDisplayController::class, 'store'])->name('birthform.store')->middleware('auth');
+Route::get('/home/services/form102/birthform', [CertificateDisplayController::class, 'create'])->middleware('auth');
+Route::post('/home/services/form102/birthform', [CertificateDisplayController::class, 'store'])->middleware('auth');
     
     //NextForm
 Route::get('/home/services/form102/transactionform', fn() => view('page.transactionform'))->middleware('auth');
