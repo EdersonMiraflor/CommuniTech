@@ -174,14 +174,16 @@
                                 <input type="checkbox" name="agree" required> I accept the terms and conditions
                             </div>
                         </div>
-                      
                          <!-- Buttons -->
+<!--{{   @csrf-- }}-->
+<!--- dd($user);-->
                          <div class="row mb-0">
                             <div class="col-md-6 offset-md-3 text-center">
                                 <button type="button" class="cancel-button"> {{ __('Cancel') }} </button>
                                 <button type="submit" class="register-button">
                                     {{ __('Register') }}
                                 </button>
+<!--Waglalagyan href ang button since nasa controller-->
                             </div>
                         </div>
                     </form>

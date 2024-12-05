@@ -13,5 +13,8 @@ class CertificateDisplayController extends Controller
           $RequestData = BirthCertificateRequest::latest()->first();  // Get the latest record
           return view('page.forms.birthform', compact('RequestData'));  // Pass data to the view
       }
-    
+      public function direct()
+      {
+          return view('page.payment');
+      }
 }

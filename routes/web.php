@@ -15,6 +15,7 @@ use App\Http\Controllers\CertificateDisplayController;
 use App\Http\Controllers\RiderController;
 
 Auth::routes();
+Auth::routes(['verify' => true]);
 
 // Home Routes
 Route::get('/home/user-profile/report', [CertificateController::class, 'showReport'])->middleware('auth');
@@ -49,7 +50,7 @@ Route::post('/home/services/form102', [CertificateRequestController::class, 'sto
 
 // Birth Form Route
 Route::get('/home/services/form102/birthform', [CertificateDisplayController::class, 'create'])->middleware('auth');
-Route::post('/home/services/form102/birthform', [CertificateDisplayController::class, 'store'])->middleware('auth');
+Route::post('/home/services/form102/birthform', [CertificateDisplayController::class, 'direct'])->middleware('auth');
     
     //NextForm
 Route::get('/home/services/form102/transactionform', fn() => view('page.transactionform'))->middleware('auth');
