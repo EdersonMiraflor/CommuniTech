@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CertificateRequestController;
+use App\Http\Controllers\CertificateDisplayController;
 use App\Http\Controllers\RiderController;
 
 Auth::routes();
@@ -46,8 +47,11 @@ Route::get('/home/userrequest', fn() => view('page.userrequest'))->middleware('a
 Route::get('/home/services/form102', [CertificateRequestController::class, 'create']);
 Route::post('/home/services/form102', [CertificateRequestController::class, 'store']);
 
+// Birth Form Route
+Route::get('/home/services/form102/birthform', [CertificateDisplayController::class, 'create'])->name('birthform.create')->middleware('auth');
+Route::post('/home/services/form102/birthform', [CertificateDisplayController::class, 'store'])->name('birthform.store')->middleware('auth');
+    
     //NextForm
-Route::get('/home/services/form102/birthform', fn() => view('page.forms.birthform'))->middleware('auth');
 Route::get('/home/services/form102/transactionform', fn() => view('page.transactionform'))->middleware('auth');
 Route::get('/home/services/deathform', fn() => view('page.deathform'))->middleware('auth');
 Route::get('/home/services/marriageform', fn() => view('page.marriageform'))->middleware('auth');

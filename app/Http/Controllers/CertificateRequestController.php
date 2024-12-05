@@ -35,4 +35,6 @@ class CertificateRequestController extends Controller
 
         return redirect('/home/services/form102/birthform'); // Or another route to show success
     }
+
+    
 }
