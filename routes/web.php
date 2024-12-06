@@ -43,19 +43,33 @@ Route::get('/home/rider_admin_com', fn() => view('page.rider_admin_com'))->middl
 Route::get('/home/ridermanagement', fn() => view('page.ridermanagement'))->middleware('auth');
 Route::get('/home/userrequest', fn() => view('page.userrequest'))->middleware('auth');
 
-// Form Routes
-    //Birth
-Route::get('/home/services/form102', [CertificateRequestController::class, 'create']);
-Route::post('/home/services/form102', [CertificateRequestController::class, 'store']);
+// Form Routes Start
+    //Birth Start
+    Route::get('/home/services/form102', [CertificateRequestController::class, 'birthcreate']);
+    Route::post('/home/services/form102', [CertificateRequestController::class, 'birthstore']);
+    //Birth End
 
-// Birth Form Route
-Route::get('/home/services/form102/birthform', [CertificateDisplayController::class, 'create'])->middleware('auth');
-Route::post('/home/services/form102/birthform', [CertificateDisplayController::class, 'direct'])->middleware('auth');
-    
-    //NextForm
+    // Marriage Start
+    Route::get('/home/services/marriageform', [CertificateRequestController::class, 'marriagecreate'])->middleware('auth');
+    Route::post('/home/services/marriageform', [CertificateRequestController::class, 'marriagestore'])->middleware('auth');
+    // Marriage End
+
+    // Death Start
+    Route::get('/home/services/deathform', [CertificateRequestController::class, 'deathcreate'])->middleware('auth');
+    Route::post('/home/services/deathform', [CertificateRequestController::class, 'deathstore'])->middleware('auth');
+    // Death End
+
+    // Birth Certificate Start
+    Route::get('/home/services/form102/birthform', [CertificateDisplayController::class, 'directbirth'])->middleware('auth');
+    Route::post('/home/services/form102/birthform', [CertificateDisplayController::class, 'showbirth'])->middleware('auth');
+    // Birth Certificate End
+// Form Routes End
+
+    //NextForm Start
 Route::get('/home/services/form102/transactionform', fn() => view('page.transactionform'))->middleware('auth');
 Route::get('/home/services/deathform', fn() => view('page.deathform'))->middleware('auth');
 Route::get('/home/services/marriageform', fn() => view('page.marriageform'))->middleware('auth');
+    //NextForm End  
 
 // Transaction Routes
 Route::get('/transactionform', [FormsController::class, 'displaydocument']);

@@ -8,8 +8,8 @@
  </h2>
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+<form action="/home/services/marriageform" method="POST">
     @csrf
-
     <div class="row">
         <!-- Child's Information -->
         <div class="col-md-12">
@@ -54,9 +54,9 @@
      <button type="submit" class="btn btn-danger mt-3">Back</button>
      <button type="submit" class="btn btn-success mt-3">Next</button> <!-- Added birth-submit class -->
     </div> 
-</div>
-
-</div> 
+    </div>
+    </div> 
+</form>
 </div> 
 <br><br>
 @endsection

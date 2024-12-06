@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\BirthCertificateRequest;
+use App\Models\MarriageCertificateRequest;
+use App\Models\DeathCertificateRequest;
 
 class CertificateRequestController extends Controller
 {
-    public function create()
+
+/*Live Birth*/
+     /*Start Live Birth*/
+    public function birthcreate()
     {
         return view('page.form102');
     }
 
-    public function store(Request $request)
+    public function birthstore(Request $request)
     {
         // Store the data directly in the database
         BirthCertificateRequest::create([
@@ -35,6 +40,35 @@ class CertificateRequestController extends Controller
 
         return redirect('/home/services/form102/birthform'); // Or another route to show success
     }
+/*End Live Birth*/
+ 
+/*Marriage*/
+    /*Start Marriage*/
+    public function marriagecreate()
+    {
+        return view('page.marriage');
+    }
 
-    
+    public function marriagestore(Request $request)
+    {
+        // Store the data directly in the database
+        MarriageCertificateRequest::create([
+            'bride_full_name' => $request->bride_name,
+            'bride_place_of_birth' => $request->bride_birthplace,
+            'bride_date_of_birth' => $request->bride_birthdate,
+            'bride_residence' => $request->bride_residence,
+            'groom_full_name' => $request->groom_name,
+            'groom_place_of_birth' => $request->groom_birthplace,
+            'groom_date_of_birth' => $request->groom_birthdate,
+            'groom_residence' => $request->groom_residence,
+            'date_of_marriage' => $request->marriage_date,
+            'place_of_marriage' => $request->marriage_place,
+            'officiant_name' => $request->officiant_name,
+        ]);
+
+        return redirect('/home/services/marriageform/birthform'); // Or another route to show success
+    }
+/*End Marriage*/   
+
+
 }

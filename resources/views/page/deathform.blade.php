@@ -7,7 +7,8 @@
     <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="birth-logo"> CERTIFICATE OF DEATH
 </h2>
 
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+<form action="/home/services/deathform" method="POST">
     @csrf
 
     <div class="row">
@@ -58,9 +59,9 @@
         <!-- Submit Button -->
         <button type="submit" class="btn btn-danger mt-3">Back</button>
         <button type="submit" class="btn btn-success mt-3">Next</button> 
-</div>
-
-</div> 
+    </div>
+    </div> 
+</form>
 </div> 
 <br><br>
 @endsection
