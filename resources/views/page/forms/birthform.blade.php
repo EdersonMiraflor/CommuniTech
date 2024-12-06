@@ -14,7 +14,7 @@
             <div class="row">
                 <!-- Child's Information -->
                 <div class="col-md-12">
-                    <h4>I. CHILD'S INFORMATION</h4>
+                   
 
                     <div class="form-group">
                         <label for="child_first_name" class="birth-label">1. First Name</label>

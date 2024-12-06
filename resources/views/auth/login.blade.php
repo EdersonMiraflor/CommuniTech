@@ -9,18 +9,18 @@
     <div class="row justify-content-center">
         <!-- Left Container for Images and Text -->
         <div class="col-lg-6 col-md-6 mb-6 mb-md-0">
-            <div class="text-center" style="margin-top: 60px; font-family: Arial, sans serif;">
+            <div class="text-center">
                 <h1 class="display-4">CommuniTECH</h1>
                 <p class="lead">A Web - Based Application For Civil Registry Office of Manito, Albay</p>
             </div>
             <div class="d-flex flex-column align-items-center mt-4">
                 <div class="d-flex flex-row justify-content-around w-100 mb-4">
                     <div class="text-center">
-                        <img src="{{ asset('img/secure.png') }}" alt="Secure" width="70" height="70">
+                        <img src="{{ asset('img/secure.png') }}" alt="Secure" width="60" height="70">
                         <p class="h5">SECURE</p>
                     </div>
                     <div class="text-center">
-                        <img src="{{ asset('img/fast.png') }}" alt="Fast" width="95" height="75">
+                        <img src="{{ asset('img/fast.png') }}" alt="Fast" width="100" height="75">
                         <p class="h5">FAST</p>
                     </div>
                     <div class="text-center">

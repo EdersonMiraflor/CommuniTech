@@ -17,7 +17,7 @@
                                     <li><strong>Marriage Certificate Requests</strong></li>
                                     <li><strong>Death Certificate Requests</strong></li>
                                  </ul>
-                            </div>
+                        </div>
 
          <div class="right-content">
                 <img src="{{ asset('img/aboutus.png') }}" alt="CommuniTech" class="about-image">
@@ -38,6 +38,7 @@
 
         </div>
             </div>
+
 <br><br>
 <!--Form Section End-->
 

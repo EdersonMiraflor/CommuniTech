@@ -27,34 +27,6 @@
             </div>
         </section>
 
-        <!-- Team section -->
-        <section class="team">
-            <div class="team-container">
-                <h2 style="margin-top: 230px;">CommuniTECH Team</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="img/romeo.jpg" alt="Project Manager">
-                        <p class="name">Romeo Banzuela</p>
-                        <p class="role">Project Manager</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="img/princess.jpg" alt="System Analyst">
-                        <p class="name">Princess Malanyaon</p>
-                        <p class="role">System Analyst</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="img/coleen.png" alt="Front-end Developer">
-                        <p class="name">Coleen Lustre</p>
-                        <p class="role">Front-end Developer</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="img/eder.png" alt="Back-end Developer">
-                        <p class="name">Ederson Miraflor</p>
-                        <p class="role">Back-end Developer</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     @endif
 @endauth
 
