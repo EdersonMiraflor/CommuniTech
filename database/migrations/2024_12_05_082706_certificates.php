@@ -61,11 +61,9 @@ return new class extends Migration
 
         Schema::create('death_registrations', function (Blueprint $table) {
             $table->id();
+            
             // Deceased Information
-            $table->string('deceased_first_name');
-            $table->string('deceased_middle_name')->nullable();
-            $table->string('deceased_last_name');
-            $table->string('deceased_suffix')->nullable();
+            $table->string('deceased_name');
             $table->enum('deceased_sex', ['Male', 'Female']);
             $table->date('deceased_dob'); // Date of Birth
             $table->string('deceased_birthplace');
@@ -80,11 +78,11 @@ return new class extends Migration
             $table->string('informant_name');
             $table->string('informant_relationship');
             $table->string('informant_address');
-            $table->date('informant_date_signed'); // Date Signed by Informant
             
             // Timestamps
             $table->timestamps(); // created_at, updated_at
         });
+        
     }
 
     /**

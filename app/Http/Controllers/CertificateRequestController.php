@@ -70,5 +70,37 @@ class CertificateRequestController extends Controller
     }
 /*End Marriage*/   
 
+/*Death*/
+    /*Start Death*/
+    public function deathcreate()
+    {
+        return view('page.marriage');
+    }
 
+    public function deathstore(Request $request)
+    {
+
+        $request->validate([
+            'cause_of_death' => 'required|string', // or other validation rules
+        ]);
+        
+
+        // Store the data directly in the database
+        DeathCertificateRequest::create([
+            'deceased_name' => $request->deceased_name,
+            'deceased_sex' => $request->deceased_sex,
+            'deceased_dob' => $request->deceased_dob,
+            'deceased_birthplace' => $request->deceased_birthplace,
+            'death_date' => $request->death_date,
+            'death_time' => $request->death_time,
+            'death_place' => $request->death_place,
+            'cause_of_death' => $request->cause_of_death,
+            'informant_name' => $request->informant_name,
+            'informant_relationship' => $request->informant_relationship,
+            'informant_address' => $request->informant_address,
+        ]);
+
+        return redirect('/home/services/marriageform/deathform'); // Or another route to show success
+    }
+/*End Death*/ 
 }
