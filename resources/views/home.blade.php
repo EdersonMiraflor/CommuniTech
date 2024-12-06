@@ -27,7 +27,6 @@
             </div>
         </section>
 
-
     @endif
 @endauth
 
