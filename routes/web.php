@@ -50,8 +50,12 @@ Route::post('/home/services/form102', [CertificateRequestController::class, 'sto
 
 // Birth Form Route
 Route::get('/home/services/form102/birthform', [CertificateDisplayController::class, 'create'])->middleware('auth');
-Route::post('/home/services/form102/birthform', [CertificateDisplayController::class, 'direct'])->middleware('auth');
-    
+Route::post('/home/services/form102', [CertificateDisplayController::class, 'direct'])->middleware('auth');
+// Marriage Form Route
+Route::get('/home/services/marriageform/marriageformcert', fn() => view('page.forms.marriageformcert'))->middleware('auth');
+// Death Form Route
+Route::get('/home/services/deathform/deathformcert', fn() => view('page.forms.deathformcert'))->middleware('auth');
+
     //NextForm
 Route::get('/home/services/form102/transactionform', fn() => view('page.transactionform'))->middleware('auth');
 Route::get('/home/services/deathform', fn() => view('page.deathform'))->middleware('auth');

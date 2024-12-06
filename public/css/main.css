@@ -198,88 +198,74 @@ body {
 /*END OF HOME CSS*/
 
 /* ABOUT PAGE CSS */
+/* ABOUT PAGE CSS */
 
 .about {
-    font-family: Arial, sans-serif;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     background-color: #e8f7ec;
-    padding: 20px 20px;
+    padding: 20px;
     max-width: 1300px;
     margin: 0 auto;
-    margin-bottom: 20px;
+    gap: 20px; /* Added spacing between sections */
 }
 
-/* CONTENT1-2*/
-.left-content1 {
-    flex: 1.5;
+/* CONTENT1-2 */
+.left-content1,
+.left-content2 {
+    flex: 1 1 60%; /* Allows the content to shrink and grow responsively */
     padding: 20px;
+    box-sizing: border-box;
+}
+
+.left-content1 h1, .left-content1 h2, .left-content2 h2 {
+    color: #28a745;
 }
 
 .left-content1 h1 {
     font-size: 3rem;
-    color: #28a745;
-    margin-top: 10px;
-    margin-bottom: 40px;
-    text-align: left;
-    text-indent: 0em;
-    margin-left: 40px;
+    margin-bottom: 20px;
 }
 
-.left-content1 h2 {
-    font-size: 24px;
-    color: #28a745;
-    margin-top: 40px;
-    text-indent: 0em;
-    margin-left: 40px;
+.left-content1 h2, .left-content2 h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
-.left-content2 h2 {
-    font-size: 24px;
-    color: #28a745;
-    margin-top: 10px;
-    text-indent: 1.5em;
-    margin-left: 40px;
-}
-
-.left-content1,
-.left-content2 p,
-.left-content1,
-.left-content2 ul {
-    font-size: 18px;
+.left-content1 p, .left-content2 p, .left-content1 ul, .left-content2 ul {
+    font-size: 1rem;
     color: #333;
-    line-height: 1.8;
-    text-align: justify;
-    text-indent: 3em;
-    margin-left: 40px;
-    margin-right: 40px;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
-.left-content1,
-.left-content2 ul {
-    list-style-type: disc;
-    margin-left: 40px;
-    margin-right: 40px;
+.left-content1 ul, .left-content2 ul {
+    padding-left: 40px;
 }
 
-/*right content*/
+/* RIGHT CONTENT */
 .right-content {
-    flex: 0.9;
-    padding: 20px;
+    flex: 1 1 35%; /* Allows the image section to adapt */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
 .about-image {
-    max-width: 90%;
-    height: auto;
-    padding: 40px 20px;
+    max-width: 80%; /* Reduces the size of the image relative to its container */
+    width: 300px;   /* Sets a maximum width for the image */
+    height: auto;   /* Maintains aspect ratio */
+    padding: 10px;  /* Adjust padding for aesthetics */
 }
 
+
 .image-caption {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #28a745;
+    margin-top: 10px;
     font-weight: bold;
-    margin-top: 0%;
 }
 
 .highlight {
@@ -328,33 +314,48 @@ body {
 }
 
 
-/* Responsive Design */
-@media (max-width: 768px) {
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+ main
     .about {
         flex-direction: column;
-        padding: 50px 20px;
     }
 
-    .left-content1,
-    .right-content .left-content2 {
-        width: 100%;
+    .left-content1, .left-content2, .right-content {
+        flex: 1 1 100%; /* Make all sections take full width */
+        padding: 20px;
     }
 
     .left-content1 h1 {
-        font-size: 28px;
+        font-size: 2rem;
     }
 
-    .left-content1,
-    .left-content2 h2 {
-        font-size: 20px;
+    .left-content1 h2, .left-content2 h2 {
+        font-size: 1.25rem;
     }
 
-    .left-content1,
-    .left-content2 p,
-    .left-content1,
-    .left-content2 ul,
+    .left-content1 p, .left-content2 p, .left-content1 ul, .left-content2 ul {
+        font-size: 0.9rem;
+    }
+
     .image-caption {
-        font-size: 16px;
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-image {
+        max-width: 70%; /* Further reduce the size for smaller screens */
+        width: 200px;   /* Limit to 200px for very small devices */
+    }
+
+    .left-content1 h1, .image-caption {
+        text-align: center;
+    }
+
+    .left-content1 ul, .left-content2 ul {
+        padding-left: 20px;
     }
 }
 
