@@ -427,28 +427,34 @@
                 </li>
             @endif
         @else
-            <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
-                    <i class="fas fa-user ms-2"></i> <!-- Icon for User -->
-                </a>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                        <i class="fas fa-sign-out-alt ms-2"></i> <!-- Icon for Logout -->
-                    </a>
+            
+<li class="nav-item dropdown">
+    <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        {{ Auth::user()->name }}
+        <i class="fas fa-user ms-2"></i> <!-- Icon for User -->
+    </a>
+    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ route('logout') }}"
+           onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+            <i class="fas fa-sign-out-alt ms-2"></i> <!-- Icon for Logout -->
+        </a>
+        <a class="dropdown-item" href="/home/user-profile">
+            {{ __('User Profile') }}
+        </a>
+        
+        <hr class="dropdown-divider"> <!-- Horizontal line divider -->
 
-                    <a class="dropdown-item" href="/home/user-profile">
-                        {{ __('User Profile') }}
-                    </a>
+        <a class="dropdown-item" href="/rider_application">
+            {{ __('Sign up as a Rider!') }}
+        </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
-            </li>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+    </div>
+</li>
         @endguest
 @endif
     </ul>

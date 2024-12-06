@@ -107,3 +107,7 @@ Route::get('riders/{id}/delivery-history', [RiderController::class, 'deliveryHis
 
 // Home Routes (after authentication and email verification)
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
+
+
+// Rider Routes (legit)
+Route::get('/rider_application', fn() => view('rider_application'))->middleware('auth');
