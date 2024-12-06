@@ -49,8 +49,9 @@ Route::get('/home/services/form102', [CertificateRequestController::class, 'crea
 Route::post('/home/services/form102', [CertificateRequestController::class, 'store']);
 
 // Birth Form Route
-Route::get('/home/services/form102/birthform', [CertificateDisplayController::class, 'create'])->middleware('auth');
-Route::post('/home/services/form102', [CertificateDisplayController::class, 'direct'])->middleware('auth');
+
+Route::get('/home/services/form102/birthform', fn() => view('page.forms.birthform'))->middleware('auth');
+
 // Marriage Form Route
 Route::get('/home/services/marriageform/marriageformcert', fn() => view('page.forms.marriageformcert'))->middleware('auth');
 // Death Form Route
