@@ -7,12 +7,14 @@
 <div class="container birth-form-page" style="padding: 20px; margin-top: 50px; margin-bottom: 50px; position: relative; text-align: center;">
     <!-- Background Image -->
     <div class="background-image-container" style="position: relative; overflow: hidden;">
-        <img src="{{ asset('img/1.png') }}" alt="Birth Certificate" style="width: 100%; height: auto; opacity: 0.8;">
-        
-        <form action="/home/services/form102/birthform" method="POST" id="birthForm">
+    <img src="{{ asset('img/Certificate-of-Live-Birth/page-0.jpg') }}" alt="Certificate of Live-Birth" style="width: 100%; height: auto; opacity: 0.8;">
+    <img src="{{ asset('img/Certificate-of-Live-Birth/page-1.jpg') }}" alt="Certificate of Live-Birth" style="width: 100%; height: auto; opacity: 0.8;">
+        <!--
+    <form action="/home/services/form102/birthform" method="POST" id="birthForm">
             @csrf
+
             <div class="row">
-                <!-- Child's Information -->
+                
                 <div class="col-md-12">
                    
 
@@ -50,7 +52,7 @@
                     </div>
                 </div>
 
-                <!-- Mother's Information -->
+               
                 <div class="col-md-12 mt-4">
                     <h4>II. MOTHER'S INFORMATION</h4>
 
@@ -80,12 +82,13 @@
                     </div>
                 </div>
 
-                <!-- Submit Button -->
+                 
                 <div class="col-md-12 mt-4">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>
         </form>
+-->
     </div>
 </div>
 

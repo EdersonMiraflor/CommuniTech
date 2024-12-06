@@ -6,6 +6,9 @@
     <h2 class="text-center birth-heading">
         <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="birth-logo"> CERTIFICATE OF DEATH
     </h2>
+    <h2 class="text-center birth-heading">
+        <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="birth-logo"> CERTIFICATE OF DEATH
+    </h2>
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <form action="/home/services/form103" method="POST">
