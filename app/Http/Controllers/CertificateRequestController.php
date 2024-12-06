@@ -20,7 +20,6 @@ class CertificateRequestController extends Controller
 
     public function birthstore(Request $request)
     {
-        // Store the data directly in the database
         BirthCertificateRequest::create([
             'child_first_name' => $request->child_first_name,
             'child_middle_name' => $request->child_middle_name,
@@ -38,7 +37,7 @@ class CertificateRequestController extends Controller
             'mother_residence' => $request->mother_residence,
         ]);
 
-        return redirect('/home/services/form102/birthform'); // Or another route to show success
+        return redirect('/home/services/form102/birthform');
     }
 /*End Live Birth*/
  
@@ -51,7 +50,6 @@ class CertificateRequestController extends Controller
 
     public function marriagestore(Request $request)
     {
-        // Store the data directly in the database
         MarriageCertificateRequest::create([
             'bride_full_name' => $request->bride_name,
             'bride_place_of_birth' => $request->bride_birthplace,
@@ -66,7 +64,7 @@ class CertificateRequestController extends Controller
             'officiant_name' => $request->officiant_name,
         ]);
 
-        return redirect('/home/services/marriageform/birthform'); // Or another route to show success
+        return redirect('/home/services/marriageform/birthform');
     }
 /*End Marriage*/   
 
@@ -81,7 +79,7 @@ class CertificateRequestController extends Controller
     {
 
         $request->validate([
-            'cause_of_death' => 'required|string', // or other validation rules
+            'cause_of_death' => 'required|string',
         ]);
         
 
