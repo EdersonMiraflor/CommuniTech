@@ -67,7 +67,9 @@ Route::get('/home/userrequest', fn() => view('page.userrequest'))->middleware('a
     Route::get('/marriageform', fn() => view('page.marriageform'))->middleware('auth');
     Route::get('/deathform', fn() => view('page.deathform'))->middleware('auth');
 //DemoPurpose
-
+    Route::get('/birthform', fn() => view('page.form102'))->middleware('auth');
+    Route::get('/marriageform', fn() => view('page.marriageform'))->middleware('auth');
+    Route::get('/deathform', fn() => view('page.deathform'))->middleware('auth');
     // Birth Certificate Start
     Route::get('/home/services/form102/birthform', [CertificateDisplayController::class, 'directbirth'])->middleware('auth');
     Route::post('/home/services/form102/birthform', [CertificateDisplayController::class, 'showbirth'])->middleware('auth');
