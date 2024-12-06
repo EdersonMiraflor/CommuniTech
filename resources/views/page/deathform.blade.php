@@ -6,62 +6,92 @@
     <h2 class="text-center birth-heading">
         <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="birth-logo"> CERTIFICATE OF DEATH
     </h2>
+    <h2 class="text-center birth-heading">
+        <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="birth-logo"> CERTIFICATE OF DEATH
+    </h2>
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <form action="/home/services/deathform" method="POST">
+    <form action="/home/services/form103" method="POST">
         @csrf
-
         <div class="row">
-            <!-- Child's Information -->
+            <!-- Deceased Information -->
             <div class="col-md-12">
-                <h4>I. Deceased Information</h4>
-                <label for="deceased-name" class="birth-label">Full Name:</label>
-                <input type="text" id="deceased-name" name="deceased_name" class="birth-form-control" placeholder="Enter deceased's full name" required />
+                <h4>I. DECEASED INFORMATION</h4>
+                <div class="form-group">
+                    <label for="deceased_name" class="birth-label">1. Full Name</label>
+                    <input type="text" id="deceased_name" name="deceased_name" class="birth-form-control" placeholder="Enter deceased's full name" required>
+                </div>
 
-                <label for="deceased-sex" class="birth-label">Sex:</label>
-                <select id="deceased-sex" name="deceased_sex" class="birth-form-control" required>
-                    <option value="">Select Sex</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
+                <div class="form-group">
+                    <label for="deceased_sex" class="birth-label">2. Sex</label>
+                    <select id="deceased_sex" name="deceased_sex" class="birth-form-control" required>
+                        <option value="">Select Sex</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
 
-                <label for="deceased-birthdate" class="birth-label">Date of Birth:</label>
-                <input type="date" id="deceased-birthdate" name="deceased_dob" class="birth-form-control" required />
+                <div class="form-group">
+                    <label for="deceased_birthdate" class="birth-label">3. Date of Birth</label>
+                    <input type="date" id="deceased_birthdate" name="deceased_birthdate" class="birth-form-control" required>
+                </div>
 
-                <label for="deceased-birthplace" class="birth-label">Place of Birth:</label>
-                <input type="text" id="deceased-birthplace" name="deceased_birthplace" class="birth-form-control" placeholder="Enter place of birth" required />
+                <div class="form-group">
+                    <label for="deceased_birthplace" class="birth-label">4. Place of Birth</label>
+                    <input type="text" id="deceased_birthplace" name="deceased_birthplace" class="birth-form-control" placeholder="Enter place of birth" required>
+                </div>
+            </div>
 
-                <!-- Section: Death Details -->
-                <h2 class="birth-heading">Death Details</h2>
-                <label for="death-date" class="birth-label">Date of Death:</label>
-                <input type="date" id="death-date" name="death_date" class="birth-form-control" required />
+            <!-- Death Details -->
+            <div class="col-md-12">
+                <h4>II. DEATH DETAILS</h4>
+                <div class="form-group">
+                    <label for="death_date" class="birth-label">5. Date of Death</label>
+                    <input type="date" id="death_date" name="death_date" class="birth-form-control" required>
+                </div>
 
-                <label for="death-time" class="birth-label">Time of Death:</label>
-                <input type="time" id="death-time" name="death_time" class="birth-form-control" required />
+                <div class="form-group">
+                    <label for="death_time" class="birth-label">6. Time of Death</label>
+                    <input type="time" id="death_time" name="death_time" class="birth-form-control" required>
+                </div>
 
-                <label for="death-place" class="birth-label">Place of Death:</label>
-                <input type="text" id="death-place" name="death_place" class="birth-form-control" placeholder="Enter place of death" required />
+                <div class="form-group">
+                    <label for="death_place" class="birth-label">7. Place of Death</label>
+                    <input type="text" id="death_place" name="death_place" class="birth-form-control" placeholder="Enter place of death" required>
+                </div>
 
-                <label for="death-cause" class="birth-label">Cause of Death:</label>
-                <textarea id="death-cause" name="cause_of_death" class="birth-form-control" placeholder="Enter cause of death" rows="3" required></textarea>
+                <div class="form-group">
+                    <label for="death_cause" class="birth-label">8. Cause of Death</label>
+                    <textarea id="death_cause" name="death_cause" class="birth-form-control" placeholder="Enter cause of death" rows="3" required></textarea>
+                </div>
+            </div>
 
-                <!-- Section: Informant Information -->
-                <h2 class="birth-heading">Informant Information</h2>
-                <label for="informant-name" class="birth-label">Informant's Full Name:</label>
-                <input type="text" id="informant-name" name="informant_name" class="birth-form-control" placeholder="Enter informant's full name" required />
+            <!-- Informant Information -->
+            <div class="col-md-12">
+                <h4>III. INFORMANT INFORMATION</h4>
+                <div class="form-group">
+                    <label for="informant_name" class="birth-label">9. Informant's Full Name</label>
+                    <input type="text" id="informant_name" name="informant_name" class="birth-form-control" placeholder="Enter informant's full name" required>
+                </div>
 
-                <label for="informant-relationship" class="birth-label">Relationship to Deceased:</label>
-                <input type="text" id="informant-relationship" name="informant_relationship" class="birth-form-control" placeholder="Enter relationship to deceased" required />
+                <div class="form-group">
+                    <label for="informant_relationship" class="birth-label">10. Relationship to Deceased</label>
+                    <input type="text" id="informant_relationship" name="informant_relationship" class="birth-form-control" placeholder="Enter relationship to deceased" required>
+                </div>
 
-                <label for="informant-address" class="birth-label">Informant's Address:</label>
-                <input type="text" id="informant-address" name="informant_address" class="birth-form-control" placeholder="Enter informant's address" required />
+                <div class="form-group">
+                    <label for="informant_address" class="birth-label">11. Informant's Address</label>
+                    <input type="text" id="informant_address" name="informant_address" class="birth-form-control" placeholder="Enter informant's address" required>
+                </div>
+            </div>
+
+            <!-- Submit Section -->
+            <div class="col-md-12 mt-3">
+                <button type="button" class="btn btn-danger" onclick="window.history.back()">Back</button>
+                <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </div>
-
-        <!-- Submit Buttons -->
-        <button type="submit" name="action" value="back" class="btn btn-danger mt-3">Back</button>
-        <button type="submit" name="action" value="next" class="btn btn-success mt-3">Next</button> 
     </form>
-</div> 
+</div>
 <br><br>
 @endsection
