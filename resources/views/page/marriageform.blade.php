@@ -8,7 +8,7 @@
     </h2>
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <form action="/home/services/form97" method="POST">
+    <form action="/home/services/marriageform/marriageformcert" method="POST">
         @csrf
         <div class="row">
             <!-- Bride's Information -->
