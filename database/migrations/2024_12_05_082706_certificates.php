@@ -21,7 +21,7 @@ return new class extends Migration
             $table->enum('child_sex', ['Male', 'Female']);
             $table->date('child_birthdate');
             $table->string('child_birthplace', 255);
-            $table->enum('multiple_birth', ['Single', 'Twin', 'Triplets', 'Other'])->default('Single');
+            $table->enum('multiple_birth', ['Single', 'Twin', 'Triplets', 'Other']);
             $table->string('birth_type', 100)->nullable();
             $table->integer('birth_order')->nullable();
             $table->float('birth_weight', 8, 2)->nullable();
