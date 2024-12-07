@@ -59,19 +59,16 @@ Route::get('/home/userrequest', fn() => view('page.userrequest'))->middleware('a
     Route::post('/home/services/deathform', [CertificateRequestController::class, 'deathstore'])->middleware('auth');
     // Death End
 
-//Demo Purpose
-    Route::get('/birth', fn() => view('page.forms.birthform'))->middleware('auth');
-    Route::get('/marriage', fn() => view('page.forms.marriageformcert'))->middleware('auth');
-    Route::get('/death', fn() => view('page.forms.deathformcert'))->middleware('auth');
-    Route::get('/birthform', fn() => view('page.form102'))->middleware('auth');
-    Route::get('/marriageform', fn() => view('page.marriageform'))->middleware('auth');
-    Route::get('/deathform', fn() => view('page.deathform'))->middleware('auth');
-//DemoPurpose
-
     // Birth Certificate Start
     Route::get('/home/services/form102/birthform', [CertificateDisplayController::class, 'directbirth'])->middleware('auth');
     Route::post('/home/services/form102/birthform', [CertificateDisplayController::class, 'showbirth'])->middleware('auth');
     // Birth Certificate End
+
+    // Marriage Certificate Start
+    Route::get('/home/services/marriageform/marriageformcert', [CertificateDisplayController::class, 'directmarriage'])->middleware('auth');
+    Route::post('/home/services/marriageform/marriageformcert', [CertificateDisplayController::class, 'showmarriage'])->middleware('auth');
+    // Marriage Certificate End
+
     // Death Certificate Start
     Route::get('/home/services/deathform/deathformcert', [CertificateDisplayController::class, 'directdeath'])->middleware('auth');
     Route::post('/home/services/deathform/deathformcert', [CertificateDisplayController::class, 'showdeath'])->middleware('auth');

@@ -15,84 +15,149 @@ return new class extends Migration
             $table->id();
 
             // Child's Details
-            $table->string('child_first', 100);
-            $table->string('child_middle', 100)->nullable();
-            $table->string('child_last', 100);
+            $table->string('child_first', 60);
+            $table->string('child_middle', 60)->nullable();
+            $table->string('child_last', 60);
             $table->enum('child_sex', ['Male', 'Female']);
             $table->date('child_birthdate');
-            $table->string('child_birthplace', 255);
+            $table->string('child_birthplace', 60);
             $table->enum('multiple_birth', ['Single', 'Twin', 'Triplets', 'Other']);
-            $table->string('birth_type', 100)->nullable();
+            $table->string('birth_type', 60)->nullable();
             $table->integer('birth_order')->nullable();
             $table->float('birth_weight', 8, 2)->nullable();
 
             // Mother's Details
-            $table->string('mother_first_name', 100);
-            $table->string('mother_middle_name', 100)->nullable();
-            $table->string('mother_last_name', 100);
-            $table->string('citizenship', 100)->nullable();
-            $table->string('religion', 100)->nullable();
+            $table->string('mother_first_name', 60);
+            $table->string('mother_middle_name', 60)->nullable();
+            $table->string('mother_last_name', 60);
+            $table->string('citizenship', 60)->nullable();
+            $table->string('religion', 60)->nullable();
             $table->integer('total_number')->nullable(); 
             $table->integer('children')->nullable(); 
             $table->integer('dead_child')->nullable();
-            $table->string('occupation', 100)->nullable();
+            $table->string('occupation', 60)->nullable();
             $table->integer('mother_age')->nullable();
-            $table->string('mother_street', 255)->nullable();
-            $table->string('mother_city', 100)->nullable();
-            $table->string('mother_province', 100)->nullable();
-            $table->string('mother_country', 100)->nullable();
+            $table->string('mother_street', 60)->nullable();
+            $table->string('mother_city', 60)->nullable();
+            $table->string('mother_province', 60)->nullable();
+            $table->string('mother_country', 60)->nullable();
 
             // Father's Details
-            $table->string('father_first_name', 100);
-            $table->string('father_middle_name', 100)->nullable();
-            $table->string('father_last_name', 100);
-            $table->string('citizenship2', 100)->nullable();
-            $table->string('religion2', 100)->nullable();
-            $table->string('occupation2', 100)->nullable();
+            $table->string('father_first_name', 60);
+            $table->string('father_middle_name', 60)->nullable();
+            $table->string('father_last_name', 60);
+            $table->string('citizenship2', 60)->nullable();
+            $table->string('religion2', 60)->nullable();
+            $table->string('occupation2', 60)->nullable();
             $table->integer('father_age')->nullable();
-            $table->string('father_street', 255)->nullable();
-            $table->string('father_city', 100)->nullable();
-            $table->string('father_province', 100)->nullable();
-            $table->string('father_country', 100)->nullable();
+            $table->string('father_street', 60)->nullable();
+            $table->string('father_city', 60)->nullable();
+            $table->string('father_province', 60)->nullable();
+            $table->string('father_country', 60)->nullable();
 
             // Marriage Details
             $table->date('marriage_date')->nullable();
-            $table->string('marriage_street', 255)->nullable();
-            $table->string('marriage_municipality', 100)->nullable();
-            $table->string('marriage_province', 100)->nullable();
-            $table->string('marriage_country', 100)->nullable();
+            $table->string('marriage_street', 60)->nullable();
+            $table->string('marriage_municipality', 60)->nullable();
+            $table->string('marriage_province', 60)->nullable();
+            $table->string('marriage_country', 60)->nullable();
 
             // Attendant Details
             $table->enum('attendant_role', ['Physician', 'Nurse', 'Midwife', 'Hilot', 'Other'])->nullable();
-            $table->string('other_attendant_role', 100)->nullable(); 
+            $table->string('other_attendant_role', 60)->nullable(); 
 
             // Miscellaneous
-            $table->string('father_name', 100)->nullable();
-            $table->string('mother_name', 100)->nullable();
-            $table->string('name_child', 100)->nullable();
+            $table->string('father_name', 60)->nullable();
+            $table->string('mother_name', 60)->nullable();
+            $table->string('name_child', 60)->nullable();
             $table->date('birth_date')->nullable();
-            $table->string('birth_place', 255)->nullable();
-            $table->string('signature1', 255)->nullable();
-            $table->string('signature2', 255)->nullable();
+            $table->string('birth_place', 60)->nullable();
+            $table->string('signature1', 60)->nullable();
+            $table->string('signature2', 60)->nullable();
 
             $table->timestamps();
         });
 
         Schema::create('marriage_registrations', function (Blueprint $table) {
-            $table->id();
-            $table->string('bride_full_name');
-            $table->string('bride_place_of_birth');
-            $table->date('bride_date_of_birth');
-            $table->string('bride_residence');  
-            $table->string('groom_full_name');
-            $table->string('groom_place_of_birth');
-            $table->date('groom_date_of_birth');
-            $table->string('groom_residence');
-            $table->date('date_of_marriage');
-            $table->string('place_of_marriage');
-            $table->string('officiant_name');
-            $table->timestamps(); 
+            $table->id(); // Primary key (Auto-increment)
+            
+            // Husband's information
+            $table->string('husband_first_name', 60)->nullable();
+            $table->string('husband_middle_name', 60)->nullable();
+            $table->string('husband_last_name', 60)->nullable();
+            $table->date('husband_birthdate')->nullable(); // Fixed: date should not have a length
+            $table->integer('husband_age')->nullable(); // Fixed: age should be an integer, no length needed
+            $table->string('husband_city_municipality', 60)->nullable();
+            $table->string('husband_province', 60)->nullable();
+            $table->string('husband_country', 60)->nullable();
+            $table->string('husband_citizenship', 60)->nullable();
+            $table->string('husband_residence', 60)->nullable();
+            $table->string('husband_religion', 60)->nullable();
+            $table->string('husband_father_first_name', 60)->nullable();
+            $table->string('husband_father_middle_name', 60)->nullable();
+            $table->string('husband_father_last_name', 60)->nullable();
+            $table->string('husband_father_citizenship', 60)->nullable();
+            $table->string('husband_mother_first_name', 60)->nullable();
+            $table->string('husband_mother_middle_name', 60)->nullable();
+            $table->string('husband_mother_maiden_last_name', 60)->nullable();
+            $table->string('husband_mother_citizenship', 60)->nullable();
+            
+            // Wife's information
+            $table->string('wife_first_name', 60)->nullable();
+            $table->string('wife_middle_name', 60)->nullable();
+            $table->string('wife_last_name', 60)->nullable();
+            $table->date('wife_birthdate')->nullable(); // Fixed: date should not have a length
+            $table->integer('wife_age')->nullable(); // Fixed: age should be an integer, no length needed
+            $table->string('wife_city_municipality', 60)->nullable();
+            $table->string('wife_province', 60)->nullable();
+            $table->string('wife_country', 60)->nullable();
+            $table->string('wife_citizenship', 60)->nullable();
+            $table->string('wife_residence', 60)->nullable();
+            $table->string('wife_religion', 60)->nullable();
+            $table->string('wife_father_first_name', 60)->nullable();
+            $table->string('wife_father_middle_name', 60)->nullable();
+            $table->string('wife_father_last_name', 60)->nullable();
+            $table->string('wife_father_citizenship', 60)->nullable();
+            $table->string('wife_mother_first_name', 60)->nullable();
+            $table->string('wife_mother_middle_name', 60)->nullable();
+            $table->string('wife_mother_maiden_last_name', 60)->nullable();
+            $table->string('wife_mother_citizenship', 60)->nullable();
+            
+            // Marriage details
+            $table->date('marriage_date1')->nullable(); // Fixed: date should not have a length
+            $table->string('marriage_place', 60)->nullable();
+            $table->string('officiant_name', 60)->nullable();
+            $table->string('officiant_position', 60)->nullable();
+            $table->text('witnesses', 60)->nullable(); 
+            $table->string('affiant_name', 60)->nullable();
+            $table->string('address', 60)->nullable();
+            $table->string('marriage_registration_for', 60)->nullable();
+            $table->string('marriage_date2', 60)->nullable();
+            $table->string('ceremony_type', 60)->nullable(); // Fixed: missing quote for string type
+            $table->string('license_required', 60)->nullable();
+            $table->string('license_no', 60)->nullable();
+            $table->date('license_date')->nullable(); // Fixed: date should not have a length
+            $table->string('license_place', 60)->nullable();
+            $table->string('license_required2', 60)->nullable();
+            $table->string('article_no', 60)->nullable();
+            $table->string('citizenship', 60)->nullable();
+            $table->string('spouse_citizenship', 60)->nullable();
+            $table->string('delay_reason', 60)->nullable();
+            $table->string('day2', 60)->nullable();
+            $table->string('month2', 60)->nullable();
+            $table->string('year2', 60)->nullable();
+            $table->string('location', 60)->nullable();
+            $table->string('subscribed_day', 60)->nullable();
+            $table->string('subscribed_month', 60)->nullable();
+            $table->string('subscribed_year', 60)->nullable();
+            $table->string('notary_location', 60)->nullable();
+            $table->string('admin_officer_position', 60)->nullable();
+            $table->string('admin_officer_name', 60)->nullable();
+            $table->string('admin_officer_address', 60)->nullable();
+            
+            $table->timestamps(); // For created_at and updated_at
         });
+        
 
         Schema::create('death_registrations', function (Blueprint $table) {
             $table->id();
