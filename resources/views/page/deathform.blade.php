@@ -8,7 +8,7 @@
     </h2>
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <form action="/home/services/form103" method="POST">
+    <form action="/home/services/deathform" method="POST">
         @csrf
         <div class="row">
             <!-- Personal Information -->
@@ -273,10 +273,11 @@
         <li>
             That the deceased at the time of his/her death:
             <br>
-            <label><input type="checkbox" name="attended_by[]" value="Attended"> was attended by</label> 
+            <label><input type="checkbox" name="attended_by" value="Attended"> was attended by</label> 
             <input type="text" name="attended_by_person" class="birth-form-control" style="width: 250px;" placeholder="Name of Attendant">
             <br>
-            <label><input type="checkbox" name="not_attended" value="Not Attended"> was not attended</label>.
+            <label><input type="checkbox" name="
+            " value="Not Attended"> was not attended</label>.
         </li>
         <li>
             That the cause of death of the deceased was 
@@ -322,4 +323,14 @@
     </form>
 </div>
 <br><br>
+<script>
+document.getElementById('corpse_disposal_method').addEventListener('change', function() {
+        var disposalMethod = this.value;
+        if (disposalMethod === 'Other') {
+            document.getElementById('other_disposal_method').style.display = 'block';
+        } else {
+            document.getElementById('other_disposal_method').style.display = 'none';
+        }
+    });
+</script>
 @endsection

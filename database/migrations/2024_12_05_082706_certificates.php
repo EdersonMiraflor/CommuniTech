@@ -32,9 +32,9 @@ return new class extends Migration
             $table->string('mother_last_name', 100);
             $table->string('citizenship', 100)->nullable();
             $table->string('religion', 100)->nullable();
-            $table->integer('total_number')->nullable(); // Total number of children
-            $table->integer('children')->nullable(); // Number of living children
-            $table->integer('dead_child')->nullable(); // Number of deceased children
+            $table->integer('total_number')->nullable(); 
+            $table->integer('children')->nullable(); 
+            $table->integer('dead_child')->nullable();
             $table->string('occupation', 100)->nullable();
             $table->integer('mother_age')->nullable();
             $table->string('mother_street', 255)->nullable();
@@ -64,7 +64,7 @@ return new class extends Migration
 
             // Attendant Details
             $table->enum('attendant_role', ['Physician', 'Nurse', 'Midwife', 'Hilot', 'Other'])->nullable();
-            $table->string('other_attendant_role', 100)->nullable(); // Specify if "Other"
+            $table->string('other_attendant_role', 100)->nullable(); 
 
             // Miscellaneous
             $table->string('father_name', 100)->nullable();
@@ -96,18 +96,64 @@ return new class extends Migration
 
         Schema::create('death_registrations', function (Blueprint $table) {
             $table->id();
+
+            $table->string('full_name');
+            $table->string('sex');
+            $table->date('date_of_death');
+            $table->date('date_of_birth');
+            $table->integer('completed_years')->nullable();
+            $table->string('months_days')->nullable();
+            $table->string('hours_minutes_seconds')->nullable();
+            $table->string('place_of_death');
+            $table->string('civil_status')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('citizenship')->nullable();
+            $table->string('residence');
+            $table->string('father_name')->nullable();
+            $table->string('mother_maiden_name')->nullable();
+            $table->text('immediate_cause');
+            $table->text('antecedent_cause')->nullable();
+            $table->text('underlying_cause')->nullable();
+            $table->text('other_conditions')->nullable();
+            $table->string('maternal_condition')->nullable();
+            $table->string('manner_of_death')->nullable();
+            $table->string('place_of_occurrence');
+            $table->string('autopsy')->nullable();
+            $table->string('type_of_attendant')->nullable();
+            $table->string('attendance_duration')->nullable();
+            $table->string('certifying_officer')->nullable();
+            $table->date('certification_date')->nullable();
+            $table->string('corpse_disposal_method');
+            $table->string('other_disposal_method_specify')->nullable();
+            $table->string('cemetery_or_crematory_name');
+            $table->string('cemetery_or_crematory_address')->nullable();
+            $table->integer('age_of_mother')->nullable();
+            $table->string('method_of_delivery')->nullable();
+            $table->string('length_of_pregnancy')->nullable();
+            $table->string('type_of_birth')->nullable();
+            $table->string('multiple_birth_position')->nullable();
+            $table->string('affiant_name');
+            $table->string('legal_status')->nullable();
+            $table->string('affiant_address')->nullable();
             $table->string('deceased_name');
-            $table->enum('deceased_sex', ['Male', 'Female']);
-            $table->date('deceased_dob'); 
-            $table->string('deceased_birthplace');
-            $table->date('death_date'); 
-            $table->time('death_time')->nullable(); 
-            $table->string('death_place');
-            $table->text('cause_of_death');
-            $table->string('informant_name');
-            $table->string('informant_relationship');
-            $table->string('informant_address');
-            $table->timestamps(); 
+            $table->string('burial_place')->nullable();
+            $table->string('attended_by')->nullable();
+            $table->string('attended_by_person')->nullable();
+            $table->boolean('not_attended')->nullable();
+            $table->text('cause_of_death')->nullable();
+            $table->text('reason_delay')->nullable();
+            $table->integer('day_signed')->nullable();
+            $table->string('month_signed')->nullable();
+            $table->integer('year_signed')->nullable();
+            $table->string('place_signed')->nullable();
+            $table->integer('day_sworn')->nullable();
+            $table->string('month_sworn')->nullable();
+            $table->integer('year_sworn')->nullable();
+            $table->string('place_sworn')->nullable();
+            $table->date('tax_cert_date')->nullable();
+            $table->string('tax_cert_place')->nullable();
+
+            $table->timestamps();
         });
     }
 
