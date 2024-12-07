@@ -113,3 +113,4 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 
 // Rider Routes (legit)
 Route::get('/rider_application', fn() => view('rider_application'))->middleware('auth');
+Route::get('/rider_interface', fn() => view('rider_interface'))->middleware('auth');
