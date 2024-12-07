@@ -5,8 +5,8 @@
 
 <div class="container my-5">
     <div class="card shadow">
-        <div class="card-header text-white" style="background-color: #28a745">
-            <h4 class="mb-0">Rider Dashboard</h4>
+        <div class="card-header text-white" style="background-color: white">
+            <h4 class="mb-0" style="color: #28a745;"><b>RIDER DASHBOARD</b></h4>
         </div>
         <div class="card-body">
             <ul class="nav nav-tabs mb-4" id="dashboardTabs" role="tablist">
@@ -30,11 +30,7 @@
                         Earnings Summary
                     </button>
                 </li>
-                <li class="nav-item">
-                    <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">
-                        Settings
-                    </button>
-                </li>
+                
             </ul>
             <div class="tab-content" id="dashboardTabsContent">
                 <!-- Assigned Deliveries -->
@@ -94,6 +90,12 @@
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <h5>Profile</h5>
                     <form>
+                        <div class="mb-3 text-center">
+                            <!-- Profile Picture Holder -->
+                            <label for="profile-picture" class="form-label d-block">Profile Picture</label>
+                            <img src="{{ asset('images/default-profile.png') }}" alt="Profile Picture" id="profilePicturePreview" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover; border: 2px solid #28a745;">
+                            <input type="file" class="form-control" id="profile-picture" onchange="previewProfilePicture(event)">
+                        </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="name" value="John Rider">
@@ -101,10 +103,6 @@
                         <div class="mb-3">
                             <label for="contact" class="form-label">Contact Details</label>
                             <input type="text" class="form-control" id="contact" value="+639123456789">
-                        </div>
-                        <div class="mb-3">
-                            <label for="profile-picture" class="form-label">Profile Picture</label>
-                            <input type="file" class="form-control" id="profile-picture">
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
@@ -120,23 +118,7 @@
                     </div>
                 </div>
 
-                <!-- Settings -->
-                <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-                    <h5>Settings</h5>
-                    <form>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Change Password</label>
-                            <input type="password" class="form-control" id="password">
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="notifications" checked>
-                            <label class="form-check-label" for="notifications">
-                                Enable Delivery Alerts
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-3">Save</button>
-                    </form>
-                </div>
+            
             </div>
         </div>
         <div class="card-footer d-flex justify-content-between">
@@ -148,5 +130,15 @@
     </div>
 </div>
 
+<script>
+    function previewProfilePicture(event) {
+        const reader = new FileReader();
+        reader.onload = function () {
+            const output = document.getElementById('profilePicturePreview');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
 
 @endsection
