@@ -13,21 +13,68 @@ return new class extends Migration
     {
         Schema::create('birth_registrations', function (Blueprint $table) {
             $table->id();
-            $table->string('child_first_name');
-            $table->string('child_middle_name')->nullable();
-            $table->string('child_last_name');
-            $table->string('child_sex');
-            $table->date('child_date_of_birth');
-            $table->string('child_place_of_birth');
-            $table->string('mother_first_name');
-            $table->string('mother_middle_name')->nullable();
-            $table->string('mother_last_name');
-            $table->date('mother_date_of_birth');
-            $table->string('mother_citizenship');
-            $table->string('mother_religion')->nullable();
-            $table->string('mother_occupation')->nullable();
-            $table->string('mother_residence');
-    
+
+            // Child's Details
+            $table->string('child_first', 100);
+            $table->string('child_middle', 100)->nullable();
+            $table->string('child_last', 100);
+            $table->enum('child_sex', ['Male', 'Female']);
+            $table->date('child_birthdate');
+            $table->string('child_birthplace', 255);
+            $table->enum('multiple_birth', ['Single', 'Twin', 'Triplets', 'Other'])->default('Single');
+            $table->string('birth_type', 100)->nullable();
+            $table->integer('birth_order')->nullable();
+            $table->float('birth_weight', 8, 2)->nullable();
+
+            // Mother's Details
+            $table->string('mother_first_name', 100);
+            $table->string('mother_middle_name', 100)->nullable();
+            $table->string('mother_last_name', 100);
+            $table->string('citizenship', 100)->nullable();
+            $table->string('religion', 100)->nullable();
+            $table->integer('total_number')->nullable(); // Total number of children
+            $table->integer('children')->nullable(); // Number of living children
+            $table->integer('dead_child')->nullable(); // Number of deceased children
+            $table->string('occupation', 100)->nullable();
+            $table->integer('mother_age')->nullable();
+            $table->string('mother_street', 255)->nullable();
+            $table->string('mother_city', 100)->nullable();
+            $table->string('mother_province', 100)->nullable();
+            $table->string('mother_country', 100)->nullable();
+
+            // Father's Details
+            $table->string('father_first_name', 100);
+            $table->string('father_middle_name', 100)->nullable();
+            $table->string('father_last_name', 100);
+            $table->string('citizenship2', 100)->nullable();
+            $table->string('religion2', 100)->nullable();
+            $table->string('occupation2', 100)->nullable();
+            $table->integer('father_age')->nullable();
+            $table->string('father_street', 255)->nullable();
+            $table->string('father_city', 100)->nullable();
+            $table->string('father_province', 100)->nullable();
+            $table->string('father_country', 100)->nullable();
+
+            // Marriage Details
+            $table->date('marriage_date')->nullable();
+            $table->string('marriage_street', 255)->nullable();
+            $table->string('marriage_municipality', 100)->nullable();
+            $table->string('marriage_province', 100)->nullable();
+            $table->string('marriage_country', 100)->nullable();
+
+            // Attendant Details
+            $table->enum('attendant_role', ['Physician', 'Nurse', 'Midwife', 'Hilot', 'Other'])->nullable();
+            $table->string('other_attendant_role', 100)->nullable(); // Specify if "Other"
+
+            // Miscellaneous
+            $table->string('father_name', 100)->nullable();
+            $table->string('mother_name', 100)->nullable();
+            $table->string('name_child', 100)->nullable();
+            $table->date('birth_date')->nullable();
+            $table->string('birth_place', 255)->nullable();
+            $table->string('signature1', 255)->nullable();
+            $table->string('signature2', 255)->nullable();
+
             $table->timestamps();
         });
 

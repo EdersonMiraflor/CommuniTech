@@ -9,34 +9,19 @@
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
   
-    <form action="/home/services/form101" method="POST">
+    <form action="/home/services/form102" method="POST">
         @csrf
 
         <div class="row">
             <!-- Child's Information -->
             <div class="col-md-12">
                 <h4>I. CHILD'S INFORMATION</h4>
-            
-                <div class="form-group">
-                    <label for="province" class="birth-label">Province</label>
-                    <input type="text" id="provincee" name="province" class="birth-form-control" placeholder="" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="city" class="birth-label">City/Municipality</label>
-                    <input type="text" id="city" name="city" class="birth-form-control" placeholder="" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="registry_no" class="birth-label">Registry No.</label>
-                    <input type="text" id="registry_no" name="registry_no" class="birth-form-control" placeholder="" required>
-                </div>
 
                 <div class="form-group">
                     <label for="child_name" class="birth-label">1. Child's Name</label>
-                    <input type="text" id="child_name" name="child_name" class="birth-form-control" placeholder="Enter child's first name" required>
-                    <input type="text" id="child_name" name="child_name" class="birth-form-control" placeholder="Enter child's middle name" required>
-                    <input type="text" id="child_name" name="child_name" class="birth-form-control" placeholder="Enter child's last name" required>
+                    <input type="text" id="child_name" name="child_first" class="birth-form-control" placeholder="Enter child's first name" required>
+                    <input type="text" id="child_name" name="child_middle" class="birth-form-control" placeholder="Enter child's middle name" required>
+                    <input type="text" id="child_name" name="child_last" class="birth-form-control" placeholder="Enter child's last name" required>
                 </div>
 
                 <div class="form-group">
@@ -71,7 +56,7 @@
 
                 <div class="form-group" id="other_birth_type" style="display:none;">
                     <label for="other_birth_type_specify" class="birth-label">Please Specify</label>
-                    <input type="text" id="other_birth_type_specify" name="other_birth_type_specify" class="birth-form-control" placeholder="Specify other birth type">
+                    <input type="text" id="other_birth_type_specify" name="birth_type" class="birth-form-control" placeholder="Specify other birth type">
                 </div>
 
                 <div class="form-group">
@@ -91,9 +76,9 @@
 
                 <div class="form-group">
                     <label for="mother_maiden_name" class="birth-label">7. Mother's Maiden Name</label>
-                    <input type="text" id="mother_maiden_name" name="mother_maiden_name" class="birth-form-control" placeholder="Enter mother's first name" required>
-                    <input type="text" id="mother_maiden_name" name="mother_maiden_name" class="birth-form-control" placeholder="Enter mother's middle name" required>
-                    <input type="text" id="mother_maiden_name" name="mother_maiden_name" class="birth-form-control" placeholder="Enter mother's last name" required>
+                    <input type="text" id="mother_maiden_name" name="mother_first_name" class="birth-form-control" placeholder="Enter mother's first name" required>
+                    <input type="text" id="mother_maiden_name" name="mother_middle_name" class="birth-form-control" placeholder="Enter mother's middle name" required>
+                    <input type="text" id="mother_maiden_name" name="mother_last_name" class="birth-form-control" placeholder="Enter mother's last name" required>
                 </div>
 
                 <div class="form-group">
@@ -133,10 +118,10 @@
 
                 <div class="form-group">
                     <label for="mother_place" class="birth-label">13. Residence</label>
-                    <input type="text" id="mother_place" name="mother_place" class="birth-form-control" placeholder="House No./Street/Barangay" required>
-                    <input type="text" id="mother_place" name="mother_place" class="birth-form-control" placeholder="City/Municipality" required>
-                    <input type="text" id="mother_place" name="mother_place" class="birth-form-control" placeholder="Province" required>
-                    <input type="text" id="mother_place" name="mother_place" class="birth-form-control" placeholder="Country" required>
+                    <input type="text" id="mother_place" name="mother_street" class="birth-form-control" placeholder="House No./Street/Barangay" required>
+                    <input type="text" id="mother_place" name="mother_city" class="birth-form-control" placeholder="City/Municipality" required>
+                    <input type="text" id="mother_place" name="mother_province" class="birth-form-control" placeholder="Province" required>
+                    <input type="text" id="mother_place" name="mother_country" class="birth-form-control" placeholder="Country" required>
                 </div>
             </div>
 
@@ -146,37 +131,37 @@
 
                 <div class="form-group">
                     <label for="father's_name" class="birth-label">14. Father's Name</label>
-                    <input type="text" id="mother_maiden_name" name="mother_maiden_name" class="birth-form-control" placeholder="Enter father's first name" required>
-                    <input type="text" id="mother_maiden_name" name="mother_maiden_name" class="birth-form-control" placeholder="Enter father's middle name" required>
-                    <input type="text" id="mother_maiden_name" name="mother_maiden_name" class="birth-form-control" placeholder="Enter father's last name" required>
+                    <input type="text" id="father_maiden_name" name="father_first_name" class="birth-form-control" placeholder="Enter father's first name" required>
+                    <input type="text" id="father_middle_name" name="father_middle_name" class="birth-form-control" placeholder="Enter father's middle name" required>
+                    <input type="text" id="father_last_name" name="father_last_name" class="birth-form-control" placeholder="Enter father's last name" required>
                 </div>
 
                 <div class="form-group">
                     <label for="citizenship" class="birth-label">15. Citizenship</label>
-                    <input type="text" id="citizenship" name="citizenship" class="birth-form-control" required>
+                    <input type="text" id="citizenship" name="citizenship2" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label for="religion" class="birth-label">16. Religion/Religious Sect</label>
-                    <input type="text" id="religion" name="religion" class="birth-form-control" required>
+                    <input type="text" id="religion" name="religion2" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label for="occupation" class="birth-label">17. Occupation</label>
-                    <input type="text" id="occupation" name="occupation" class="birth-form-control" required>
+                    <input type="text" id="occupation" name="occupation2" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label for="mother_age" class="birth-label">18. Age</label>
-                    <input type="text" id="mother_age" name="mother_age" class="birth-form-control" required>
+                    <input type="text" id="mother_age" name="father_age" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
                     <label for="mother_place" class="birth-label">19. Residence</label>
-                    <input type="text" id="mother_place" name="mother_place" class="birth-form-control" placeholder="House No./Street/Barangay" required>
-                    <input type="text" id="mother_place" name="mother_place" class="birth-form-control" placeholder="City/Municipality" required>
-                    <input type="text" id="mother_place" name="mother_place" class="birth-form-control" placeholder="Province" required>
-                    <input type="text" id="mother_place" name="mother_place" class="birth-form-control" placeholder="Country" required>
+                    <input type="text" id="mother_place" name="father_street" class="birth-form-control" placeholder="House No./Street/Barangay" required>
+                    <input type="text" id="mother_place" name="father_city" class="birth-form-control" placeholder="City/Municipality" required>
+                    <input type="text" id="mother_place" name="father_province" class="birth-form-control" placeholder="Province" required>
+                    <input type="text" id="mother_place" name="father_country" class="birth-form-control" placeholder="Country" required>
                 </div>
             </div>
 
@@ -191,10 +176,10 @@
 
                 <div class="form-group">
                     <label for="marriage_place" class="birth-label">20b. Place</label>
-                    <input type="text" id="mother_place" name="mother_place" class="birth-form-control" placeholder="House No./Street/Barangay" required>
-                    <input type="text" id="mother_place" name="mother_place" class="birth-form-control" placeholder="City/Municipality" required>
-                    <input type="text" id="mother_place" name="mother_place" class="birth-form-control" placeholder="Province" required>
-                    <input type="text" id="mother_place" name="mother_place" class="birth-form-control" placeholder="Country" required>
+                    <input type="text" id="mother_place" name="marriage_street" class="birth-form-control" placeholder="House No./Street/Barangay" required>
+                    <input type="text" id="mother_place" name="marriage_municipality" class="birth-form-control" placeholder="City/Municipality" required>
+                    <input type="text" id="mother_place" name="marriage_province" class="birth-form-control" placeholder="Province" required>
+                    <input type="text" id="mother_place" name="marriage_country" class="birth-form-control" placeholder="Country" required>
                 </div>
             </div>
 
@@ -216,7 +201,7 @@
 
                 <div class="form-group" id="other_attendant_role" style="display:none;">
                     <label for="other_attendant_role_specify" class="birth-label">Please Specify</label>
-                    <input type="text" id="other_attendant_role_specify" name="other_attendant_role_specify" class="birth-form-control" placeholder="Specify other role">
+                    <input type="text" id="other_attendant_role_specify" name="other_attendant_role" class="birth-form-control" placeholder="Specify other role">
                 </div>
             </div>
 
@@ -225,7 +210,7 @@
         <form method="post" action="process_form.php">
             <p> I/We, <div class="field"> <input type="text" name="father_name" placeholder="Mother's Name" required> </div> and
                     <div class="field"> <input type="text" name="mother_name" placeholder="Father's Name" required> </div> , of legal age, am/are the natural mother and/or father of 
-                    <input type="text" name="child_name" placeholder="Child's Name" required style="width: 60%;">, who was born on 
+                    <input type="text" name="name_child" placeholder="Child's Name" required style="width: 60%;">, who was born on 
                 <input type="date" name="birth_date" required> at 
                 <input type="text" name="birth_place" placeholder="Place of Birth" required style="width: 50%;">
             </p>
@@ -236,11 +221,11 @@
 
                 <div>
                     <label for="signature" class="birth-label">Father's Name</label>
-                    <input type="text" id="signature" name="signature" class="birth-form-control" required>
+                    <input type="text" id="signature" name="signature1" class="birth-form-control" required>
                 </div>
                 <div>
                     <label for="signature" class="birth-label">Mother's Name</label>
-                    <input type="text" id="signature" name="signature" class="birth-form-control" required>
+                    <input type="text" id="signature" name="signature2" class="birth-form-control" required>
                 </div>
         </form>
     </div>
