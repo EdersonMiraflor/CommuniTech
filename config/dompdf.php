@@ -21,6 +21,8 @@ return [
     'convert_entities' => true,
 
     'options' => [
+        'enable_remote' => true,
+
         /**
          * The location of the DOMPDF font directory
          *
