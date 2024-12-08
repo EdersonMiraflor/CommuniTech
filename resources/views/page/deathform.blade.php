@@ -16,7 +16,7 @@
                 <h4>I. PERSONAL INFORMATION</h4>
                 <div class="form-group">
                     <label for="full_name" class="birth-label">1. Full Name</label>
-                    <input type="text" id="full_name" name="full_name" class="birth-form-control" placeholder="Enter full name" required>
+                    <input type="text" id="full_name" name="full_name" class="birth-form-control" placeholder="Enter full name (First, Middle, Last)" required>
                 </div>
                 <div class="form-group">
                     <label for="sex" class="birth-label">2. Sex</label>
