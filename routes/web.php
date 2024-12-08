@@ -59,12 +59,9 @@ Route::get('/home/userrequest', fn() => view('page.userrequest'))->middleware('a
     Route::post('/home/services/deathform', [CertificateRequestController::class, 'deathstore'])->middleware('auth');
     // Death End
 
-<<<<<<< Updated upstream
-=======
     Route::get('/birthform', fn() => view('page.form102'))->middleware('auth');
     Route::get('/marriageform', fn() => view('page.marriageform'))->middleware('auth');
     Route::get('/deathform', fn() => view('page.deathform'))->middleware('auth');
->>>>>>> Stashed changes
     // Birth Certificate Start
     Route::get('/home/services/form102/birthform', [CertificateDisplayController::class, 'directbirth'])->middleware('auth');
     Route::post('/home/services/form102/birthform', [CertificateDisplayController::class, 'showbirth'])->middleware('auth');

@@ -10,7 +10,7 @@
                     <!-- Child Information -->
             <div class="form-group">
                 <label for="child_first" class="birth-label">1. Child's First Name</label>
-                <input type="text" name="child_first" class="birth-form-control" id="child_first" value="{{ $requests->child_first }}" required>
+                <input type="text" name="child_first" class="birth-form-control" id="child_first" value="{{ old('child_first', $requests->child_first ?? '') }}" required>
             </div>
 
             <div class="form-group">
