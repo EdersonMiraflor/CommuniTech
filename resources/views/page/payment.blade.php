@@ -41,12 +41,6 @@
         padding: 5px;
     }
 </style>
-<!-- Success message display -->
-@if(session('success'))
-    <div id="successMessage" class="alert alert-success" style="color: green; text-align: center;">
-        {{ session('success') }}
-    </div>
-@endif
 <form class="container" method="POST" action="{{ route('payments.store') }}" enctype="multipart/form-data" style="border: 3px solid black; display: flex; flex-direction: column; gap: 20px;">
     @csrf <!-- Include CSRF token for Laravel security -->
     <h4>Payment Form</h4>
@@ -94,17 +88,6 @@
 </form>
 
 <script>
-
-    // Function to hide the success message after 10 seconds
-    window.onload = function() {
-        var successMessage = document.getElementById('successMessage');
-        if (successMessage) {
-            setTimeout(function() {
-                successMessage.style.display = 'none';
-            }, 10000); // 10000ms = 10 seconds
-        }
-    };
-
     // Function to preview the image
     function previewImage(event) {
         const imagePreview = document.getElementById('imagePreview');

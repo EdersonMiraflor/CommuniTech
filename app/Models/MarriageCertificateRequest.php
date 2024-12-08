@@ -11,6 +11,7 @@ class MarriageCertificateRequest extends Model
     protected $table = 'marriage_registrations';
 
     protected $fillable = [
+   'User_Id',
    // Husband's information
    'husband_first_name',
    'husband_middle_name',

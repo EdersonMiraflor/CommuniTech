@@ -17,7 +17,12 @@
     @if (Auth::user()->Credential == 'admin' || Auth::user()->Credential == 'user')
         <div class="background-overlay" style="background-image: url('{{ asset('img/municipalhall.jpg') }}');">
         </div>
-
+<!-- Payment Success message display -->
+@if(session('success'))
+    <div id="successMessage" class="alert alert-success" style="color: green; text-align: center;">
+        {{ session('success') }}
+    </div>
+@endif
         <!-- Intro section -->
         <section class="intro-container">
             <div class="intro">
@@ -36,5 +41,15 @@
         <p>Rider Interface</p>
     @endif
 @endauth
-
+<script>
+        // Function to hide the success message after 10 seconds
+        window.onload = function() {
+        var successMessage = document.getElementById('successMessage');
+        if (successMessage) {
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 10000); // 10000ms = 10 seconds
+        }
+    };
+</script>
 @endsection

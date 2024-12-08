@@ -13,6 +13,7 @@ class payment extends Model
 
       // Fillable fields
       protected $fillable = [
+          'User_Id',
           'name',
           'requested_certificate',
           'quantity',
