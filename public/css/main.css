@@ -963,13 +963,11 @@ h3 {
     ); /* Shadow color for the container */
 }
 .birth-container {
-    background-color: var(
-        --birth-bg-color
-    ); /* Use the defined background color */
+    background-color: #bce7c8; /* Halimbawa ng kulay */
     padding: 50px;
     border-radius: 8px;
-    
 }
+
 .birth-header {
     display: flex;
     align-items: center; /* Vertically center the logo and heading */

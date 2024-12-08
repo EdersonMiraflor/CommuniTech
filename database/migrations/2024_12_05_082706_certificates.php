@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('birth_registrations', function (Blueprint $table) {
-            $table->id();
+            $table->id('User_Id');
 
             // Child's Details
             $table->string('child_first', 60);
@@ -79,7 +79,7 @@ return new class extends Migration
         });
 
         Schema::create('marriage_registrations', function (Blueprint $table) {
-            $table->id(); // Primary key (Auto-increment)
+            $table->id('User_Id'); // Primary key (Auto-increment)
             
             // Husband's information
             $table->string('husband_first_name', 60)->nullable();
@@ -160,7 +160,7 @@ return new class extends Migration
         
 
         Schema::create('death_registrations', function (Blueprint $table) {
-            $table->id();
+            $table->id('User_Id');
 
             $table->string('full_name');
             $table->string('sex');
