@@ -112,6 +112,10 @@
                 <input type="text" name="mother_age" class="birth-form-control" id="mother_age" value="{{ old('mother_age', $RequestData->mother_age ?? '') }}">
             </div>
             <div class="form-group">
+                <label for="mother_street" class="birth-label">21. mother_street</label>
+                <input type="text" name="mother_street" class="birth-form-control" id="mother_street" value="{{ old('mother_street', $RequestData->mother_street ?? '') }}">
+            </div>
+            <div class="form-group">
                 <label for="mother_city" class="birth-label">21. mother_city</label>
                 <input type="text" name="mother_city" class="birth-form-control" id="mother_city" value="{{ old('mother_city', $RequestData->mother_city ?? '') }}">
             </div>

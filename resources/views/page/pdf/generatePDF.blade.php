@@ -2,7 +2,8 @@
 <!--Live Birth Start-->
    <!-- Background Image -->
    <img src="{{ public_path('img/Certificate-of-Live-Birth/page-0.jpg') }}" alt="Certificate of Live-Birth" style="width: 100%; height: auto; opacity: 0.8;"/>
-    <form action="/home/services/form102/birthform" method="POST" id="birthForm">
+   <img src="{{ public_path('img/Certificate-of-Live-Birth/page-1.jpg') }}" alt="Certificate of Live-Birth" style="width: 100%; height: auto; opacity: 0.8;"/>
+   <form action="/home/services/form102/birthform" method="POST" id="birthForm">
             @csrf
 
             <div class="row">

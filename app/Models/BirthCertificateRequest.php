@@ -12,6 +12,7 @@ class BirthCertificateRequest extends Model
     protected $table = 'birth_registrations';
 
     protected $fillable = [
+        'User_Id',
         'child_first',
         'child_middle',
         'child_last',
