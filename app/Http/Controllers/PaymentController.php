@@ -42,6 +42,6 @@ class PaymentController extends Controller
         ]);
 
         // Redirect with success message
-        return redirect('page.payment');
+        return redirect()->route('payments.create')->with('success', 'Payment successfully processed!');
     }
 }
