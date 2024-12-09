@@ -11,6 +11,7 @@ class DeathCertificateRequest extends Model
     protected $table = 'death_registrations';
 
     protected $fillable = [
+        'User_Id',
         'full_name',
         'sex',
         'date_of_death',

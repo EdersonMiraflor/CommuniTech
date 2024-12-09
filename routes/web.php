@@ -116,7 +116,19 @@ Route::get('/rider_application', fn() => view('rider_application'))->middleware(
 Route::get('/rider_interface', fn() => view('rider_interface'))->middleware('auth');
 
 // Display the payment form (GET request)
-Route::get('/payment', [PaymentController::class, 'create'])->middleware('auth')->name('payments.create');
+Route::get('/home/payment', [PaymentController::class, 'create'])->middleware('auth')->name('payments.create');
 
 // Handle form submission (POST request)
-Route::post('/payment', [PaymentController::class, 'store'])->middleware('auth')->name('payments.store');
+Route::post('/home/payment', [PaymentController::class, 'store'])->middleware('auth')->name('payments.store');
+
+Route::get('/view-deathonly-cert', function () {
+    return view('page.forms.onlydeathcert');
+});
+
+Route::get('/view-birthhonly-cert', function () {
+    return view('page.forms.onlybirthcert');
+});
+
+Route::get('/view-marriageonly-cert', function () {
+    return view('page.forms.onlymarriagecert');
+});

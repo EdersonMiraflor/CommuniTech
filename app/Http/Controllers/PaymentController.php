@@ -31,17 +31,22 @@ class PaymentController extends Controller
             $proofOfPaymentPath = $request->file('proof_of_payment')->store('uploads', 'public');
         }
 
+        // Get the logged-in user's ID
+        $userId = auth()->id();
+
         // Create a new payment record
         Payment::create([
+            'User_Id' => $userId, // Assign the logged-in user's ID as the foreign key
             'name' => $validatedData['name'],
             'requested_certificate' => $validatedData['requested_certificate'],
             'quantity' => $validatedData['quantity'],
             'address' => $validatedData['address'],
             'barangay' => $validatedData['barangay'],
             'proof_of_payment' => $proofOfPaymentPath,
+            ''
         ]);
 
         // Redirect with success message
-        return redirect('page.payment');
+        return redirect()->route('home')->with('success', 'Payment successfully processed!');
     }
 }

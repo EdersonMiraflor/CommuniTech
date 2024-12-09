@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('birth_registrations', function (Blueprint $table) {
-            $table->id('User_Id');
-
+            $table->id('Birth_Id');
+            $table->unsignedBigInteger('User_Id')->nullable();
             // Child's Details
             $table->string('child_first', 60);
             $table->string('child_middle', 60)->nullable();
@@ -75,12 +75,20 @@ return new class extends Migration
             $table->string('signature1', 60)->nullable();
             $table->string('signature2', 60)->nullable();
 
+            $table->string('day_sworn', 60)->nullable();
+            $table->string('month_sworn', 60)->nullable();
+            $table->string('year_sworn', 60)->nullable();
+            $table->string('place_sworn', 60)->nullable();
+            $table->string('tax_cert_date', 60)->nullable();
+            $table->string('tax_cert_place', 60)->nullable();
+
             $table->timestamps();
+            $table->foreign('User_Id')->references('User_Id')->on('users');
         });
 
         Schema::create('marriage_registrations', function (Blueprint $table) {
-            $table->id('User_Id'); // Primary key (Auto-increment)
-            
+            $table->id('Marriage_Id'); // Primary key (Auto-increment)
+            $table->unsignedBigInteger('User_Id')->nullable();
             // Husband's information
             $table->string('husband_first_name', 60)->nullable();
             $table->string('husband_middle_name', 60)->nullable();
@@ -156,12 +164,13 @@ return new class extends Migration
             $table->string('admin_officer_address', 60)->nullable();
             
             $table->timestamps(); // For created_at and updated_at
+            $table->foreign('User_Id')->references('User_Id')->on('users');
         });
         
 
         Schema::create('death_registrations', function (Blueprint $table) {
-            $table->id('User_Id');
-
+            $table->id('Death_Id');
+            $table->unsignedBigInteger('User_Id')->nullable();
             $table->string('full_name');
             $table->string('sex');
             $table->date('date_of_death');
@@ -219,6 +228,7 @@ return new class extends Migration
             $table->string('tax_cert_place')->nullable();
 
             $table->timestamps();
+            $table->foreign('User_Id')->references('User_Id')->on('users');
         });
     }
 

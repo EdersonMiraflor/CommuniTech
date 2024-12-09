@@ -16,7 +16,8 @@ class CertificateDisplayController extends Controller
     }
     public function showbirth()
     {
-        return view('page.payment');
+        $requestedCertificate = "Birth Certificate";
+        return view('page.payment', compact('requestedCertificate'));
     }
 
     // Marriage 
@@ -27,7 +28,8 @@ class CertificateDisplayController extends Controller
     }
     public function showmarriage()
     {
-        return view('page.payment');
+        $requestedCertificate = "Marriage Certificate";
+        return view('page.payment', compact('requestedCertificate'));
     }
 
     // Death
@@ -38,6 +40,7 @@ class CertificateDisplayController extends Controller
     }
     public function showdeath()
     {
-        return view('page.payment');
+        $requestedCertificate = "Death Certificate";
+        return view('page.payment', compact('requestedCertificate'));
     }
 }

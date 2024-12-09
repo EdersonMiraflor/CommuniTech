@@ -13,11 +13,13 @@ class payment extends Model
 
       // Fillable fields
       protected $fillable = [
+          'User_Id',
           'name',
           'requested_certificate',
           'quantity',
           'address',
           'barangay',
           'proof_of_payment',
+          'qrcode'
       ];
 }

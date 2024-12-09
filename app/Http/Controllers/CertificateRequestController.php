@@ -20,7 +20,10 @@ class CertificateRequestController extends Controller
 
     public function birthstore(Request $request)
     {
+        // Get the logged-in user's ID
+        $userId = auth()->id();
         BirthCertificateRequest::create([
+            'User_Id' => $userId, // Assign the logged-in user's ID as the foreign key
             'child_first' => $request->child_first,
             'child_middle' => $request->child_middle,
             'child_last' => $request->child_last,
@@ -70,6 +73,13 @@ class CertificateRequestController extends Controller
             'birth_place' => $request->birth_place,
             'signature1' => $request->signature1,
             'signature2' => $request->signature2,
+
+            'day_sworn' => $request->day_sworn,
+            'month_sworn' => $request->month_sworn,
+            'year_sworn' => $request->year_sworn,
+            'place_sworn' => $request->place_sworn,
+            'tax_cert_date' => $request->tax_cert_date,
+            'tax_cert_place' => $request->tax_cert_place,
         ]);
 
         return redirect('/home/services/form102/birthform');
@@ -84,9 +94,11 @@ class CertificateRequestController extends Controller
     }
 
     public function marriagestore(Request $request)
-    {
+    {  
+        // Get the logged-in user's ID
+        $userId = auth()->id();
         MarriageCertificateRequest::create([
-      
+        'User_Id' => $userId, // Assign the logged-in user's ID as the foreign key
         'husband_first_name' => $request->husband_first_name,
         'husband_middle_name' => $request->husband_middle_name,
         'husband_last_name' => $request->husband_last_name,
@@ -156,6 +168,8 @@ class CertificateRequestController extends Controller
         'admin_officer_position' => $request->admin_officer_position,
         'admin_officer_name' => $request->admin_officer_name,
         'admin_officer_address' => $request->admin_officer_address,
+
+
             ]);
             return redirect('/home/services/marriageform/marriageformcert');
     }
@@ -170,8 +184,11 @@ class CertificateRequestController extends Controller
 
     public function deathstore(Request $request)
     {
+        // Get the logged-in user's ID
+        $userId = auth()->id();
         // Store the data directly in the database
         DeathCertificateRequest::create([
+            'User_Id' => $userId, // Assign the logged-in user's ID as the foreign key
             'full_name' => $request->full_name,
             'sex' => $request->sex,
             'date_of_death' => $request->date_of_death,
