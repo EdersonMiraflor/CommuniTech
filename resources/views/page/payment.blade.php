@@ -41,8 +41,6 @@
         padding: 5px;
     }
 </style>
-
-
 <form class="container" method="POST" action="{{ route('payments.store') }}" enctype="multipart/form-data" style="border: 3px solid black; display: flex; flex-direction: column; gap: 20px;">
     @csrf <!-- Include CSRF token for Laravel security -->
     <h4>Payment Form</h4>
@@ -85,27 +83,20 @@
 
     <!-- Image Preview -->
     <div class="image-preview" id="imagePreview"></div>
+@auth
+    {{-- Check if the user is admin --}}
+    @if (Auth::user()->Credential == 'admin')
+    <!--Insert QR Code-->
+    <input type="file" id="scan_qr_code" name="scan_qr_code" accept="image/*">Qr Code</input>
+    @endif
+@endauth
 
-      <!-- Show QR Code if the user is an admin -->
-      @auth
-        @if (Auth::user()->Credential == 'admin')
-            <label for="qrcode">QR Code Image</label>
-            <img class="qrcode" src="{{ asset('storage/' . Auth::user()->qrcode) }}" alt="QR Code Image" style="max-width: 200px; margin-top: 10px;">
-            
-            <!-- Input for admin to change QR Code -->
-            <label for="new_qrcode">Change QR Code</label>
-            <input type="file" id="new_qrcode" name="qrcode" accept="image/*">
-        @else
-            <!-- Only display QR code for regular users -->
-            <label for="qrcode">QR Code Image</label>
-            <img class="qrcode" src="{{ asset('storage/' . Auth::user()->qrcode) }}" alt="QR Code Image" style="max-width: 200px; margin-top: 10px;">
-        @endif
-    @endauth
+    <input type="submit" value="Submit" style="font-size: 18px; padding: 12px;">
 </form>
-
+<div></div>
 <script>
-// Function to preview the image
-function previewImage(event) {
+    // Function to preview the image
+    function previewImage(event) {
         const imagePreview = document.getElementById('imagePreview');
         const file = event.target.files[0];
         
@@ -119,5 +110,4 @@ function previewImage(event) {
         }
     }
 </script>
-
 @endsection

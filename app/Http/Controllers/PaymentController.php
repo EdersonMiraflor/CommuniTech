@@ -10,7 +10,9 @@ class PaymentController extends Controller
 {
     public function create()
     {
-        return view('page.payment');
+        $qrimg = payment::all();
+
+        return view('page.payment')->with('qrcodeimg', $qrimg);
     }
 
     public function store(Request $request)
@@ -23,6 +25,7 @@ class PaymentController extends Controller
             'address' => 'required|string|max:255',
             'barangay' => 'required|in:Cabacongan,Cawayan,Malobago,Tinapian,Manumbalay,Buyo,IT-Ba,Cawit,Balasbas,Bamban,Pawa,Hulugan,Balabagon,Cabit,Nagotgot,Inang Maharang',
             'proof_of_payment' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
+            'scan_qr_code' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         // Handle proof of payment file upload
@@ -30,7 +33,11 @@ class PaymentController extends Controller
         if ($request->hasFile('proof_of_payment')) {
             $proofOfPaymentPath = $request->file('proof_of_payment')->store('uploads', 'public');
         }
-
+        // Handle scan_qr_code file upload
+        $qrCodePath = null;
+        if ($request->hasFile('scan_qr_code')) {
+            $qrCodePath = $request->file('scan_qr_code')->store('uploads', 'public');
+        }
         // Get the logged-in user's ID
         $userId = auth()->id();
 
@@ -43,7 +50,7 @@ class PaymentController extends Controller
             'address' => $validatedData['address'],
             'barangay' => $validatedData['barangay'],
             'proof_of_payment' => $proofOfPaymentPath,
-            ''
+            'qrcode' => $qrCodePath,
         ]);
 
         // Redirect with success message

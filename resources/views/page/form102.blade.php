@@ -204,16 +204,7 @@
                     <input type="text" id="other_attendant_role_specify" name="other_attendant_role" class="birth-form-control" placeholder="Specify other role">
                 </div>
             </div>
-            <h5 class="text-center">SUBSCRIBED AND SWORN</h5>
-    <p>
-        Subscribed and sworn to before me this 
-        <input type="number" name="day_sworn" class="birth-form-control" style="width: 50px;" placeholder="Day" required> day of 
-        <input type="text" name="month_sworn" class="birth-form-control" style="width: 100px;" placeholder="Month" required>, 
-        <input type="number" name="year_sworn" class="birth-form-control" style="width: 80px;" placeholder="Year" required>, at 
-        <input type="text" name="place_sworn" class="birth-form-control" style="width: 300px;" placeholder="Place Sworn" required>, Philippines, affiant who exhibited to me his/her Community Tax Cert. issued on 
-        <input type="date" name="tax_cert_date" class="birth-form-control" style="width: 180px;" required> at 
-        <input type="text" name="tax_cert_place" class="birth-form-control" style="width: 300px;" placeholder="Place of Issuance" required>.
-    </p>
+
 
             <div class="container">
         <form method="post" action="process_form.php">

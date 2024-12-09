@@ -75,13 +75,6 @@ return new class extends Migration
             $table->string('signature1', 60)->nullable();
             $table->string('signature2', 60)->nullable();
 
-            $table->string('day_sworn', 60)->nullable();
-            $table->string('month_sworn', 60)->nullable();
-            $table->string('year_sworn', 60)->nullable();
-            $table->string('place_sworn', 60)->nullable();
-            $table->string('tax_cert_date', 60)->nullable();
-            $table->string('tax_cert_place', 60)->nullable();
-
             $table->timestamps();
             $table->foreign('User_Id')->references('User_Id')->on('users');
         });
