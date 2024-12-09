@@ -28,7 +28,7 @@ return new class extends Migration
             ]);
             // Proof of payment will store the file path or name
             $table->string('proof')->nullable();
-            $table->string('photo', 300);
+            $table->string('photo', 300)->nullable();
             
             $table->enum('status', ['pending', 'verified'])->default('pending');
             $table->timestamps(); // Created at and Updated at

@@ -83,10 +83,15 @@
         <!-- QR Code Image Section (Right) -->
         <div class="image-section">
             @foreach($payments as $data)
+            @if($payments->isNotEmpty())
+                @php
+                    $data = $payments->first(); // Get the first (and only) record
+                @endphp
                 <div class="payment-image">
                     <h3 style="text-align: center;">Scan For Payment</h3>
                     <img src="{{ asset($data->photo) }}" width="500" height="500" class="img-responsive" style="padding-bottom: 1px; margin: 50px 50px 50px 50px; 20px; border: 5px solid black;">
                 </div>
+            @endif
             @endforeach
         </div>
     </div>
