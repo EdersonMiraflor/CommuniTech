@@ -120,3 +120,15 @@ Route::get('/home/payment', [PaymentController::class, 'create'])->middleware('a
 
 // Handle form submission (POST request)
 Route::post('/home/payment', [PaymentController::class, 'store'])->middleware('auth')->name('payments.store');
+
+Route::get('/view-deathonly-cert', function () {
+    return view('page.forms.onlydeathcert');
+});
+
+Route::get('/view-birthhonly-cert', function () {
+    return view('page.forms.onlybirthcert');
+});
+
+Route::get('/view-marriageonly-cert', function () {
+    return view('page.forms.onlymarriagecert');
+});
