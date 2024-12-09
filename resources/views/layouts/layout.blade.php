@@ -484,7 +484,6 @@
                 <a href="/home/transactionhistory" class="{{ Request::is('home/transactionhistory') ? 'active' : '' }}">TRANSACTION HISTORY</a>
             @endif
         @endauth
-
   
         @auth
             {{-- Check if the user is admin --}}

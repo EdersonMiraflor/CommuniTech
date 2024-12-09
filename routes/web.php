@@ -13,7 +13,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CertificateRequestController;
 use App\Http\Controllers\CertificateDisplayController;
 use App\Http\Controllers\RiderController;
-
+use App\Http\Controllers\PaymentController;
 Auth::routes();
 Auth::routes(['verify' => true]);
 
@@ -114,3 +114,21 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 // Rider Routes (legit)
 Route::get('/rider_application', fn() => view('rider_application'))->middleware('auth');
 Route::get('/rider_interface', fn() => view('rider_interface'))->middleware('auth');
+
+// Display the payment form (GET request)
+Route::get('/home/payment', [PaymentController::class, 'create'])->middleware('auth')->name('payments.create');
+
+// Handle form submission (POST request)
+Route::post('/home/payment', [PaymentController::class, 'store'])->middleware('auth')->name('payments.store');
+
+Route::get('/view-deathonly-cert', function () {
+    return view('page.forms.onlydeathcert');
+});
+
+Route::get('/view-birthhonly-cert', function () {
+    return view('page.forms.onlybirthcert');
+});
+
+Route::get('/view-marriageonly-cert', function () {
+    return view('page.forms.onlymarriagecert');
+});
