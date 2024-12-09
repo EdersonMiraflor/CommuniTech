@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('Payment', function (Blueprint $table) {
 
             $table->id('Payment_Id'); 
             $table->unsignedBigInteger('User_Id')->nullable();
@@ -19,16 +19,17 @@ return new class extends Migration
             $table->string('requested_certificate'); 
             $table->integer('quantity');
             $table->string('address'); 
-
+            $table->string('mobile', 11);
             // Restrict Barangay to specific options using enum
             $table->enum('barangay', [
                 'Cabacongan', 'Cawayan', 'Malobago', 'Tinapian', 'Manumbalay',
                 'Buyo', 'IT-Ba', 'Cawit', 'Balasbas', 'Bamban', 'Pawa',
                 'Hulugan', 'Balabagon', 'Cabit', 'Nagotgot', 'Inang Maharang'
             ]);
-
             // Proof of payment will store the file path or name
-            $table->string('proof_of_payment')->nullable();
+            $table->string('proof')->nullable();
+            $table->string('photo', 300);
+            
             $table->enum('status', ['pending', 'verified'])->default('pending');
             $table->timestamps(); // Created at and Updated at
             $table->foreign('User_Id')->references('User_Id')->on('users');
