@@ -8,45 +8,40 @@ use App\Models\Payment;
 
 class PaymentController extends Controller
 {
-    public function create()
-    {
-        return view('page.payment');
-    }
+    public function index(){
+    
+        $pay = Payment::all();
+        return view ('page.payment')->with('payments', $pay);
+}
 
-    public function store(Request $request)
-    {
-        // Validate input
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'requested_certificate' => 'required|string|max:255',
-            'quantity' => 'required|integer|min:1',
-            'address' => 'required|string|max:255',
-            'barangay' => 'required|in:Cabacongan,Cawayan,Malobago,Tinapian,Manumbalay,Buyo,IT-Ba,Cawit,Balasbas,Bamban,Pawa,Hulugan,Balabagon,Cabit,Nagotgot,Inang Maharang',
-            'proof_of_payment' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
-        ]);
+public function create(){
+    return view('page.create'); 
+}
 
-        // Handle proof of payment file upload
-        $proofOfPaymentPath = null;
-        if ($request->hasFile('proof_of_payment')) {
-            $proofOfPaymentPath = $request->file('proof_of_payment')->store('uploads', 'public');
+public function store(Request $request)
+{
+    $requestData = $request->all();
+
+    // Handle photo upload
+    if ($request->hasFile('photo')) {
+        $fileName = time() . '_' . $request->file('photo')->getClientOriginalName();
+        $path = $request->file('photo')->storeAs('images', $fileName, 'public');
+        $requestData['photo'] = '/storage/' . $path;
+
+        // Delete the previous photo (if any) before replacing
+        $latestPayment = Payment::latest()->first();
+        if ($latestPayment && $latestPayment->photo) {
+            $oldPhotoPath = public_path($latestPayment->photo);
+            if (file_exists($oldPhotoPath)) {
+                unlink($oldPhotoPath); // Remove old photo
+            }
+            $latestPayment->delete(); // Remove old database record
         }
-
-        // Get the logged-in user's ID
-        $userId = auth()->id();
-
-        // Create a new payment record
-        Payment::create([
-            'User_Id' => $userId, // Assign the logged-in user's ID as the foreign key
-            'name' => $validatedData['name'],
-            'requested_certificate' => $validatedData['requested_certificate'],
-            'quantity' => $validatedData['quantity'],
-            'address' => $validatedData['address'],
-            'barangay' => $validatedData['barangay'],
-            'proof_of_payment' => $proofOfPaymentPath,
-            ''
-        ]);
-
-        // Redirect with success message
-        return redirect()->route('home')->with('success', 'Payment successfully processed!');
     }
+
+    // Store new payment data
+    Payment::create($requestData);
+
+    return redirect('payment')->with('flash_message', 'Payment updated!');
+}
 }

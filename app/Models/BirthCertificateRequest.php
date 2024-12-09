@@ -62,12 +62,5 @@ class BirthCertificateRequest extends Model
         'birth_place',
         'signature1',
         'signature2',
-
-        'day_sworn',
-        'month_sworn',
-        'year_sworn',
-        'place_sworn',
-        'tax_cert_date',
-        'tax_cert_place',
     ];
 }

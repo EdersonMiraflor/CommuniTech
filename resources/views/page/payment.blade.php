@@ -1,123 +1,209 @@
 @extends('layouts.layout')
 @section('contents')
+@php
+    $requestedCertificate = "Birth Certificate"; // Define your variable here
+@endphp
 
-<style>
-    .container {
-        width: 100%; 
-        max-width: 600px; 
-        padding: 20px; 
-        margin: 0 auto; 
-        box-sizing: border-box; 
-    }
+<h1 class="text-center form-title">Payment Form</h1>
+<br>
+<div class="container form-container">
+    <div class="form-and-image">
+        <!-- Form Section (Left) -->
+        <div class="form-section">
+            <form action="{{ url('payment') }}" method="POST" enctype="multipart/form-data" class="payment-form">
+                {!! csrf_field() !!}
 
-    .container input, .container select {
-        font-size: 14px; 
-        padding: 8px; 
-        width: 100%; 
-        box-sizing: border-box; 
-    }
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" class="form-control" value="{{ Auth::user()->name . ' ' . Auth::user()->Middle_Name . ' ' . Auth::user()->Last_Name }}"required readonly>
+                </div>
 
-    .container label {
-        font-size: 16px; 
-        margin-bottom: 5px; 
-    }
+                <div class="form-group">
+                    <label for="requested_certificate">Requested Certificate</label>
+                    <input type="text" name="requested_certificate" id="requested_certificate" class="form-control" value="{{ $requestedCertificate }}" required readonly>
+                </div>
 
-    .container h4 {
-        font-size: 24px; 
-        text-align: center; 
-        margin-bottom: 20px;
-    }
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="text" name="quantity" id="quantity" class="form-control" placeholder="Enter quantity">
+                </div>
 
-    /* Style for the image preview */
-    .image-preview {
-        margin-top: 20px;
-        text-align: center;
-    }
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address" class="form-control" placeholder="Enter your address">
+                </div>
 
-    .image-preview img {
-        max-width: 200px;
-        max-height: 200px;
-        border: 2px solid #ccc;
-        padding: 5px;
-    }
-</style>
+                <div class="form-group">
+                    <label for="mobile">Mobile</label>
+                    <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Enter your mobile number">
+                </div>
 
+                <div class="form-group">
+                    <label for="barangay">Barangay</label>
+                    <select id="barangay" name="barangay" class="form-control" required>
+                        <option value="">Select</option>
+                        <option value="Cabacongan">Cabacongan</option>
+                        <option value="Cawayan">Cawayan</option>
+                        <option value="Malobago">Malobago</option>
+                        <option value="Tinapian">Tinapian</option>
+                        <option value="Manumbalay">Manumbalay</option>
+                        <option value="Buyo">Buyo</option>
+                        <option value="IT-Ba">IT-Ba</option>
+                        <option value="Cawit">Cawit</option>
+                        <option value="Balasbas">Balasbas</option>
+                        <option value="Bamban">Bamban</option>
+                        <option value="Pawa">Pawa</option>
+                        <option value="Hulugan">Hulugan</option>
+                        <option value="Balabagon">Balabagon</option>
+                        <option value="Cabit">Cabit</option>
+                        <option value="Nagotgot">Nagotgot</option>
+                        <option value="Inang Maharang">Inang Maharang</option>
+                    </select>
+                </div>
 
-<form class="container" method="POST" action="{{ route('payments.store') }}" enctype="multipart/form-data" style="border: 3px solid black; display: flex; flex-direction: column; gap: 20px;">
-    @csrf <!-- Include CSRF token for Laravel security -->
-    <h4>Payment Form</h4>
+                <div class="form-group">
+                    <label for="proof">Proof Of Payment</label>
+                    <input class="form-control" name="proof" type="file" id="proof">
+                </div><br>
+            @auth
+                {{-- Check if the user is admin --}}
+                @if (Auth::user()->Credential == 'admin')
+                <div class="form-group">
+                    <label for="photo">Change Qr Photo</label>
+                    <input class="form-control" name="photo" type="file" id="photo">
+                </div>
+                @endif
+            @endauth
+                <div class="form-group text-center">
+                    <input type="submit" value="Save" class="btn btn-success btn-submit">
+                </div>
+            </form>
+        </div>
 
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" value="{{ Auth::user()->name . ' ' . Auth::user()->Middle_Name . ' ' . Auth::user()->Last_Name }}" required readonly>
-
-    <label for="requested_certificate">Requested Certificate</label>
-    <input type="text" id="requested_certificate" name="requested_certificate" value="{{ $requestedCertificate }}" required readonly>
-
-    <label for="quantity">Quantity</label>
-    <input type="number" id="quantity" name="quantity" value="" required>
-
-    <label for="address">Address</label>
-    <input type="text" id="address" name="address" value="" required>
-
-    <label for="barangay">Barangay</label>
-    <select id="barangay" name="barangay" required>
-        <option value="">Select</option>
-        <option value="Cabacongan">Cabacongan</option>
-        <option value="Cawayan">Cawayan</option>
-        <option value="Malobago">Malobago</option>
-        <option value="Tinapian">Tinapian</option>
-        <option value="Manumbalay">Manumbalay</option>
-        <option value="Buyo">Buyo</option>
-        <option value="IT-Ba">IT-Ba</option>
-        <option value="Cawit">Cawit</option>
-        <option value="Balasbas">Balasbas</option>
-        <option value="Bamban">Bamban</option>
-        <option value="Pawa">Pawa</option>
-        <option value="Hulugan">Hulugan</option>
-        <option value="Balabagon">Balabagon</option>
-        <option value="Cabit">Cabit</option>
-        <option value="Nagotgot">Nagotgot</option>
-        <option value="Inang Maharang">Inang Maharang</option>
-    </select>
-
-    <label for="proof_of_payment">Insert Proof of Payment</label>
-    <input type="file" id="proof_of_payment" name="proof_of_payment" accept="image/*" onchange="previewImage(event)">
-
-    <!-- Image Preview -->
-    <div class="image-preview" id="imagePreview"></div>
-
-      <!-- Show QR Code if the user is an admin -->
-      @auth
-        @if (Auth::user()->Credential == 'admin')
-            <label for="qrcode">QR Code Image</label>
-            <img class="qrcode" src="{{ asset('storage/' . Auth::user()->qrcode) }}" alt="QR Code Image" style="max-width: 200px; margin-top: 10px;">
-            
-            <!-- Input for admin to change QR Code -->
-            <label for="new_qrcode">Change QR Code</label>
-            <input type="file" id="new_qrcode" name="qrcode" accept="image/*">
-        @else
-            <!-- Only display QR code for regular users -->
-            <label for="qrcode">QR Code Image</label>
-            <img class="qrcode" src="{{ asset('storage/' . Auth::user()->qrcode) }}" alt="QR Code Image" style="max-width: 200px; margin-top: 10px;">
-        @endif
-    @endauth
-</form>
-
-<script>
-// Function to preview the image
-function previewImage(event) {
-        const imagePreview = document.getElementById('imagePreview');
-        const file = event.target.files[0];
-        
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                // Create an image element and display it
-                imagePreview.innerHTML = `<img src="${e.target.result}" alt="Proof of Payment">`;
-            };
-            reader.readAsDataURL(file);
-        }
-    }
-</script>
+        <!-- QR Code Image Section (Right) -->
+        <div class="image-section">
+            @foreach($payments as $data)
+            @if($payments->isNotEmpty())
+                @php
+                    $data = $payments->first(); // Get the first (and only) record
+                @endphp
+                <div class="payment-image">
+                    <h3 style="text-align: center;">Scan For Payment</h3>
+                    <img src="{{ asset($data->photo) }}" width="500" height="500" class="img-responsive" style="padding-bottom: 1px; margin: 50px 50px 50px 50px; 20px; border: 5px solid black;">
+                </div>
+            @endif
+            @endforeach
+        </div>
+    </div>
+</div>
 
 @endsection
+
+<style>
+    /* Global Styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f7fc;
+        margin: 0;
+        padding: 0;
+    }
+
+    .form-title {
+        color: #2e6ab1;
+        font-size: 30px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .form-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-and-image {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .form-section, .image-section {
+        width: 48%; /* Adjusts both sections to take equal space */
+    }
+
+    .payment-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: #4e88fc;
+    }
+
+    select.form-control {
+        cursor: pointer;
+    }
+
+    .btn-submit {
+        background-color: #4e88fc;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .btn-submit:hover {
+        background-color: #377adf;
+    }
+
+    .payment-image img {
+        border-radius: 8px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .payment-image img:hover {
+        transform: scale(1.05);
+    }
+
+    .payment-image {
+        margin-bottom: 30px;
+    }
+
+    /* Ensures responsiveness */
+    @media (max-width: 768px) {
+        .form-and-image {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-section, .image-section {
+            width: 100%; /* Stack sections vertically on smaller screens */
+        }
+    }
+</style>

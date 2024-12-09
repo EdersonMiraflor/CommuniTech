@@ -59,6 +59,9 @@ Route::get('/home/userrequest', fn() => view('page.userrequest'))->middleware('a
     Route::post('/home/services/deathform', [CertificateRequestController::class, 'deathstore'])->middleware('auth');
     // Death End
 
+    Route::get('/birthform', fn() => view('page.form102'))->middleware('auth');
+    Route::get('/marriageform', fn() => view('page.marriageform'))->middleware('auth');
+    Route::get('/deathform', fn() => view('page.deathform'))->middleware('auth');
     // Birth Certificate Start
     Route::get('/home/services/form102/birthform', [CertificateDisplayController::class, 'directbirth'])->middleware('auth');
     Route::post('/home/services/form102/birthform', [CertificateDisplayController::class, 'showbirth'])->middleware('auth');
@@ -115,11 +118,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 Route::get('/rider_application', fn() => view('rider_application'))->middleware('auth');
 Route::get('/rider_interface', fn() => view('rider_interface'))->middleware('auth');
 
-// Display the payment form (GET request)
-Route::get('/home/payment', [PaymentController::class, 'create'])->middleware('auth')->name('payments.create');
 
-// Handle form submission (POST request)
-Route::post('/home/payment', [PaymentController::class, 'store'])->middleware('auth')->name('payments.store');
+// Display the payment form (GET request)
+Route::resource('/payment', PaymentController::class);
 
 Route::get('/view-deathonly-cert', function () {
     return view('page.forms.onlydeathcert');
