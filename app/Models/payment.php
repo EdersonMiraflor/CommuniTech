@@ -20,5 +20,6 @@ class payment extends Model
           'address',
           'barangay',
           'proof_of_payment',
+          'qrcode'
       ];
 }

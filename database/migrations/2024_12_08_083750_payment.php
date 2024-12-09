@@ -29,6 +29,7 @@ return new class extends Migration
 
             // Proof of payment will store the file path or name
             $table->string('proof_of_payment')->nullable();
+            $table->string('qrcode')->nullable();
             $table->enum('status', ['pending', 'verified'])->default('pending');
             $table->timestamps(); // Created at and Updated at
             $table->foreign('User_Id')->references('User_Id')->on('users');

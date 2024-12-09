@@ -43,6 +43,7 @@ class PaymentController extends Controller
             'address' => $validatedData['address'],
             'barangay' => $validatedData['barangay'],
             'proof_of_payment' => $proofOfPaymentPath,
+            ''
         ]);
 
         // Redirect with success message

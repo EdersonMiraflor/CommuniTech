@@ -41,15 +41,17 @@
         padding: 5px;
     }
 </style>
+
+
 <form class="container" method="POST" action="{{ route('payments.store') }}" enctype="multipart/form-data" style="border: 3px solid black; display: flex; flex-direction: column; gap: 20px;">
     @csrf <!-- Include CSRF token for Laravel security -->
     <h4>Payment Form</h4>
 
     <label for="name">Name</label>
-    <input type="text" id="name" name="name" value="" required>
+    <input type="text" id="name" name="name" value="{{ Auth::user()->name . ' ' . Auth::user()->Middle_Name . ' ' . Auth::user()->Last_Name }}" required readonly>
 
     <label for="requested_certificate">Requested Certificate</label>
-    <input type="text" id="requested_certificate" name="requested_certificate" value="" required>
+    <input type="text" id="requested_certificate" name="requested_certificate" value="{{ $requestedCertificate }}" required readonly>
 
     <label for="quantity">Quantity</label>
     <input type="number" id="quantity" name="quantity" value="" required>
@@ -84,12 +86,26 @@
     <!-- Image Preview -->
     <div class="image-preview" id="imagePreview"></div>
 
-    <input type="submit" value="Submit" style="font-size: 18px; padding: 12px;">
+      <!-- Show QR Code if the user is an admin -->
+      @auth
+        @if (Auth::user()->Credential == 'admin')
+            <label for="qrcode">QR Code Image</label>
+            <img class="qrcode" src="{{ asset('storage/' . Auth::user()->qrcode) }}" alt="QR Code Image" style="max-width: 200px; margin-top: 10px;">
+            
+            <!-- Input for admin to change QR Code -->
+            <label for="new_qrcode">Change QR Code</label>
+            <input type="file" id="new_qrcode" name="qrcode" accept="image/*">
+        @else
+            <!-- Only display QR code for regular users -->
+            <label for="qrcode">QR Code Image</label>
+            <img class="qrcode" src="{{ asset('storage/' . Auth::user()->qrcode) }}" alt="QR Code Image" style="max-width: 200px; margin-top: 10px;">
+        @endif
+    @endauth
 </form>
 
 <script>
-    // Function to preview the image
-    function previewImage(event) {
+// Function to preview the image
+function previewImage(event) {
         const imagePreview = document.getElementById('imagePreview');
         const file = event.target.files[0];
         
