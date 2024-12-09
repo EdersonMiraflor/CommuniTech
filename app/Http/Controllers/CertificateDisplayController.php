@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\BirthCertificateRequest;
 use App\Models\DeathCertificateRequest;
 use App\Models\MarriageCertificateRequest;
+use App\Models\Payment;
+
 class CertificateDisplayController extends Controller
 {
     // Live Birth
@@ -17,7 +19,8 @@ class CertificateDisplayController extends Controller
     public function showbirth()
     {
         $requestedCertificate = "Birth Certificate";
-        return view('page.payment', compact('requestedCertificate'));
+        $payments = Payment::all(); // Fetch all payments
+        return view('page.payment', compact('requestedCertificate', 'payments')); 
     }
 
     // Marriage 
@@ -29,7 +32,8 @@ class CertificateDisplayController extends Controller
     public function showmarriage()
     {
         $requestedCertificate = "Marriage Certificate";
-        return view('page.payment', compact('requestedCertificate'));
+        $payments = Payment::all(); // Fetch all payments
+        return view('page.payment', compact('requestedCertificate', 'payments'));
     }
 
     // Death
@@ -41,6 +45,7 @@ class CertificateDisplayController extends Controller
     public function showdeath()
     {
         $requestedCertificate = "Death Certificate";
-        return view('page.payment', compact('requestedCertificate'));
+        $payments = Payment::all(); // Fetch all payments
+        return view('page.payment', compact('requestedCertificate', 'payments'));
     }
 }
