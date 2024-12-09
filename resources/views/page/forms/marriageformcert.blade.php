@@ -35,7 +35,7 @@
         bottom: 8px;
         left: 150px;
         right: 750px;
-        top: 380px
+        top: 375px
     }
     .m_husband_age{
         position: absolute;
@@ -71,7 +71,18 @@
         right: 750px;
         top: 407px
     }
-    /*MISSING SEX*/ 
+    /*new form group added*/ 
+    .m_husband_sex{
+        position: absolute;
+        bottom: 8px;
+        left: 110px;
+        right: 750px;
+        top: 470px
+    }
+    .m_husband_sex .birth-form-control{
+        width: 100px;
+        box-sizing: border-box;
+    }
     .m_husband_citizenship{
         position: absolute;
         bottom: 8px;
@@ -99,7 +110,43 @@
         right: 750px;
         top: 407px;
     }
+    .m_husband_father_citizenship{
+        position: absolute;
+        bottom: 8px;
+        left: 170px;
+        right: 750px;
+        top: 710px;
+    }
+    .m_husband_mother_first_name{
+        position: absolute;
+        bottom: 8px;
+        left: 170px;
+        right: 750px;
+        top: 770px;
+    }
+    .m_husband_mother_middle_name{
+        position: absolute;
+        bottom: 8px;
+        left: 390px;
+        right: 750px;
+        top: 747px;
+    }
+    .m_husband_mother_maiden_last_name{
+        position: absolute;
+        bottom: 8px;
+        left: 510px;
+        right: 750px;
+        top: 747px;
+    }
 
+    .m_husband_mother_citizenship{
+        position: absolute;
+        bottom: 8px;
+        left: 170px;
+        right: 750px;
+        top: 810px;
+    }
+    
 
 
 
@@ -184,6 +231,93 @@
     width: 400px; /* Adjust this value as needed */
     box-sizing: border-box; /* Ensures padding does not exceed width */
     }
+    .m_wife_religion{
+        position: absolute;
+        bottom: 8px;
+        left: 720px;
+        right: 750px;
+        top: 555px;
+    }
+    .m_wife_religion .birth-form-control{
+        width: 400px; /* Adjust this value as needed */
+        box-sizing: border-box; /* Ensures padding does not exceed width */
+    } 
+    .m_wife_father_first_name{
+        position: absolute;
+        bottom: 8px;
+        left: 710px;
+        right: 750px;
+        top: 650px;
+    }
+    .m_wife_father_middle_name{
+        position: absolute;
+        bottom: 8px;
+        left: 850px;
+        right: 750px;
+        top: 650px;
+    }
+    .m_wife_father_last_name{
+        position: absolute;
+        bottom: 8px;
+        left: 980px;
+        right: 750px;
+        top: 650px;
+    }
+    .m_wife_father_citizenship{
+        position: absolute;
+        bottom: 8px;
+        left: 710px;
+        right: 750px;
+        top: 690px;
+    }
+    .m_wife_mother_first_name{
+        position: absolute;
+        bottom: 8px;
+        left: 710px;
+        right: 750px;
+        top: 750px;
+    }
+    .m_wife_mother_middle_name{
+        position: absolute;
+        bottom: 8px;
+        left: 850px;
+        right: 750px;
+        top: 750px;
+    }
+    .m_wife_mother_maiden_last_name{
+        position: absolute;
+        bottom: 8px;
+        left: 980px;
+        right: 750px;
+        top: 750px;
+    }
+    .m_wife_mother_citizenship{
+        position: absolute;
+        bottom: 8px;
+        left: 710px;
+        right: 750px;
+        top: 785px;
+    }
+    .m_marriage_date1{
+        position: absolute;
+        bottom: 8px;
+        left: 330px;
+        right: 750px;
+        top: 1050px;
+    }
+    .m_marriage_place{
+        position: absolute;
+        bottom: 8px;
+        left: 330px;
+        right: 750px;
+        top: 970px;
+    }
+    .m_marriage_place .birth-form-control {
+    width: 750px; /* Adjust this value as needed */
+    box-sizing: border-box; /* Ensures padding does not exceed width */
+    }
+    
+   
 </style>
 
 <div class="bg-image container birth-form-page" style="padding: 20px; margin-top: 50px; margin-bottom: 50px; position: relative; text-align: center;">
@@ -239,47 +373,35 @@
                 <label for="husband_residence" class="birth-label"></label>
                 <input type="text" name="husband_residence" class="birth-form-control" id="husband_residence" value="{{ old('husband_residence', $RequestData2->husband_residence ?? '') }}" required>
             </div>
-            <div class="form-group">
-                <label for="husband_province" class="birth-label"></label>
-                <input type="text" name="husband_province" class="birth-form-control" id="husband_province" value="{{ old('husband_province', $RequestData2->husband_province ?? '') }}" required>
+
+
+            <div class="m_husband_sex">
+                <label for="husband_sex" class="birth-label"></label>
+                <input type="text" name="husband_citizenship" class="birth-form-control" id="husband_sex" value="{{ old('husband_sex', $RequestData2->husband_sex ?? '') }}" required>
             </div>
 
-            <div class="form-group">
-                <label for="husband_country" class="birth-label">8. husband_country</label>
-                <input type="text" name="husband_country" class="birth-form-control" id="husband_country" value="{{ old('husband_country', $RequestData2->husband_country ?? '') }}" required>
-            </div>
-
-            <div class="form-group">
-                <label for="husband_citizenship" class="birth-label">9. husband_citizenship</label>
-                <input type="text" name="husband_citizenship" class="birth-form-control" id="husband_citizenship" value="{{ old('husband_citizenship', $RequestData2->husband_citizenship ?? '') }}" required>
-            </div>
-
-            <div class="form-group">
-                <label for="husband_residence" class="birth-label">10. husband_residence</label>
-                <input type="text" name="husband_residence" class="birth-form-control" id="husband_residence" value="{{ old('husband_residence', $RequestData2->husband_residence ?? '') }}" required>
-            </div>
-            <div class="form-group">
-                <label for="husband_father_citizenship" class="birth-label">15. husband_father_citizenship</label>
+            <div class="m_husband_father_citizenship">
+                <label for="husband_father_citizenship" class="birth-label"></label>
                 <input type="text" name="husband_father_citizenship" class="birth-form-control" id="husband_father_citizenship" value="{{ old('husband_father_citizenship', $RequestData2->husband_father_citizenship ?? '') }}" required>
             </div>
 
-            <div class="form-group">
-                <label for="husband_mother_first_name" class="birth-label">16. husband_mother_first_name</label>
+            <div class="m_husband_mother_first_name">
+                <label for="husband_mother_first_name" class="birth-label"></label>
                 <input type="text" name="husband_mother_first_name" class="birth-form-control" id="husband_mother_first_name" value="{{ old('husband_mother_first_name', $RequestData2->husband_mother_first_name ?? '') }}" required>
             </div>
 
-            <div class="form-group">
-                <label for="husband_mother_middle_name" class="birth-label">17. husband_mother_middle_name</label>
+            <div class="m_husband_mother_middle_name">
+                <label for="husband_mother_middle_name" class="birth-label"></label>
                 <input type="text" name="husband_mother_middle_name" class="birth-form-control" id="husband_mother_middle_name" value="{{ old('husband_mother_middle_name', $RequestData2->husband_mother_middle_name ?? '') }}">
             </div>
 
-            <div class="form-group">
-                <label for="husband_mother_maiden_last_name" class="birth-label">18. husband_mother_maiden_last_name</label>
+            <div class="m_husband_mother_maiden_last_name">
+                <label for="husband_mother_maiden_last_name" class="birth-label"></label>
                 <input type="text" name="husband_mother_maiden_last_name" class="birth-form-control" id="husband_mother_maiden_last_name" value="{{ old('husband_mother_maiden_last_name', $RequestData2->husband_mother_maiden_last_name ?? '') }}" required>
             </div>
 
-            <div class="form-group">
-                <label for="husband_mother_citizenship" class="birth-label">19. husband_mother_citizenship</label>
+            <div class="m_husband_mother_citizenship">
+                <label for="husband_mother_citizenship" class="birth-label"></label>
                 <input type="text" name="husband_mother_citizenship" class="birth-form-control" id="husband_mother_citizenship" value="{{ old('husband_mother_citizenship', $RequestData2->husband_mother_citizenship ?? '') }}" required>
             </div>
 
@@ -332,56 +454,56 @@
                 <input type="text" name="wife_residence" class="birth-form-control" id="wife_residence" value="{{ old('wife_residence', $RequestData2->wife_residence ?? '') }}" required>
             </div>
 
-            <div class="form-group">
-                <label for="wife_religion" class="birth-label">30. wife_religion</label>
+            <div class="m_wife_religion">
+                <label for="wife_religion" class="birth-label"></label>
                 <input type="text" name="wife_religion" class="birth-form-control" id="wife_religion" value="{{ old('wife_religion', $RequestData2->wife_religion ?? '') }}" required>
             </div>
-            <div class="form-group">
-                <label for="wife_father_first_name" class="birth-label">31. wife_father_first_name</label>
+            <div class="m_wife_father_first_name">
+                <label for="wife_father_first_name" class="birth-label"></label>
                 <input type="text" name="wife_father_first_name" class="birth-form-control" id="wife_father_first_name" value="{{ old('wife_father_first_name', $RequestData2->wife_father_first_name ?? '') }}" required>
             </div>
 
-            <div class="form-group">
-                <label for="wife_father_middle_name" class="birth-label">32. wife_father_middle_name</label>
+            <div class="m_wife_father_middle_name">
+                <label for="wife_father_middle_name" class="birth-label"></label>
                 <input type="text" name="wife_father_middle_name" class="birth-form-control" id="wife_father_middle_name" value="{{ old('wife_father_middle_name', $RequestData2->wife_father_middle_name ?? '') }}">
             </div>
 
-            <div class="form-group">
-                <label for="wife_father_last_name" class="birth-label">33. wife_father_last_name</label>
+            <div class="m_wife_father_last_name">
+                <label for="wife_father_last_name" class="birth-label"></label>
                 <input type="text" name="wife_father_last_name" class="birth-form-control" id="wife_father_last_name" value="{{ old('wife_father_last_name', $RequestData2->wife_father_last_name ?? '') }}" required>
             </div>
 
-            <div class="form-group">
-                <label for="wife_father_citizenship" class="birth-label">34. wife_father_citizenship</label>
+            <div class="m_wife_father_citizenship">
+                <label for="wife_father_citizenship" class="birth-label"></label>
                 <input type="text" name="wife_father_citizenship" class="birth-form-control" id="wife_father_citizenship" value="{{ old('wife_father_citizenship', $RequestData2->wife_father_citizenship ?? '') }}" required>
             </div>
 
-            <div class="form-group">
-                <label for="wife_mother_first_name" class="birth-label">35. wife_mother_first_name</label>
+            <div class="m_wife_mother_first_name">
+                <label for="wife_mother_first_name" class="birth-label"></label>
                 <input type="text" name="wife_mother_first_name" class="birth-form-control" id="wife_mother_first_name" value="{{ old('wife_mother_first_name', $RequestData2->wife_mother_first_name ?? '') }}" required>
             </div>
 
-            <div class="form-group">
-                <label for="wife_mother_middle_name" class="birth-label">36. wife_mother_middle_name</label>
+            <div class="m_wife_mother_middle_name">
+                <label for="wife_mother_middle_name" class="birth-label"></label>
                 <input type="text" name="wife_mother_middle_name" class="birth-form-control" id="wife_mother_middle_name" value="{{ old('wife_mother_middle_name', $RequestData2->wife_mother_middle_name ?? '') }}">
             </div>
 
-            <div class="form-group">
-                <label for="wife_mother_maiden_last_name" class="birth-label">37. wife_mother_maiden_last_name</label>
+            <div class="m_wife_mother_maiden_last_name">
+                <label for="wife_mother_maiden_last_name" class="birth-label"></label>
                 <input type="text" name="wife_mother_maiden_last_name" class="birth-form-control" id="wife_mother_maiden_last_name" value="{{ old('wife_mother_maiden_last_name', $RequestData2->wife_mother_maiden_last_name ?? '') }}" required>
             </div>
 
-            <div class="form-group">
-                <label for="wife_mother_citizenship" class="birth-label">38. wife_mother_citizenship</label>
+            <div class="m_wife_mother_citizenship">
+                <label for="wife_mother_citizenship" class="birth-label"></label>
                 <input type="text" name="wife_mother_citizenship" class="birth-form-control" id="wife_mother_citizenship" value="{{ old('wife_mother_citizenship', $RequestData2->wife_mother_citizenship ?? '') }}" required>
             </div>
-            <div class="form-group">
-                <label for="marriage_date1" class="birth-label">39. marriage_date1</label>
+            <div class="m_marriage_date1">
+                <label for="marriage_date1" class="birth-label"></label>
                 <input type="date" name="marriage_date1" class="birth-form-control" id="marriage_date1" value="{{ old('marriage_date1', $RequestData2->marriage_date1 ?? '') }}" required>
             </div>
 
-            <div class="form-group">
-                <label for="marriage_place" class="birth-label">40. marriage_place</label>
+            <div class="m_marriage_place">
+                <label for="marriage_place" class="birth-label"></label>
                 <input type="text" name="marriage_place" class="birth-form-control" id="marriage_place" value="{{ old('marriage_place', $RequestData2->marriage_place ?? '') }}" required>
             </div>
 
