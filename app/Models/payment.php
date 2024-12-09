@@ -9,7 +9,8 @@ class payment extends Model
 {
     use HasFactory;
     protected $table = 'Payment';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'Payment_Id';
+    public $incrementing = false;
     protected $fillable = [
         'name',
         'requested_certificate',
