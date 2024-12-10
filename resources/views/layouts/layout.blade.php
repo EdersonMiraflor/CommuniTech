@@ -252,6 +252,7 @@
     }
 
     .footer-container {
+        
         max-width: 1500px; /* Restrict content width for better alignment */
         margin: 0 auto; /* Center the container */
         padding: 0 15px; /* Prevent content from touching edges */

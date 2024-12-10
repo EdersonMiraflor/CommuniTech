@@ -15,11 +15,11 @@ return new class extends Migration
 
             $table->id('Payment_Id'); 
             $table->unsignedBigInteger('User_Id')->nullable();
-            $table->string('name'); 
+            $table->string('name')->nullable; 
             $table->string('requested_certificate'); 
-            $table->integer('quantity');
-            $table->string('address'); 
-            $table->string('mobile', 11);
+            $table->integer('quantity')->nullable;
+            $table->string('address')->nullable; 
+            $table->string('mobile', 11)->nullable;
             // Restrict Barangay to specific options using enum
             $table->enum('barangay', [
                 'Cabacongan', 'Cawayan', 'Malobago', 'Tinapian', 'Manumbalay',

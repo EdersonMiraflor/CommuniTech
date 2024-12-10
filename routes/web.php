@@ -129,6 +129,8 @@ Route::get('/generatebirth', [GeneratePDFController::class, 'generatebirth']);
 Route::get('/generatemarriage', [GeneratePDFController::class, 'generatemarriage']);
 Route::get('/generatedeath', [GeneratePDFController::class, 'generatemarriage']);
 
+Route::get('/generatedeath/send', [GeneratePDFController::class, 'generatesend']);
+
 Route::get('/view-deathonly-cert', function () {
     return view('page.forms.onlydeathcert');
 });

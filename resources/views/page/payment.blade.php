@@ -60,25 +60,16 @@
                         <option value="Inang Maharang">Inang Maharang</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label for="proof">Proof Of Payment</label>
                     <input class="form-control" name="proof" type="file" id="proof">
                 </div><br>
-            @auth
-                {{-- Check if the user is admin --}}
-                @if (Auth::user()->Credential == 'admin')
-                <div class="form-group">
-                    <label for="photo">Change Qr Photo</label>
-                    <input class="form-control" name="photo" type="file" id="photo">
-                </div>
-                @endif
-            @endauth
                 <div class="form-group text-center">
                     <input type="submit" value="Save" class="btn btn-success btn-submit">
                 </div>
             </form>
         </div>
+        @auth
 
         <!-- QR Code Image Section (Right) -->
         <div class="image-section">
@@ -92,7 +83,20 @@
                     <img src="{{ asset($data->photo) }}" width="500" height="500" class="img-responsive" style="padding-bottom: 1px; margin: 50px 50px 50px 50px; 20px; border: 5px solid black;">
                 </div>
             @endif
+
+<form action="{{ url('payment') }}" method="POST" enctype="multipart/form-data" class="payment-form">
+{!! csrf_field() !!}
             @endforeach
+            {{-- Check if the user is admin --}}
+                @if (Auth::user()->Credential == 'admin')
+                <div class="form-group">
+                    <label for="photo">Change Qr Photo</label>
+                    <input class="form-control" name="photo" type="file" id="photo">
+                </div>
+                @endif
+            @endauth
+</form>
+
         </div>
     </div>
 </div>
