@@ -92,7 +92,11 @@
             font-size: 1rem;
             transition: all 0.3s;
         }
-
+        .navbar-menu a:hover {
+    background-color: #90D7A4; /* Hover background color */
+    color: #fff;
+    transform: translateY(-3px); /* Small upward movement on hover */
+}
         .navbar-menu a.active {
             background-color: #7bc782;
             color: #fff;
@@ -132,7 +136,7 @@
                 top: 50px;
                 left: 0;
                 right: 0;
-                background-color: white;
+                background-color: #04AA6D;
                 flex-direction: column;
                 padding: 10px 0;
                 border-top: 1px solid #ddd;
@@ -157,7 +161,7 @@
             }
 
             .dropdown-menu a:hover {
-                background-color: #f0f0f0; /* Light gray hover effect */
+                background-color: #04AA6D; /* Light gray hover effect */
             }
         }
 
@@ -179,6 +183,7 @@
                 display: none; /* Hide menu icon on larger screens */
             }
         }
+        
 
 /* Footer Styling */
     /*START OF FOOTER*/
