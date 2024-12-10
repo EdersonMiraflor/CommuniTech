@@ -134,10 +134,15 @@ body {
     font-size: 1.5rem;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: #04AA6D;
     color: white;
     text-decoration: none;
     border-radius: 5px;
+}
+.btn-apply:hover {
+    background-color: #16423C; /* Darker green on hover */
+    color: #fff; /* Ensures text remains white */
+    transform: scale(1.05); /* Slightly enlarges the button */
 }
 
 /* Responsive adjustments */
@@ -512,7 +517,7 @@ body {
 }
 
 .service-card {
-    background-color: #bce7c8;
+    background-color: #95D2B3;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

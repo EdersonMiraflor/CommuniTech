@@ -73,13 +73,6 @@ class CertificateRequestController extends Controller
             'birth_place' => $request->birth_place,
             'signature1' => $request->signature1,
             'signature2' => $request->signature2,
-
-            'day_sworn' => $request->day_sworn,
-            'month_sworn' => $request->month_sworn,
-            'year_sworn' => $request->year_sworn,
-            'place_sworn' => $request->place_sworn,
-            'tax_cert_date' => $request->tax_cert_date,
-            'tax_cert_place' => $request->tax_cert_place,
         ]);
 
         return redirect('/home/services/form102/birthform');
@@ -168,8 +161,6 @@ class CertificateRequestController extends Controller
         'admin_officer_position' => $request->admin_officer_position,
         'admin_officer_name' => $request->admin_officer_name,
         'admin_officer_address' => $request->admin_officer_address,
-
-
             ]);
             return redirect('/home/services/marriageform/marriageformcert');
     }

@@ -3,7 +3,7 @@
 @section('contents')
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
-<div class="service-container" style="background-color: {{ $backgroundColor ?? '#E8F7EC' }};">
+<div class="service-container" style="background-color: {{ $backgroundColor ?? '#e8f7ec' }};">
     <!-- Birth Services -->
     <div class="service-card">
         <div class="image-container">

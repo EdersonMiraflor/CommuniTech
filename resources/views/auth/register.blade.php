@@ -136,7 +136,6 @@
                             <div class="col-md-6">
                                 <select id="Credential" class="form-control @error('Credential') is-invalid @enderror" name="Credential">
                                     <option value="user" {{ old('Credential') == 'user' ? 'selected' : '' }}>{{ __('User') }}</option>
-                                    <option value="admin" disabled>{{ __('Admin') }}</option>
                                 </select>
                                 @error('Credential')
                                     <span class="invalid-feedback" role="alert">

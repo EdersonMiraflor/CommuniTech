@@ -22,6 +22,456 @@
             visibility: hidden; /* Ensures the element is hidden after the animation */
         }
     }
+
+ 
+    /* Container styles */
+.container {
+    margin-top: 5px; /* Space from the top */
+    margin-bottom: 30px;
+}
+
+.row {
+    display: flex;
+}
+
+/* Sidebar styles */
+.col-md-3 {
+    background-color: #E8F7EC; /* Light gray background for the sidebar */
+    border-radius: 8px; 
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-pills .nav-link {
+    color: #495057; /* Default text color */
+    background-color: #fff; /* Light gray background */
+    border-radius: 5px; 
+    padding: 10px 15px;
+    margin-bottom: 10px; 
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: #90D7A4; /* Slightly darker gray on hover */
+    color: #fff; 
+}
+
+.nav-pills .nav-link.active {
+    background-color: #04AA6D; /* Bootstrap primary color */
+    color: #fff; 
+    font-weight: bold; 
+}
+
+.nav-pills .nav-item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.nav-pills .nav-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25); /* Focus outline */
+}
+
+/* Disabled tab */
+.nav-link[style*="pointer-events: none"] {
+    background-color:#01796F !important; /* Disabled button color (Bootstrap secondary color) */
+    color: #ffffff !important; 
+    cursor: not-allowed !important; 
+    opacity: 0.65;
+}
+/* Personal Info Section */
+#personal-info {
+    background-color:#E8F7EC; /* Light gray background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+#personal-info h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000; /* Consistent blue color */
+    margin-bottom: 20px;
+}
+
+#personal-info form {
+    display: flex;
+    flex-direction: column;
+}
+
+#personal-info form > div {
+    padding-left: 30px;
+}
+
+#personal-info .mb-3 {
+    margin-bottom: 15px; /* Space between form groups */
+}
+
+#personal-info .form-label {
+    font-weight: bold;
+    color: #000000; /* Bootstrap default label color */
+    font-size: 1rem;
+}
+
+#personal-info .form-control {
+    background-color: #ffffff; 
+    border: 1px solid #ced4da; 
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: #0D52BD; /* Custom blue text color for form fields */
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#personal-info .form-control:focus {
+    border-color: #000000; /* Blue border on focus */
+    box-shadow: 0 0 0 0.2rem rgba(13, 82, 189, 0.25); 
+}
+
+#personal-info .form-control[readonly] {
+    background-color: #fff; /* Light gray for readonly fields */
+    cursor: not-allowed; 
+    color: #0D52BD; /* Blue text color */
+}
+
+#personal-info .form-control::placeholder {
+    color: #6c757d; /* Placeholder text color */
+    font-style: italic;
+}
+
+#personal-info #edit-button {
+    background-color: #04AA6D; 
+    color: #ffffff; 
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#personal-info #edit-button:hover {
+    background-color: #90D7A4; /* Darker blue on hover */
+    transform: translateY(-2px); 
+}
+
+#personal-info #edit-button:active {
+    background-color: #073d77; 
+    transform: translateY(1px);
+}
+
+#personal-info .btn-secondary {
+    background-color: #6c757d; 
+    color: #ffffff; 
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#personal-info .btn-secondary:hover {
+    background-color: #5a6268; 
+}
+
+#personal-info .btn-secondary:active {
+    background-color: #545b62; 
+    transform: translateY(1px);
+}
+
+#personal-info .btn {
+    margin-right: 10px; 
+}
+/* Request History Section */
+#request-history {
+    background-color: #E8F7EC; /* Light gray background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+#request-history h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000; /* Consistent blue color */
+    margin-bottom: 20px;
+}
+
+#request-history form {
+    display: flex;
+    flex-direction: column;
+}
+
+#request-history .mb-3 {
+    margin-bottom: 15px; /* Space between form groups */
+}
+
+#request-history .form-label {
+    font-weight: bold;
+    color: #000; /* Bootstrap default label color */
+    font-size: 1rem;
+}
+
+#request-history .form-control {
+    background-color: #ffffff; 
+    border: 1px solid #ced4da; 
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: #0D52BD; /* Custom blue text color for form fields */
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#request-history .form-control:focus {
+    border-color: #000; /* Blue border on focus */
+    box-shadow: 0 0 0 0.2rem rgba(13, 82, 189, 0.25); 
+}
+
+#request-history .form-control[readonly] {
+    background-color: #e9ecef; /* Light gray for readonly fields */
+    cursor: not-allowed; 
+    color: #0D52BD; /* Blue text color */
+}
+
+#request-history .form-control::placeholder {
+    color: #6c757d; /* Placeholder text color */
+    font-style: italic;
+}
+
+#request-history .btn-primary {
+    background-color: #04AA6D; 
+    color: #ffffff; 
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#request-history .btn-primary:hover {
+    background-color: #094d94; /* Darker blue on hover */
+    transform: translateY(-2px); 
+}
+
+#request-history .btn-primary:active {
+    background-color: #073d77; 
+    transform: translateY(1px);
+}
+/* ========== Admin Management, Request Management, User Management, Rider Management Styles ========== */
+
+/* General Styles for All Tabs */
+#admin, #request, #user, #riders {
+    background-color: #E8F7EC; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+#admin h5, 
+#request h5, 
+#user h5, 
+#riders h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000; 
+    margin-bottom: 20px;
+}
+
+#admin form, 
+#request form, 
+#user form, 
+#riders form {
+    display: flex;
+    flex-direction: column;
+}
+
+#admin .mb-3, 
+#request .mb-3, 
+#user .mb-3, 
+#riders .mb-3 {
+    margin-bottom: 15px; 
+}
+
+#admin .form-label, 
+#request .form-label, 
+#user .form-label, 
+#riders .form-label {
+    font-weight: bold;
+    color: #000; 
+    font-size: 1rem;
+}
+
+#admin .form-control, 
+#request .form-control, 
+#user .form-control, 
+#riders .form-control {
+    background-color: #ffffff; 
+    border: 1px solid #ced4da; 
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: #0D52BD; 
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#admin .form-control:focus, 
+#request .form-control:focus, 
+#user .form-control:focus, 
+#riders .form-control:focus {
+    border-color: #0D52BD; 
+    box-shadow: 0 0 0 0.2rem rgba(13, 82, 189, 0.25); 
+}
+
+#admin .form-control[readonly], 
+#request .form-control[readonly], 
+#user .form-control[readonly], 
+#riders .form-control[readonly] {
+    background-color: #e9ecef; 
+    cursor: not-allowed; 
+    color: #0D52BD; 
+}
+
+#admin .form-control::placeholder, 
+#request .form-control::placeholder, 
+#user .form-control::placeholder, 
+#riders .form-control::placeholder {
+    color: #6c757d; 
+    font-style: italic;
+}
+
+/* Select Dropdown Styles */
+#admin .form-select, 
+#request .form-select, 
+#user .form-select, 
+#riders .form-select {
+    background-color: #ffffff; 
+    border: 1px solid #ced4da; 
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: #0D52BD; 
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#admin .form-select:focus, 
+#request .form-select:focus, 
+#user .form-select:focus, 
+#riders .form-select:focus {
+    border-color: #0D52BD; 
+    box-shadow: 0 0 0 0.2rem rgba(13, 82, 189, 0.25); 
+}
+
+#admin .form-select option, 
+#request .form-select option, 
+#user .form-select option, 
+#riders .form-select option {
+    color: #0D52BD; 
+}
+
+#admin .form-select option[style*="color: grey"], 
+#request .form-select option[style*="color: grey"], 
+#user .form-select option[style*="color: grey"], 
+#riders .form-select option[style*="color: grey"] {
+    color: grey; 
+}
+
+#admin .form-select option[style*="color: red"], 
+#request .form-select option[style*="color: red"], 
+#user .form-select option[style*="color: red"], 
+#riders .form-select option[style*="color: red"] {
+    color: red; 
+}
+
+/* Button Styles */
+#admin .btn-primary, 
+#request .btn-primary, 
+#user .btn-primary, 
+#riders .btn-primary {
+    background-color:#04AA6D; 
+    color: #ffffff; 
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#admin .btn-primary:hover, 
+#request .btn-primary:hover, 
+#user .btn-primary:hover, 
+#riders .btn-primary:hover {
+    background-color: #95D2B3; 
+    transform: translateY(-2px); 
+}
+
+#admin .btn-primary:active, 
+#request .btn-primary:active, 
+#user .btn-primary:active, 
+#riders .btn-primary:active {
+    background-color: #073d77; 
+    transform: translateY(1px);
+}
+
+/* Special Button for "Make User" */
+#admin .btn-warning {
+    color: #fcfcff; 
+    background-color: #04AA6D; 
+    border-color: #008080; 
+}
+
+#admin .btn-warning:hover {
+    background-color: #95D2B3; 
+    border-color: #006666;
+    transform: translateY(-2px); 
+}
+
+#admin .btn-warning:active {
+    background-color: #004c4c; 
+    border-color: #004c4c;
+    transform: translateY(1px); 
+}
+
+/* Links for "Go Back to Home Page" */
+#request a.btn-primary, 
+#user a.btn-primary, 
+#riders a.btn-primary {
+    background-color: #04AA6D; 
+    color: #ffffff; 
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+#request a.btn-primary:hover, 
+#user a.btn-primary:hover, 
+#riders a.btn-primary:hover {
+    background-color: #95D2B3; 
+    transform: translateY(-2px); 
+}
+
+#request a.btn-primary:active, 
+#user a.btn-primary:active, 
+#riders a.btn-primary:active {
+    background-color: #073d77; 
+    transform: translateY(1px); 
+}
+
+
+
+
 </style>
 <!-- Success/Error Messages -->
 @if(session('success'))
@@ -39,8 +489,6 @@
     <div class="alert alert-danger">{{ $errors->first('password') }}</div>
 @endif
 
-
-
     <div class="container mt-5">
         <div class="row">
             <!-- Sidebar Navigation -->
@@ -52,7 +500,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="request-history-tab" data-bs-toggle="tab" href="#request-history" role="tab">Requests History</a>
+                        <a class="nav-link" id="request-xhistory-tab" data-bs-toggle="tab" href="#request-history" role="tab">Requests History</a>
                     </li>
 
                     <li class="nav-item">
