@@ -94,10 +94,10 @@
         }
 
         .navbar-menu a.active {
-            background-color: #7bc782;
+            background-color: #04AA6D;
             color: #fff;
             border-radius: 4px;
-        
+            
         }
 
         .navbar-search {
@@ -230,13 +230,13 @@
         transition: all 0.8s;
         }
         .apply-btn {
-        background: #00bd2c;
+        background: #04AA6D;
         border: 2px solid #00bd2c;
         color: #fff;
         }
 
         .apply-btn:hover{
-        background: #22AF4A;
+        background: ##04AA6D;
         color: #fff;
         border-color: #ffffff;
         }
@@ -244,7 +244,7 @@
         /*---------footer---------*/
         /* General Footer Styles */
     footer {
-        background-color: #90D7A4; /* Footer background color */
+        background-color: #95D2B3; /* Footer background color */
         color: #333; /* Text color */
         font-size: 15px; /* Default font size */
         padding: 10px 0; /* Adjust padding to reduce footer thickness */
@@ -252,6 +252,7 @@
     }
 
     .footer-container {
+        
         max-width: 1500px; /* Restrict content width for better alignment */
         margin: 0 auto; /* Center the container */
         padding: 0 15px; /* Prevent content from touching edges */
@@ -336,7 +337,7 @@
         footer .table td:first-child {
         font-weight: 600;
         padding-left: 33px;
-        background-color: #90D7A4;
+        background-color: #e8f7ec;
         line-height: 1.9; /* Improve readability */
         }
 
@@ -344,7 +345,7 @@
         footer .table td {
         padding: 0px;
         border: 0;
-        background-color: #90D7A4;
+        background-color: #e8f7ec;
         }
 
         footer .table td i {

@@ -15,7 +15,7 @@ return new class extends Migration
 
             $table->id('Payment_Id'); 
             $table->unsignedBigInteger('User_Id')->nullable();
-            $table->string('name'); 
+            $table->string('name')  ; 
             $table->string('requested_certificate'); 
             $table->integer('quantity');
             $table->string('address'); 

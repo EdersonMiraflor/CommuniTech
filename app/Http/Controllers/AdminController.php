@@ -124,5 +124,4 @@ class AdminController extends Controller
         // Redirect to profile page with success message
         return redirect()->route('user.profile')->with('success', 'Profile updated successfully!');
     }
-
 }

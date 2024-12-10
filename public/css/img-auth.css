@@ -2,208 +2,216 @@
 
 /*Auth-Page Start*/
 
-.container {
+/* Container Styles */
+/* Overall Layout */
+.content {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 50px;
     flex-wrap: wrap;
-    padding: 10px; /* Reduced padding */
-    margin: 30px auto; /* Center and reduce the margins */
-    max-width: 80%; /* Adjust overall width */
-    box-sizing: border-box; /* Ensure padding is included in width */
+    padding: 10px;
+    max-width: 80%;
+    margin: 30px auto;
+    background-color: #ffffff; /* Light green background */
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds subtle shadow */
+    box-sizing: border-box;
+   
 }
 
-.left-side, .right-side {
-    flex: 2; /* Ensures both sides take equal space */
-    margin-bottom: 20px;
-    margin-top: 20px;
+.left-side, 
+.right-side {
+    flex: 1;
+    margin: 20px;
 }
 
 .left-side {
-    flex: 2;
+    position: relative; /* Enables absolute positioning for the logo */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Aligns content to the top */
+    justify-content: flex-start; /* Align content to the top */
     align-items: center;
     text-align: center;
-    position: relative; /* This will help position the background logo */
-    overflow: hidden; /* Prevents overflow of elements outside the container */
-}
-
-/* Background logo with adjustable opacity */
-.logo-overlay {
-    position: absolute; /* Positions the logo as a background */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the entire container */
-    opacity: 0.5; /* Adjust the opacity of the background logo */
-    z-index: -1; /* Places the image behind the content */
-    transition: opacity 0.3s ease; /* Adds a smooth transition effect */
-}
-
-/* Overlay with adjustable background color and opacity */
-.left-side::before {
-    content: ""; /* Creates an overlay */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    z-index: -1; /* Places the overlay behind the text */
-}
-
-.title, .description, .sub-description, .button {
-    z-index: 1; /* Ensures the text and button appear above the logo */
-}
-
-.button {
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.5); /* Adds a translucent background to the button */
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
-.button:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Darkens the button on hover */
+    padding: 20px;
+    padding-top: 12%;
+    padding-left: 60px;
 }
 
 .right-side {
-    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center the content vertically */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo-overlay {
+    position: absolute; 
+    top: 20px;
+    left: 50px;
+    width: 400px; /* Set the logo width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures the logo fits within its bounds */
+    z-index: 1; /* Places the logo above the background */
+    pointer-events: none; /* Prevents interaction with the logo */
+    opacity: 0.3; /* Adjust opacity value (0 to 1) */
+}
+
+.title, 
+.description, 
+.sub-description, 
+.button {
+    position: relative; /* Ensure content overlays the logo */
+    z-index: 2; /* Ensure content appears above the logo */
 }
 
 .title {
-    font-size: 3rem;
+    font-size: 50px;
     font-weight: bolder;
     margin-bottom: 10px;
-    margin-top: 96px;
 }
 
 .description {
     font-size: 20px;
-    margin-bottom: 5px;
-    font-weight: 600;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .sub-description {
     font-size: 18px;
-    color: black;
+    font-weight: 500;
     margin-bottom: 20px;
 }
+
+.button {
+    padding: 12px 24px;
+    background-color: #22AF4A;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.1s; /* Added transform transition */
+}
+
+.button:hover {
+    background-color: #04AA6D;
+    transform: scale(1.3); /* Slightly grow the button on hover */
+    animation: pulseAnimation 0.5s ease-in-out; /* Added pulse animation */
+}
+
+/* Keyframes for the animation */
+@keyframes pulseAnimation {
+    0% {
+        transform: scale(1); /* Initial size */
+    }
+    50% {
+        transform: scale(1.1); /* Grow the button */
+    }
+    100% {
+        transform: scale(1); /* Return to original size */
+    }
+}
+
 
 .images {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
-    justify-content: center;
     margin-bottom: 10px;
 }
 
 .image {
     width: 100%;
-    height: auto;
-    aspect-ratio: 1; /* Ensures a square aspect ratio */
+    aspect-ratio: 1;
     object-fit: cover;
     cursor: pointer;
     border: 1px solid transparent;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, transform 0.3s ease; /* Add longer transition time for smooth zoom-out */
+}
+
+.image:hover {
+    transform: scale(1.3); /* Zoom out to double the size */
+    border-color: #00ff00; /* Change the border color on hover */
+    border: 4px solid #00ff00;
+    z-index: 10; /* Bring the image above other elements during zoom-out */
 }
 
 .image.selected {
-    border: 4px solid #00ff00;
+    border: 10px solid #04AA6D;
 }
 
-.text {
-    text-align: center;
-}
 
-.button {
-    margin-top: 50px;
-    padding: 10px 20px;
-    background-color: #22AF4A;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .container {
+    .content {
         flex-direction: column; /* Stacks content vertically */
-        align-items: center; /* Centers content */
-        padding: 20px 10px; /* Adjusts padding */
     }
 
-    .left-side, .right-side {
-        width: 100%; /* Makes each side take up the full width */
+    .left-side, 
+    .right-side {
+        width: 100%; /* Makes each side full width */
+        margin: 10px 0; /* Adds space between stacked containers */
+    }
+
+    .images {
+        grid-template-columns: repeat(2, 1fr); /* Changes to 2 columns */
     }
 }
 
-/* Small Screens (Mobile, <768px) */
 @media (max-width: 768px) {
-    .left-side h1 {
-        font-size: 2rem; /* Reduces font size */
+    .left-side, 
+    .right-side {
+        width: 100%; 
     }
 
-    .left-side h2 {
-        font-size: 1.5rem;
+    .title {
+        font-size: 2rem; /* Smaller font size for title */
     }
 
-    .left-side p {
-        font-size: 1rem;
+    .description {
+        font-size: 1.5rem; 
     }
 
-    .logo-overlay {
-        max-width: 80%; /* Shrinks the logo */
-    }
-
-    .images {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Adjusts to 2 columns */
-        gap: 10px;
+    .sub-description {
+        font-size: 1.2rem; 
     }
 
     .button {
-        font-size: 14px;
-        padding: 10px 20px;
+        font-size: 14px; 
     }
 }
 
-/* Very Small Screens (Extra Small, <480px) */
 @media (max-width: 480px) {
-    .left-side h1 {
-        font-size: 1.5rem; /* Further reduces font size */
+    .left-side, 
+    .right-side {
+        width: 100%; 
     }
 
-    .left-side h2 {
-        font-size: 1.2rem;
+    .title {
+        font-size: 1.5rem; 
     }
 
-    .left-side p {
-        font-size: 0.9rem;
+    .description {
+        font-size: 1.2rem; 
     }
 
-    .logo-overlay {
-        max-width: 60%; /* Further reduces the logo size */
+    .sub-description {
+        font-size: 1rem; 
     }
 
     .images {
-        grid-template-columns: 1fr; /* Stacks images vertically */
+        grid-template-columns: 1fr; /* Images stack in one column */
     }
 
     .button {
-        font-size: 12px;
-        padding: 8px 16px;
+        font-size: 12px; 
+        padding: 8px 16px; 
     }
 }
 
