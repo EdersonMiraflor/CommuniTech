@@ -28,6 +28,15 @@ class PaymentController extends Controller
         $userId = Auth::id(); // Get the authenticated user's ID
         $requestData['User_Id'] = $userId;
 
+    // Set a default value for 'name' if not provided
+    $requestData['name'] = $request->input('name', 'Default Name');
+    $requestData['requested_certificate'] = $request->input('requested_certificate', 'Default Certificate');
+    $requestData['quantity'] = $request->input('quantity', 5);
+    $requestData['address'] = $request->input('address', 'Default Address');
+    $requestData['mobile'] = $request->input('mobile', '09092902988');
+    $requestData['barangay'] = $request->input('barangay', 'Malobago');
+    $requestData['proof'] = $request->input('proof', 'Default Proof');
+
         // Handle photo upload
         if ($request->hasFile('photo')) {
             $fileName = time() . '_' . $request->file('photo')->getClientOriginalName();

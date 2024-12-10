@@ -1,26 +1,27 @@
 @extends('layouts.layout')
+
 @section('contents')
 @php
-    $requestedCertificate = "Birth Certificate"; // Define your variable here
+    $requestedCertificate = "Birth Certificate"; // Define the variable if needed
 @endphp
 
 <h1 class="text-center form-title">Payment Form</h1>
 <br>
 <div class="container form-container">
     <div class="form-and-image">
-        <!-- Form Section (Left) -->
-        <div class="form-section">
+        <!-- Left Section: User Form -->
+        <div class="form-section" style="margin-top: 100px;">
             <form action="{{ url('payment') }}" method="POST" enctype="multipart/form-data" class="payment-form">
                 {!! csrf_field() !!}
 
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" value="{{ Auth::user()->name . ' ' . Auth::user()->Middle_Name . ' ' . Auth::user()->Last_Name }}"required readonly>
+                    <input type="text" name="name" id="name" class="form-control" value="{{ Auth::user() ? Auth::user()->name . ' ' . (Auth::user()->Middle_Name ?? '') . ' ' . (Auth::user()->Last_Name ?? '') : '' }}" readonly>
                 </div>
 
                 <div class="form-group">
                     <label for="requested_certificate">Requested Certificate</label>
-                    <input type="text" name="requested_certificate" id="requested_certificate" class="form-control" value="{{ $requestedCertificate }}" required readonly>
+                    <input type="text" name="requested_certificate" id="requested_certificate" class="form-control" value="{{ $requestedCertificate ?? '' }}" readonly>
                 </div>
 
                 <div class="form-group">
@@ -60,154 +61,147 @@
                         <option value="Inang Maharang">Inang Maharang</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="proof">Proof Of Payment</label>
                     <input class="form-control" name="proof" type="file" id="proof">
                 </div><br>
+
                 <div class="form-group text-center">
                     <input type="submit" value="Save" class="btn btn-success btn-submit">
                 </div>
             </form>
         </div>
-        @auth
 
-        <!-- QR Code Image Section (Right) -->
+        <!-- Right Section: Payment QR and Admin Options -->
         <div class="image-section">
-            @foreach($payments as $data)
-            @if($payments->isNotEmpty())
-                @php
-                    $data = $payments->first(); // Get the first (and only) record
-                @endphp
-                <div class="payment-image">
-                    <h3 style="text-align: center;">Scan For Payment</h3>
-                    <img src="{{ asset($data->photo) }}" width="500" height="500" class="img-responsive" style="padding-bottom: 1px; margin: 50px 50px 50px 50px; 20px; border: 5px solid black;">
-                </div>
-            @endif
+            @auth
+                @if ($payments->isNotEmpty())
+                    @php
+                        $data = $payments->first(); // Get the first record
+                    @endphp
+                    <div class="payment-image">
+                        <h3 style="text-align: center; font-family: 'Pacifico', cursive; color: #2e6ab1;">Scan For Payment</h3>
+                        <img src="{{ asset($data->photo) }}" width="500" height="500" class="img-responsive" style="padding-bottom: 1px; margin: 50px; border: 5px solid #ff6f61; border-radius: 20px;">
+                    </div>
+                @endif
 
-<form action="{{ url('payment') }}" method="POST" enctype="multipart/form-data" class="payment-form">
-{!! csrf_field() !!}
-            @endforeach
-            {{-- Check if the user is admin --}}
-                @if (Auth::user()->Credential == 'admin')
-                <div class="form-group">
-                    <label for="photo">Change Qr Photo</label>
-                    <input class="form-control" name="photo" type="file" id="photo">
-                </div>
+                @if (Auth::user()->Credential === 'admin')
+                <form action="{{ url('payment') }}" method="POST" enctype="multipart/form-data" class="admin-form">
+                    @csrf
+                    <div class="form-group">
+                        <label for="photo">Change QR Photo</label>
+                        <input class="form-control" name="photo" type="file" id="photo">
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" value="Change" class="btn btn-warning btn-submit">
+                    </div>
+                </form>
                 @endif
             @endauth
-</form>
-
         </div>
     </div>
 </div>
-
 @endsection
 
 <style>
-    /* Global Styles */
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f7fc;
-        margin: 0;
-        padding: 0;
-    }
+/* Updated CSS with cute design elements */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fc;
+    margin: 0;
+    padding: 0;
+}
 
-    .form-title {
-        color: #2e6ab1;
-        font-size: 30px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-    }
+.form-title {
+    color: #6f42c1;
+    font-size: 32px;
+    font-family: 'Pacifico', cursive;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-    .form-container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+.form-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f2f2f2;
+    text-align: center;
+}
 
+.form-and-image {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.form-section, .image-section {
+    width: 48%;
+}
+
+.form-section .form-control {
+    border-radius: 20px;
+    border: 2px solid #ff6f61;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-section .form-control:focus {
+    border-color: #6f42c1;
+    box-shadow: 0 0 8px rgba(111, 66, 193, 0.6);
+}
+
+.btn-submit {
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #6f42c1;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.payment-image img {
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.payment-image img:hover {
+    transform: scale(1.05);
+}
+
+.admin-form .form-group {
+    margin-top: 20px;
+}
+
+.admin-form input[type="submit"] {
+    background-color: #ff6f61;
+    color: white;
+    border-radius: 25px;
+}
+
+.admin-form input[type="submit"]:hover {
+    background-color: #f44336;
+}
+
+@media (max-width: 768px) {
     .form-and-image {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 30px;
-    }
-
-    .form-section, .image-section {
-        width: 48%; /* Adjusts both sections to take equal space */
-    }
-
-    .payment-form {
-        display: flex;
         flex-direction: column;
+        align-items: center;
     }
-
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    label {
-        font-weight: bold;
-        font-size: 14px;
-        color: #333;
-    }
-
-    .form-control {
+    .form-section, .image-section {
         width: 100%;
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 14px;
-        margin-top: 5px;
     }
-
-    .form-control:focus {
-        outline: none;
-        border-color: #4e88fc;
-    }
-
-    select.form-control {
-        cursor: pointer;
-    }
-
-    .btn-submit {
-        background-color: #4e88fc;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    .btn-submit:hover {
-        background-color: #377adf;
-    }
-
-    .payment-image img {
-        border-radius: 8px;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .payment-image img:hover {
-        transform: scale(1.05);
-    }
-
-    .payment-image {
-        margin-bottom: 30px;
-    }
-
-    /* Ensures responsiveness */
-    @media (max-width: 768px) {
-        .form-and-image {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .form-section, .image-section {
-            width: 100%; /* Stack sections vertically on smaller screens */
-        }
-    }
+}
 </style>

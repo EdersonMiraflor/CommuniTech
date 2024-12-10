@@ -12,6 +12,7 @@ class payment extends Model
     protected $primaryKey = 'Payment_Id';
     public $incrementing = false;
     protected $fillable = [
+        'User_Id',
         'name',
         'requested_certificate',
         'quantity',
