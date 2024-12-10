@@ -62,24 +62,25 @@ body {
 
 .green-btn {
     background-color: #28a745; /* Green background */
-    border-color: #c5ffd3;    /* Light green border */
-    color: white;             /* White text */
-    padding: 10px 20px;       /* Padding for the button */
-    border-radius: 10px;       /* Rounded corners */
-    border: 2px solid;        /* Border size */
-    cursor: pointer;          /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.1s ease;
+    border-color: #c5ffd3; /* Light green border */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid; /* Border size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, border-color 0.3s ease,
+        transform 0.1s ease;
 }
 
 .green-btn:hover {
     background-color: #218838; /* Slightly darker green */
-    border-color: #b3f5c6;    /* Slightly darker border */
+    border-color: #b3f5c6; /* Slightly darker border */
 }
 
-.green-btn:active{
+.green-btn:active {
     background-color: #1e7e34; /* Darker green for click effect */
-    border-color: #a9e8bb;     /* Darker border for click effect */
-    transform: scale(0.95);    /* Slightly shrink the button */
+    border-color: #a9e8bb; /* Darker border for click effect */
+    transform: scale(0.95); /* Slightly shrink the button */
 }
 
 /*HOME PAGE CSS*/
@@ -101,17 +102,17 @@ body {
     position: relative;
     width: 100%;
     display: center;
-    align-items:center;
+    align-items: center;
     justify-content: center;
     text-align: center;
     overflow-y: hidden;
 }
 
-
 /* Intro section styling */
 .intro {
+    margin-left: 2rem;
     display: center;
-    align-items:center;
+    align-items: center;
     justify-content: center;
     text-align: center;
     height: 500px;
@@ -122,12 +123,12 @@ body {
     z-index: 1; /* Ensure content stays above the background */
 }
 
-.intro h1{
+.intro h1 {
     font-size: 2.2rem;
     font-weight: bolder;
 }
 
-.intro p{
+.intro p {
     font-size: 1.6rem;
     font-weight: bold;
     text-align: justify;
@@ -203,9 +204,246 @@ body {
     }
 }
 
+/** ANNOUNCEMENT CSS **/
+/* Base styles */
+
+.announcement-container {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Announcement Form */
+  .announcement-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .announcement-form input,
+  .announcement-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .announcement-form button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .announcement-form button:hover {
+    background-color: #28a745;
+  }
+  
+  /* View Buttons */
+  .view-buttons {
+    display:inline-block;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .view-buttons button {
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .view-buttons button:hover {
+    background-color: #5a6268;
+  }
+  
+  .view-buttons button.active {
+    background-color: #28a745;
+  }
+  
+  /* Announcement List */
+  .announcement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .announcement-item {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .announcement-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+  }
+  
+  .updated-label {
+    font-size: 12px;
+    color: #28a745;
+    margin-left: 8px;
+  }
+  
+  .announcement-timestamp {
+    font-size: 12px;
+    color: #666;
+    margin: 10px 0 0;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .actions button {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .actions button:nth-child(1) {
+    background-color: #ffc107;
+    color: #fff;
+  }
+  
+  .actions button:nth-child(2) {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .actions button:nth-child(3) {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .actions button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Empty Message */
+  .empty-message {
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .pagination button.active {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .pagination button:hover {
+    background-color: #4dc96a;
+    color: #fff;
+  }
+/* Form Section */
+.form-section {
+    margin-bottom: 20px;
+  }
+  
+  .form-section input,
+  .form-section textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .form-section button {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 10px 15px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .form-section button:hover {
+    background: #0056b3;
+  }
+  
+  .form-section #update-announcement {
+    background-color: #28a745;
+  }
+  
+  .form-section #update-announcement:hover {
+    background-color: #218838;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+  }
+  
+  .announcement-header{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #28a745;
+  }
+
+  #add-announcement, #update-announcement {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  #add-announcement:hover, #update-announcement:hover {
+    background-color: #53be6a;
+  }
+
+
 /*END OF HOME CSS*/
 
-    
 /* ABOUT PAGE CSS */
 
 .about {
@@ -227,7 +465,9 @@ body {
     box-sizing: border-box;
 }
 
-.left-content1 h1, .left-content1 h2, .left-content2 h2 {
+.left-content1 h1,
+.left-content1 h2,
+.left-content2 h2 {
     color: #28a745;
 }
 
@@ -236,19 +476,24 @@ body {
     margin-bottom: 20px;
 }
 
-.left-content1 h2, .left-content2 h2 {
+.left-content1 h2,
+.left-content2 h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
-.left-content1 p, .left-content2 p, .left-content1 ul, .left-content2 ul {
+.left-content1 p,
+.left-content2 p,
+.left-content1 ul,
+.left-content2 ul {
     font-size: 1rem;
     color: #333;
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
-.left-content1 ul, .left-content2 ul {
+.left-content1 ul,
+.left-content2 ul {
     padding-left: 40px;
 }
 
@@ -263,11 +508,10 @@ body {
 
 .about-image {
     max-width: 80%; /* Reduces the size of the image relative to its container */
-    width: 300px;   /* Sets a maximum width for the image */
-    height: auto;   /* Maintains aspect ratio */
-    padding: 10px;  /* Adjust padding for aesthetics */
+    width: 300px; /* Sets a maximum width for the image */
+    height: auto; /* Maintains aspect ratio */
+    padding: 10px; /* Adjust padding for aesthetics */
 }
-
 
 .image-caption {
     font-size: 1.5rem;
@@ -321,16 +565,15 @@ body {
     font-size: 1rem;
 }
 
-
-
 /* RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
- main
-    .about {
+    main .about {
         flex-direction: column;
     }
 
-    .left-content1, .left-content2, .right-content {
+    .left-content1,
+    .left-content2,
+    .right-content {
         flex: 1 1 100%; /* Make all sections take full width */
         padding: 20px;
     }
@@ -339,11 +582,15 @@ body {
         font-size: 2rem;
     }
 
-    .left-content1 h2, .left-content2 h2 {
+    .left-content1 h2,
+    .left-content2 h2 {
         font-size: 1.25rem;
     }
 
-    .left-content1 p, .left-content2 p, .left-content1 ul, .left-content2 ul {
+    .left-content1 p,
+    .left-content2 p,
+    .left-content1 ul,
+    .left-content2 ul {
         font-size: 0.9rem;
     }
 
@@ -355,14 +602,16 @@ body {
 @media (max-width: 768px) {
     .about-image {
         max-width: 70%; /* Further reduce the size for smaller screens */
-        width: 200px;   /* Limit to 200px for very small devices */
+        width: 200px; /* Limit to 200px for very small devices */
     }
 
-    .left-content1 h1, .image-caption {
+    .left-content1 h1,
+    .image-caption {
         text-align: center;
     }
 
-    .left-content1 ul, .left-content2 ul {
+    .left-content1 ul,
+    .left-content2 ul {
         padding-left: 20px;
     }
 }
