@@ -7,6 +7,7 @@
 
 <div class="container my-5 py-5">
     <div class="row justify-content-center">
+
         <!-- Left Container for Images and Text -->
         <div class="col-lg-6 col-md-6 mb-6 mb-md-0">
             <div class="text-center">
