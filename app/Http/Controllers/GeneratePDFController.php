@@ -117,6 +117,7 @@ class GeneratePDFController extends Controller
         <div class="birth-info">{$request->birth_place}</div>
         <div class="birth-info">{$request->signature1}</div>
         <div class="birth-info">{$request->signature2}</div>
+        
 EOF;
 
     // Output the HTML content for Live Birth Certificate
@@ -182,23 +183,23 @@ public function generatemarriage(){
             }
         </style>
 
-        <h1>Live Birth Certificate</h1>
+        <h1>Marriage Certificate</h1>
 
-        <div class="birth-info">{$request2->husband_first_name}</div>
-        <div class="birth-info">{$request2->husband_middle_name}</div>
-        <div class="birth-info">{$request2->husband_birthdate}</div>
-        <div class="birth-info">{$request2->husband_age}</div>
-        <div class="birth-info">{$request2->husband_city_municipality}</div>
-        <div class="birth-info">{$request2->husband_province}</div>
-        <div class="birth-info">{$request2->husband_country}</div>
-        <div class="birth-info">{$request2->husband_citizenship}</div>
-        <div class="birth-info">{$request2->husband_residence}</div>
-        <div class="birth-info">{$request2->husband_religion}</div>
-        <div class="birth-info">{$request2->husband_father_first_name}</div>
-        <div class="birth-info">{$request2->husband_father_middle_name}</div>
-        <div class="birth-info">{$request2->husband_father_last_name}</div>
-        <div class="birth-info">{$request2->husband_father_citizenship}</div>
-        <div class="birth-info">{$request2->husband_mother_first_name}</div>
+        <div class="marriage-info">{$request2->husband_first_name}</div>
+        <div class="marriage-info">{$request2->husband_middle_name}</div>
+        <div class="marriage-info">{$request2->husband_birthdate}</div>
+        <div class="marriage-info">{$request2->husband_age}</div>
+        <div class="marriage-info">{$request2->husband_city_municipality}</div>
+        <div class="marriage-info">{$request2->husband_province}</div>
+        <div class="marriage-info">{$request2->husband_country}</div>
+        <div class="marriage-info">{$request2->husband_citizenship}</div>
+        <div class="marriage-info">{$request2->husband_residence}</div>
+        <div class="marriage-info">{$request2->husband_religion}</div>
+        <div class="marriage-info">{$request2->husband_father_first_name}</div>
+        <div class="marriage-info">{$request2->husband_father_middle_name}</div>
+        <div class="marriage-info">{$request2->husband_father_last_name}</div>
+        <div class="marriage-info">{$request2->husband_father_citizenship}</div>
+        <div class="marriage-info">{$request2->husband_mother_first_name}</div>
      EOF;
 
     // Output the HTML content for Live Birth Certificate
@@ -265,14 +266,14 @@ public function generatedeath(){
             }
         </style>
 
-        <h1>Live Birth Certificate</h1>
+        <h1>Death Certificate</h1>
 
-        <div class="birth-info">{$request->full_name}</div>
-        <div class="birth-info">{$request->sex}</div>
-        <div class="birth-info">{$request->date_of_death}</div>
-        <div class="birth-info">{$request->date_of_birth}</div>
-        <div class="birth-info">{$request->completed_years}</div>
-        <div class="birth-info">{$request->months_days}</div>
+        <div class="death-info">{$request->full_name}</div>
+        <div class="death-info">{$request->sex}</div>
+        <div class="death-info">{$request->date_of_death}</div>
+        <div class="death-info">{$request->date_of_birth}</div>
+        <div class="death-info">{$request->completed_years}</div>
+        <div class="death-info">{$request->months_days}</div>
 EOF;
 
     // Output the HTML content for Live Birth Certificate
