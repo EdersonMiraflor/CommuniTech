@@ -3,7 +3,7 @@
 /*Auth-Page Start*/
 
 /* Container Styles */
-/* Overall Layout */
+/* --- Default Layout --- */
 .content {
     font-family: Arial, sans-serif;
     display: flex;
@@ -14,12 +14,11 @@
     padding: 10px;
     max-width: 80%;
     margin: 30px auto;
-    background-color: #ffffff; /* Light green background */
+    background-color: #ffffff;
     color: rgb(0, 0, 0);
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds subtle shadow */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
-   
 }
 
 .left-side, 
@@ -29,10 +28,10 @@
 }
 
 .left-side {
-    position: relative; /* Enables absolute positioning for the logo */
+    position: relative; 
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align content to the top */
+    flex-direction: column; 
+    justify-content: flex-start; 
     align-items: center;
     text-align: center;
     padding: 20px;
@@ -50,22 +49,22 @@
 
 .logo-overlay {
     position: absolute; 
-    top: 20px;
-    left: 50px;
-    width: 400px; /* Set the logo width */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Ensures the logo fits within its bounds */
-    z-index: 1; /* Places the logo above the background */
-    pointer-events: none; /* Prevents interaction with the logo */
-    opacity: 0.3; /* Adjust opacity value (0 to 1) */
+    top: 20px; 
+    left: 50px; 
+    width: 400px; 
+    height: auto; 
+    object-fit: contain; 
+    z-index: 1; 
+    pointer-events: none; 
+    opacity: 0.3; 
 }
 
 .title, 
 .description, 
 .sub-description, 
 .button {
-    position: relative; /* Ensure content overlays the logo */
-    z-index: 2; /* Ensure content appears above the logo */
+    position: relative; 
+    z-index: 2; 
 }
 
 .title {
@@ -95,28 +94,20 @@
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
-    transition: background-color 0.3s, transform 0.1s; /* Added transform transition */
+    transition: background-color 0.3s, transform 0.1s;
 }
 
 .button:hover {
     background-color: #04AA6D;
-    transform: scale(1.3); /* Slightly grow the button on hover */
-    animation: pulseAnimation 0.5s ease-in-out; /* Added pulse animation */
+    transform: scale(1.3); 
+    animation: pulseAnimation 0.5s ease-in-out; 
 }
 
-/* Keyframes for the animation */
 @keyframes pulseAnimation {
-    0% {
-        transform: scale(1); /* Initial size */
-    }
-    50% {
-        transform: scale(1.1); /* Grow the button */
-    }
-    100% {
-        transform: scale(1); /* Return to original size */
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
-
 
 .images {
     display: grid;
@@ -131,118 +122,144 @@
     object-fit: cover;
     cursor: pointer;
     border: 1px solid transparent;
-    transition: border-color 0.3s, transform 0.3s ease; /* Add longer transition time for smooth zoom-out */
+    transition: border-color 0.3s, transform 0.3s ease; 
 }
 
 .image:hover {
-    transform: scale(1.3); /* Zoom out to double the size */
-    border-color: #00ff00; /* Change the border color on hover */
+    transform: scale(1.3); 
+    border-color: #00ff00; 
     border: 4px solid #00ff00;
-    z-index: 10; /* Bring the image above other elements during zoom-out */
+    z-index: 10; 
 }
 
 .image.selected {
     border: 10px solid #04AA6D;
 }
-
-
-
-/* Responsive Design */
+/* --- Responsive Design --- */
 @media (max-width: 1200px) {
     .content {
-        flex-direction: column; /* Stacks content vertically */
+        flex-direction: column;
+        margin-top: 2px;
     }
 
     .left-side, 
     .right-side {
-        width: 100%; /* Makes each side full width */
-        margin: 10px 0; /* Adds space between stacked containers */
+        width: 100%;
+        margin: 5px;
     }
 
     .images {
-        grid-template-columns: repeat(2, 1fr); /* Changes to 2 columns */
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 20px;  /* Reduced space between images and other content */
+    }
+
+    .button-container {
+        margin-top: 10px; /* Move button closer to the images */
     }
 }
 
 @media (max-width: 768px) {
-    .left-side, 
-    .right-side {
-        width: 100%; 
+    .content {
+        flex-direction: column;
+    }
+
+    .left-side {
+        display: flex;
+        flex-direction: column; /* Logo stays at the top, context goes to the bottom */
+        align-items: center;
+        text-align: center;
+        gap: 20px; /* Reduced space between logo and context */
+        right: 75px;
+    }
+
+    .logo-overlay {
+        position: relative;
+        width: 250px;
+        max-width: 80%;
+        opacity: 1; /* Full opacity (no transparency) */
     }
 
     .title {
-        font-size: 2rem; /* Smaller font size for title */
+        font-size: 2rem;
+        left: 50px;
     }
 
     .description {
-        font-size: 1.5rem; 
+        font-size: 1.5rem;
+        left: 50px;
     }
 
     .sub-description {
-        font-size: 1.2rem; 
+        font-size: 1.2rem;
+        left: 50px;
     }
 
     .button {
-        font-size: 14px; 
+        font-size: 14px;
+        left: 50px;
+    }
+
+    .images {
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 10px;  /* Reduced space between images and button/context */
+    }
+
+    .button-container {
+        margin-top: 20px; /* Place button below the images */
     }
 }
 
 @media (max-width: 480px) {
-    .left-side, 
-    .right-side {
-        width: 100%; 
+    .content {
+        flex-direction: column;
+    }
+
+    .left-side {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;  /* Reduced gap between elements */
+    }
+
+    .logo-overlay {
+        position: relative;
+        width: 180px;
+        max-width: 60%;
+    }
+
+    .title, 
+    .description, 
+    .sub-description, 
+    .button {
+        text-align: center;
     }
 
     .title {
-        font-size: 1.5rem; 
+        font-size: 1.5rem;
     }
 
     .description {
-        font-size: 1.2rem; 
+        font-size: 1.2rem;
     }
 
     .sub-description {
-        font-size: 1rem; 
+        font-size: 1rem;
     }
 
     .images {
-        grid-template-columns: 1fr; /* Images stack in one column */
+        grid-template-columns: 1fr;
+        margin-bottom: 200px;  /* Further reduced space between images and button/context */
+    }
+
+    .button-container {
+        margin-top: 10px; /* Button moved closer to images */
     }
 
     .button {
-        font-size: 12px; 
-        padding: 8px 16px; 
+        font-size: 12px;
+        padding: 10px 16px;
     }
-}
-
-/*Auth-Page End*/
-
-/*LOGIN PAGE CSS SECTION */
-
-.col-lg-6, .col-md-6 {
-    flex: 1;
-    max-width: 33.33%; /* Left container */
-    margin: 0 1%;
-    margin-right: 50px;
-    gap: 50px;
-}
-
-.col-lg-8, .col-md-8 {
-    flex: 1;
-    max-width: 66.67%; /* Right container */
-    margin: 0 1%;
-    margin-left: 50px;
-    gap: 50px;
-}
-
-.d-flex {
-    display: flex; /* Use flexbox for alignment */
-    justify-content: space-between; /* Space between links */
-    margin-top: 20px; /* Adjust the top margin as needed */
-}
-
-.d-flex a {
-    margin-left: 10px; /* Add space between the two links */
 }
 
 /* Background color for the form */
