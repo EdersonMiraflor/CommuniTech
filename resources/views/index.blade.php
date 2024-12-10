@@ -1,17 +1,21 @@
 @extends('layouts.layout2')
 @section('content')
+
 <link rel="stylesheet" href="{{ asset('css/img-auth.css') }}">
 
-<div class="container">
-
+<div class="content">
+    <!-- Left Side -->
     <div class="left-side">
-    <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="logo-overlay">
-    <br>
+        <!-- Logo as a background overlay -->
+        <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="logo-overlay">
+        
         <h1 class="title">CommuniTECH</h1>
         <h2 class="description">Are you a Citizen of Manito, Albay?</h2>
         <p class="sub-description">Select 3 pictures that are located in Manito, Albay.</p>
         <button class="button" id="verifyButton">Confirm</button>
     </div>
+
+    <!-- Right Side -->
     <div class="right-side">
         <div class="images">
             <img src="#" alt="Image 1" class="image" data-name="correct">
@@ -26,7 +30,7 @@
         </div>
     </div>
 </div>
-<script src="js/img-auth.js"></script>
 
+<script src="js/img-auth.js"></script>
 
 @endsection
