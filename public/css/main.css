@@ -98,7 +98,6 @@ body {
 
 /* Container for the intro section */
 .intro-container {
-    margin-top: 4rem;
     position: relative;
     width: 100%;
     display: center;
@@ -111,6 +110,11 @@ body {
 
 /* Intro section styling */
 .intro {
+    display: center;
+    align-items:center;
+    justify-content: center;
+    text-align: center;
+    height: 500px;
     color: black;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Subtle whitish shadow */
     max-width: 1200px; /* Limit width for readability */
@@ -139,45 +143,14 @@ body {
     text-decoration: none;
     border-radius: 5px;
 }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .team-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .team-member img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .intro h1 {
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
-
-    .intro p {
-        font-size: 1rem;
-        font-weight: bold;
-    }
-
-    .btn-apply {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-}
-
 /* Responsive adjustments for screens at 950px width */
 @media (max-width: 950px) {
     .intro h1 {
         font-size: 2rem; /* Reduced text size */
-        font-weight: bold;
     }
 
     .intro p {
         font-size: 1rem; /* Reduced paragraph size */
-        font-weight: bold;
     }
 
     .btn-apply {
@@ -186,11 +159,26 @@ body {
     }
 }
 
+/* Additional responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .intro h1 {
+        font-size: 1.8rem;
+    }
+
+    .intro p {
+        font-size: 0.9rem;
+    }
+
+    .btn-apply {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
 
 /* Responsive adjustments for 400px width */
 @media (max-width: 400px) {
     .intro-container {
-        height: 400px; /* Fixed height for the intro section */
+        height: 500px; /* Fixed height for the intro section */
         display: block; /* Allow content to flow vertically */
         overflow: hidden; /* Prevent the container from overflowing */
     }
@@ -203,12 +191,10 @@ body {
 
     .intro h1 {
         font-size: 1.5rem; /* Further reduced size for small screens */
-        font-weight: bold;
     }
 
     .intro p {
         font-size: 0.8rem; /* Smaller paragraph text */
-        font-weight: bold;
     }
 
     .btn-apply {
@@ -219,7 +205,7 @@ body {
 
 /*END OF HOME CSS*/
 
-/* ABOUT PAGE CSS */
+    
 /* ABOUT PAGE CSS */
 
 .about {
