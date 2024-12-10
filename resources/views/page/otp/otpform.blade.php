@@ -1,7 +1,9 @@
 @extends('layouts.layout')
 @section('contents')
 
-    <div style="background-color: #E8F7EC; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 100%; max-width: 600px; text-align: center;">
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+    <div style="background-color: #E8F7EC; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 100%; max-width: 600px; text-align: center; margin-top: 100px; margin-bottom: 100px; margin-left: 250px;">
         <!-- Sending OTP Code with OTP Form 1 -->
         <h1 style="font-family: Arial, sans-serif; font-size: 28px; color: #333;">OTP Form</h1>
         <form action="/otpform" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
