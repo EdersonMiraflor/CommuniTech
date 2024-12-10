@@ -14,6 +14,8 @@ use App\Http\Controllers\CertificateRequestController;
 use App\Http\Controllers\CertificateDisplayController;
 use App\Http\Controllers\RiderController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\GeneratePDFController;
+
 Auth::routes();
 Auth::routes(['verify' => true]);
 
@@ -121,6 +123,11 @@ Route::get('/rider_interface', fn() => view('rider_interface'))->middleware('aut
 
 // Display the payment form (GET request)
 Route::resource('/payment', PaymentController::class);
+
+// Generate Certificate PDF
+Route::get('/generatebirth', [GeneratePDFController::class, 'generatebirth']);
+Route::get('/generatemarriage', [GeneratePDFController::class, 'generatemarriage']);
+Route::get('/generatedeath', [GeneratePDFController::class, 'generatemarriage']);
 
 Route::get('/view-deathonly-cert', function () {
     return view('page.forms.onlydeathcert');
