@@ -626,14 +626,11 @@
             </div>
             <div class="signature2">
                 <label for="signature2" class="birth-label"></label>
-                <input type="text" name="signature2" class="birth-form-control" style="width: 200px; height: 25px" id="signature2" value="{{ old('signature2', $RequestData->signature2 ?? '') }}">
+                <input type="text" name="signature2" class="birth-form-control" style="width: 200px; height: 25px" id="signature2" value="{{ old('signature2', $RequestData->signature2 ?? '') }}"><br>
             </div>
-                <div class="submit-button">
-                    <button type="submit" class="btn btn-success">Submit</button>
-                </div>
+            <input type="submit" style="height:50px;" class="btn btn-success" value="Submit">
             </div>
         </form>
-
     </div>
 </div>
 
