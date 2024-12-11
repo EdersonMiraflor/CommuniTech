@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BirthCertificateRequest;
 use App\Models\MarriageCertificateRequest;
 use App\Models\DeathCertificateRequest;
+use App\Models\Payment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,39 @@ use TCPDF;
 
 class GeneratePDFController extends Controller
 {
+
+    public function generatesend()
+    {
+        // Fetch the latest 'verified' payment record for the authenticated user
+        $payment = Payment::where('User_Id', auth()->id())
+            ->where('status', 'verified') // Filter by 'verified' status
+            ->latest('updated_at') // Get the latest record based on 'updated_at'
+            ->first();
+    
+        // Check if a verified payment record is found
+        if ($payment) {
+            // Check if the requested_certificate is set
+            if ($payment->requested_certificate) {
+                switch ($payment->requested_certificate) {
+                    case 'Birth Certificate':
+                        return redirect('generatebirth');
+                    case 'Marriage Certificate':
+                        return redirect('generatemarriage');
+                    case 'Death Certificate':
+                        return redirect('generatedeath');
+                    default:
+                        return redirect()->route('default.route');
+                }
+            } else {
+                // If requested_certificate is empty, return an error message
+                return redirect()->back()->with('error', 'No request found');
+            }
+        } else {
+            // If no verified payment record is found, return an error message
+            return redirect()->back()->with('error', 'No verified request, no request make or not yet verified by admin!');
+        }
+    }
+
     public function generatebirth(){
     // Get the authenticated user's ID
     $userId = auth()->id();
@@ -147,7 +181,6 @@ class GeneratePDFController extends Controller
         </div>
     </div>
 </div>
-
 
   
        <!-- Additional Information -->
@@ -301,7 +334,7 @@ public function generatedeath(){
     $userId = auth()->id();
     
     // Retrieve the most recent BirthCertificateRequest for this user
-    $request = BirthCertificateRequest::where('User_Id', $userId)->latest()->first();
+    $request3 = BirthCertificateRequest::where('User_Id', $userId)->latest()->first();
     
     // Create new PDF document
     $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -354,12 +387,12 @@ public function generatedeath(){
 
         <h1>Death Certificate</h1>
 
-        <div class="death-info">{$request->full_name}</div>
-        <div class="death-info">{$request->sex}</div>
-        <div class="death-info">{$request->date_of_death}</div>
-        <div class="death-info">{$request->date_of_birth}</div>
-        <div class="death-info">{$request->completed_years}</div>
-        <div class="death-info">{$request->months_days}</div>
+        <div class="death-info">{$request3->full_name}</div>
+        <div class="death-info">{$request3->sex}</div>
+        <div class="death-info">{$request3->date_of_death}</div>
+        <div class="death-info">{$request3->date_of_birth}</div>
+        <div class="death-info">{$request3->completed_years}</div>
+        <div class="birth-info">{$request3->months_days}</div>
 EOF;
 
     // Output the HTML content for Live Birth Certificate
