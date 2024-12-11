@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\Payment;
+use App\Models\payment;
 
 class PaymentController extends Controller
 {
     public function index()
     {
-        $pay = Payment::all();
+        $pay = payment::all();
         return view('page.payment')->with('payments', $pay);
     }
 
@@ -44,7 +44,7 @@ class PaymentController extends Controller
             $requestData['photo'] = '/storage/' . $path;
 
             // Delete the previous photo (if any) before replacing
-            $latestPayment = Payment::latest()->first();
+            $latestPayment = payment::latest()->first();
             if ($latestPayment && $latestPayment->photo) {
                 $oldPhotoPath = public_path($latestPayment->photo);
                 if (file_exists($oldPhotoPath)) {
