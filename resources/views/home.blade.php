@@ -199,7 +199,7 @@
 <!-- PAKI AYOS CREDENTIAL NITO NA VISIBLE LANG SA USERS-->
 <!-- Display Announcements Section -->
 <div class="announcement-display-container">
-    <h1 class="announcement-header">Current Announcements</h1>
+    <h1 class="announcement-header">Announcements</h1>
     <div id="display-announcements" class="display-announcements"></div>
 </div>
 
