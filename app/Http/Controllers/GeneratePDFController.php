@@ -101,141 +101,85 @@ class GeneratePDFController extends Controller
                 width: 100%;
             }  
 </style>
-           <div style="border: 2px solid #008000; font-family: Arial, sans-serif; padding: 2%; width: 100%; max-width: 900px; margin: 0 auto; background-color: white; color: #000;">
-    <header style="border: 2px solid #008000; padding: 1%;">
-        <div style="display: flex; justify-content: space-between; font-size: 7px; margin-top: -1px; margin-bottom: 1%;">
-            <span style="align-item: left;">Municipal Form No. 102<br>(Revised January 2007)</span>
-            <span style="align-items: right;">(To be accomplished in quadruplicate using black ink)</span>
-        </div>
-        <div style="text-align: center; margin: 1% 0;">
-            <p style="margin: 0.1% 0; font-size: 6px; font-weight: bold;">Republic of the Philippines</p>
-            <p style="margin: 0.1% 0; font-size: 6px; font-weight: bold;">OFFICE OF THE CIVIL REGISTRAR GENERAL</p>
-            <h1 style="margin-top: 1%; font-size: 12px;">CERTIFICATE OF LIVE BIRTH</h1>
-        </div>
-        <div style="display: flex; margin-top: -10%; border: 2px solid green; width: 100%;">
-            <div style="border: 2px solid #008000; padding: 2%; background-color: white; flex: 1;">
-                <h3 style="position: relative; font-size: 9px; margin-left: 1%;">Province</h3>
-                <h3 style="position: relative; font-size:9px;">City/Municipality</h3>
-            </div>
-            <div style="margin: 0;">
-                <h3 style="font-size: 9px; margin: 0.5rem 0 0 1rem;">Registry No.</h3>
-            </div>
-        </div>
-    </header>
 
-    <div style="border: 2px solid #008000; padding: 2%; margin-top: 0; height: auto;">
-        <span style="font-weight: bold; font-size: 20px; margin-bottom: 1%;">C<br> H<br> I<br> L<br> D<br></span>
-        <div>
-            <div style="border: 1px solid green; margin: 1% 0; padding: 2%; width: 100%; font-size: 10px;">
-                <label>1. NAME</label>
-                <div>
-                    <input type="text" id="child_first" name="child_first" placeholder="First">
-                    <div>{$request->child_first}</div>
-                    <input type="text" id="child_middle" name="child_middle" placeholder="Middle">
-                    <div>{$request->child_middle}</div>
-                    <input type="text" id="child_last" name="child_last" placeholder="Last">
-                    <div>{$request->child_last}</div>
-                </div>
+
+ <div class="form-container" style="font-family: Arial, sans-serif; margin: 20px auto; padding: 0; border: 2px solid green; padding: 10px; font-size: 12px; line-height: 1.4;">
+        <div class="header-sub" style="text-align: left; font-size: 10px; margin-bottom: 5px; ">Municipal Form No. 102<br>(Revised January 2007)</div>
+         <div class="header-sub" style="text-align: right; font-size: 10px; margin-bottom: 5px;">(To be accomplished in quadruplicate using black ink)</div>
+        <div class="header" style="text-align: center; font-size: 14px; font-weight: bold; margin-bottom: 2px;">Republic of the Philippines</div>
+        <div class="header" style="text-align: center; font-size: 14px; font-weight: bold; margin-bottom: 2px;">OFFICE OF THE CIVIL REGISTRAR GENERAL</div>
+        <div class="header" style="text-align: center; font-size: 14px; font-weight: bold; margin-bottom: 2px;">CERTIFICATE OF LIVE BIRTH</div>
+
+        <div class="row" style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <div class="column" style="flex: 1; padding: 0 5px; border-right: 1px solid green;">
+                <div class="field" style="border: 1px solid green; padding: 3px; margin-bottom: 5px; height: 20px; font-size: 12px;">Province</div>
+                <div class="field" style="border: 1px solid green; padding: 3px; margin-bottom: 5px; height: 20px; font-size: 12px;">City/Municipality</div>
             </div>
-        </div>
-        <div>
-            <div style="border: 1px solid green; margin: 1% 0; padding: 2%; width: 100%; font-size: 10px;">
-                <label>2. SEX</label>
-                <input type="text" id="child_sex" name="child_sex" placeholder="Male / Female">
-                <div>{$request->child_sex}</div>
-            </div>
-            <div style="border: 1px solid green; margin: 1% 0; padding: 2%; width: 100%; font-size: 10px;">
-                <label>3. DATE OF BIRTH</label>
-                <div>{$request->child_birthdate}</div>
-                <input type="text" id="child_birthdate" name="child_birthdate" placeholder="Day/Month/Year">
-            </div>
-        </div>
-        <div>
-            <div style="border: 1px solid green; margin: 1% 0; padding: 2%; width: 100%; font-size: 10px;">
-                <label>4. PLACE OF BIRTH</label>
-                <div>{$request->child_birthplace}</div>
-                <input type="text" id="child_birthplace" name="child_birth" placeholder="Name of Hospital/Clinic/Institution/House No., St., Barangay, City/Municipality, Provinces, Country">
-            </div>
-        </div>
-        <div>
-            <div style="border: 1px solid green; margin: 1% 0; padding: 2%; width: 100%; font-size: 10px;">
-                <label>5a. TYPE OF BIRTH</label>
-                <input type="text" id="birth_type" name="birth_type" placeholder="Single, Twin, Triplet, etc.">
-                <div>{$request->birth_type}</div>
-            </div>
-            <div style="border: 1px solid green; margin: 1% 0; padding: 2%; width: 100%; font-size: 10px;">
-                <label>5b. IF MULTIPLE BIRTH, CHILD WAS</label>
-                <div>{$request->multiple_birth}</div>
-                <input type="text" id="multiple_birth" name="multiple_birth" placeholder="First, Second, Third, etc.">
-            </div>
-            <div style="border: 1px solid green; margin: 1% 0; padding: 2%; width: 100%; font-size: 10px;">
-                <label>5c. BIRTH ORDER</label>
-                <div>{$request->birth_order}</div>
-                <input type="text" id="birth_order" name="birth_order" placeholder="Order of this birth">
-            </div>
-            <div style="border: 1px solid green; margin: 1% 0; padding: 2%; width: 100%; font-size: 10px;">
-                <label>6. WEIGHT AT BIRTH</label>
-                <div>{$request->birth_weight}</div>
-                <input type="text" id="birth_weight" name="birth_weight" placeholder="Weight in grams">
+            <div class="column" style="flex: 1; padding: 0 5px;">
+                <div class="field" style="border: 1px solid green; padding: 3px; margin-bottom: 5px; height: 20px; font-size: 12px;">Registry No.</div>
             </div>
         </div>
     </div>
-</div>
+    
+                    <div>{$request->child_first}</div>
+            
+                    <div>{$request->child_middle}</div>
+                    
+                    <div>{$request->child_last}</div>
+                
+                <div>{$request->child_sex}</div>
+           
+                <div>{$request->child_birthdate}</div>
+               
+                <div>{$request->child_birthplace}</div>
+               
+                <div>{$request->birth_type}</div>
+          
+                <div>{$request->multiple_birth}</div>
+                
+                <div>{$request->birth_order}</div>
+               
+                <div>{$request->birth_weight}</div>
 
   
-       <!-- Additional Information -->
-        <div style="border: 1px solid green; margin: 1% 0; padding: 2%; width: 100%; font-size: 10px;">
-            <label>Mother's Information</label>
-            <div class="birth-info">{$request->mother_first_name}</div>
-            <div class="birth-info">{$request->mother_middle_name}</div>
-            <div class="birth-info">{$request->mother_last_name}</div>
-            <div class="birth-info">{$request->citizenship}</div>
-            <div class="birth-info">{$request->religion}</div>
-            <div class="birth-info">{$request->total_number}</div>
-            <div class="birth-info">{$request->children}</div>
-            <div class="birth-info">{$request->dead_child}</div>
-            <div class="birth-info">{$request->occupation}</div>
-            <div class="birth-info">{$request->mother_age}</div>
-            <div class="birth-info">{$request->mother_street}</div>
-            <div class="birth-info">{$request->mother_city}</div>
-            <div class="birth-info">{$request->mother_province}</div>
-            <div class="birth-info">{$request->mother_country}</div>
-        </div>
-
-        <div style="border: 1px solid green; margin: 1% 0; padding: 2%; width: 100%; font-size: 0.9rem;">
-            <label>Father's Information</label>
-            <div class="birth-info">{$request->father_first_name}</div>
-            <div class="birth-info">{$request->father_middle_name}</div>
-            <div class="birth-info">{$request->father_last_name}</div>
-            <div class="birth-info">{$request->citizenship2}</div>
-            <div class="birth-info">{$request->religion2}</div>
-            <div class="birth-info">{$request->occupation2}</div>
-            <div class="birth-info">{$request->father_age}</div>
-            <div class="birth-info">{$request->father_street}</div>
-            <div class="birth-info">{$request->father_city}</div>
-            <div class="birth-info">{$request->father_province}</div>
-            <div class="birth-info">{$request->father_country}</div>
-        </div>
-
-        <div style="border: 1px solid green; margin: 1% 0; padding: 2%; width: 100%; font-size: 0.9rem;">
-            <label>Marriage Information</label>
-            <div class="birth-info">{$request->marriage_date}</div>
-            <div class="birth-info">{$request->marriage_street}</div>
-            <div class="birth-info">{$request->marriage_municipality}</div>
-            <div class="birth-info">{$request->marriage_province}</div>
-            <div class="birth-info">{$request->marriage_country}</div>
-        </div>
-
-        <div style="border: 1px solid green; margin: 1% 0; padding: 2%; width: 100%; font-size: 0.9rem;">
-            <label>Attendant's Information</label>
-            <div class="birth-info">{$request->attendant_role}</div>
-            <div class="birth-info">{$request->other_attendant_role}</div>
-        </div>
-
-        <div style="border: 1px solid green; margin: 1% 0; padding: 2%; width: 100%; font-size: 0.9rem;">
-            <label>Signatures</label>
-            <div class="birth-info">{$request->signature1}</div>
-            <div class="birth-info">{$request->signature2}</div>
+            <div>{$request->mother_first_name}</div>
+            <div>{$request->mother_middle_name}</div>
+            <div>{$request->mother_last_name}</div>
+            <div>{$request->citizenship}</div>
+            <div>{$request->religion}</div>
+            <div>{$request->total_number}</div>
+            <div>{$request->children}</div>
+            <div>{$request->dead_child}</div>
+            <div>{$request->occupation}</div>
+            <div>{$request->mother_age}</div>
+            <div>{$request->mother_street}</div>
+            <div>{$request->mother_city}</div>
+            <div>{$request->mother_province}</div>
+            <div>{$request->mother_country}</div>
+    
+            <div>{$request->father_first_name}</div>
+            <div>{$request->father_middle_name}</div>
+            <div>{$request->father_last_name}</div>
+            <div>{$request->citizenship2}</div>
+            <div>{$request->religion2}</div>
+            <div>{$request->occupation2}</div>
+            <div>{$request->father_age}</div>
+            <div>{$request->father_street}</div>
+            <div>{$request->father_city}</div>
+            <div>{$request->father_province}</div>
+            <div>{$request->father_country}</div>
+       
+            <div>{$request->marriage_date}</div>
+            <div>{$request->marriage_street}</div>
+            <div>{$request->marriage_municipality}</div>
+            <div>{$request->marriage_province}</div>
+            <div>{$request->marriage_country}</div>
+       
+            <div>{$request->attendant_role}</div>
+            <div>{$request->other_attendant_role}</div>
+       
+            <div>{$request->signature1}</div>
+            <div>{$request->signature2}</div>
         
 EOF;
 
