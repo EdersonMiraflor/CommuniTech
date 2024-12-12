@@ -411,12 +411,12 @@
         <!-- Right Section -->
         <ul class="footer-social">
             <li class="footer-social-item">
-                <a href="#" target="_blank">
+                <a href="https://www.facebook.com/ManitoLGU2022" target="_blank">
                     <i class="fab fa-facebook-f footer-icon"></i>
                 </a>
             </li>
             <li class="footer-social-item">
-                <a href="#" target="_blank">
+                <a href="https://www.instagram.com/manitomdrrmo/" target="_blank">
                     <i class="fab fa-instagram footer-icon"></i>
                 </a>
             </li>

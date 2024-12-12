@@ -87,7 +87,7 @@
 
 .button {
     padding: 12px 24px;
-    background-color: #22AF4A;
+    background-color: #04AA6D;
     border: none;
     color: white;
     font-size: 16px;
@@ -98,7 +98,7 @@
 }
 
 .button:hover {
-    background-color: #04AA6D;
+    background-color: #22AF4A;
     transform: scale(1.3); 
     animation: pulseAnimation 0.5s ease-in-out; 
 }
