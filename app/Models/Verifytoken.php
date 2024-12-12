@@ -9,6 +9,7 @@ class Verifytoken extends Model
 {
     use HasFactory;
 
+    protected $table = 'verifytoken';
     protected $fillable = [
         'token',
         'email',

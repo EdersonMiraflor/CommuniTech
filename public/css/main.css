@@ -207,6 +207,14 @@ body {
 /** ANNOUNCEMENT CSS **/
 /* Base styles */
 
+.announcement-display-container{
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 .announcement-container {
     max-width: 100%;
     margin: 20px auto;
@@ -424,6 +432,7 @@ h1 {
     text-transform: uppercase;
     font-weight: bold;
     color: #28a745;
+
   }
 
   #add-announcement, #update-announcement {

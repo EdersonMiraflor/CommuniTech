@@ -93,64 +93,93 @@ class GeneratePDFController extends Controller
     $html = <<<EOF
         <style>
             .birth-info {
-                font-size: 8px;
+                font-size: 10px;
                 margin-bottom: 10px;
                 padding: 8px;
                 border: none; /* No border */
                 color: #333; /* Ensure text remains visible */
                 width: 100%;
-            }
-        </style>
+            }  
+</style>
 
-        <h1>Live Birth Certificate</h1>
- <input type="text" name="child_first" class="birth-form-control" style="width: 150px; height: 25px" id="child_first" value="{$request->child_first}">
-        <div class="birth-info">{$request->child_first}</div>
-        <div class="birth-info">{$request->child_middle}</div>
-        <div class="birth-info">{$request->child_last}</div>
 
-        <div class="birth-info">{$request->child_sex}</div>
-        <div class="birth-info">{$request->child_birthdate}</div>
-        <div class="birth-info">{$request->child_birthplace}</div>
-        <div class="birth-info">{$request->multiple_birth}</div>
-        <div class="birth-info">{$request->birth_type}</div>
-        <div class="birth-info">{$request->birth_order}</div>
-        <div class="birth-info">{$request->birth_weight}</div>
-        <div class="birth-info">{$request->mother_first_name}</div>
-        <div class="birth-info">{$request->mother_middle_name}</div>
-        <div class="birth-info">{$request->mother_last_name}</div>
-        <div class="birth-info">{$request->citizenship}</div>
-        <div class="birth-info">{$request->religion}</div>
-        <div class="birth-info">{$request->total_number}</div>
-        <div class="birth-info">{$request->children}</div>
-        <div class="birth-info">{$request->dead_child}</div>
-        <div class="birth-info">{$request->occupation}</div>
-        <div class="birth-info">{$request->mother_age}</div>
-        <div class="birth-info">{$request->mother_city}</div>
-        <div class="birth-info">{$request->mother_province}</div>
-        <div class="birth-info">{$request->mother_country}</div>
-        <div class="birth-info">{$request->father_first_name}</div>
-        <div class="birth-info">{$request->father_middle_name}</div>
-        <div class="birth-info">{$request->father_last_name}</div>
-        <div class="birth-info">{$request->citizenship2}</div>
-        <div class="birth-info">{$request->religion2}</div>
-        <div class="birth-info">{$request->occupation2}</div>
-        <div class="birth-info">{$request->father_age}</div>
-        <div class="birth-info">{$request->father_street}</div>
-        <div class="birth-info">{$request->father_city}</div>
-        <div class="birth-info">{$request->father_province}</div>
-        <div class="birth-info">{$request->father_country}</div>
-        <div class="birth-info">{$request->marriage_date}</div>
-        <div class="birth-info">{$request->marriage_province}</div>
-        <div class="birth-info">{$request->marriage_country}</div>
-        <div class="birth-info">{$request->attendant_role}</div>
-        <div class="birth-info">{$request->other_attendant_role}</div>
-        <div class="birth-info">{$request->father_name}</div>
-        <div class="birth-info">{$request->mother_name}</div>
-        <div class="birth-info">{$request->name_child}</div>
-        <div class="birth-info">{$request->birth_date}</div>
-        <div class="birth-info">{$request->birth_place}</div>
-        <div class="birth-info">{$request->signature1}</div>
-        <div class="birth-info">{$request->signature2}</div>
+ <div class="form-container" style="font-family: Arial, sans-serif; margin: 20px auto; padding: 0; border: 2px solid green; padding: 10px; font-size: 12px; line-height: 1.4;">
+        <div class="header-sub" style="text-align: left; font-size: 10px; margin-bottom: 5px; ">Municipal Form No. 102<br>(Revised January 2007)</div>
+         <div class="header-sub" style="text-align: right; font-size: 10px; margin-bottom: 5px;">(To be accomplished in quadruplicate using black ink)</div>
+        <div class="header" style="text-align: center; font-size: 14px; font-weight: bold; margin-bottom: 2px;">Republic of the Philippines</div>
+        <div class="header" style="text-align: center; font-size: 14px; font-weight: bold; margin-bottom: 2px;">OFFICE OF THE CIVIL REGISTRAR GENERAL</div>
+        <div class="header" style="text-align: center; font-size: 14px; font-weight: bold; margin-bottom: 2px;">CERTIFICATE OF LIVE BIRTH</div>
+
+        <div class="row" style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <div class="column" style="flex: 1; padding: 0 5px; border-right: 1px solid green;">
+                <div class="field" style="border: 1px solid green; padding: 3px; margin-bottom: 5px; height: 20px; font-size: 12px;">Province</div>
+                <div class="field" style="border: 1px solid green; padding: 3px; margin-bottom: 5px; height: 20px; font-size: 12px;">City/Municipality</div>
+            </div>
+            <div class="column" style="flex: 1; padding: 0 5px;">
+                <div class="field" style="border: 1px solid green; padding: 3px; margin-bottom: 5px; height: 20px; font-size: 12px;">Registry No.</div>
+            </div>
+        </div>
+    </div>
+    
+                    <div>{$request->child_first}</div>
+            
+                    <div>{$request->child_middle}</div>
+                    
+                    <div>{$request->child_last}</div>
+                
+                <div>{$request->child_sex}</div>
+           
+                <div>{$request->child_birthdate}</div>
+               
+                <div>{$request->child_birthplace}</div>
+               
+                <div>{$request->birth_type}</div>
+          
+                <div>{$request->multiple_birth}</div>
+                
+                <div>{$request->birth_order}</div>
+               
+                <div>{$request->birth_weight}</div>
+
+  
+            <div>{$request->mother_first_name}</div>
+            <div>{$request->mother_middle_name}</div>
+            <div>{$request->mother_last_name}</div>
+            <div>{$request->citizenship}</div>
+            <div>{$request->religion}</div>
+            <div>{$request->total_number}</div>
+            <div>{$request->children}</div>
+            <div>{$request->dead_child}</div>
+            <div>{$request->occupation}</div>
+            <div>{$request->mother_age}</div>
+            <div>{$request->mother_street}</div>
+            <div>{$request->mother_city}</div>
+            <div>{$request->mother_province}</div>
+            <div>{$request->mother_country}</div>
+    
+            <div>{$request->father_first_name}</div>
+            <div>{$request->father_middle_name}</div>
+            <div>{$request->father_last_name}</div>
+            <div>{$request->citizenship2}</div>
+            <div>{$request->religion2}</div>
+            <div>{$request->occupation2}</div>
+            <div>{$request->father_age}</div>
+            <div>{$request->father_street}</div>
+            <div>{$request->father_city}</div>
+            <div>{$request->father_province}</div>
+            <div>{$request->father_country}</div>
+       
+            <div>{$request->marriage_date}</div>
+            <div>{$request->marriage_street}</div>
+            <div>{$request->marriage_municipality}</div>
+            <div>{$request->marriage_province}</div>
+            <div>{$request->marriage_country}</div>
+       
+            <div>{$request->attendant_role}</div>
+            <div>{$request->other_attendant_role}</div>
+       
+            <div>{$request->signature1}</div>
+            <div>{$request->signature2}</div>
         
 EOF;
 
