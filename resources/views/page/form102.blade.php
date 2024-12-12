@@ -206,7 +206,6 @@
             </div>
 
             <div class="container">
-        <form method="post" action="process_form.php">
         <h4 class="text-center">AFFIDAVIT FOR AWKNOWLEDGMENT/ADMISSION OF PATERNITY</h4>
             <p> I/We, <div class="field"> <input type="text" name="father_name" placeholder="Mother's Name" required> </div> and
                     <div class="field"> <input type="text" name="mother_name" placeholder="Father's Name" required> </div> , of legal age, am/are the natural mother and/or father of 
@@ -227,9 +226,7 @@
                     <label for="signature" class="birth-label">Mother's Name</label>
                     <input type="text" id="signature" name="signature2" class="birth-form-control" required>
                 </div>
-
-        </form>
-    </div>
+               </div>
             <!-- Submit Section -->
             <div class="col-md-12 mt-3">
                 <button type="button" class="btn btn-danger" onclick="window.history.back()">Back</button>
