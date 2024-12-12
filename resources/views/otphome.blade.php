@@ -20,10 +20,24 @@ Explanation:
             </div>
         @endif
     </div>
-
+{{-- Display SweetAlert2 if there's an error message in the session --}}
+@if(session('error'))
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '{{ session('error') }}',
+            confirmButtonText: 'Ok'
+        }).then(function() {
+            // Optionally redirect to a different page after closing the popup
+            window.location.href = '/home/services';  // Or any other route
+        });
+    </script>
+@endif
     <h3>You are logged in as: <strong>{{ auth()->user()->name }}</strong></h3>
 
-    <a href="{{ url('/generatePDF') }}" style="text-decoration: none; color: blue;">
+    <a href="{{ url('/generatedeath/send') }}" style="text-decoration: none; color: blue;">
             Click here to Download your Certificate
         </a>
 </div>

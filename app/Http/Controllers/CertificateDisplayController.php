@@ -6,46 +6,49 @@ use Illuminate\Http\Request;
 use App\Models\BirthCertificateRequest;
 use App\Models\DeathCertificateRequest;
 use App\Models\MarriageCertificateRequest;
-use App\Models\Payment;
+use App\Models\payment;
 
 class CertificateDisplayController extends Controller
 {
     // Live Birth
-    public function directbirth()
+    public function directBirth()
     {
-        $RequestData = BirthCertificateRequest::latest()->first();  // Get the latest record
-        return view('page.forms.birthform', compact('RequestData'));  // Pass data to the view
+        $RequestData = BirthCertificateRequest::latest()->first();  
+        return view('page.forms.birthform', compact('RequestData'));
     }
-    public function showbirth()
+
+    public function showBirth()
     {
         $requestedCertificate = "Birth Certificate";
-        $payments = Payment::all(); // Fetch all payments
+        $payments = payment::all();
         return view('page.payment', compact('requestedCertificate', 'payments')); 
     }
 
-    // Marriage 
-    public function directmarriage()
+    // Marriage
+    public function directMarriage()
     {
-        $RequestData2 = MarriagecertificateRequest::latest()->first();  // Get the latest record
-        return view('page.forms.marriageformcert', compact('RequestData2'));  // Pass data to the view
+        $RequestData = MarriageCertificateRequest::latest()->first();  
+        return view('page.forms.marriageformcert', compact('RequestData'));
     }
-    public function showmarriage()
+
+    public function showMarriage()
     {
         $requestedCertificate = "Marriage Certificate";
-        $payments = Payment::all(); // Fetch all payments
+        $payments = payment::all();
         return view('page.payment', compact('requestedCertificate', 'payments'));
     }
 
     // Death
-    public function directdeath()
+    public function directDeath()
     {
-        $RequestData3 = DeathcertificateRequest::latest()->first();  // Get the latest record
-        return view('page.forms.deathformcert', compact('RequestData3'));  // Pass data to the view
+        $RequestData = DeathCertificateRequest::latest()->first();  
+        return view('page.forms.deathformcert', compact('RequestData'));
     }
-    public function showdeath()
+
+    public function showDeath()
     {
         $requestedCertificate = "Death Certificate";
-        $payments = Payment::all(); // Fetch all payments
+        $payments = payment::all();
         return view('page.payment', compact('requestedCertificate', 'payments'));
     }
 }
