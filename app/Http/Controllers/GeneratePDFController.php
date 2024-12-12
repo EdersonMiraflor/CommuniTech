@@ -263,6 +263,33 @@ public function generatemarriage(){
         <div class="marriage-info">{$request2->husband_father_last_name}</div>
         <div class="marriage-info">{$request2->husband_father_citizenship}</div>
         <div class="marriage-info">{$request2->husband_mother_first_name}</div>
+        <div class="marriage-info">{$request2->husband_mother_middle_name}</div>
+        <div class="marriage-info">{$request2->husband_mother_maiden_last_name}</div>
+        <div class="marriage-info">{$request2->husband_mother_citizenship}</div>
+        <div class="marriage-info">{$request2->wife_first_name}</div>
+        <div class="marriage-info">{$request2->wife_middle_name}</div>
+        <div class="marriage-info">{$request2->wife_last_name}</div>
+        <div class="marriage-info">{$request2->wife_birthdate}</div>
+        <div class="marriage-info">{$request2->wife_age}</div>
+        <div class="marriage-info">{$request2->wife_city_municipality}</div>
+        <div class="marriage-info">{$request2->wife_province}</div>
+        <div class="marriage-info">{$request2->wife_country}</div>
+        <div class="marriage-info">{$request2->wife_citizenship}</div>
+        <div class="marriage-info">{$request2->wife_residence}</div>
+        <div class="marriage-info">{$request2->wife_father_first_name}</div>
+        <div class="marriage-info">{$request2->wife_father_middle_name}</div>
+        <div class="marriage-info">{$request2->wife_father_last_name}</div>
+        <div class="marriage-info">{$request2->wife_father_citizenship}</div>
+        <div class="marriage-info">{$request2->wife_mother_first_name}</div>
+        <div class="marriage-info">{$request2->wife_mother_middle_name}</div>
+        <div class="marriage-info">{$request2->wife_mother_maiden_last_name}</div>
+        <div class="marriage-info">{$request2->wife_mother_citizenship}</div>
+        <div class="marriage-info">{$request2->marriage_date1}</div>
+
+
+
+
+
      EOF;
 
     // Output the HTML content for Live Birth Certificate
