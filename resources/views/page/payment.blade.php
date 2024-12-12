@@ -11,62 +11,67 @@
     <div class="form-and-image">
         <!-- Left Section: User Form -->
 <!--User Form Start-->
-    <div class="form-section" style="margin-top: 100px;">
-         <form action="{{ url('/payment/create') }}" method="POST" enctype="multipart/form-data" class="payment-form">
-            {!! csrf_field() !!}
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" class="form-control" value="{{ Auth::user() ? Auth::user()->name . ' ' . (Auth::user()->Middle_Name ?? '') . ' ' . (Auth::user()->Last_Name ?? '') : '' }}" readonly>
-            </div>
-            <div class="form-group">
-                <label for="requested_certificate">Requested Certificate</label>
-                <input type="text" name="requested_certificate" id="requested_certificate" class="form-control" value="{{ $requestedCertificate ?? '' }}" readonly>
-            </div>
-            <div class="form-group">
-                <label for="quantity">Quantity</label>
-                <input type="text" name="quantity" id="quantity" class="form-control" placeholder="Enter quantity">
-            </div>
-            <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" name="address" id="address" class="form-control" placeholder="Enter your address">
-            </div>
-            <div class="form-group">
-                <label for="mobile">Mobile</label>
-                <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Enter your mobile number">
-            </div>
-            <div class="form-group">
-                <label for="barangay">Barangay</label>
-                <select id="barangay" name="barangay" class="form-control" required>
-                    <option value="">Select</option>
-                    <option value="Cabacongan">Cabacongan</option>
-                    <option value="Cawayan">Cawayan</option>
-                    <option value="Malobago">Malobago</option>
-                    <option value="Tinapian">Tinapian</option>
-                    <option value="Manumbalay">Manumbalay</option>
-                    <option value="Buyo">Buyo</option>
-                    <option value="IT-Ba">IT-Ba</option>
-                    <option value="Cawit">Cawit</option>
-                    <option value="Balasbas">Balasbas</option>
-                    <option value="Bamban">Bamban</option>
-                    <option value="Pawa">Pawa</option>
-                    <option value="Hulugan">Hulugan</option>
-                    <option value="Balabagon">Balabagon</option>
-                    <option value="Cabit">Cabit</option>
-                    <option value="Nagotgot">Nagotgot</option>
-                    <option value="Inang Maharang">Inang Maharang</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="proof">Proof Of Payment</label>
-                <input class="form-control" name="proof" type="file" id="proof">
-            </div>
-            <br>
-            <div class="form-group text-center">
-                <input type="submit" value="Save" class="btn btn-success btn-submit">
-            </div>
-        </form>
-    </div>
+<div class="form-section" style="margin-top: 100px;">
+    <form action="{{ url('/payment/create') }}" method="POST" enctype="multipart/form-data" class="payment-form">
+        {!! csrf_field() !!}
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control" 
+                value="{{ Auth::user() ? Auth::user()->name . ' ' . (Auth::user()->Middle_Name ?? '') . ' ' . (Auth::user()->Last_Name ?? '') : '' }}" 
+                readonly>
+        </div>
+        <div class="form-group">
+            <label for="requested_certificate">Requested Certificate</label>
+            <input type="text" name="requested_certificate" id="requested_certificate" class="form-control" 
+                value="{{ $requestedCertificate ?? '' }}" 
+                readonly>
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="text" name="quantity" id="quantity" class="form-control" placeholder="Enter quantity">
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address" class="form-control" placeholder="Enter your address">
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Enter your mobile number">
+        </div>
+        <div class="form-group">
+            <label for="barangay">Barangay</label>
+            <select id="barangay" name="barangay" class="form-control" required>
+                <option value="">Select</option>
+                <option value="Cabacongan">Cabacongan</option>
+                <option value="Cawayan">Cawayan</option>
+                <option value="Malobago">Malobago</option>
+                <option value="Tinapian">Tinapian</option>
+                <option value="Manumbalay">Manumbalay</option>
+                <option value="Buyo">Buyo</option>
+                <option value="IT-Ba">IT-Ba</option>
+                <option value="Cawit">Cawit</option>
+                <option value="Balasbas">Balasbas</option>
+                <option value="Bamban">Bamban</option>
+                <option value="Pawa">Pawa</option>
+                <option value="Hulugan">Hulugan</option>
+                <option value="Balabagon">Balabagon</option>
+                <option value="Cabit">Cabit</option>
+                <option value="Nagotgot">Nagotgot</option>
+                <option value="Inang Maharang">Inang Maharang</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="proof">Proof Of Payment</label>
+            <input class="form-control" name="proof" type="file" id="proof"> 
+        </div>
+        <br>
+        <div class="form-group text-center">
+            <input type="submit" value="Save" class="btn btn-success btn-submit">
+        </div>
+    </form>
+</div>
 <!--User Form End-->
+
         <!-- Right Section: Payment QR and Admin Options -->
 <!--Admin Qr Change Start-->
         <div class="image-section">
