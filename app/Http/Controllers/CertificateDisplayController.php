@@ -20,8 +20,8 @@ class CertificateDisplayController extends Controller
     public function showBirth()
     {
         $requestedCertificate = "Birth Certificate";
-        $payments = Qrcode::all();/*Balik mamaya ang payment pag angawa na yung sa payment*/
-        return view('page.payment', compact('requestedCertificate', 'payments')); 
+        $qrscan = Qrcode::all();/*Balik mamaya ang payment pag angawa na yung sa payment*/
+        return view('page.payment', compact('requestedCertificate', 'qrscan')); 
     }
 
     // Marriage
@@ -34,8 +34,8 @@ class CertificateDisplayController extends Controller
     public function showMarriage()
     {
         $requestedCertificate = "Marriage Certificate";
-        $payments = Qrcode::all();
-        return view('page.payment', compact('requestedCertificate', 'payments'));
+        $qrscan = Qrcode::all();
+        return view('page.payment', compact('requestedCertificate', 'qrscan'));
     }
 
     // Death
@@ -48,7 +48,7 @@ class CertificateDisplayController extends Controller
     public function showDeath()
     {
         $requestedCertificate = "Death Certificate";
-        $payments = Qrcode::all();
-        return view('page.payment', compact('requestedCertificate', 'payments'));
+        $qrscan = Qrcode::all();
+        return view('page.payment', compact('requestedCertificate', 'qrscan'));
     }
 }

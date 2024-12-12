@@ -31,5 +31,23 @@ class AutoAddSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+           // Insert test user
+           DB::table('users')->insert([
+            'Credential' => 'user', 
+            'name' => 'test', 
+            'Middle_Name' => 'Random', 
+            'Last_Name' => 'User', 
+            'Birth_Date' => '2000-01-01', 
+            'Sex' => 'female', 
+            'Mobile_Number' => '09123456789',
+            'email' => 'test@gmail.com', 
+            'password' => Hash::make('12345678'), 
+            'Address' => 'Test Address, City', 
+            'Request_Id' => null, 
+            'email_verified_at' => now(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }
