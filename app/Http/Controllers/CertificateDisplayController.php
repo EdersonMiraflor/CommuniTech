@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\BirthCertificateRequest;
 use App\Models\DeathCertificateRequest;
 use App\Models\MarriageCertificateRequest;
-use App\Models\payment;
+use App\Models\Qrcode;
 
 class CertificateDisplayController extends Controller
 {
@@ -20,7 +20,7 @@ class CertificateDisplayController extends Controller
     public function showBirth()
     {
         $requestedCertificate = "Birth Certificate";
-        $payments = payment::all();
+        $payments = Qrcode::all();/*Balik mamaya ang payment pag angawa na yung sa payment*/
         return view('page.payment', compact('requestedCertificate', 'payments')); 
     }
 
@@ -34,7 +34,7 @@ class CertificateDisplayController extends Controller
     public function showMarriage()
     {
         $requestedCertificate = "Marriage Certificate";
-        $payments = payment::all();
+        $payments = Qrcode::all();
         return view('page.payment', compact('requestedCertificate', 'payments'));
     }
 
@@ -48,7 +48,7 @@ class CertificateDisplayController extends Controller
     public function showDeath()
     {
         $requestedCertificate = "Death Certificate";
-        $payments = payment::all();
+        $payments = Qrcode::all();
         return view('page.payment', compact('requestedCertificate', 'payments'));
     }
 }

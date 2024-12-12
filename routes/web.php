@@ -14,6 +14,7 @@ use App\Http\Controllers\CertificateRequestController;
 use App\Http\Controllers\CertificateDisplayController;
 use App\Http\Controllers\RiderController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PaymentRecordController;
 use App\Http\Controllers\GeneratePDFController;
 
 Auth::routes();
@@ -123,6 +124,7 @@ Route::get('/rider_interface', fn() => view('rider_interface'))->middleware('aut
 
 // Display the payment form (GET request)
 Route::resource('/payment', PaymentController::class);
+Route::post('/payment/create', [PaymentRecordController::class, 'userrecord']);
 
 // Generate Certificate PDF
 Route::get('/generatebirth', [GeneratePDFController::class, 'generatebirth']);
