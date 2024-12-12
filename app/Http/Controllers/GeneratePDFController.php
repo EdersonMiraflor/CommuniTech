@@ -285,11 +285,36 @@ public function generatemarriage(){
         <div class="marriage-info">{$request2->wife_mother_maiden_last_name}</div>
         <div class="marriage-info">{$request2->wife_mother_citizenship}</div>
         <div class="marriage-info">{$request2->marriage_date1}</div>
-
-
-
-
-
+        <div class="marriage-info">{$request2->marriage_place}</div>
+        <div class="marriage-info">{$request2->officiant_name}</div>
+        <div class="marriage-info">{$request2->officiant_position}</div>
+        <div class="marriage-info">{$request2->witnesses}</div>
+        <div class="marriage-info">{$request2->affiant_name}</div>
+        <div class="marriage-info">{$request2->address}</div>
+        <div class="marriage-info">{$request2->marriage_registration_for}</div>
+        <div class="marriage-info">{$request2->marriage_date2}</div>
+        <div class="marriage-info">{$request2->ceremony_type}</div>
+        <div class="marriage-info">{$request2->license_required}</div>
+        <div class="marriage-info">{$request2->license_no}</div>
+        <div class="marriage-info">{$request2->license_date}</div>
+        <div class="marriage-info">{$request2->license_place}</div>
+        <div class="marriage-info">{$request2->license_required2}</div>
+        <div class="marriage-info">{$request2->article_no}</div>
+        <div class="marriage-info">{$request2->citizenship}</div>
+        <div class="marriage-info">{$request2->spouse_citizenship}</div>
+        <div class="marriage-info">{$request2->delay_reason}</div>
+        <div class="marriage-info">{$request2->day2}</div>
+        <div class="marriage-info">{$request2->month2}</div>
+        <div class="marriage-info">{$request2->year2}</div>
+        <div class="marriage-info">{$request2->location}</div>
+        <div class="marriage-info">{$request2->subscribed_day}</div>
+        <div class="marriage-info">{$request2->subscribed_month}</div>
+        <div class="marriage-info">{$request2->subscribed_year}</div>
+        <div class="marriage-info">{$request2->notary_location}</div>
+        <div class="marriage-info">{$request2->admin_officer_position}</div>
+        <div class="marriage-info">{$request2->admin_officer_name}</div>
+        <div class="marriage-info">{$request2->admin_officer_address}</div>
+        <div class="marriage-info">{$request2->admin_officer_address}</div>
      EOF;
 
     // Output the HTML content for Live Birth Certificate
