@@ -607,22 +607,28 @@
     .login-logo {
         width: 150px;
     }
-    
-    
-    .text-center {
-        margin-bottom: 20px;
-        text-align: center;
-        
-    }
-    
-    .d-flex {
-        margin-top: 20px;
-    }
-    
-    text-align: center;
-    
-}
 
-.d-flex {
-    margin-top: 20px;
+    .login-title {
+        font-size: 1.2rem;
+    }
+
+    .login-description {
+        font-size: 0.8rem;
+    }
+
+    .secure-picture img,
+    .fast-picture img,
+    .convenient-picture img {
+        width: 40px;
+        height: 25px;
+    }
+
+    .d-flex a {
+        font-size: 10px; /* Uniform font size */
+    }
+
+    .custom-btn {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
 }
