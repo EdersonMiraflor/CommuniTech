@@ -9,22 +9,24 @@
     <div class="row justify-content-center">
 
         <!-- Left Container for Images and Text -->
-        <div class="col-lg-6 col-md-6 mb-6 mb-md-0">
-            <div class="text-center">
-                <h1 class="display-4">CommuniTECH</h1>
-                <p class="lead">A Web - Based Application For Civil Registry Office of Manito, Albay</p>
+        <div class="left-login">
+
+            <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="login-logo">
+            <div class="login-text">
+                <h1 class="login-title">CommuniTECH</h1>
+                <p class="login-description">A Web - Based Application For Civil Registry Office of Manito, Albay</p>
             </div>
-            <div class="d-flex flex-column align-items-center mt-4">
-                <div class="d-flex flex-row justify-content-around w-100 mb-4">
-                    <div class="text-center">
+            <div class="login-picture">
+                <div class="login-photo">
+                    <div class="login-text">
                         <img src="{{ asset('img/secure.png') }}" alt="Secure" width="60" height="70">
                         <p class="h5">SECURE</p>
                     </div>
-                    <div class="text-center">
-                        <img src="{{ asset('img/fast.png') }}" alt="Fast" width="100" height="75">
+                    <div class="login-text">
+                        <img src="{{ asset('img/fast.png') }}" alt="Fast" width="90" height="60">
                         <p class="h5">FAST</p>
                     </div>
-                    <div class="text-center">
+                    <div class="login-text">
                         <img src="{{ asset('img/convenient.png') }}" alt="Convenient" width="70" height="70">
                         <p class="h5">CONVENIENT</p>
                     </div>
@@ -33,11 +35,11 @@
         </div>
 
         <!-- Right Container for the Form -->
-        <div class="col-lg-8 col-md-8">
+        <div class="right-login">
             <div class="card ">
                
 
-                <div class="card-body">
+                <div class="card-login">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -72,7 +74,7 @@
                             @if (Route::has('password.request'))
                                 <div class="d-flex justify-content-between mt-2">
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                         {{ __('Forgot Your Password?') }}
+                                         {{ __('Forgot your password?') }}
                                     </a>
                                     <a href="{{ route('register') }}">{{ __('No Account Yet? Register') }}</a>
                                 </div>
