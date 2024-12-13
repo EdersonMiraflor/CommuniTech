@@ -1,9 +1,5 @@
-/* External CSS file, use this if you don't want to use a framework*/
-
 /*Auth-Page Start*/
 
-/* Container Styles */
-/* --- Default Layout --- */
 .auth-content {
     font-family: Arial, sans-serif;
     display: flex;
@@ -293,4 +289,55 @@
         padding: 10px 16px;
     }
 }
+
+/* Mobile Phone Specific Responsiveness */
+@media (max-width: 360px) {
+    .auth-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .auth-logo-overlay {
+        width: 120px; /* Smaller logo */
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .auth-title {
+        font-size: 0.9rem; /* Smaller title size */
+        text-align: center;
+        left: 0; /* Centering */
+    }
+
+    .auth-description {
+        font-size: 0.7rem; /* Smaller description text */
+        text-align: center;
+    }
+
+    .auth-sub-description {
+        font-size: 0.6rem; /* Smaller sub-description */
+        text-align: center;
+    }
+
+    .auth-button {
+        width: 70%; /* Adjust button size */
+        height: auto;
+        padding: 8px 12px;
+        font-size: 10px; /* Smaller text for button */
+    }
+
+    .images {
+        grid-template-columns: repeat(3, 1fr); /* Two images per row */
+        grid-gap: 5px;
+    }
+
+    .image {
+        width: 100%; /* Full width for images */
+        aspect-ratio: 1;
+        margin: 0 auto;
+    }
+}
+
 /*Auth-Page End*/
