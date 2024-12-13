@@ -12,7 +12,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CertificateRequestController;
 use App\Http\Controllers\CertificateDisplayController;
-use App\Http\Controllers\RiderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentRecordController;
 use App\Http\Controllers\GeneratePDFController;
@@ -27,6 +26,7 @@ Route::get('/home/usermanual', fn() => view('page.usermanual'));
 Route::get('/home/usermanagement', fn() => view('page.usermanagement'))->middleware('auth');
 Route::get('/home/user-profile', [AdminController::class, 'UserProfile'])->name('user.profile')->middleware('auth');
 Route::patch('/change-credential', [AdminController::class, 'changeCredential'])->name('change.credential');
+Route::patch('/change-rider-credential', [AdminController::class, 'changeRiderCredential'])->name('change.ridercredential');
 Route::get('/home/user-personal', [UsersController::class, 'showPersonalInfo'])->name('personal.info')->middleware('auth');
 Route::post('/user/update', [AdminController::class, 'dataupdate'])->name('user.update');
 Route::get('/home/transactionhistory', fn() => view('page.transactionhistory'))->middleware('auth');
@@ -106,21 +106,8 @@ Route::post('/otpform', [OtpController::class, 'create'])->name('otpform');
 // Birth Registration Routes
 Route::resource('birth-registration', BirthRegistrationController::class);
 
-// Rider Routes
-Route::get('/rider-signup', [RiderController::class, 'create']);
-Route::post('/rider-signup', [RiderController::class, 'store']);
-Route::resource('riders', RiderController::class);
-Route::get('riders/{id}/home', [RiderController::class, 'home'])->name('riders.home');
-Route::get('riders/{id}/delivery-history', [RiderController::class, 'deliveryHistory'])->name('riders.delivery-history');
-
 // Home Routes (after authentication and email verification)
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
-
-
-// Rider Routes (legit)
-Route::get('/rider_application', fn() => view('rider_application'))->middleware('auth');
-Route::get('/rider_interface', fn() => view('rider_interface'))->middleware('auth');
-
 
 // Display the payment form (GET request)
 Route::resource('/payment', PaymentController::class);
