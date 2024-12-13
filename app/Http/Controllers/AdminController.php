@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User; // Import the User model for database interactions related to the users table.
 use Illuminate\Http\Request; // Import Request to handle HTTP requests.
-use App\Models\Transaction; // Import the Transaction model (though it isn't used in this code).
-use DB; // Import the DB facade for database queries (not used in this specific controller).
 
 class AdminController extends Controller
 {
@@ -25,11 +23,14 @@ class AdminController extends Controller
         // Fetch all users whose credentials are either 'admin' or 'user'.
         $userlists = User::whereIn('Credential', ['user', 'admin'])->get();
 
+        // Fetch all users whose credentials are either 'rider' or 'user'
+        $riderlists = User::whereIn('Credential', ['user', 'rider'])->get();
+
         // Get the currently authenticated user using Laravel's auth helper.
         $userdata = auth()->user();
 
         // Pass the retrieved data to the 'page.user-profile' view.
-        return view('page.user-profile', compact('admins', 'users', 'userlists', 'userdata'));
+        return view('page.user-profile', compact('admins', 'users', 'userlists', 'riderlists', 'userdata'));
     }
 
     /**
@@ -85,7 +86,28 @@ class AdminController extends Controller
         // Pass the authenticated user data to the 'page.user-profile' view.
         return view('page.user-profile', compact('userdata'));
     }
+/*Rider Start*/
+    public function changeRiderCredential(Request $request)
+    { 
+            $request->validate([
+                'rider_id' => 'required|exists:users,User_Id',  
+                'rider_credential' => 'required|in:rider,user',   
+            ]);
+    
+            $user = User::where('User_Id', $request->rider_id)->first();
+    
+            if (!$user) {
+                return redirect()->back()->with('error', 'User not found!');
+            }
 
+            $user->Credential = $request->rider_credential;
+    
+            if ($user->save()) {
+                return redirect()->back()->with('success', 'User credential updated successfully.');
+            }
+            return redirect()->back()->with('error', 'Failed to update user credential.');
+    }
+/*Rider End*/
     public function dataupdate(Request $request)
     {
         // Validate the input data (including password confirmation)
@@ -124,4 +146,5 @@ class AdminController extends Controller
         // Redirect to profile page with success message
         return redirect()->route('user.profile')->with('success', 'Profile updated successfully!');
     }
+
 }

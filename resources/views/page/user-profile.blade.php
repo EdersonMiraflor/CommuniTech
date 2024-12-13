@@ -787,15 +787,32 @@
                     <!-- Rider Management Tab -->
                     <div class="tab-pane fade" id="riders" role="tabpanel">
                         <h5>Rider Management</h5>
-                        <form>
+                        <form method="POST" action="{{ route('change.ridercredential') }}">
+                            @csrf
+                            @method('PATCH')
+                            <!-- All Lists -->
                             <div class="mb-3">
-                                <label for="sms-notifications" class="form-label">Riders Information</label>
-                                <select class="form-select" id="sms-notifications">
-                                    <option selected>Enabled</option>
-                                    <option>Disabled</option>
+                                <label for="user-credential" class="form-label">Users Lists</label>
+                                <select class="form-select" id="user-credential" name="rider_id" required>
+                                    <option style="color: grey;">Select user</option>
+                                    @if(isset($riderlists) && count($riderlists) > 0)
+                                        @foreach ($riderlists as $rider)
+                                            <option value="{{ $rider->User_Id }}">
+                                                {{ $rider->name ?? 'N/A' }} {{ $rider->Middle_Name ?? '' }} {{ $rider->Last_Name ?? '' }}
+                                                - {{ $rider->created_at->format('Y-m-d') ?? 'N/A' }}
+                                                - {{ $rider->Credential ?? 'N/A' }}
+                                            </option>
+                                        @endforeach
+                                    @else
+                                        <option style="color: red;">No Users or Rider Found</option>
+                                    @endif
                                 </select>
                             </div>
-                            <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
+                            <div class="mb-3">
+                                <label for="change-credential" class="form-label">Change Credential (All Lists)</label><br>
+                                <button type="submit" name="rider_credential" value="rider" class="btn btn-primary">Make Rider</button>
+                                <button type="submit" name="rider_credential" value="user" class="btn btn-warning" style="color: #fcfcff; background-color: #008080; border-color: #008080;">Make User</button>
+                            </div>
                         </form>
                     </div>
                 </div>
