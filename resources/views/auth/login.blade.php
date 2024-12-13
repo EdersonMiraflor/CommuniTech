@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('css/img-auth.css') }}">
 
 
-<div class="container my-5 py-5">
+<div class="login-container my-5 py-5">
     <div class="row justify-content-center">
 
         <!-- Left Container for Images and Text -->
@@ -18,16 +18,16 @@
             </div>
             <div class="login-picture">
                 <div class="login-photo">
-                    <div class="login-text">
-                        <img src="{{ asset('img/secure.png') }}" alt="Secure" width="60" height="70">
+                    <div class="login-text secure-picture">
+                        <img src="{{ asset('img/secure.png') }}" alt="Secure">
                         <p class="h5">SECURE</p>
                     </div>
-                    <div class="login-text">
-                        <img src="{{ asset('img/fast.png') }}" alt="Fast" width="90" height="60">
+                    <div class="login-text fast-picture">
+                        <img src="{{ asset('img/fast.png') }}" alt="Fast">
                         <p class="h5">FAST</p>
                     </div>
-                    <div class="login-text">
-                        <img src="{{ asset('img/convenient.png') }}" alt="Convenient" width="70" height="70">
+                    <div class="login-text convenient-picture">
+                        <img src="{{ asset('img/convenient.png') }}" alt="Convenient">
                         <p class="h5">CONVENIENT</p>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
 
         <!-- Right Container for the Form -->
         <div class="right-login">
-            <div class="card ">
+            <div class="login-card ">
                
 
                 <div class="card-login">
