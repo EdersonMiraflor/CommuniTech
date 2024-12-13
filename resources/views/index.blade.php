@@ -3,20 +3,20 @@
 
 <link rel="stylesheet" href="{{ asset('css/img-auth.css') }}">
 
-<div class="content">
+<div class="auth-content">
     <!-- Left Side -->
-    <div class="left-side">
+    <div class="auth-left-side">
         <!-- Logo as a background overlay -->
-        <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="logo-overlay">
+        <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="auth-logo-overlay">
         
-        <h1 class="title">CommuniTECH</h1>
-        <h2 class="description">Are you a Citizen of Manito, Albay?</h2>
-        <p class="sub-description">Select 3 pictures that are located in Manito, Albay.</p>
-        <button class="button" id="verifyButton">Confirm</button>
+        <h1 class="auth-title">CommuniTECH</h1>
+        <h2 class="auth-description">Are you a Citizen of Manito, Albay?</h2>
+        <p class="auth-sub-description">Select 3 pictures that are located in Manito, Albay.</p>
+        <button class="auth-button" id="verifyButton">Confirm</button>
     </div>
 
     <!-- Right Side -->
-    <div class="right-side">
+    <div class="auth-right-side">
         <div class="images">
             <img src="#" alt="Image 1" class="image" data-name="correct">
             <img src="#" alt="Image 2" class="image" data-name="wrong">
