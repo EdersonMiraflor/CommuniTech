@@ -9,7 +9,7 @@
         <!-- Logo as a background overlay -->
         <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="auth-logo-overlay">
         
-        <h1 class="auth-title">CommuniTECHs</h1>
+        <h1 class="auth-title">CommuniTECH</h1>
         <h2 class="auth-description">Are you a Citizen of Manito, Albay?</h2>
         <p class="auth-sub-description">Select 3 pictures that are located in Manito, Albay.</p>
         <button class="auth-button" id="verifyButton">Confirm</button>
