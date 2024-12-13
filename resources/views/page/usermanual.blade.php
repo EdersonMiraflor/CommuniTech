@@ -18,7 +18,7 @@
     <!-- Step 2 -->
     <div class="step">
         <h3>Step 2</h3>
-        <p>Next, there will be three certificates you to choose from, select the type of certificate(s) you want  to issue (live birth, death, marriage).</p>
+        <p>Next, there will be three certificates for you to choose from, select the type of certificate(s) you want  to issue (live birth, death, marriage).</p>
         <img src="{{ asset('images/step2.png') }}" alt="Step 2 Image">
     </div>
 

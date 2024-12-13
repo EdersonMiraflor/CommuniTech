@@ -1,7 +1,7 @@
-@extends('layouts.layout')
-@section('contents')
+@extends('layouts.layout2')
 
-<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+@section('content')
+<link rel="stylesheet" href="{{ asset('resources/css/app.css') }}">
 
 <div class="reset-container">
     <h1>{{ __('Reset Password') }}</h1>
