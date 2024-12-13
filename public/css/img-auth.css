@@ -1,15 +1,11 @@
-/* External CSS file, use this if you don't want to use a framework*/
-
 /*Auth-Page Start*/
 
-/* Container Styles */
-/* --- Default Layout --- */
 .content {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 50px;
+    gap: 20px;
     flex-wrap: wrap;
     padding: 10px;
     max-width: 80%;
@@ -25,18 +21,17 @@
 .right-side {
     flex: 1;
     margin: 20px;
+    min-width: 300px;
 }
 
 .left-side {
-    position: relative; 
     display: flex;
-    flex-direction: column; 
-    justify-content: flex-start; 
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
     padding: 20px;
-    padding-top: 12%;
-    padding-left: 60px;
+    position: relative;
 }
 
 .right-side {
@@ -48,14 +43,17 @@
 }
 
 .logo-overlay {
-    position: absolute; 
-    top: 20px; 
-    left: 50px; 
-    width: 400px; 
-    height: auto; 
-    object-fit: contain; 
-    z-index: 1; 
-    pointer-events: none; 
+    align-items: center;
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none;
     opacity: 0.3; 
 }
 
@@ -63,26 +61,29 @@
 .description, 
 .sub-description, 
 .button {
-    position: relative; 
-    z-index: 2; 
+    align-items: center;
+    position: relative;
+    left:  1%;
+    right: 50%;
+    z-index: 2;
 }
 
 .title {
-    font-size: 50px;
-    font-weight: bolder;
+    font-size:2.8rem;
+    font-weight: bold;
     margin-bottom: 10px;
     top: 60px;
 }
 
 .description {
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: 700;
     top: 55px;
     margin-bottom: 10px;
 }
 
 .sub-description {
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 500;
     margin-bottom: 20px;
     font-style: italic;
@@ -103,181 +104,242 @@
 }
 
 .button:hover {
-    background-color: #22AF4A;
-    transform: scale(1.3); 
-    animation: pulseAnimation 0.5s ease-in-out; 
-}
-
-@keyframes pulseAnimation {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    background-color: #04AA6D;
+    transform: scale(1.1);
 }
 
 .images {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    margin-bottom: 10px;
+    grid-gap: 8px;
+    margin-top: 15px;
 }
 
 .image {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
+    align-items: center;
     cursor: pointer;
-    border: 1px solid transparent;
-    transition: border-color 0.3s, transform 0.3s ease; 
+    border: 3px solid transparent;
+    transition: transform 0.3s, border-color 0.3s;
 }
 
 .image:hover {
-    transform: scale(1.3); 
-    /*
-    border-color: #00ff00; 
-    border: 4px solid #00ff00;
-    */    
-    z-index: 10; 
+    transform: scale(1.1);
+    border-color: #4caf50; 
 }
 
 .image.selected {
-    border: 10px solid #04AA6D;
+    border-color: #00ff00;
 }
 /* --- Responsive Design --- */
 @media (max-width: 1200px) {
     .content {
         flex-direction: column;
-        margin-top: 2px;
+        align-items: center;
     }
 
     .left-side, 
     .right-side {
         width: 100%;
-        margin: 5px;
+        margin: 10px 0;
+    }
+
+    .logo-overlay {
+        width: 300px;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .title,
+    .description,
+    .sub-description,
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 
     .images {
-        grid-template-columns: repeat(2, 1fr);
-        margin-bottom: 20px;  /* Reduced space between images and other content */
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .button-container {
-        margin-top: 10px; /* Move button closer to the images */
+    .image {
+        width: 150%;
+        aspect-ratio: 1;
     }
 }
 
 @media (max-width: 768px) {
     .content {
         flex-direction: column;
-    }
-
-    .left-side {
-        display: flex;
-        flex-direction: column; /* Logo stays at the top, context goes to the bottom */
         align-items: center;
-        text-align: center;
-        gap: 20px; /* Reduced space between logo and context */
-        right: 75px;
     }
 
     .logo-overlay {
-        position: relative;
         width: 250px;
-        max-width: 80%;
-        opacity: 1; /* Full opacity (no transparency) */
+    }
+
+    .title,
+    .description,
+    .sub-description,
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 
     .title {
-        font-size: 2rem;
-        left: 50px;
+        align-items: center;
+        right: 50px;
+        font-size:1.5rem;
     }
 
     .description {
-        font-size: 1.5rem;
-        left: 50px;
+        align-items: center;
+        right: 50px;
+        font-size: 1rem;
     }
 
     .sub-description {
-        font-size: 1.2rem;
-        left: 50px;
+        align-items: center;
+        right: 50px;
+        font-size: 0.9rem;
     }
 
     .button {
+        align-items: center;
+        right: 50px;
         font-size: 14px;
-        left: 50px;
     }
 
     .images {
-        grid-template-columns: repeat(2, 1fr);
-        margin-bottom: 10px;  /* Reduced space between images and button/context */
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .button-container {
-        margin-top: 20px; /* Place button below the images */
+    .image {
+        width: 120%; /* Slightly smaller images */
+        margin: 0 auto;
+        aspect-ratio: 1;
     }
 }
 
 @media (max-width: 480px) {
     .content {
         flex-direction: column;
-    }
-
-    .left-side {
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        text-align: center;
-        gap: 10px;  /* Reduced gap between elements */
     }
 
     .logo-overlay {
-        position: relative;
-        width: 180px;
-        max-width: 60%;
+        width: 150px;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .title, 
     .description, 
     .sub-description, 
     .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
     }
 
     .title {
-        font-size: 1.5rem;
+        align-items: center;
+        font-size: 1rem;
+        left: -10%;
     }
 
     .description {
-        font-size: 1.2rem;
+        align-items: center;
+        font-size: 0.8rem;
     }
 
     .sub-description {
-        font-size: 1rem;
+        align-items: center;
+        font-size: 0.7rem;
     }
 
     .images {
-        grid-template-columns: 1fr;
-        margin-bottom: 200px;  /* Further reduced space between images and button/context */
+        grid-template-columns: 3fr;
     }
 
-    .button-container {
-        margin-top: 10px; /* Button moved closer to images */
+    .image {
+        width: 100%; /* Smaller images for smaller screens */
+        margin: 0 auto;
+        aspect-ratio: 1;
     }
 
     .button {
+        align-items: center;
+        width: 50%;
+        height: 10%;
         font-size: 12px;
         padding: 10px 16px;
     }
 }
 
-/* Background color for the form */
-.card {
-    background-color: #E8F7EC; /* Light grey background for the form */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better form appearance */
-    padding: 20px;
+/* Mobile Phone Specific Responsiveness */
+@media (max-width: 360px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .logo-overlay {
+        width: 120px; /* Smaller logo */
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .title {
+        font-size: 0.9rem; /* Smaller title size */
+        text-align: center;
+        left: 0; /* Centering */
+    }
+
+    .description {
+        font-size: 0.7rem; /* Smaller description text */
+        text-align: center;
+    }
+
+    .sub-description {
+        font-size: 0.6rem; /* Smaller sub-description */
+        text-align: center;
+    }
+
+    .button {
+        width: 70%; /* Adjust button size */
+        height: auto;
+        padding: 8px 12px;
+        font-size: 10px; /* Smaller text for button */
+    }
+
+    .images {
+        grid-template-columns: repeat(3, 1fr); /* Two images per row */
+        grid-gap: 5px;
+    }
+
+    .image {
+        width: 100%; /* Full width for images */
+        aspect-ratio: 1;
+        margin: 0 auto;
+    }
 }
 
 /*Auth-Page End*/
-
+ 
 /*LOGIN SECTION*/
 .login-container {
     font-family: Arial, sans-serif;
