@@ -116,7 +116,7 @@ Route::post('/payment/create', [PaymentRecordController::class, 'userrecord']);
 // Generate Certificate PDF
 Route::get('/generatebirth', [GeneratePDFController::class, 'generatebirth']);
 Route::get('/generatemarriage', [GeneratePDFController::class, 'generatemarriage']);
-Route::get('/generatedeath', [GeneratePDFController::class, 'generatemarriage']);
+Route::get('/generatedeath', [GeneratePDFController::class, 'generatedeath']);
 
 Route::get('/generatedeath/send', [GeneratePDFController::class, 'generatesend']);
 
