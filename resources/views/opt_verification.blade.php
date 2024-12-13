@@ -19,24 +19,6 @@
                 </div>
            @endif
 
-           @if (session('error'))
-    <div id="error-message" style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 10px; margin-top: 15px; border-radius: 5px;">
-        {{ session('error') }}
-    </div>
-
-    <script>
-        // Wait for the DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set a timeout to hide the error message after 8 seconds (8000 milliseconds)
-            setTimeout(function() {
-                var errorMessage = document.getElementById('error-message');
-                if (errorMessage) {
-                    errorMessage.style.display = 'none';
-                }
-            }, 8000); // 8000ms = 8 seconds
-        });
-    </script>
-@endif
            <!--Sending OTP Code with OTP Form 6
 Explanation: 
     -After returning to this page, the user must input the correct otp code in the field sent to the user inputed email.
