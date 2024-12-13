@@ -23,7 +23,7 @@
                         <p class="h5">SECURE</p>
                     </div>
                     <div class="login-text fast-picture">
-                        <img src="{{ asset('img/fast.png') }}" alt="Fast">
+                        <img src="{{ asset('img/fastt.png') }}" alt="Fast">
                         <p class="h5">FAST</p>
                     </div>
                     <div class="login-text convenient-picture">

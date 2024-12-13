@@ -1,7 +1,5 @@
 /*Auth-Page Start*/
 
-/* Container Styles */
-/* --- Default Layout --- */
 .content {
     font-family: Arial, sans-serif;
     display: flex;
@@ -23,7 +21,6 @@
 .right-side {
     flex: 1;
     margin: 20px;
-    min-width: 300px;
 }
 
 .left-side {
@@ -45,23 +42,29 @@
 }
 
 .logo-overlay {
-    position: absolute; 
-    top: 20px; 
-    left: 50px; 
-    width: 400px; 
-    height: auto; 
-    object-fit: contain; 
-    z-index: 1; 
-    pointer-events: none; 
-    opacity: 0.3; 
+    align-items: center;
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.3;
 }
 
 .title, 
 .description, 
 .sub-description, 
 .button {
-    position: relative; 
-    z-index: 2; 
+    align-items: center;
+    position: relative;
+    left:  1%;
+    right: 50%;
+    z-index: 2;
 }
 
 .title {
@@ -279,6 +282,297 @@
     .button {
         align-items: center;
         width: 50%;
+        height: 10%;
+        font-size: 12px;
+        padding: 10px 16px;
+    }
+}
+
+/*Auth-Page Start*/
+
+.content {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 10px;
+    max-width: 80%;
+    margin: 30px auto;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.left-side, 
+.right-side {
+    flex: 1;
+    margin: 20px;
+}
+
+.left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo-overlay {
+    align-items: center;
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.title, 
+.description, 
+.sub-description, 
+.button {
+    align-items: center;
+    position: relative;
+    left:  1%;
+    right: 50%;
+    z-index: 2;
+}
+
+.title {
+    font-size:2.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    top: 60px;
+}
+
+.description {
+    font-size: 1.5rem;
+    font-weight: 700;
+    top: 55px;
+    margin-bottom: 10px;
+}
+
+.sub-description {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-style: italic;
+    top: 65px;
+}
+
+.button {
+    padding: 12px 24px;
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    top: 40px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.button:hover {
+    background-color: #04AA6D;
+    transform: scale(1.1);
+}
+
+.images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 10px;
+}
+
+.image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    align-items: center;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.image:hover {
+    transform: scale(1.1);
+}
+
+.image.selected {
+    border-color: #04AA6D;
+    border: 5px solid #04AA6D;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1200px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-side,
+    .right-side {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .logo-overlay {
+        width: 300px;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .title,
+    .description,
+    .sub-description,
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .images {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .image {
+        width: 150%;
+        aspect-ratio: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-overlay {
+        width: 250px;
+    }
+
+    .title,
+    .description,
+    .sub-description,
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .title {
+        align-items: center;
+        right: 50px;
+        font-size:1.5rem;
+    }
+
+    .description {
+        align-items: center;
+        right: 50px;
+        font-size: 1rem;
+    }
+
+    .sub-description {
+        align-items: center;
+        right: 50px;
+        font-size: 0.9rem;
+    }
+
+    .button {
+        align-items: center;
+        right: 50px;
+        font-size: 14px;
+    }
+
+    .images {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .image {
+        width: 120%; /* Slightly smaller images */
+        margin: 0 auto;
+        aspect-ratio: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-overlay {
+        width: 150px;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .title,
+    .description,
+    .sub-description,
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .title {
+        align-items: center;
+        font-size: 1rem;
+        left: -10%;
+    }
+
+    .description {
+        align-items: center;
+        font-size: 0.8rem;
+    }
+
+    .sub-description {
+        align-items: center;
+        font-size: 0.7rem;
+    }
+
+    .images {
+        grid-template-columns: 3fr;
+    }
+
+    .image {
+        width: 100%; /* Smaller images for smaller screens */
+        margin: 0 auto;
+        aspect-ratio: 1;
+    }
+
+    .button {
+        align-items: center;
+        width: 40%;
         height: 10%;
         font-size: 12px;
         padding: 10px 16px;
@@ -599,36 +893,49 @@
 
 @media (max-width: 360px) {
     .login-container {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 10px;
+        padding: 15px; /* Adjusted padding for better spacing */
+        gap: 10px; /* Added gap for spacing between elements */
     }
 
     .login-logo {
-        width: 150px;
+        width: 100px; /* Reduced size to fit smaller screens */
+        height: auto; /* Ensure proper aspect ratio */
+        margin-bottom: 10px; /* Space below the logo */
     }
 
     .login-title {
-        font-size: 1.2rem;
+        font-size: 1rem; /* Slightly reduced size for better fit */
+        text-align: center; /* Ensure centered alignment */
+        margin-bottom: 5px;
     }
 
     .login-description {
-        font-size: 0.8rem;
+        font-size: 0.75rem; /* Adjust font size for better readability */
+        text-align: center;
+        margin-bottom: 10px;
     }
 
     .secure-picture img,
     .fast-picture img,
     .convenient-picture img {
-        width: 40px;
-        height: 25px;
+        width: 50px; /* Reduced width for better layout */
+        height: 20px; /* Adjusted height */
+        margin: 5px; /* Added spacing between images */
     }
 
     .d-flex a {
-        font-size: 10px; /* Uniform font size */
+        font-size: 0.9rem; /* Uniform font size with better readability */
+        margin: 5px 0; /* Added spacing between links */
     }
 
     .custom-btn {
-        font-size: 11px;
-        padding: 5px 8px;
+        font-size: 0.9rem; /* Slightly reduced size for consistency */
+        padding: 8px 12px; /* Adjusted padding for better button usability */
+        width: 100%; /* Full-width buttons for better accessibility */
+        text-align: center;
     }
 }
+
