@@ -21,37 +21,160 @@
     <link rel="stylesheet" href="css/main.css">
     <style>
         /* Responsive Header Bar */
-        .header-bar {
-            background-color: #e8f7ec;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: nowrap;
-        }
-        .header-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-align: center;
-            flex: 1;
-        }
-        .header-title img {
-            height: 50px;
-            width: auto;
-        }
-        @media (max-width: 576px) {
-            .hide-on-small {
-                display: none !important;
-            }
-            .header-title {
-                gap: 5px;
-            }
-            .header-title img {
-                height: 40px;
-            }
-        }
+     /* Container and Flexbox setup */
+/* General Header Bar Styling */
+.header-bar {
+    background-color: #e8f7ec;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    font-size: 1rem; /* Default font size */
+    flex-direction: column;
+    text-align: center; /* Center text inside the header */
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    flex: 1;
+    font-size: 1rem; /* Default font size */
+}
+
+.header-title img {
+    height: 50px;
+    width: auto;
+}
+
+.header-top {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px; /* Space between date/time and title */
+}
+
+.header-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Space for dropdown to move to bottom */
+    align-items: center; /* Ensure that dropdown is vertically aligned */
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center; /* Center the navbar items */
+    margin: 0; /* Remove any margin */
+}
+
+.navbar-nav .nav-item {
+    margin-bottom: 5px; /* Add spacing between dropdown items */
+}
+
+@media (max-width: 1200px) {
+    /* For tablets and small screens */
+    .header-title {
+        gap: 8px;
+    }
+    .header-title img {
+        height: 45px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* For medium screens (tablets and small laptops) */
+    .header-bar {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .header-title {
+        gap: 7px;
+    }
+
+    .header-title img {
+        height: 40px;
+    }
+
+    .hide-on-small {
+        display: none !important;
+    }
+
+    /* Position date/time at top and dropdown at bottom */
+    .header-top {
+        order: 1;
+    }
+
+    .header-bottom {
+        order: 3;
+        flex-direction: column;
+        align-items: center; /* Center align items */
+        justify-content: center; /* Center align items */
+    }
+}
+
+@media (max-width: 576px) {
+    /* For mobile screens */
+    .header-bar {
+        padding: 6px;
+        font-size: 0.8rem; /* Reduced font size */
+    }
+
+    .header-title {
+        gap: 5px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .header-title img {
+        height: 35px; /* Smaller logo on mobile */
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        margin-top: 10px;
+        align-items: center; /* Center navbar items on mobile */
+    }
+
+    .navbar-nav .nav-item {
+        margin-bottom: 5px;
+    }
+
+    /* Position date/time at top and dropdown at bottom */
+    .header-top {
+        order: 1;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-bottom {
+        order: 2;
+        flex-direction: column;
+        align-items: center; /* Center align dropdown */
+        justify-content: center; /* Center dropdown items */
+    }
+}
+
+@media (max-width: 400px) {
+    /* For very small screens (like old mobile phones) */
+    .header-bar {
+        padding: 5px;
+        font-size: 0.7rem; /* Further reduced font size */
+    }
+
+    .header-title {
+        gap: 4px;
+        align-items: center;
+    }
+
+    .header-title img {
+        height: 30px; /* Even smaller logo */
+    }
+}
+
 
         /* Navbar Styling */
         .navbar {
@@ -236,7 +359,7 @@
         }
 
         .apply-btn:hover{
-        background: ##04AA6D;
+        background: #04AA6D;
         color: #fff;
         border-color: #ffffff;
         }
@@ -337,7 +460,7 @@
         footer .table td:first-child {
         font-weight: 600;
         padding-left: 33px;
-        background-color: #e8f7ec;
+        background-color: #95D2B3;
         line-height: 1.9; /* Improve readability */
         }
 
@@ -345,7 +468,7 @@
         footer .table td {
         padding: 0px;
         border: 0;
-        background-color: #e8f7ec;
+        background-color: #95D2B3;
         }
 
         footer .table td i {
@@ -392,78 +515,78 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <header class="header-bar">
-        <div class="hide-on-small">
-            <span id="current-date-time" style="margin-left: 50px;"></span>
+<header class="header-bar">
+    <div class="container-fluid">
+        <div class="row w-100">
+            <!-- Date/Time (Visible only on larger screens) -->
+            <div class="col-12 col-md-4 hide-on-small d-flex justify-content-start align-items-center">
+                <span id="current-date-time" style="margin-left: 50px;"></span>
+            </div>
+
+            <!-- Title (Logo and Text) -->
+            <div class="col-12 col-md-4 d-flex justify-content-center align-items-center header-title">
+                <img src="{{ asset('img/communitechlogo.png') }}" alt="Logo of Communitech" class="img-fluid">
+                <span style="text-align: center;">
+                    Republic of the Philippines<br>
+                    Province of Albay<br>
+                    Municipality of Manito
+                </span>
+                <img src="{{ asset('img/manito-logo.png') }}" alt="Logo of Manito" class="img-fluid">
+            </div>
+
+            <!-- Navigation and User Profile -->
+            <div class="col-12 col-md-4 d-flex justify-content-end align-items-center">
+                <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
+                    @if (!request()->is('home/user-profile'))
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item me-3">
+                                    <a class="nav-link d-flex align-items-center" href="{{ route('login') }}">
+                                        {{ __('Login') }}
+                                    </a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center" href="{{ route('register') }}">
+                                        {{ __('Register') }}
+                                    </a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                    <i class="fas fa-user ms-2"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                        <i class="fas fa-sign-out-alt ms-2"></i>
+                                    </a>
+                                    <a class="dropdown-item" href="/home/user-profile">
+                                        {{ __('User Profile') }}
+                                    </a>
+                                    <hr class="dropdown-divider">
+                                    <a class="dropdown-item" href="/rider_application">
+                                        {{ __('Sign up as a Rider!') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    @endif
+                </ul>
+            </div>
         </div>
-        <div class="header-title">
-            <img src="{{ asset('img/communitechlogo.png') }}" alt="Logo of Communitech" class="img-fluid">
-            <span>
-                Republic of the Philippines<br>
-                Province of Albay<br>
-                Municipality of Manito
-            </span>
-            <img src="{{ asset('img/manito-logo.png') }}" alt="Logo of Manito" class="img-fluid">
-        </div>
-        <div class="d-flex align-items-center hide-on-small">
-        <div class="d-flex align-items-center hide-on-small">
-    <ul class="navbar-nav ms-auto d-flex flex-row align-items-center" style="margin-right: 50px;">
-@if (!request()->is('home/user-profile'))
-        @guest
-            @if (Route::has('login'))
-                <li class="nav-item me-3"> <!-- Margin End for spacing -->
-                    <a class="nav-link d-flex align-items-center" href="{{ route('login') }}">
-                        {{ __('Login') }}
-        
-                    </a>
-                </li>
-            @endif
-
-            @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" href="{{ route('register') }}">
-                        {{ __('Register') }}
-            
-                    </a>
-                </li>
-            @endif
-        @else
-            
-<li class="nav-item dropdown">
-    <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-        {{ Auth::user()->name }}
-        <i class="fas fa-user ms-2"></i> <!-- Icon for User -->
-    </a>
-    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="{{ route('logout') }}"
-           onclick="event.preventDefault();
-                     document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-            <i class="fas fa-sign-out-alt ms-2"></i> <!-- Icon for Logout -->
-        </a>
-        <a class="dropdown-item" href="/home/user-profile">
-            {{ __('User Profile') }}
-        </a>
-        
-        <hr class="dropdown-divider"> <!-- Horizontal line divider -->
-
-        <a class="dropdown-item" href="/rider_application">
-            {{ __('Sign up as a Rider!') }}
-        </a>
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form>
     </div>
-</li>
-        @endguest
-@endif
-    </ul>
-    <i class="bi bi-person ms-2"></i>
-</div>
+</header>
 
-
-    </header>
 
     <!-- Navbar Section -->
     <nav class="navbar">
@@ -562,11 +685,11 @@
                    
                     <h3>CommuniTECH </h3>
                     <ul>
-                        <li><a href="tel:(010) 1234 4321"><i class="fas fa-phone fa-flip-horizontal"></i>(010) 1234 4321</a></li>
+                        <li><a href="mailto:lgumanitoofficial@gmail.com"><i class="fas fa-envelope fa-flip-horizontal"></i>lgumanitoofficial@gmail.com</a></li>
                         <li><i class="fas fa-map-marker-alt"></i>
-                            1 / 105 Bay Lights,
-                            <br/>Lorem Ipsum,
-                            <br/>LIC 3201
+                            Municipal Hall, Rizal St.,  
+                            <br>It-ba(Poblacion), Manito,
+                            <br>Philippines
                         </li>
                     </ul>
 
@@ -607,18 +730,18 @@
                         <h4>More Info</h4>
                     </div>
                     <ul>
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li><a href="#">Dolor sit amet</a></li>
-                        <li><a href="#">Consectetur Adipisicing </a></li>
-                        <li><a href="#">Ed do eiusmod tempor incididunt</a></li>
+                        <li>This serves as the official public information page of the Municipal Government of Manito.</li>
+                        <li>Accessible Services: Apply online for Certificates of Live Birth, Death Certificates, and Marriage Certificates with ease.</li>
+                        <li>Convenient Process: Simplified steps to ensure quick and hassle-free access to vital records.</li>
+            
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-4 open-hours">
                     <div class="footer-title">
                         <h4>Open hours</h4>
                         <ul class="footer-social">
-                            <li><a href="" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.facebook.com/ManitoLGU2022" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://www.instagram.com/manitomdrrmo/" target="_blank"><i class="fab fa-instagram"></i></a></li>
                             <li><a href="" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                         </ul>
                     </div>
