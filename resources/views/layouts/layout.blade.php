@@ -125,8 +125,6 @@
 
     .header-title {
         gap: 5px;
-        text-align: center;
-        align-items: center;
     }
 
     .header-title img {
@@ -146,8 +144,6 @@
     /* Position date/time at top and dropdown at bottom */
     .header-top {
         order: 1;
-        align-items: center;
-        justify-content: center;
     }
 
     .header-bottom {
@@ -167,7 +163,6 @@
 
     .header-title {
         gap: 4px;
-        align-items: center;
     }
 
     .header-title img {
@@ -526,7 +521,7 @@
             <!-- Title (Logo and Text) -->
             <div class="col-12 col-md-4 d-flex justify-content-center align-items-center header-title">
                 <img src="{{ asset('img/communitechlogo.png') }}" alt="Logo of Communitech" class="img-fluid">
-                <span style="text-align: center;">
+                <span>
                     Republic of the Philippines<br>
                     Province of Albay<br>
                     Municipality of Manito
