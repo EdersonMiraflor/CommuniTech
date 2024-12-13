@@ -22,36 +22,74 @@
     <style>
        /* Responsive Header Bar */
        .header-bar {
-            background-color: #e8f7ec;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: nowrap;
-        }
-        .header-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-align: center;
-            flex: 1;
-        }
-        .header-title img {
-            height: 50px;
-            width: auto;
-        }
-        @media (max-width: 576px) {
-            .hide-on-small {
-                display: none !important;
-            }
-            .header-title {
-                gap: 5px;
-            }
-            .header-title img {
-                height: 40px;
-            }
-        }
+    background-color: #e8f7ec;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    flex: 1;
+    flex-wrap: nowrap; /* Prevents wrapping of items in larger screens */
+}
+
+.header-title img {
+    height: 50px;
+    width: auto;
+}
+
+.header-title span {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#current-date-time {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.navbar-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (max-width: 576px) {
+    .header-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-title {
+        flex-direction: row; /* Keep items horizontal */
+        gap: 5px;
+        justify-content: center;
+    }
+
+    .header-title img {
+        height: 40px;
+    }
+
+    #current-date-time {
+        font-size: 1rem;
+        margin-top: 5px;
+    }
+
+    .navbar-nav {
+        margin-top: 10px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+    }
+}
+
 
         /* Navbar Styling */
         .navbar {
@@ -396,78 +434,68 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <header class="header-bar">
-        <div class="hide-on-small">
-            <span id="current-date-time" style="margin-left: 50px;"></span>
-        </div>
-        <div class="header-title">
-            <img src="{{ asset('img/communitechlogo.png') }}" alt="Logo of Communitech" class="img-fluid">
-            <span>
-                Republic of the Philippines<br>
-                Province of Albay<br>
-                Municipality of Manito
-            </span>
-            <img src="{{ asset('img/manito-logo.png') }}" alt="Logo of Manito" class="img-fluid">
-        </div>
-        <div class="d-flex align-items-center hide-on-small">
-        <div class="d-flex align-items-center hide-on-small">
-    <ul class="navbar-nav ms-auto d-flex flex-row align-items-center" style="margin-right: 50px;">
-@if (!request()->is('home/user-profile'))
-        @guest
-            @if (Route::has('login'))
-                <li class="nav-item me-3"> <!-- Margin End for spacing -->
-                    <a class="nav-link d-flex align-items-center" href="{{ route('login') }}">
-                        {{ __('Login') }}
-        
-                    </a>
-                </li>
-            @endif
-
-            @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" href="{{ route('register') }}">
-                        {{ __('Register') }}
-            
-                    </a>
-                </li>
-            @endif
-        @else
-            
-<li class="nav-item dropdown">
-    <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-        {{ Auth::user()->name }}
-        <i class="fas fa-user ms-2"></i> <!-- Icon for User -->
-    </a>
-    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="{{ route('logout') }}"
-           onclick="event.preventDefault();
-                     document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-            <i class="fas fa-sign-out-alt ms-2"></i> <!-- Icon for Logout -->
-        </a>
-        <a class="dropdown-item" href="/home/user-profile">
-            {{ __('User Profile') }}
-        </a>
-        
-        <hr class="dropdown-divider"> <!-- Horizontal line divider -->
-
-        <a class="dropdown-item" href="/rider_application">
-            {{ __('Sign up as a Rider!') }}
-        </a>
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form>
+<header class="header-bar">
+    <div class="hide-on-small">
+        <span id="current-date-time" ></span>
     </div>
-</li>
-        @endguest
-@endif
-    </ul>
-    <i class="bi bi-person ms-2"></i>
-</div>
+    <div class="header-title">
+        <img src="{{ asset('img/communitechlogo.png') }}" alt="Logo of Communitech" class="img-fluid">
+        <span>
+            Republic of the Philippines<br>
+            Province of Albay<br>
+            Municipality of Manito
+        </span>
+        <img src="{{ asset('img/manito-logo.png') }}" alt="Logo of Manito" class="img-fluid">
+    </div>
+    <div class="d-flex align-items-center hide-on-small">
+        <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
+            @if (!request()->is('home/user-profile'))
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item me-3"> <!-- Margin End for spacing -->
+                            <a class="nav-link d-flex align-items-center" href="{{ route('login') }}">
+                                {{ __('Login') }}
+                            </a>
+                        </li>
+                    @endif
 
-
-    </header>
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center" href="{{ route('register') }}">
+                                {{ __('Register') }}
+                            </a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                            <i class="fas fa-user ms-2"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                                <i class="fas fa-sign-out-alt ms-2"></i>
+                            </a>
+                            <a class="dropdown-item" href="/home/user-profile">
+                                {{ __('User Profile') }}
+                            </a>
+                            <hr class="dropdown-divider"> <!-- Horizontal line divider -->
+                            <a class="dropdown-item" href="/rider_application">
+                                {{ __('Sign up as a Rider!') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+            @endif
+        </ul>
+    </div>
+</header>
 
     <!-- Navbar Section -->
     <nav class="navbar">

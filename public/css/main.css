@@ -110,7 +110,6 @@ body {
 
 /* Intro section styling */
 .intro {
-    margin-left: 2rem;
     display: center;
     align-items: center;
     justify-content: center;
@@ -203,6 +202,40 @@ body {
         padding: 5px 10px; /* Smaller button dimensions */
     }
 }
+
+/* Responsive adjustments for 400px width */
+@media (max-width: 400px) {
+    .intro-container {
+        height: 500px; /* Fixed height for the intro section */
+        display: flex; /* Use flexbox for alignment */
+        align-items: center; /* Center items vertically */
+        justify-content: center; /* Center items horizontally */
+        overflow: hidden; /* Prevent the container from overflowing */
+        padding: 10px; /* Add padding for smaller screens */
+    }
+
+    .intro {
+        margin-right: 3rem;
+        width: 100%; /* Ensure it uses full width */
+        max-width: 400px; /* Limit maximum width for readability */
+        text-align: center; /* Ensure text alignment remains centered */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .intro h1 {
+        font-size: 1.5rem; /* Further reduced size for small screens */
+    }
+
+    .intro p {
+        font-size: 0.8rem; /* Smaller paragraph text */
+    }
+
+    .btn-apply {
+        font-size: 0.7rem;
+        padding: 5px 10px; /* Smaller button dimensions */
+    }
+}
+
 
 /** ANNOUNCEMENT CSS **/
 /* Base styles */
