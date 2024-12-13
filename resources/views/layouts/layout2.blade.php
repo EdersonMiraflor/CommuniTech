@@ -247,129 +247,112 @@
         }
 
         /*---------footer---------*/
-/* Footer styling */
-.footer {
-    background-color: #90D7A4;
-    padding: 1.5rem 2rem;
-}
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
-    gap: 2rem; /* Space between left and right sections */
-}
 
-/* Left section */
-.footer-left {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Align logo and text to the left */
-}
-
-.footer-logo {
-    height: 3.125rem; /* 50px equivalent */
-    margin-right: 1rem;
-}
-
-.footer-text {
-    font-size: 1rem; /* 16px equivalent */
-    font-weight: bold;
-}
-
-/* Right section */
-.footer-right {
-    display: flex;
-    justify-content: flex-start; /* Align social icons to the left by default */
-}
-
-.footer-social {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-social-item {
-    margin-left: 1.25rem; /* Space between social icons */
-}
-
-.footer-icon {
-    font-size: 1.25rem; /* 20px equivalent */
-    color: inherit;
-    text-decoration: none;
-}
-
-ul.footer-social li {
-    display: inline;
-    margin-right: 16px;
-}
-
-ul.footer-social i {
-    width: 30px;
-    height: 30px;
-    background: #fff;
-    color: #222025;
-    text-align: center;
-    line-height: 30px;
-    border-radius: 30px;
-    font-size: 16px;
-    transition: all 0.5s;
-    font-weight: 800;
-}
-
-ul.footer-social i:hover {
-    background: #22AF4A;
-    color: #fff;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-    .footer-text {
-        font-size: 0.875rem; /* 14px equivalent */
-    }
-
-    .footer-icon {
-        font-size: 1.125rem; /* 18px equivalent */
+    /* Footer styling */
+    .footer {
+        background-color: #90D7A4;
+        padding: 1.5rem 2rem;
     }
 
     .footer-container {
-        flex-direction: column; /* Stack the sections on small screens */
-        gap: 1rem; /* Adjust space between sections */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
-    .footer-right {
-        justify-content: center; /* Center social icons on medium screens */
-    }
-}
-
-@media (max-width: 576px) {
-    .footer-text {
-        font-size: 0.75rem; /* 12px equivalent */
-    }
-
-    .footer-icon {
-        font-size: 1rem; /* 16px equivalent */
-    }
-
-    .footer-container {
-        flex-direction: column; /* Stack the sections on smaller screens */
-        gap: 1rem; /* Adjust space between sections */
-    }
-
+    /* Left section */
     .footer-left {
-        justify-content: center; /* Center left section items on small screens */
+        display: flex;
+        align-items: center;
+        flex: 1;
     }
 
-    .footer-right {
-        justify-content: center; /* Center social icons on small screens */
+    .footer-logo {
+        height: 3.125rem; /* 50px equivalent */
+        margin-right: 1rem;
+    }
+
+    .footer-text {
+        font-size: 1rem; /* 16px equivalent */
+        font-weight: bold;
+    }
+
+    /* Right section */
+    .footer-social {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
     .footer-social-item {
-        margin-left: 0.5rem; /* Reduce space between social icons on smaller screens */
+        margin-left: 1.25rem; /* Space between social icons */
     }
-}
+
+    .footer-icon {
+        font-size: 1.25rem; /* 20px equivalent */
+        color: inherit;
+        text-decoration: none;
+    }
+
+        ul.footer-social li {
+        display: inline;
+        margin-right: 16px;
+        }
+
+        ul.footer-social i {
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        color: #222025;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 30px;
+        font-size: 16px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        font-weight: 800;
+        }
+
+
+        ul.footer-social i:hover {
+        background: #22AF4A;
+        color: #fff;
+        }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+        .footer-text {
+            font-size: 0.875rem; /* 14px equivalent */
+        }
+
+        .footer-icon {
+            font-size: 1.125rem; /* 18px equivalent */
+        }
+    }
+
+    @media (max-width: 576px) {
+        .footer-text {
+            font-size: 0.75rem; /* 12px equivalent */
+        }
+
+        .footer-icon {
+            font-size: 1rem; /* 16px equivalent */
+        }
+
+        .footer-social {
+            justify-content: center; /* Center social icons on small screens */
+        }
+
+        .footer-left {
+            justify-content: center; /* Center left section items on small screens */
+            margin-bottom: 1rem; /* Add space below left section */
+        }
+    }
 
       
     </style>
@@ -416,37 +399,35 @@ ul.footer-social i:hover {
     <div class="container">
         @yield('content')
     </div>
-
-    <!-- Footer Section -->
+<!-- Footer Section -->
 <footer class="footer">
     <div class="footer-container">
+        <!-- Left Section -->
         <div class="footer-left">
             <img src="{{ asset('img/communitechlogo.png') }}" alt="Communitech Logo" class="footer-logo">
             <span class="footer-text">CommuniTech</span>
         </div>
 
-        <div class="footer-right">
-            <ul class="footer-social">
-                <li class="footer-social-item">
-                    <a href="https://www.facebook.com/ManitoLGU2022" target="_blank">
-                        <i class="fab fa-facebook-f footer-icon"></i>
-                    </a>
-                </li>
-                <li class="footer-social-item">
-                    <a href="https://www.instagram.com/manitomdrrmo/" target="_blank">
-                        <i class="fab fa-instagram footer-icon"></i>
-                    </a>
-                </li>
-                <li class="footer-social-item">
-                    <a href="#" target="_blank">
-                        <i class="fab fa-linkedin-in footer-icon"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <!-- Right Section -->
+        <ul class="footer-social">
+            <li class="footer-social-item">
+                <a href="https://www.facebook.com/ManitoLGU2022" target="_blank">
+                    <i class="fab fa-facebook-f footer-icon"></i>
+                </a>
+            </li>
+            <li class="footer-social-item">
+                <a href="https://www.instagram.com/manitomdrrmo/" target="_blank">
+                    <i class="fab fa-instagram footer-icon"></i>
+                </a>
+            </li>
+            <li class="footer-social-item">
+                <a href="#" target="_blank">
+                    <i class="fab fa-linkedin-in footer-icon"></i>
+                </a>
+            </li>
+        </ul>
     </div>
 </footer>
-
 
 
 
