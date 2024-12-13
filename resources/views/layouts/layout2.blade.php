@@ -247,131 +247,148 @@
         }
 
         /*---------footer---------*/
-/* Footer styling */
-.footer {
-    background-color: #90D7A4;
-    padding: 1.5rem 2rem;
-}
+        /* General Footer Styles */
+    footer {
+        background-color: #90D7A4; /* Footer background color */
+        color: #333; /* Text color */
+        font-size: 15px; /* Default font size */
+        padding: 10px 0; /* Adjust padding to reduce footer thickness */
+        line-height: 1; /* Improve readability */
+    }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
-    gap: 2rem; /* Space between left and right sections */
-}
+    .footer-container {
+        max-width: 1500px; /* Restrict content width for better alignment */
+        margin: 0 auto; /* Center the container */
+        padding: 0 15px; /* Prevent content from touching edges */
+    }         
+        footer h3 {
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        }
+        footer h4 {
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 1px;
+        }
+        .about-footer li i {
+        position: absolute;
+        left: 0;
+        }
+        .about-footer li {
+        padding-left: 40px;
+        position: relative;
+        margin-bottom: 40px;
+        }
 
-/* Left section */
-.footer-left {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Align logo and text to the left */
-}
+        .about-footer ul {
+        margin-top: 40px;
+        }
 
-.footer-logo {
-    height: 3.125rem; /* 50px equivalent */
-    margin-right: 1rem;
-}
+        footer a {
+        color: #292929;
+        }
 
-.footer-text {
-    font-size: 1rem; /* 16px equivalent */
-    font-weight: bold;
-}
+        footer a:hover {
+        color: #22AF4A;
+        }
+        .footer-title {
+        border-bottom: 2px solid #22AF4A;
+        padding-bottom: 25px;
+        margin-bottom: 35px;
+        }
 
-/* Right section */
-.footer-right {
-    display: flex;
-    justify-content: flex-start; /* Align social icons to the left by default */
-}
-
-.footer-social {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-social-item {
-    margin-left: 1.25rem; /* Space between social icons */
-}
-
-.footer-icon {
-    font-size: 1.25rem; /* 20px equivalent */
-    color: inherit;
-    text-decoration: none;
-}
+        ul.footer-social {
+        float: right;
+        }
 
 ul.footer-social li {
     display: inline;
     margin-right: 16px;
 }
 
-ul.footer-social i {
-    width: 30px;
-    height: 30px;
-    background: #fff;
-    color: #222025;
-    text-align: center;
-    line-height: 30px;
-    border-radius: 30px;
-    font-size: 16px;
-    transition: all 0.5s;
-    font-weight: 800;
-}
+        ul.footer-social i {
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        color: #222025;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 30px;
+        font-size: 16px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        font-weight: 800;
+        }
+
+        ul.footer-social li:last-child {
+        margin-right: 0px;
+        }
 
 ul.footer-social i:hover {
     background: #22AF4A;
     color: #fff;
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
-    .footer-text {
-        font-size: 0.875rem; /* 14px equivalent */
-    }
+        .page-more-info li {
+        margin-bottom: 31px;
+        }
 
-    .footer-icon {
-        font-size: 1.125rem; /* 18px equivalent */
-    }
+        footer .table td:first-child {
+        font-weight: 600;
+        padding-left: 33px;
+        background-color: #90D7A4;
+        line-height: 1.9; /* Improve readability */
+        }
 
-    .footer-container {
-        flex-direction: column; /* Stack the sections on small screens */
-        gap: 1rem; /* Adjust space between sections */
-    }
+        footer .table td:last-child {text-align: right;}
+        footer .table td {
+        padding: 0px;
+        border: 0;
+        background-color: #90D7A4;
+        }
 
-    .footer-right {
-        justify-content: center; /* Center social icons on medium screens */
-    }
-}
+        footer .table td i {
+        position: absolute;
+        left: 0px;
+        font-size: 21px;
+        top: 6px;
+        }
 
-@media (max-width: 576px) {
-    .footer-text {
-        font-size: 0.75rem; /* 12px equivalent */
-    }
+        footer .table td {
+        position: relative;
+        padding: 4px 0;
+        margin-bottom: 5rem;
+        }
+        .footer-logo td {
+        padding-right: 4px !important;
+        }
 
-    .footer-icon {
-        font-size: 1rem; /* 16px equivalent */
-    }
+        .footer-logo td:last-child {
+        padding-right: 0px !important;
+        
+        }
 
-    .footer-container {
-        flex-direction: column; /* Stack the sections on smaller screens */
-        gap: 1rem; /* Adjust space between sections */
-    }
 
-    .footer-left {
-        justify-content: center; /* Center left section items on small screens */
-    }
+        footer hr {
+        border-color: #212121;
+  
+        }
 
-    .footer-right {
-        justify-content: center; /* Center social icons on small screens */
-    }
+        .footer-bottom p {
+        text-align: right;
+        }
+        .footer-bottom {
+        margin-top: 30px;
+        }
+        .open-hours hr {
+        margin: 30px 0;
+        }
 
-    .footer-social-item {
-        margin-left: 0.5rem; /* Reduce space between social icons on smaller screens */
-    }
-}
-
-      
     </style>
 
     <!-- Scripts -->
@@ -417,38 +434,127 @@ ul.footer-social i:hover {
         @yield('content')
     </div>
 
-    <!-- Footer Section -->
-<footer class="footer">
+    
+<!-- Footer Section-->
+<footer>
     <div class="footer-container">
-        <div class="footer-left">
-            <img src="{{ asset('img/communitechlogo.png') }}" alt="Communitech Logo" class="footer-logo">
-            <span class="footer-text">CommuniTech</span>
-        </div>
+        <div class="footer-top">
+        <br>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 about-footer">
+                   
+                    <h3>CommuniTECH </h3>
+                    <ul>
+                        <li><a href="tel:(010) 1234 4321"><i class="fas fa-phone fa-flip-horizontal"></i>(010) 1234 4321</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i>
+                            1 / 105 Bay Lights,
+                            <br/>Lorem Ipsum,
+                            <br/>LIC 3201
+                        </li>
+                    </ul>
 
-        <div class="footer-right">
-            <ul class="footer-social">
-                <li class="footer-social-item">
-                    <a href="https://www.facebook.com/ManitoLGU2022" target="_blank">
-                        <i class="fab fa-facebook-f footer-icon"></i>
-                    </a>
-                </li>
-                <li class="footer-social-item">
-                    <a href="https://www.instagram.com/manitomdrrmo/" target="_blank">
-                        <i class="fab fa-instagram footer-icon"></i>
-                    </a>
-                </li>
-                <li class="footer-social-item">
-                    <a href="#" target="_blank">
-                        <i class="fab fa-linkedin-in footer-icon"></i>
-                    </a>
-                </li>
-            </ul>
+    <!--
+                    <a href="" class="btn apply-btn">Register Now</a>
+    -->
+                    
+                    <hr>
+                    <div class="footer-logo">
+                        <table>
+                            <tbody>
+                                <tr>
+                                <td><img src="{{ asset('img/communitechlogo.png') }}" alt="Communitech Logo"></td>
+                                <td><img src="{{ asset('img/manito-logo.png') }}" alt="Manito Logo"></td>
+                                <td><img src="{{ asset('img/new-bagongPH.png') }}" alt="Bagong Pilipinas Logo"></td>
+                                <td><img src="{{ asset('img/new-dpo.png') }}" alt="DPO Logo"></td>     
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-md-6 col-lg-2 page-more-info">
+                    <div class="footer-title">
+                        <h4>Page links</h4>
+                    </div>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">User Manual</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6 col-lg-3 page-more-info">
+                    <div class="footer-title">
+                        <h4>More Info</h4>
+                    </div>
+                    <ul>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Dolor sit amet</a></li>
+                        <li><a href="#">Consectetur Adipisicing </a></li>
+                        <li><a href="#">Ed do eiusmod tempor incididunt</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-4 open-hours">
+                    <div class="footer-title">
+                        <h4>Open hours</h4>
+                        <ul class="footer-social">
+                            <li><a href="" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                        </ul>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Monday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Tuesday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Wednesday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Thursday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Friday</td>
+                                <td>8:00am - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Saturday</td>
+                                <td>CLOSED</td>
+                            </tr>
+                            <tr>
+                                <td><i class="far fa-clock"></i>Sunday</td>
+                                <td>CLOSED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="">Privacy policy</a>
+                </div>
+                <div class="col-sm-8">
+                    <p>Communitech @ 2024 All rights reserved</p>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
-
-
-
+    
 
 
     <!--time and date in header section-->
