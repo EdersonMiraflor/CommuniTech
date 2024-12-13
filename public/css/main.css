@@ -215,6 +215,7 @@ body {
     }
 
     .intro {
+        margin-right: 3rem;
         width: 100%; /* Ensure it uses full width */
         max-width: 400px; /* Limit maximum width for readability */
         text-align: center; /* Ensure text alignment remains centered */
