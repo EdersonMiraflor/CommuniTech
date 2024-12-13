@@ -20,8 +20,8 @@
      <!--Directory of this is: Public Folder/csss/main-->
     <link rel="stylesheet" href="css/main.css">
     <style>
-        /* Responsive Header Bar */
-        .header-bar {
+       /* Responsive Header Bar */
+       .header-bar {
             background-color: #e8f7ec;
             padding: 10px;
             display: flex;
@@ -236,10 +236,13 @@
         }
 
         .apply-btn:hover{
-        background: ##04AA6D;
+        background: #04AA6D;
         color: #fff;
         border-color: #ffffff;
         }
+
+        /*---------footer---------*/
+       
 
         /*---------footer---------*/
         /* General Footer Styles */
@@ -337,7 +340,7 @@
         footer .table td:first-child {
         font-weight: 600;
         padding-left: 33px;
-        background-color: #e8f7ec;
+        background-color: #95D2B3;
         line-height: 1.9; /* Improve readability */
         }
 
@@ -345,7 +348,7 @@
         footer .table td {
         padding: 0px;
         border: 0;
-        background-color: #e8f7ec;
+        background-color: #95D2B3;
         }
 
         footer .table td i {
@@ -384,6 +387,7 @@
         .open-hours hr {
         margin: 30px 0;
         }
+
 
 
     </style>
@@ -562,11 +566,11 @@
                    
                     <h3>CommuniTECH </h3>
                     <ul>
-                        <li><a href="tel:(010) 1234 4321"><i class="fas fa-phone fa-flip-horizontal"></i>(010) 1234 4321</a></li>
+                        <li><a href="mailto:lgumanitoofficial@gmail.com"><i class="fas fa-envelope fa-flip-horizontal"></i>lgumanitoofficial@gmail.com</a></li>
                         <li><i class="fas fa-map-marker-alt"></i>
-                            1 / 105 Bay Lights,
-                            <br/>Lorem Ipsum,
-                            <br/>LIC 3201
+                            Municipal Hall, Rizal St.,  
+                            <br>It-ba(Poblacion), Manito,
+                            <br>Philippines
                         </li>
                     </ul>
 
@@ -607,18 +611,18 @@
                         <h4>More Info</h4>
                     </div>
                     <ul>
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li><a href="#">Dolor sit amet</a></li>
-                        <li><a href="#">Consectetur Adipisicing </a></li>
-                        <li><a href="#">Ed do eiusmod tempor incididunt</a></li>
+                        <li>This serves as the official public information page of the Municipal Government of Manito.</li>
+                        <li>Accessible Services: Apply online for Certificates of Live Birth, Death Certificates, and Marriage Certificates with ease.</li>
+                        <li>Convenient Process: Simplified steps to ensure quick and hassle-free access to vital records.</li>
+            
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-4 open-hours">
                     <div class="footer-title">
                         <h4>Open hours</h4>
                         <ul class="footer-social">
-                            <li><a href="" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.facebook.com/ManitoLGU2022" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://www.instagram.com/manitomdrrmo/" target="_blank"><i class="fab fa-instagram"></i></a></li>
                             <li><a href="" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                         </ul>
                     </div>

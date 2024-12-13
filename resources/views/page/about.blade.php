@@ -37,12 +37,20 @@
              </div>
     <div class="about">
         <div class="left-content1">
-            
         </div>
             </div>
 
 <br><br>
 
+        <!-- Right Content -->
+        <div class="right-content">
+        
+        </div>
+
+        <!-- Left Content 2 -->
+        <div class="left-content2">
+    
+        </div>
 
     </div>
 </div>
