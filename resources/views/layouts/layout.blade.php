@@ -666,12 +666,12 @@
                         <h4>Page links</h4>
                     </div>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">User Manual</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/home/services">Services</a></li>
+                        <li><a href="/home/usermanual">User Manual</a></li>
+                        <li><a href="/home/about">About</a></li>
+                        <li><a href="/home/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="/home/contact">Contact</a></li>
                     </ul>
                 </div>
 
@@ -735,7 +735,7 @@
         <div class="footer-bottom">
             <div class="row">
                 <div class="col-sm-4">
-                    <a href="">Privacy policy</a>
+                    <a href="/home/privacy-policy">Privacy policy</a>
                 </div>
                 <div class="col-sm-8">
                     <p>Communitech @ 2024 All rights reserved</p>
