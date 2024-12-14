@@ -82,7 +82,8 @@
             @endphp
             <div class="payment-image">
                 <h3 style="text-align: center; font-family: 'Pacifico', cursive; color: #2e6ab1;">Scan For Payment</h3>
-                <img src="{{ url($data->photo) }}" width="500" height="500" class="img-responsive" style="padding-bottom: 1px; margin: 50px; border: 5px solid #ff6f61; border-radius: 20px;">
+                <!-- Use asset() instead of url() for better URL handling -->
+                <img src="{{ asset($data->photo) }}" width="500" height="500" class="img-responsive" style="padding-bottom: 1px; margin: 50px; border: 5px solid #ff6f61; border-radius: 20px;">
             </div>
         @else
             <div class="no-qr-message">
@@ -115,6 +116,7 @@
     @endauth
 </div>
 <!-- Admin Qr Change End -->
+
 
 @endsection
 
