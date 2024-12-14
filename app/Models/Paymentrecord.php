@@ -19,5 +19,6 @@ class Paymentrecord extends Model
         'mobile',
         'barangay',
         'proof',
+        'status',
     ];
 }

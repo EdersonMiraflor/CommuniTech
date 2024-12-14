@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('mobile');
             $table->string('barangay');
             $table->string('proof')->nullable();
+            $table->enum('status', ['pending', 'verified'])->default('pending'); 
             $table->timestamps();
 
             $table->foreign('User_Id')->references('User_Id')->on('users');
