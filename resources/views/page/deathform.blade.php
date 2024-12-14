@@ -12,7 +12,7 @@
     </h2>
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <form action="/home/services/deathform" method="POST">
+    <form id="executedeathstore" action="/home/services/deathform" method="POST">
         @csrf
         <div class="row">
             <!-- Personal Information -->
@@ -326,22 +326,7 @@
 
             </div>
         </div>
-    </form>
-</div>
-<br><br>
-<script>
-document.getElementById('corpse_disposal_method').addEventListener('change', function() {
-        var disposalMethod = this.value;
-        if (disposalMethod === 'Other') {
-            document.getElementById('other_disposal_method').style.display = 'block';
-        } else {
-            document.getElementById('other_disposal_method').style.display = 'none';
-        }
-    });
-</script>
-
-
-<!-- Submit Info Modal -->
+        <!-- Submit Info Modal -->
 <div class="modal fade" id="submitInfoModal" tabindex="-1" aria-labelledby="submitInfoModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -371,19 +356,28 @@ document.getElementById('corpse_disposal_method').addEventListener('change', fun
             <div class="modal-body">
                 You have successfully filled up the form. Please proceed with the payment process here.
                 <br>
-                <a href="">Click here to download a copy of your responses</a>
+                <a href="#">Click here to download a copy of your responses</a>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success" onclick="window.location.href='/payment'">Proceed to Pay</button>
-
+                <button type="button" class="btn btn-success" id="proceedToPay">Proceed to Pay</button>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    // Handle "Yes, I am Sure" button click
+    // Handling the "change" event for the disposal method
+    document.getElementById('corpse_disposal_method').addEventListener('change', function() {
+        var disposalMethod = this.value;
+        if (disposalMethod === 'Other') {
+            document.getElementById('other_disposal_method').style.display = 'block';
+        } else {
+            document.getElementById('other_disposal_method').style.display = 'none';
+        }
+    });
+
+    // Handling the "Yes, I am Sure" button click inside the modal
     document.getElementById('confirmSubmit').addEventListener('click', function() {
         // Close the Submit Info Modal
         let submitInfoModal = bootstrap.Modal.getInstance(document.getElementById('submitInfoModal'));
@@ -393,5 +387,16 @@ document.getElementById('corpse_disposal_method').addEventListener('change', fun
         let paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
         paymentModal.show();
     });
+
+    // Handling the "Proceed to Pay" button click inside the Payment Modal
+    document.getElementById('proceedToPay').addEventListener('click', function() {
+        // Close the Payment Modal
+        let paymentModal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
+        paymentModal.hide();
+
+        // Submit the form with the ID 'executedeathstore'
+        document.getElementById('executedeathstore').submit();
+    });
 </script>
+
 @endsection

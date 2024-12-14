@@ -1,9 +1,6 @@
 @extends('layouts.layout')
 
 @section('contents')
-@php
-    $requestedCertificate = "Birth Certificate"; // Define the variable if needed
-@endphp
 
 <br>
 <div class="container form-container" style="margin-bottom: 50px">
@@ -21,9 +18,7 @@
                 </div>
                 <div class="form-group">
                     <label for="requested_certificate">Requested Certificate</label>
-                    <input type="text" name="requested_certificate" id="requested_certificate" class="form-control" 
-                        value="{{ $requestedCertificate ?? '' }}" 
-                        readonly>
+                    <input type="text" name="requested_certificate" id="requested_certificate" class="form-control" value="{{ $requestedCertificate ?? '' }}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="quantity">Quantity</label>

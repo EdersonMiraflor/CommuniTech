@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
   
-    <form action="/home/services/form102" method="POST">
+    <form id="executebirthstore" action="/home/services/form102" method="POST">
         @csrf
 
         <div class="row">
@@ -301,7 +301,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success" onclick="window.location.href='/payment'">Proceed to Pay</button>
+                <button type="button" class="btn btn-success" onclick="submitForm()">Proceed to Pay</button>
 
             </div>
         </div>
@@ -319,5 +319,10 @@
         let paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
         paymentModal.show();
     });
+
+    function submitForm() {
+        // Submit the form with the ID 'executedeathstore'
+        document.getElementById('executebirthstore').submit();
+    }
 </script>
 @endsection

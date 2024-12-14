@@ -12,7 +12,7 @@
     </h2>
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <form action="/home/services/marriageform" method="POST">
+    <form id="executemarriagestore" action="/home/services/marriageform" method="POST">
         @csrf
         <div class="row">
             
@@ -400,19 +400,21 @@
             <div class="modal-body">
                 You have successfully filled up the form. Please proceed with the payment process here.
                 <br>
-                <a href="">Click here to download a copy of your responses</a>
+                <a href="#">Click here to download a copy of your responses</a>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success" onclick="window.location.href='/payment'">Proceed to Pay</button>
-
+                <button type="button" class="btn btn-success" id="proceedToPay">Proceed to Pay</button>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    // Handle "Yes, I am Sure" button click
+    // Declare a variable to store the form submission action
+    var submitFormAction = null;
+
+    // Handle "Yes, I am Sure" button click in Submit Info Modal
     document.getElementById('confirmSubmit').addEventListener('click', function() {
         // Close the Submit Info Modal
         let submitInfoModal = bootstrap.Modal.getInstance(document.getElementById('submitInfoModal'));
@@ -422,5 +424,31 @@
         let paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
         paymentModal.show();
     });
+
+    // Handle the "Proceed to Pay" button click in Payment Modal
+    document.getElementById('proceedToPay').addEventListener('click', function() {
+        // Close the Payment Modal
+        let paymentModal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
+        paymentModal.hide();
+
+        // If a form action was set, submit the form
+        if (submitFormAction) {
+            submitFormAction();
+        }
+    });
+
+    // Function to store the form submission action and trigger it later
+    function storeFormAction(formId) {
+        submitFormAction = function() {
+            // Submit the form with the ID passed to the function
+            document.getElementById(formId).submit();
+        };
+    }
+
+    // Store the form action when needed (e.g., calling this function before showing the modal)
+    // Example:
+    storeFormAction('executemarriagestore'); // You can change this to the specific form ID you need
+
 </script>
+
 @endsection

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\BirthCertificateRequest;
 use App\Models\MarriageCertificateRequest;
 use App\Models\DeathCertificateRequest;
+use App\Models\Qrcode;
 
 class CertificateRequestController extends Controller
 {
@@ -75,7 +76,9 @@ class CertificateRequestController extends Controller
             'signature2' => $request->signature2,
         ]);
 
-        return redirect('/home/services/form102/birthform');
+        $requestedCertificate = "Birth Certificate";
+        $qrscan = Qrcode::all();
+        return view('page.payment', compact('requestedCertificate', 'qrscan')); 
     }
 /*End Live Birth*/
  
@@ -162,7 +165,9 @@ class CertificateRequestController extends Controller
         'admin_officer_name' => $request->admin_officer_name,
         'admin_officer_address' => $request->admin_officer_address,
             ]);
-            return redirect('/home/services/marriageform/marriageformcert');
+            $requestedCertificate = "Marriage Certificate";
+            $qrscan = Qrcode::all();
+            return view('page.payment', compact('requestedCertificate', 'qrscan'));
     }
 /*End Marriage*/   
 
@@ -238,7 +243,9 @@ class CertificateRequestController extends Controller
 
         ]);
 
-        return redirect('/home/services/deathform/deathformcert'); // Or another route to show success
+        $requestedCertificate = "Death Certificate";
+        $qrscan = Qrcode::all();
+        return view('page.payment', compact('requestedCertificate', 'qrscan'));
     }
 /*End Death*/ 
 }
