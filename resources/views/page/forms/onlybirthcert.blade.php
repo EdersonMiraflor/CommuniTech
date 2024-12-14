@@ -3,6 +3,14 @@
 @section('contents')
 @csrf
 <style>
+    /* Back button */
+    .back-button {
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    
         .onlymarriagetop,
 .onlymarriagebottom {
     position: absolute;
@@ -44,7 +52,16 @@
         <img src="{{ asset('img/Certificate-of-Live-Birth/page-0.jpg') }}" alt="Certificate of Death">
         <img src="{{ asset('img/Certificate-of-Live-Birth/page-1.jpg') }}" alt="Certificate of Death">
         
-        <a href="{{ url('/view-death-cert') }}" class="onlymarriagetop"> << PREVIOUS PAGE</a>
-        <a href="{{ url('/another-link') }}" class="onlymarriagebottom"><< PREVIOUS PAGE</a>
+
     </div>
+    <!-- Back Button -->
+<a href="javascript:history.back()" class="btn btn-success back-button">BACK</a>
+    
     @endsection
+
+<!--
+<a href="{{ url('/view-death-cert') }}" class="onlymarriagetop"> << PREVIOUS PAGE</a>
+        <a href="{{ url('/another-link') }}" class="onlymarriagebottom"><< PREVIOUS PAGE</a>
+            
+
+-->
