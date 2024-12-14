@@ -655,38 +655,46 @@
             </div>
 
 
-                <!-- Request History -->
-                @foreach ($records as $record)
+           <!-- Request History -->
+            <div class="tab-pane fade" id="request-history" role="tabpanel">
                 <div class="container mt-5">
                     <h5>Payment Records</h5>
-                    <table class="table table-bordered">
-                        <tbody>
-                            <tr>
-                                <td><label for="name" class="form-label">Name</label></td>
-                                <td><input type="text" class="form-control" id="name" value="{{ $record->name }}" readonly></td>
-                            </tr>
-                            <tr>
-                                <td><label for="requested_certificate" class="form-label">Requested Certificate</label></td>
-                                <td><input type="text" class="form-control" id="requested_certificate" value="{{ $record->requested_certificate }}" readonly></td>
-                            </tr>
-                            <tr>
-                                <td><label for="quantity" class="form-label">Quantity</label></td>
-                                <td><input type="number" class="form-control" id="quantity" value="{{ $record->quantity }}" readonly></td>
-                            </tr>
-                            <tr>
-                                <td><label for="proof" class="form-label">Proof</label></td>
-                                <td>
-                                    @if ($record->proof)
-                                        <img src="{{ asset('storage/' . $record->proof) }}" alt="Proof Image" class="img-fluid" style="max-width: 200px; max-height: 200px;">
-                                    @else
-                                        <span>No Proof Uploaded</span>
-                                    @endif
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    @if ($records->isEmpty())
+                        <p>No records found.</p>
+                    @else
+                        @foreach ($records as $record)
+                            <table class="table table-bordered mb-4">
+                                <tbody>
+                                    <tr>
+                                        <td><label for="name" class="form-label">Name</label></td>
+                                        <td><input type="text" class="form-control" id="name" value="{{ $record->name }}" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="requested_certificate" class="form-label">Requested Certificate</label></td>
+                                        <td><input type="text" class="form-control" id="requested_certificate" value="{{ $record->requested_certificate }}" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="quantity" class="form-label">Quantity</label></td>
+                                        <td><input type="number" class="form-control" id="quantity" value="{{ $record->quantity }}" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="proof" class="form-label">Proof</label></td>
+                                        <td>
+                                            @if ($record->proof)
+                                                <img src="{{ asset('storage/' . $record->proof) }}" alt="Proof Image" class="img-fluid" style="max-width: 200px; max-height: 200px;">
+                                            @else
+                                                <span>No Proof Uploaded</span>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        @endforeach
+                    @endif
                 </div>
-            @endforeach
+            </div>
+
+
 
                     <!-- Admin Management Tab -->
                     <div class="tab-pane fade" id="admin" role="tabpanel">

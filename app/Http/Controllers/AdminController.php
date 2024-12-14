@@ -27,10 +27,11 @@ class AdminController extends Controller
         // Fetch all users whose credentials are either 'rider' or 'user'
         $riderlists = User::whereIn('Credential', ['user', 'rider'])->get();
 
-        $records = Paymentrecord::select('name', 'requested_certificate', 'quantity', 'proof')->get();
-
         // Get the currently authenticated user using Laravel's auth helper.
         $userdata = auth()->user();
+
+        // Fetch only the records of the logged-in user.
+        $records = Paymentrecord::where('User_Id', $userdata->User_Id)->select('name', 'requested_certificate', 'quantity', 'proof')->get();
 
         // Pass the retrieved data to the 'page.user-profile' view.
         return view('page.user-profile', compact('admins', 'users', 'userlists', 'riderlists', 'userdata', 'records'));
