@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Paymentrecord;
 use App\Models\User; // Import the User model for database interactions related to the users table.
 use Illuminate\Http\Request; // Import Request to handle HTTP requests.
 
@@ -29,8 +30,11 @@ class AdminController extends Controller
         // Get the currently authenticated user using Laravel's auth helper.
         $userdata = auth()->user();
 
+        // Fetch only the records of the logged-in user.
+        $records = Paymentrecord::where('User_Id', $userdata->User_Id)->select('name', 'requested_certificate', 'quantity', 'proof')->get();
+
         // Pass the retrieved data to the 'page.user-profile' view.
-        return view('page.user-profile', compact('admins', 'users', 'userlists', 'riderlists', 'userdata'));
+        return view('page.user-profile', compact('admins', 'users', 'userlists', 'riderlists', 'userdata', 'records'));
     }
 
     /**

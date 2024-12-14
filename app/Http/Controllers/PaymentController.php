@@ -38,19 +38,17 @@ class PaymentController extends Controller
     $path = $request->file('photo')->storeAs('images', $fileName, 'public');
     $requestData['photo'] = '/storage/' . $path;
 
-    // Delete the previous photo (if any) before replacing
-    $latestPayment = Qrcode::latest()->first();
-    if ($latestPayment && $latestPayment->photo) {
-        $oldPhotoPath = public_path($latestPayment->photo);
-        if (file_exists($oldPhotoPath)) {
-            unlink($oldPhotoPath); // Remove old photo
-        }
-        $latestPayment->delete(); // Remove old database record
+    // Retrieve the existing record or create a new one
+    $qrcode = Qrcode::firstOrCreate(['User_Id' => $userId]);
+
+    // Delete the previous photo (if any)
+    if ($qrcode->photo && file_exists(public_path($qrcode->photo))) {
+        unlink(public_path($qrcode->photo)); // Remove old photo
     }
 
-    // Store new payment data
-    Qrcode::create($requestData);
+    // Update the QR code record with the new photo
+    $qrcode->update(['photo' => $requestData['photo']]);
 
-    return redirect('payment')->with('flash_message', 'Payment updated!');
+    return redirect('payment')->with('flash_message', 'QR Code updated successfully!');
 }
 }
