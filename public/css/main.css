@@ -15,17 +15,13 @@ body {
     min-height: 100vh; /* Ensure the body is at least the height of the viewport */
 }
 
-/* START OF USER PROFILE OVERRIDE */
-/* Override Bootstrap's default blue color for links 
-.nav-link, .nav-link.active {
-    color: black !important;
-}
 
-/* Override Bootstrap's primary buttons 
+/* START OF USER PROFILE OVERRIDE */
+/*Override Bootstrap's primary buttons 
 .btn-primary {
     background-color: #28a745 !important;
     border-color: #28a745 !important;
-} */
+} 
 
 /* Override hover and active states for primary buttons 
 .btn-primary:hover,
@@ -34,31 +30,7 @@ body {
     background-color: #218838 !important; 
     border-color: #1e7e34 !important;
 }
-
-/* Override text colors that are not white or black 
-.text-primary, .text-info, .text-danger, .text-warning, .text-success {
-    color: #28a745 !important;
-}
-
-/* Override other Bootstrap components with default color 
-.nav-pills .nav-link.active,
-.navbar-light .navbar-nav .nav-link,
-.pagination .page-link {
-    background-color: #28a745 !important;
-    border-color: #28a745 !important;
-} */
-
-/* Override card headers and alert backgrounds 
-.card-header,
-.alert-primary,
-.alert-info,
-.alert-warning,
-.alert-success {
-    background-color: #28a745 !important;
-    border-color: #28a745 !important;
-    color: white !important;
-}
-/* END OF USER PROFILE OVERRIDE */
+*/
 
 .green-btn {
     background-color: #28a745; /* Green background */
@@ -138,7 +110,7 @@ body {
     font-size: 1.5rem;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #04AA6D;
+    background-color: #04aa6d;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -236,11 +208,10 @@ body {
     }
 }
 
-
 /** ANNOUNCEMENT CSS **/
 /* Base styles */
 
-.announcement-display-container{
+.announcement-display-container {
     max-width: 100%;
     margin: 20px auto;
     padding: 20px;
@@ -260,26 +231,26 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
-  }
-  
-  /* Announcement Form */
-  .announcement-form {
+}
+
+/* Announcement Form */
+.announcement-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
-  }
-  
-  .announcement-form input,
-  .announcement-form textarea {
+}
+
+.announcement-form input,
+.announcement-form textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 14px;
-  }
-  
-  .announcement-form button {
+}
+
+.announcement-form button {
     align-self: flex-start;
     padding: 10px 20px;
     background-color: #28a745;
@@ -287,152 +258,152 @@ h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .announcement-form button:hover {
+}
+
+.announcement-form button:hover {
     background-color: #28a745;
-  }
-  
-  /* View Buttons */
-  .view-buttons {
-    display:inline-block;
+}
+
+/* View Buttons */
+.view-buttons {
+    display: inline-block;
     justify-content: space-between;
     margin-bottom: 20px;
-  }
-  
-  .view-buttons button {
+}
+
+.view-buttons button {
     padding: 10px 20px;
     background-color: #6c757d;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .view-buttons button:hover {
+}
+
+.view-buttons button:hover {
     background-color: #5a6268;
-  }
-  
-  .view-buttons button.active {
+}
+
+.view-buttons button.active {
     background-color: #28a745;
-  }
-  
-  /* Announcement List */
-  .announcement-list {
+}
+
+/* Announcement List */
+.announcement-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
-  }
-  
-  .announcement-item {
+}
+
+.announcement-item {
     padding: 15px;
     background-color: #f8f9fa;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-  
-  .announcement-title {
+}
+
+.announcement-title {
     font-size: 18px;
     font-weight: bold;
     color: #333;
     margin: 0;
-  }
-  
-  .updated-label {
+}
+
+.updated-label {
     font-size: 12px;
     color: #28a745;
     margin-left: 8px;
-  }
-  
-  .announcement-timestamp {
+}
+
+.announcement-timestamp {
     font-size: 12px;
     color: #666;
     margin: 10px 0 0;
-  }
-  
-  .actions {
+}
+
+.actions {
     display: flex;
     gap: 10px;
     margin-top: 10px;
-  }
-  
-  .actions button {
+}
+
+.actions button {
     padding: 5px 10px;
     font-size: 14px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .actions button:nth-child(1) {
+}
+
+.actions button:nth-child(1) {
     background-color: #ffc107;
     color: #fff;
-  }
-  
-  .actions button:nth-child(2) {
+}
+
+.actions button:nth-child(2) {
     background-color: #dc3545;
     color: #fff;
-  }
-  
-  .actions button:nth-child(3) {
+}
+
+.actions button:nth-child(3) {
     background-color: #28a745;
     color: #fff;
-  }
-  
-  .actions button:hover {
+}
+
+.actions button:hover {
     opacity: 0.9;
-  }
-  
-  /* Empty Message */
-  .empty-message {
+}
+
+/* Empty Message */
+.empty-message {
     font-size: 14px;
     color: #999;
     text-align: center;
     margin: 20px 0;
-  }
-  
-  /* Pagination */
-  .pagination {
+}
+
+/* Pagination */
+.pagination {
     display: flex;
     justify-content: center;
     gap: 5px;
     margin-top: 20px;
-  }
-  
-  .pagination button {
+}
+
+.pagination button {
     padding: 5px 10px;
     border: 1px solid #ddd;
     background-color: #fff;
     color: #333;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .pagination button.active {
+}
+
+.pagination button.active {
     background-color: #28a745;
     color: #fff;
-  }
-  
-  .pagination button:hover {
+}
+
+.pagination button:hover {
     background-color: #4dc96a;
     color: #fff;
-  }
+}
 /* Form Section */
 .form-section {
     margin-bottom: 20px;
-  }
-  
-  .form-section input,
-  .form-section textarea {
+}
+
+.form-section input,
+.form-section textarea {
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-  }
-  
-  .form-section button {
+}
+
+.form-section button {
     display: inline-block;
     margin-right: 5px;
     padding: 10px 15px;
@@ -442,33 +413,33 @@ h1 {
     border-radius: 4px;
     cursor: pointer;
     transition: background 0.3s;
-  }
-  
-  .form-section button:hover {
+}
+
+.form-section button:hover {
     background: #0056b3;
-  }
-  
-  .form-section #update-announcement {
+}
+
+.form-section #update-announcement {
     background-color: #28a745;
-  }
-  
-  .form-section #update-announcement:hover {
+}
+
+.form-section #update-announcement:hover {
     background-color: #218838;
-  }
-  
-  .error-message {
+}
+
+.error-message {
     color: red;
     font-size: 0.9em;
-  }
-  
-  .announcement-header{
+}
+
+.announcement-header {
     text-transform: uppercase;
     font-weight: bold;
     color: #28a745;
+}
 
-  }
-
-  #add-announcement, #update-announcement {
+#add-announcement,
+#update-announcement {
     width: 100%;
     padding: 10px 20px;
     background-color: #28a745;
@@ -477,12 +448,12 @@ h1 {
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
-  }
-  
-  #add-announcement:hover, #update-announcement:hover {
-    background-color: #53be6a;
-  }
+}
 
+#add-announcement:hover,
+#update-announcement:hover {
+    background-color: #53be6a;
+}
 
 /*END OF HOME CSS*/
 
@@ -784,6 +755,7 @@ h1 {
 
 /* SERVICES SECTION */
 .service-container {
+    background-color: #e8f7ec;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -791,7 +763,7 @@ h1 {
 }
 
 .service-card {
-    background-color: #95D2B3;
+    background-color: #95d2b3;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -1297,14 +1269,6 @@ h3 {
 
 /*USER MANUAL SECTION*/
 /* General styles */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9; /* Light background for the whole page */
-    color: #333;
-}
 
 .user-manual-container {
     background-color: #ffffff; /* White background for the user manual section */
@@ -1312,25 +1276,28 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
+    max-width: 100%;
+
 }
 
 .user-manual-container h1 {
+    font-weight: bold;
     text-align: center;
-    color: #444;
+    color: #28a745;
     margin-bottom: 20px;
 }
 
 .step {
     margin-bottom: 30px;
     padding: 10px;
-    border-left: 4px solid #007bff;
-    background-color: #f0f8ff; /* Light blue background for steps */
+    border-left: 4px solid #28a745;
     border-radius: 4px;
+    /*background-color: #f0f8ff; /* Light blue background for steps */
 }
 
 .step h3 {
-    color: #0056b3;
+    font-weight: bold;
+    color: #28a745;
     margin-bottom: 10px;
 }
 
@@ -1346,4 +1313,3 @@ body {
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-

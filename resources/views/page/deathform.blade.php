@@ -1,6 +1,10 @@
 @extends('layouts.layout')
 
 @section('contents')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
 <br><br>
 <div class="birth-container"> 
     <h2 class="text-center birth-heading">
@@ -316,8 +320,10 @@
 
             <!-- Submit Section -->
             <div class="col-md-12 mt-3">
-                <button type="button" class="btn btn-danger" onclick="window.history.back()">Back</button>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="button" class="btn btn-danger" onclick="window.history.back()">Back</button>         
+                 <button type="submit" data-bs-toggle="modal" class="btn btn-success" data-bs-target="#submitInfoModal">Submit</button>
+
+
             </div>
         </div>
     </form>
@@ -331,6 +337,61 @@ document.getElementById('corpse_disposal_method').addEventListener('change', fun
         } else {
             document.getElementById('other_disposal_method').style.display = 'none';
         }
+    });
+</script>
+
+
+<!-- Submit Info Modal -->
+<div class="modal fade" id="submitInfoModal" tabindex="-1" aria-labelledby="submitInfoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="submitInfoModalLabel">Confirm Submission</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to submit this information?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel and Edit</button>
+                <button type="button" class="btn btn-success" id="confirmSubmit">Yes, I am Sure</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Payment Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentModalLabel">Payment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                You have successfully filled up the form. Please proceed with the payment process here.
+                <br>
+                <a href="">Click here to download a copy of your responses</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" onclick="window.location.href='/payment'">Proceed to Pay</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Handle "Yes, I am Sure" button click
+    document.getElementById('confirmSubmit').addEventListener('click', function() {
+        // Close the Submit Info Modal
+        let submitInfoModal = bootstrap.Modal.getInstance(document.getElementById('submitInfoModal'));
+        submitInfoModal.hide();
+
+        // Open the Payment Modal
+        let paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+        paymentModal.show();
     });
 </script>
 @endsection

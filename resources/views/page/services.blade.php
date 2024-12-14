@@ -13,7 +13,6 @@
         <div class="service-buttons">
             <a href="/home/services/form102" class="btn btn-primary">Birth Registration</a>
             <a href="{{ url('/view-birthhonly-cert') }}" class="btn btn-secondary">View Certificate</a>
-            <a href="#" class="btn btn-secondary">Transaction Receipt</a>
         </div>
     </div>
 
@@ -26,7 +25,6 @@
         <div class="service-buttons">
             <a href="/home/services/marriageform" class="btn btn-primary">Marriage Registration</a>
             <a href="{{ url('/view-marriageonly-cert') }}" class="btn btn-secondary">View Certificate</a>
-            <a href="#" class="btn btn-secondary">Transaction Receipt</a>
         </div>
     </div>
 
@@ -39,7 +37,6 @@
         <div class="service-buttons">
             <a href="/home/services/deathform" class="btn btn-primary">Death Registration</a>
             <a href="{{ url('/view-deathonly-cert') }}" class="btn btn-secondary">View Certificate</a>
-            <a href="#" class="btn btn-secondary">Transaction Receipt</a>
         </div>
     </div>
 </div>

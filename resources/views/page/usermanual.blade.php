@@ -3,9 +3,12 @@
 
 <br><br>
 
-<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+<head>
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
-<div class="user-manual-container">
+</head>
+
+<div class="user-manual-container" style="margin-bottom:70px;">
     <h1>Procedures</h1>
     
     <!-- Step 1 -->
