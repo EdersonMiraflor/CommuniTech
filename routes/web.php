@@ -98,7 +98,7 @@ Route::get('/generatePDF', [PdfController::class, 'generatePdf'])->middleware('a
 
 // OTP Routes
 Route::get('/otphome', [OtpHomeController::class, 'index']);
-Route::get('/verify-account', [OtpHomeController::class, 'verifyaccount'])->name('verifyaccount');
+Route::get('/verify-account', [OtpHomeController::class, 'verifyaccount'])->name('verifyaccount')->middleware('auth');
 Route::post('/verifyotp', [OtpHomeController::class, 'useractivation'])->name('verifyotp');
 Route::get('/otpform', fn() => view('page.otp.otpform'))->middleware('auth');
 Route::post('/otpform', [OtpController::class, 'create'])->name('otpform');
