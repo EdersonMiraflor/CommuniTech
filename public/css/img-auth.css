@@ -709,29 +709,32 @@ body {
 }
 
 .text-container {
+    display: flex;
+    flex-direction: column; /* Ensures stack order is vertical */
+    align-items: center; /* Centers the text horizontally */
+    justify-content: center; /* Centers the text vertically if necessary */
     text-align: center;
     margin-top: 20px;
 }
 
 .text-container .title {
-    font-size: 2rem; /* Adjust as needed */
+    font-size: 2rem; /* Larger font size for title */
     font-weight: bold;
     color: black;
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Space between h1 and h2 */
 }
 
 .text-container .login-description {
-    font-size: 1.2rem; /* Adjust as needed */
+    font-size: 1.2rem; /* Smaller font size for description */
     color: black;
-    font-weight: bold;
 }
 
 @media screen and (max-width: 768px) {
     .text-container .title {
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* Responsive title size for smaller screens */
     }
 
     .text-container .login-description {
-        font-size: 1rem;
+        font-size: 1rem; /* Responsive description size */
     }
 }
