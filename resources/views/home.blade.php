@@ -168,6 +168,18 @@
     }
 }
 
+.announcement-item form button {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.announcement-item form button:hover {
+    color: darkred;
+}
 
 </style>
 
@@ -196,20 +208,39 @@
         </section>
       
 <!-- Announcement Section FOR USERS -->
-<!-- Display Announcements Section -->
 <div class="announcement-display-container">
     <h1 class="announcement-header">Announcements</h1>
     <div id="display-announcements" class="display-announcements">
-        @foreach ($announcements as $announcement)
-            <div class="announcement-item">
-                <h3>{{ $announcement->announcement_title }}</h3>
-                <p>{{ $announcement->announcement_text }}</p>
-                <small>Posted on {{ $announcement->created_at->format('F j, Y, g:i a') }}</small>
-            </div>
-        @endforeach
+    @foreach ($announcements as $announcement)
+    <div class="announcement-item">
+        <h3>{{ $announcement->announcement_title }}</h3>
+        <p>{{ $announcement->announcement_text }}</p>
+        <small>Posted on {{ $announcement->created_at->format('F j, Y, g:i a') }}</small>
+
+<!-- Delete Button -->
+@auth
+    {{-- Check if the user is admin --}}
+    @if (Auth::user()->Credential == 'admin')
+    <form action="{{ route('announcement.destroy', $announcement->Memo_id) }}" method="POST" style="display: inline; float: right;">
+        @csrf
+        @method('DELETE')
+        <button type="submit" onclick="return confirm('Are you sure you want to delete this announcement?')" style="background: none; border: none; color: red; font-size: 20px; cursor: pointer;">
+            ✖
+        </button>
+    </form>  
+    @endif
+ @endauth
+
+    </div>
+    @endforeach
     </div>
 </div>
 <!-- END OF Announcement Section FOR USERS -->
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
 <!--START announcement section FOR ADMIN-->
 <div class="announcement-container">

@@ -34,4 +34,16 @@ class AnnouncementController extends Controller
         // Redirect back with success message
         return redirect()->route('announcement.displays')->with('success', 'Announcement added successfully!');
     }
+
+    public function destroy($id)
+    {
+        // Find the announcement by its primary key (Memo_id)
+        $announcement = Announcement::where('Memo_id', $id)->firstOrFail();
+    
+        // Delete the announcement
+        $announcement->delete();
+    
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Announcement deleted successfully!');
+    }
 }
