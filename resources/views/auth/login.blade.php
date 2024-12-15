@@ -4,9 +4,8 @@
 
 <link rel="stylesheet" href="{{ asset('css/img-auth.css') }}">
 
-
 <div class="container-fluid login-container my-5 py-5">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center align-items-center">
         <!-- Left Container for Images and Text -->
         <div class="col-md-6 col-lg-5 mb-4">
             <div class="left-login text-center">
@@ -36,74 +35,73 @@
 
         <!-- Right Container for the Form -->
         <div class="col-md-6 col-lg-5">
-    <div class="right-login mx-auto">
-        <div class="login-card">
-            <div class="card-login">
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf
-                    <!-- Email Input -->
-                    <div class="mb-4">
-                        <input id="email" type="email" 
-                               class="form-control form-control-lg @error('email') is-invalid @enderror" 
-                               name="email" 
-                               placeholder="Enter E-mail Address" 
-                               value="{{ old('email') }}" 
-                               required autocomplete="email" autofocus>
-                        @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-
-                    <!-- Password Input -->
-                    <div class="mb-4">
-                        <input id="password" type="password" 
-                               class="form-control form-control-lg @error('password') is-invalid @enderror" 
-                               name="password" 
-                               placeholder="Enter Password" 
-                               required autocomplete="current-password">
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-
-                    <!-- Remember Me Checkbox -->
-                    <div class="mb-3 form-check">
-                        <input class="form-check-input" type="checkbox" 
-                               name="remember" id="remember" 
-                               {{ old('remember') ? 'checked' : '' }}>
-                        <label class="form-check-label" for="remember">
-                            {{ __('Remember Me') }}
-                        </label>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn custom-btn btn-lg">
-                            {{ __('LOG IN') }}
-                        </button>
-                        @if (Route::has('password.request'))
-                            <div class="d-flex justify-content-between mt-2">
-                                <a class="btn btn-link" style="text-transform: none;" href="{{ route('password.request') }}">
-                                    {{ __('Forgot your password?') }}
-                                </a>
-                                <a href="{{ route('register') }}">
-                                    {{ __('No Account Yet? Register') }}
-                                </a>
+            <div class="right-login mx-auto">
+                <div class="login-card" style="border-radius: 10px;">
+                    <div class="card-login">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <!-- Email Input -->
+                            <div class="mb-4">
+                                <input id="email" type="email" 
+                                       class="form-control form-control-lg @error('email') is-invalid @enderror" 
+                                       name="email" 
+                                       placeholder="Enter E-mail Address" 
+                                       value="{{ old('email') }}" 
+                                       required autocomplete="email" autofocus>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-                        @endif
+
+                            <!-- Password Input -->
+                            <div class="mb-4">
+                                <input id="password" type="password" 
+                                       class="form-control form-control-lg @error('password') is-invalid @enderror" 
+                                       name="password" 
+                                       placeholder="Enter Password" 
+                                       required autocomplete="current-password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <!-- Remember Me Checkbox -->
+                            <div class="mb-3 form-check">
+                                <input class="form-check-input" type="checkbox" 
+                                       name="remember" id="remember" 
+                                       {{ old('remember') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="remember">
+                                    {{ __('Remember Me') }}
+                                </label>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn custom-btn btn-lg">
+                                    {{ __('LOG IN') }}
+                                </button>
+                                @if (Route::has('password.request'))
+                                    <div class="d-flex justify-content-between mt-2">
+                                        <a class="btn btn-link" style="text-transform: none;" href="{{ route('password.request') }}">
+                                            {{ __('Forgot your password?') }}
+                                        </a>
+                                        <a href="{{ route('register') }}">
+                                            {{ __('No Account Yet? Register') }}
+                                        </a>
+                                    </div>
+                                @endif
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-
-    </div>
-</div>
 
 @endsection
