@@ -500,6 +500,10 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" id="request-xhistory-tab" data-bs-toggle="tab" href="#request-history" role="tab">Requests History</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" id="edit-personal-info-tab" data-bs-toggle="tab" href="#edit-personal-info" role="tab" style="pointer-events: none; cursor: not-allowed; color: #FFFFFF;">Edit Profile</a>
                     </li>
 
@@ -511,16 +515,6 @@
                     </li>
                 @endif
             @endauth
-
-            @auth
-                {{-- Check if the user is admin --}}
-                @if (Auth::user()->Credential == 'admin')
-                    <li class="nav-item">
-                        <a class="nav-link" id="request-tab" data-bs-toggle="tab" href="#request" role="tab">Request Management</a>
-                    </li>
-                @endif
-            @endauth
-
 
             @auth
                 {{-- Check if the user is admin --}}
@@ -690,6 +684,8 @@
                 </div>
             </div>
 
+
+
                     <!-- Admin Management Tab -->
                     <div class="tab-pane fade" id="admin" role="tabpanel">
                         <h5>Admin Management</h5>
@@ -775,6 +771,10 @@
                                         <td><input type="text" class="form-control" id="address" value="{{ $record->address }}" readonly></td>
                                     </tr>
                                     <tr>
+                                        <td><label for="requested_certificate" class="form-label">Requested Certificate</label></td>
+                                        <td><input type="text" class="form-control" id="requested_certificate" value="{{ $record->requested_certificate }}" readonly></td>
+                                    </tr>
+                                    <tr>
                                         <td><label for="quantity" class="form-label">Quantity</label></td>
                                         <td><input type="number" class="form-control" id="quantity" value="{{ $record->quantity }}" readonly></td>
                                     </tr>
@@ -797,6 +797,7 @@
                         @endforeach
                     @endif
                     </div>
+
 
                     <!-- Rider Management Tab -->
                     <div class="tab-pane fade" id="riders" role="tabpanel">
