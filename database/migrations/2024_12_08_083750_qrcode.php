@@ -12,13 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('qrcode', function (Blueprint $table) {
-
             $table->id('Attemp_Id'); 
-            $table->unsignedBigInteger('User_Id')->nullable();
             $table->string('photo', 300)->nullable();
-            $table->timestamps(); 
-            $table->foreign('User_Id')->references('User_Id')->on('users');
-        });
+            $table->timestamps();
+        });        
     }
 
     /**

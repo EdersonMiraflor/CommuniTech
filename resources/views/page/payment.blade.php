@@ -67,17 +67,13 @@
         </div>
         <!-- User Form End -->
 
-        <!-- Right Section: Payment QR and Admin Options -->
-<div class="image-section">
+        <div class="image-section">
     @auth
-        <!-- Check if $qrscan has records -->
-        @if ($qrscan->isNotEmpty())
-            @php
-                $data = $qrscan->first(); // Get the first record
-            @endphp
+        <!-- Check if there's a QR Code record -->
+        @if ($qrscan)
             <div class="payment-image">
                 <h3 class="text-center" style="font-family: Arial, sans-serif; color: #28a745;">Scan For Payment</h3>
-                <img src="{{ asset('storage/uploads/qrcode/' . $data->photo) }}" 
+                <img src="{{ asset('storage/uploads/qrcode/' . $qrscan->photo) }}" 
                      width="50%" 
                      class="img-responsive" 
                      style="margin: 50px; border: 5px solid rgb(74, 172, 49); border-radius: 20px;">
@@ -87,14 +83,6 @@
             <div class="no-qr-message">
                 <h3 class="text-center" style="font-family: Arial, sans-serif; color: #28a745;">No QR Code Found</h3>
                 <p class="text-center" style="font-family: Arial, sans-serif; color: #6c757d;">Please insert a QR Code by clicking Choose File from below.</p>
-                <div class="text-center" style="padding: 20px;">
-                    @foreach($qrcode as $item)
-                        <img src="{{ asset('storage/uploads/qrcode/' . $item->photo) }}" 
-                             width="70px" 
-                             height="70px" 
-                             alt="QR Code Image">
-                    @endforeach
-                </div>
             </div>
         @endif
 
@@ -118,6 +106,7 @@
         @endif
     @endauth
 </div>
+
 
     </div>
 </div>

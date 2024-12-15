@@ -11,43 +11,44 @@ class PaymentController extends Controller
 {
     public function index()
     {
-        $qrcode = Qrcode::all();
-        $qrscan = Qrcode::where('User_Id', Auth::id())->get(); // Fetch QR codes related to the logged-in user
-        return view('page.payment', compact('qrcode', 'qrscan'));
+        $qrscan = Qrcode::first(); // Fetch the single existing QR code
+        return view('page.payment', compact('qrscan'));
     }
     
     public function create()
     {
-        $qrcode = Qrcode::all();
-        $qrscan = Qrcode::where('User_Id', Auth::id())->get(); // Fetch QR codes related to the logged-in user
-        return view('page.payment', compact('qrcode', 'qrscan'));
+        $qrscan = Qrcode::first(); // Fetch the single existing QR code
+        return view('page.payment', compact('qrscan'));
     }
-    
     
     public function store(Request $request)
-    {
-        // Validate incoming request data
-        $validated = $request->validate([
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-        // Add authenticated user's ID to the data
-        $userId = Auth::id(); // Get the authenticated user's ID
-        $requestData['User_Id'] = $userId;
-        
-        // Create a new qr instance
-        $qrscan = new Qrcode;
-        // Handle the profile image upload
-        if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('public/uploads/qrcode', $filename); // Save in storage/app/public/uploads/qrcode
-            $qrscan->photo = $filename;
-        }
-        
-        // Save the student data
-        $qrscan->save();
+{
+    // Validate the incoming request
+    $validated = $request->validate([
+        'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
 
-        // Redirect back with a success message
-        return redirect()->route('payment.create');
+    // Retrieve the existing QR Code record (if any)
+    $qrscan = Qrcode::first(); // Fetch the single existing QR code
+
+    // If no record exists, create a new one
+    if (!$qrscan) {
+        $qrscan = new Qrcode();
     }
+
+    // Handle file upload for the new photo
+    if ($request->hasFile('photo')) {
+        $file = $request->file('photo');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $file->storeAs('public/uploads/qrcode', $filename); // Save in storage/app/public/uploads/qrcode
+        $qrscan->photo = $filename;
+    }
+
+    // Save the updated QR Code
+    $qrscan->save();
+
+    // Redirect back with a success message
+    return redirect()->route('payment.create')->with('success', 'QR Code updated successfully!');
+}
+
 }
