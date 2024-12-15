@@ -17,7 +17,7 @@
     box-sizing: border-box;
 }
 
-.left-side, 
+.left-side,
 .right-side {
     flex: 1;
     margin: 20px;
@@ -56,19 +56,19 @@
     opacity: 0.3;
 }
 
-.title, 
-.description, 
-.sub-description, 
+.title,
+.description,
+.sub-description,
 .button {
     align-items: center;
     position: relative;
-    left:  1%;
+    left: 1%;
     right: 50%;
     z-index: 2;
 }
 
 .title {
-    font-size:2.8rem;
+    font-size: 2.8rem;
     font-weight: bold;
     margin-bottom: 10px;
     top: 60px;
@@ -91,7 +91,7 @@
 
 .button {
     padding: 12px 24px;
-    background-color: #04AA6D;
+    background-color: #04aa6d;
     border: none;
     color: white;
     font-size: 16px;
@@ -103,7 +103,7 @@
 }
 
 .button:hover {
-    background-color: #04AA6D;
+    background-color: #04aa6d;
     transform: scale(1.1);
 }
 
@@ -129,8 +129,8 @@
 }
 
 .image.selected {
-    border-color: #04AA6D;
-    border: 5px solid #04AA6D;
+    border-color: #04aa6d;
+    border: 5px solid #04aa6d;
 }
 
 /* --- Responsive Design --- */
@@ -197,7 +197,7 @@
     .title {
         align-items: center;
         right: 50px;
-        font-size:1.5rem;
+        font-size: 1.5rem;
     }
 
     .description {
@@ -307,7 +307,7 @@
     box-sizing: border-box;
 }
 
-.left-side, 
+.left-side,
 .right-side {
     flex: 1;
     margin: 20px;
@@ -346,19 +346,19 @@
     opacity: 0.3;
 }
 
-.title, 
-.description, 
-.sub-description, 
+.title,
+.description,
+.sub-description,
 .button {
     align-items: center;
     position: relative;
-    left:  1%;
+    left: 1%;
     right: 50%;
     z-index: 2;
 }
 
 .title {
-    font-size:2.8rem;
+    font-size: 2.8rem;
     font-weight: bold;
     margin-bottom: 10px;
     top: 60px;
@@ -381,7 +381,7 @@
 
 .button {
     padding: 12px 24px;
-    background-color: #04AA6D;
+    background-color: #04aa6d;
     border: none;
     color: white;
     font-size: 16px;
@@ -393,7 +393,7 @@
 }
 
 .button:hover {
-    background-color: #04AA6D;
+    background-color: #04aa6d;
     transform: scale(1.1);
 }
 
@@ -419,8 +419,8 @@
 }
 
 .image.selected {
-    border-color: #04AA6D;
-    border: 5px solid #04AA6D;
+    border-color: #04aa6d;
+    border: 5px solid #04aa6d;
 }
 
 /* --- Responsive Design --- */
@@ -487,7 +487,7 @@
     .title {
         align-items: center;
         right: 50px;
-        font-size:1.5rem;
+        font-size: 1.5rem;
     }
 
     .description {
@@ -582,196 +582,50 @@
 /*Auth-Page End*/
 
 /*LOGIN SECTION*/
-.login-container {
+/* General Styles */
+body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-    flex-wrap: wrap;
-    padding: 10px;
-    max-width: 80%;
-    margin: 40px auto;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    box-sizing: border-box;
 }
 
-/* Left Container Styles */
-.left-login {
-    flex: 1;
-    display: flex;
-    flex-direction: column;  
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    min-width: 300px;
-    position: relative;
-    top: 10px;
-    bottom: 10px;
-}
-
-.login-logo {
-    align-items: center;
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%);
-    width: 350px;
-    height: auto;
-    object-fit: contain;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.3;
-}
-
-.login-text {
-    z-index: 2;
-    align-items: center;
-}
-
-.login-title {
-    font-size: 2.8rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-   text-align: center;
-   margin-top: 40px;
+.login-container {
+    background-color: #f8f9fa;
+    width: 100%;
 }
 
 .login-description {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-    font-style: italic;
-    color: #333;
-    text-align: center;
-    margin-top: 15px;
+    font-size: larger;
 }
 
-.login-picture {
-    display: flex;
-    justify-content: space-around;
+.card-login {
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    margin-top: 10px;
 }
 
-.login-photo {
-    display: flex;
-    gap: 15px;
-    
-}
-
-.login-text {
-    text-align: center;
-}
-
-/* Specific styles for individual pictures */
-.secure-picture img {
-    width: 80px;
-    height: 50px;
-}
-
-.fast-picture img {
-    width: 100px;
-    height: 50px;
-}
-
-.convenient-picture img {
-    width: 90px;
-    height: 50px;
-}
-
-.login-text img {
-    border-radius: 5px;
-}
-
-.h5 {
-    margin-top: 5px;
-    font-weight: bold;
-    font-size: 1.3rem;
-}
-
-/* Right Container Styles */
 .right-login {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 20px;
-    min-width: 300px;
 }
 
-.login-card {
-    width: 100%;
-    max-width: 500px;
-    padding: 20px;
-    background-color: #e8f7ec;
+.form-control-lg {
+    padding: 1.5rem 1rem;
+    font-size: 1.1rem;
 }
 
-.card-login form {
-    width: 100%;
-}
-
-.form-control {
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-}
-
-.d-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem; /* Add some spacing above the container */
-    margin-bottom: 1rem; /* Add some spacing below the container */
-}
-
-.d-flex .btn-link {
-    padding: 0.5rem 1rem; /* Add padding for equal top and bottom space */
-    text-transform: none; /* Ensure text styling matches the given code */
-    text-decoration: none; /* Remove underline for cleaner design */
-    color: #007bff; /* Default link color */
-}
-
-.d-flex .btn-link:hover {
-    text-decoration: underline; /* Add underline on hover */
-    color: #0056b3; /* Darker blue on hover */
-}
-
-.d-flex a {
-    padding: 0.5rem 1rem; /* Consistent padding for all links */
-    text-decoration: none;
-    font-size: 14px; /* Uniform font size */
-    color: #007bff;
-}
-
-.d-flex a:hover {
-    text-decoration: underline; /* Hover effect for better UX */
-    color: #0056b3;
-}
-
+/* Button Styles */
 .custom-btn {
-    background-color: #22AF4A;
-    color: #fff;
+    background-color: #28a745; /* Retained original blue color */
+    color: white;
     border: none;
-    border-radius: 5px;
-    padding: 12px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
+    font-size: 1rem;
+    padding: 1rem;
 }
 
 .custom-btn:hover {
-    background-color: #04AA6D;
-    transform: scale(1.05);
+    background-color: #28a745; /* Retained darker blue on hover */
 }
 
-/* --- Responsive Design for Login Section --- */
-
+/* Responsive Styling */
 @media (max-width: 1200px) {
     .login-container {
         flex-direction: column;
@@ -780,34 +634,9 @@
         padding: 20px;
     }
 
-    .left-login, .right-login {
+    .right-login {
         width: 100%;
         margin: 10px 0;
-    }
-
-    .login-logo {
-        width: 300px;
-        top: 20px;
-    }
-
-    .login-title {
-        font-size: 2.2rem;
-        margin-top: 30px;
-    }
-
-    .login-description {
-        font-size: 1.2rem;
-    }
-
-    .secure-picture img,
-    .fast-picture img,
-    .convenient-picture img {
-        width: 70px;
-        height: 40px;
-    }
-
-    .h5 {
-        font-size: 1.3rem;
     }
 
     .login-card {
@@ -826,32 +655,13 @@
         align-items: center;
     }
 
-    .login-logo {
-        width: 250px;
-    }
-
-    .login-title {
-        font-size: 1.8rem;
-    }
-
-    .login-description {
-        font-size: 1rem;
-    }
-
-    .secure-picture img,
-    .fast-picture img,
-    .convenient-picture img {
-        width: 60px;
-        height: 35px;
-    }
-
     .custom-btn {
         font-size: 13px;
         padding: 8px 12px;
     }
 
     .d-flex a {
-        font-size: 12px; /* Uniform font size */
+        font-size: 12px;
     }
 }
 
@@ -862,32 +672,13 @@
         padding: 10px;
     }
 
-    .login-logo {
-        width: 200px;
-    }
-
-    .login-title {
-        font-size: 1.5rem;
-    }
-
-    .login-description {
-        font-size: 0.9rem;
-    }
-
-    .secure-picture img,
-    .fast-picture img,
-    .convenient-picture img {
-        width: 50px;
-        height: 30px;
-    }
-
-    .d-flex a {
-        font-size: 10px; /* Uniform font size */
-    }
-
     .custom-btn {
         font-size: 12px;
         padding: 6px 10px;
+    }
+
+    .d-flex a {
+        font-size: 10px;
     }
 }
 
@@ -896,61 +687,54 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 15px; /* Adjusted padding for better spacing */
-        gap: 10px; /* Added gap for spacing between elements */
-    }
-
-    .login-logo {
-        width: 100px; /* Reduced size to fit smaller screens */
-        height: auto; /* Ensure proper aspect ratio */
-        margin-bottom: 10px; /* Space below the logo */
-    }
-
-    .login-title {
-        font-size: 1rem; /* Slightly reduced size for better fit */
-        text-align: center; /* Ensure centered alignment */
-        margin-bottom: 5px;
-    }
-
-    .login-description {
-        font-size: 0.75rem; /* Adjust font size for better readability */
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .secure-picture img,
-    .fast-picture img,
-    .convenient-picture img {
-        width: 50px; /* Reduced width for better layout */
-        height: 20px; /* Adjusted height */
-        margin: 5px; /* Added spacing between images */
-    }
-
-    .d-flex a {
-        font-size: 0.9rem; /* Uniform font size with better readability */
-        margin: 5px 0; /* Added spacing between links */
+        padding: 15px;
+        gap: 10px;
     }
 
     .custom-btn {
-        font-size: 0.9rem; /* Slightly reduced size for consistency */
-        padding: 8px 12px; /* Adjusted padding for better button usability */
-        width: 100%; /* Full-width buttons for better accessibility */
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        width: 100%;
         text-align: center;
     }
 }
 
-
 /* Prevent the right-login section from overflowing */
 .right-login {
-    max-width: 100%; /* Ensure it stays within the parent container */
-    padding: 1rem; /* Add padding for better spacing */
-    box-sizing: border-box; /* Ensure padding doesn't add to width */
-    overflow: hidden; /* Prevent any overflow */
+    max-width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-/* Optional: Reduce the width slightly for smaller screens */
-@media (max-width: 768px) {
-    .right-login {
-        width: 90%; /* Reduce width on smaller screens */
+.text-container {
+    display: flex;
+    flex-direction: column; /* Ensures stack order is vertical */
+    align-items: center; /* Centers the text horizontally */
+    justify-content: center; /* Centers the text vertically if necessary */
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.text-container .title {
+    font-size: 2rem; /* Larger font size for title */
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px; /* Space between h1 and h2 */
+}
+
+.text-container .login-description {
+    font-size: 1.2rem; /* Smaller font size for description */
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .text-container .title {
+        font-size: 1.5rem; /* Responsive title size for smaller screens */
+    }
+
+    .text-container .login-description {
+        font-size: 1rem; /* Responsive description size */
     }
 }
