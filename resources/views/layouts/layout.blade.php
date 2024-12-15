@@ -512,15 +512,17 @@
                             <i class="fas fa-user ms-2"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/home/user-profile">
+                                {{ __('My Account') }}
+                            </a>
+
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                                 <i class="fas fa-sign-out-alt ms-2"></i>
                             </a>
-                            <a class="dropdown-item" href="/home/user-profile">
-                                {{ __('User Profile') }}
-                            </a>
+    
                             <hr class="dropdown-divider"> <!-- Horizontal line divider -->
                             <a class="dropdown-item" href="/rider_application">
                                 {{ __('Sign up as a Rider!') }}
@@ -541,7 +543,7 @@
     <span class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></span>
     <div class="navbar-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
-        <a href="/home/services" class="{{ Request::is('home/services') ? 'active' : '' }}">SERVICES</a>
+        <a href="/home/services" class="{{ Request::is('home/services*') ? 'active' : '' }}">SERVICES</a>
         @auth
             {{-- Check if the user is admin --}}
             @if (Auth::user()->Credential == 'admin')
@@ -577,7 +579,7 @@
     <!-- Hidden Dropdown Menu for Small Screens -->
     <div class="dropdown-menu" id="dropdown-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
-        <a href="/home/services" class="{{ Request::is('home/services') ? 'active' : '' }}">SERVICES</a>
+        <a href="/home/services" class="{{ Request::is('home/services*') ? 'active' : '' }}">SERVICES</a>
         <a href="/home/transaction" class="{{ Request::is('home/transaction') ? 'active' : '' }}">TRANSACTIONS</a>
 <!--
         @auth
