@@ -2,7 +2,8 @@
 @section('content')
 
 <link rel="stylesheet" href="{{ asset('css/img-auth.css') }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- hide or unhide password-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
 
 
 <div class="content" style="margin-bottom: 50px; margin-top:50px;">
@@ -38,25 +39,26 @@
                             </div>
 
                             <!-- Password Input -->
-                            <div class="mb-4 position-relative">
-                                <input id="password" type="password" 
-                                       class="form-control form-control-lg @error('password') is-invalid @enderror" 
-                                       name="password" 
-                                       placeholder="Enter Password" 
-                                       required autocomplete="current-password">
-                                       
-                                       <span id="togglePassword" class="eye-icon position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color:gray;">
-                                <i class="fas fa-eye"></i>
-                                    </span>
+                        <div class="mb-4 position-relative">
+                            <input id="password" type="password" 
+                                class="form-control form-control-lg @error('password') is-invalid @enderror" 
+                                name="password" 
+                                placeholder="Enter Password" 
+                                required autocomplete="current-password">
                                 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <!-- Toggle Password Visibility -->
+                            <span id="togglePassword" class="eye-icon position-absolute" 
+                                style="right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color:gray;">
+                                <i id="toggleIcon" class="bi bi-eye-slash"></i>
+                            </span>
+                            
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
 
-                                
-                            </div>
 
                             <!-- Remember Me Checkbox -->
                             <div class="mb-3 form-check">
@@ -90,15 +92,22 @@
 </div>
 
 <script>
-    // Password visibility toggle
-    const togglePassword = document.getElementById('togglePassword');
-    const passwordInput = document.getElementById('password');
+    // JavaScript for toggling password visibility
+document.getElementById('togglePassword').addEventListener('click', function () {
+    const passwordField = document.getElementById('password');
+    const toggleIcon = document.getElementById('toggleIcon');
 
-    togglePassword.addEventListener('click', function () {
-    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-    passwordInput.setAttribute('type', type);
-    this.innerHTML = type === 'password' ? '<i class="fas fa-eye-slash"></i>' : '<i class="fas fa-eye"></i>';
-    });
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text'; // Show password
+        toggleIcon.classList.remove('bi-eye-slash'); // Change icon
+        toggleIcon.classList.add('bi-eye');
+    } else {
+        passwordField.type = 'password'; // Hide password
+        toggleIcon.classList.remove('bi-eye'); // Revert icon
+        toggleIcon.classList.add('bi-eye-slash');
+    }
+});
+
 
     /*
         function validatePassword() {
