@@ -428,6 +428,45 @@
 
 
 
+        /*search css*/
+        .navbar-search {
+    position: relative;
+}
+.navbar-search {
+    position: relative;
+    display: inline-block;
+}
+
+.search-results {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Below the input field */
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.result-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.result-item:hover {
+    background-color: #f1f1f1;
+}
+
+.no-results {
+    padding: 10px;
+    text-align: center;
+    color: #888;
+}
+
     </style>
 
     <!-- Scripts -->
@@ -530,8 +569,10 @@
         <a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
     </div>
     <div class="navbar-search">
-        <input type="text" placeholder="Search">
-    </div>
+    <input type="text" id="searchInput" placeholder="Search" oninput="searchWebsiteText()">
+</div>
+<div id="searchResults" class="search-results"></div>
+
 
     <!-- Hidden Dropdown Menu for Small Screens -->
     <div class="dropdown-menu" id="dropdown-menu">
@@ -625,12 +666,12 @@
                         <h4>Page links</h4>
                     </div>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">User Manual</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/home/services">Services</a></li>
+                        <li><a href="/home/usermanual">User Manual</a></li>
+                        <li><a href="/home/about">About</a></li>
+                        <li><a href="/home/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="/home/contact">Contact</a></li>
                     </ul>
                 </div>
 
@@ -694,7 +735,7 @@
         <div class="footer-bottom">
             <div class="row">
                 <div class="col-sm-4">
-                    <a href="">Privacy policy</a>
+                    <a href="/home/privacy-policy">Privacy policy</a>
                 </div>
                 <div class="col-sm-8">
                     <p>Communitech @ 2024 All rights reserved</p>
@@ -713,6 +754,85 @@
         }
         setInterval(updateDateTime, 1000);
         updateDateTime();
+    </script>
+
+<!--search result js-->
+    <script>
+  let hideResultsTimeout;
+
+function searchWebsiteText() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const resultsContainer = document.getElementById('searchResults');
+    const allTextElements = document.body.querySelectorAll('*:not(script):not(style)'); // Exclude scripts and styles
+    
+    resultsContainer.innerHTML = ''; // Clear previous results
+
+    if (query.trim() === '') {
+        resultsContainer.style.display = 'none';
+        return;
+    }
+
+    const results = [];
+    allTextElements.forEach((element, index) => {
+        if (element.children.length === 0 && element.textContent.trim() !== '') {
+            const textContent = element.textContent.toLowerCase();
+            if (textContent.includes(query)) {
+                const id = `search-result-${index}`; // Assign a unique ID to the element
+                element.id = id;
+                results.push({ text: element.textContent.trim(), id });
+            }
+        }
+    });
+
+    if (results.length > 0) {
+        resultsContainer.style.display = 'block';
+        results.forEach(result => {
+            const resultItem = document.createElement('div');
+            resultItem.classList.add('result-item');
+            resultItem.textContent = result.text;
+            resultItem.onclick = () => {
+                document.getElementById(result.id).scrollIntoView({ behavior: 'smooth', block: 'center' });
+                highlightElement(result.id); // Optional: Highlight the target element
+            };
+            resultsContainer.appendChild(resultItem);
+        });
+    } else {
+        resultsContainer.style.display = 'block';
+        resultsContainer.innerHTML = '<div class="no-results">No results found</div>';
+    }
+}
+
+function highlightElement(id) {
+    const element = document.getElementById(id);
+    element.style.transition = 'background-color 0.5s';
+    element.style.backgroundColor = 'yellow'; // Temporary highlight
+    setTimeout(() => {
+        element.style.backgroundColor = '';
+    }, 1500);
+}
+
+function showResults() {
+    const resultsContainer = document.getElementById('searchResults');
+    if (resultsContainer.innerHTML.trim() !== '') {
+        resultsContainer.style.display = 'block';
+    }
+}
+
+function hideResultsWithDelay() {
+    hideResultsTimeout = setTimeout(() => {
+        const resultsContainer = document.getElementById('searchResults');
+        resultsContainer.style.display = 'none';
+    }, 200); // Add a slight delay to avoid premature hiding
+}
+
+document.getElementById('searchResults').addEventListener('mouseenter', () => {
+    clearTimeout(hideResultsTimeout);
+});
+
+document.getElementById('searchResults').addEventListener('mouseleave', () => {
+    hideResultsWithDelay();
+});
+
     </script>
 
     <!-- Include Popper.js and Bootstrap JS -->

@@ -43,7 +43,17 @@
         <img src="{{ asset('img/Certificate-of-Marriage-/page-0.jpg') }}" alt="Certificate of Death">
         <img src="{{ asset('img/Certificate-of-Marriage-/page-1.jpg') }}" alt="Certificate of Death">
 
-        <a href="{{ url('/view-death-cert') }}" class="onlymarriagetop"> << PREVIOUS PAGE</a>
-        <a href="{{ url('/another-link') }}" class="onlymarriagebottom"><< PREVIOUS PAGE</a>
+        
     </div>
+
+        <!-- Back Button -->
+<a href="javascript:history.back()" class="btn btn-success back-button">BACK</a>
+  
     @endsection
+
+    <!--
+
+<a href="{{ url('/view-death-cert') }}" class="onlymarriagetop"> << PREVIOUS PAGE</a>
+        <a href="{{ url('/another-link') }}" class="onlymarriagebottom"><< PREVIOUS PAGE</a>
+
+-->
