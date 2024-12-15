@@ -184,7 +184,7 @@
 /* Announcement Manager Styles */
 .announcement-container {
     width: 100%;
-    max-width: 800px;
+    max-width: 2000px;
     margin: 20px auto;
     padding: 20px;
     background-color: #f9f9f9;
