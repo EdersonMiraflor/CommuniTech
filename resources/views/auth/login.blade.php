@@ -60,18 +60,51 @@
                             </div>
 
                             <!-- Password Input -->
-                            <div class="mb-4">
-                                <input id="password" type="password" 
-                                       class="form-control form-control-lg @error('password') is-invalid @enderror" 
-                                       name="password" 
-                                       placeholder="Enter Password" 
-                                       required autocomplete="current-password">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                           <!-- Password Input with Toggle Visibility -->
+<div class="mb-4 position-relative">
+    <!-- Password Input -->
+    <input id="password" type="password" 
+           class="form-control form-control-lg @error('password') is-invalid @enderror" 
+           name="password" 
+           placeholder="Enter Password" 
+           required autocomplete="current-password">
+
+    <!-- Eye Icon Button -->
+    <button type="button" class="btn btn-link position-absolute" 
+            style="top: 50%; right: 10px; transform: translateY(-50%); padding: 0;" 
+            onclick="togglePasswordVisibility()" aria-label="Toggle password visibility">
+        <i id="togglePasswordIcon" class="bi bi-eye" style="color: darkgreen; font-size: 1.25rem;"></i>
+    </button>
+
+    <!-- Error Message -->
+    @error('password')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+    @enderror
+</div>
+
+<!-- JavaScript for Toggle -->
+<script>
+    function togglePasswordVisibility() {
+        const passwordField = document.getElementById('password');
+        const toggleIcon = document.getElementById('togglePasswordIcon');
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text'; // Show password
+            toggleIcon.classList.remove('bi-eye-slash'); // Change icon
+            toggleIcon.classList.add('bi-eye');
+        } else {
+            passwordField.type = 'password'; // Hide password
+            toggleIcon.classList.remove('bi-eye'); // Revert icon
+            toggleIcon.classList.add('bi-eye-slash');
+        }
+    }
+</script>
+
+<!-- Ensure Bootstrap Icons are included -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
 
                             <!-- Remember Me Checkbox -->
                             <div class="mb-3 form-check">
