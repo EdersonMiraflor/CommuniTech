@@ -389,6 +389,9 @@ input:focus, textarea:focus, select:focus {
     </div>
 @endif
 
+@auth
+    {{-- Check if the user is admin --}}
+    @if (Auth::user()->Credential == 'admin')
 <!--START announcement section FOR ADMIN-->
 <div class="announcement-container">
     <h1 class="announcement-header">Announcements Manager</h1>
@@ -424,7 +427,8 @@ input:focus, textarea:focus, select:focus {
     </form>
 </div>
 <!--END announcement section FOR ADMIN-->
-
+@endif
+@endauth
 <!--banner section-->
   <div class="banners">
     <div class="slideshow-container">
