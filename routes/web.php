@@ -20,6 +20,11 @@ use App\Http\Controllers\AnnouncementController;
 Auth::routes();
 Auth::routes(['verify' => true]);
 
+//scan route
+Route::get('/scan', function () {
+    return view('scan');
+});
+
 // Home Routes
 Route::get('/home/user-profile/report', [CertificateController::class, 'showReport'])->middleware('auth');
 Route::get('/home/privacy-policy', fn() => view('page.privacy-policy'));
