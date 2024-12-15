@@ -11,8 +11,11 @@
         <!-- Logo as a background overlay -->
         <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="logo-overlay">
         <br>
-        <h1 class="title">CommuniTECH</h1>
-        <h2 class="login-description">A Web-Based Application For Civil Registry Office of Manito, Albay</h2>
+        <!-- Responsive Text Container -->
+        <div class="text-container">
+            <h1 class="title">CommuniTECH</h1>
+            <h2 class="login-description">A Web-Based Application For Civil Registry Office of Manito, Albay</h2>
+        </div>
     </div>
 
     <!-- Right Side -->
