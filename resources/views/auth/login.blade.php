@@ -4,6 +4,10 @@
 
 <link rel="stylesheet" href="{{ asset('css/img-auth.css') }}">
 
+<div class="container">
+
+
+
 <div class="container-fluid login-container my-5 py-5">
     <div class="row justify-content-center align-items-center">
         <!-- Left Container for Images and Text -->
@@ -103,5 +107,5 @@
     </div>
 </div>
 
-
+</div>
 @endsection
