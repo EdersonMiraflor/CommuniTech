@@ -108,7 +108,11 @@ Route::post('/otpform', [OtpController::class, 'create'])->name('otpform');
 Route::resource('birth-registration', BirthRegistrationController::class);
 
 // Home Routes (after authentication and email verification)
-Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
+
+// Display the payment form (GET request)
+Route::get('/payment', [PaymentController::class, 'index'])->middleware('auth');
+// Store the payment record (POST request)
+Route::post('/payment', [PaymentRecordController::class, 'userrecord'])->name('store.record');
 
 // Display the payment form (GET request)
 Route::get('/payment', [PaymentController::class, 'index'])->middleware('auth');

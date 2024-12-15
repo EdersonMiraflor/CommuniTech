@@ -8,7 +8,7 @@
     <div class="form-and-image">
         <!-- Left Section: User Form -->
         <div class="form-section">
-            <form action="{{ url('/payment/create') }}" method="POST" enctype="multipart/form-data" class="payment-form">
+        <form action="{{ route('store.record') }}" method="POST" enctype="multipart/form-data" class="payment-form">
                 {!! csrf_field() !!}
                 <div class="form-group">
                     <label for="name">Name</label>

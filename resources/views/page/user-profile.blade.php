@@ -500,10 +500,6 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="request-xhistory-tab" data-bs-toggle="tab" href="#request-history" role="tab">Requests History</a>
-                    </li>
-
-                    <li class="nav-item">
                         <a class="nav-link" id="edit-personal-info-tab" data-bs-toggle="tab" href="#edit-personal-info" role="tab" style="pointer-events: none; cursor: not-allowed; color: #FFFFFF;">Edit Profile</a>
                     </li>
 
@@ -525,14 +521,6 @@
                 @endif
             @endauth
 
-            @auth
-                {{-- Check if the user is admin --}}
-                @if (Auth::user()->Credential == 'admin')
-                    <li class="nav-item">
-                        <a class="nav-link" id="user-tab" data-bs-toggle="tab" href="#user" role="tab">User Management</a>
-                    </li>
-                @endif
-            @endauth
 
             @auth
                 {{-- Check if the user is admin --}}
@@ -547,7 +535,7 @@
                 {{-- Check if the user is admin --}}
                 @if (Auth::user()->Credential == 'admin')
                     <li class="nav-item">
-                        <a class="nav-link" href="/otpform" style="color: #1DBC60;">Go to User Requests</a>
+                        <a class="nav-link" href="/otpform" style="color: #1DBC60;">Request Management</a>
                     </li>
                     @endif
             @endauth
@@ -556,7 +544,7 @@
                 {{-- Check if the user is admin --}}
                 @if (Auth::user()->Credential == 'admin')
                     <li class="nav-item">
-                        <a class="nav-link" href="/home/user-profile/report" style="color: #1DBC60;">Go to Report Generator</a>
+                        <a class="nav-link" href="/home/user-profile/report" style="color: #1DBC60;">Report Generator</a>
                     </li>
                 </ul>
                 @endif
@@ -670,6 +658,10 @@
                                         <td><input type="text" class="form-control" id="name" value="{{ $record->name }}" readonly></td>
                                     </tr>
                                     <tr>
+                                        <td><label for="address" class="form-label">Address</label></td>
+                                        <td><input type="text" class="form-control" id="address" value="{{ $record->address }}" readonly></td>
+                                    </tr>
+                                    <tr>
                                         <td><label for="requested_certificate" class="form-label">Requested Certificate</label></td>
                                         <td><input type="text" class="form-control" id="requested_certificate" value="{{ $record->requested_certificate }}" readonly></td>
                                     </tr>
@@ -678,10 +670,14 @@
                                         <td><input type="number" class="form-control" id="quantity" value="{{ $record->quantity }}" readonly></td>
                                     </tr>
                                     <tr>
+                                        <td><label for="status" class="form-label">Status</label></td>
+                                        <td><input type="text" class="form-control" id="status" value="{{ $record->status }}" readonly></td>
+                                    </tr>
+                                    <tr>
                                         <td><label for="proof" class="form-label">Proof</label></td>
                                         <td>
                                             @if ($record->proof)
-                                                <img src="{{ asset('storage/' . $record->proof) }}" alt="Proof Image" class="img-fluid" style="max-width: 200px; max-height: 200px;">
+                                                <img src="{{ asset('storage/' . $record->proof) }}" alt="Proof Image" class="img-fluid" style="max-width: 1300px; max-height: 900px;">
                                             @else
                                                 <span>No Proof Uploaded</span>
                                             @endif
@@ -693,8 +689,6 @@
                     @endif
                 </div>
             </div>
-
-
 
                     <!-- Admin Management Tab -->
                     <div class="tab-pane fade" id="admin" role="tabpanel">
@@ -766,31 +760,42 @@
 
                     <div class="tab-pane fade" id="request" role="tabpanel">
                         <h5>Request Management</h5>
-                        <form>
-                            <div class="mb-3">
-                                <label for="sms-notifications" class="form-label">Request Information</label>
-                                <select class="form-select" id="sms-notifications">
-                                    <option selected>Enabled</option>
-                                    <option>Disabled</option>
-                                </select>
-                            </div>
-                            <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
-                        </form>
-                    </div>
-
-                    
-                    <div class="tab-pane fade" id="user" role="tabpanel">
-                        <h5>User Management</h5>
-                        <form>
-                            <div class="mb-3">
-                                <label for="sms-notifications" class="form-label">User Information</label>
-                                <select class="form-select" id="sms-notifications">
-                                    <option selected>Enabled</option>
-                                    <option>Disabled</option>
-                                </select>
-                            </div>
-                            <a href="/home" class="btn btn-primary">Go Back to Home Page</a>
-                        </form>
+                        @if ($records->isEmpty())
+                        <p>No records found.</p>
+                    @else
+                        @foreach ($records as $record)
+                            <table class="table table-bordered mb-4">
+                                <tbody>
+                                    <tr>
+                                        <td><label for="name" class="form-label">Name</label></td>
+                                        <td><input type="text" class="form-control" id="name" value="{{ $record->name }}" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="address" class="form-label">Address</label></td>
+                                        <td><input type="text" class="form-control" id="address" value="{{ $record->address }}" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="quantity" class="form-label">Quantity</label></td>
+                                        <td><input type="number" class="form-control" id="quantity" value="{{ $record->quantity }}" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="status" class="form-label">Status</label></td>
+                                        <td><input type="text" class="form-control" id="status" value="{{ $record->status }}" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="proof" class="form-label">Proof</label></td>
+                                        <td>
+                                            @if ($record->proof)
+                                                <img src="{{ asset('storage/' . $record->proof) }}" alt="Proof Image" class="img-fluid" style="max-width: 1300px; max-height: 900px;">
+                                            @else
+                                                <span>No Proof Uploaded</span>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        @endforeach
+                    @endif
                     </div>
 
                     <!-- Rider Management Tab -->
