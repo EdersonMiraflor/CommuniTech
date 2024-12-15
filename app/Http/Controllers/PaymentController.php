@@ -11,44 +11,43 @@ class PaymentController extends Controller
 {
     public function index()
     {
-        $pay = Qrcode::all();
-        return view('page.payment')->with('qrscan', $pay);
+        $qrcode = Qrcode::all();
+        $qrscan = Qrcode::where('User_Id', Auth::id())->get(); // Fetch QR codes related to the logged-in user
+        return view('page.payment', compact('qrcode', 'qrscan'));
     }
-
+    
     public function create()
     {
-        return view('page.create');
+        $qrcode = Qrcode::all();
+        $qrscan = Qrcode::where('User_Id', Auth::id())->get(); // Fetch QR codes related to the logged-in user
+        return view('page.payment', compact('qrcode', 'qrscan'));
     }
-
+    
+    
     public function store(Request $request)
-{
-    $requestData = $request->all();
+    {
+        // Validate incoming request data
+        $validated = $request->validate([
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        // Add authenticated user's ID to the data
+        $userId = Auth::id(); // Get the authenticated user's ID
+        $requestData['User_Id'] = $userId;
+        
+        // Create a new qr instance
+        $qrscan = new Qrcode;
+        // Handle the profile image upload
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/uploads/qrcode', $filename); // Save in storage/app/public/uploads/qrcode
+            $qrscan->photo = $filename;
+        }
+        
+        // Save the student data
+        $qrscan->save();
 
-    // Add authenticated user's ID to the data
-    $userId = Auth::id(); // Get the authenticated user's ID
-    $requestData['User_Id'] = $userId;
-
-    // Check if a photo has been uploaded
-    if (!$request->hasFile('photo')) {
-        return redirect()->back()->with('error_message', 'No uploaded image, can\'t change');
+        // Redirect back with a success message
+        return redirect()->route('payment.create');
     }
-
-    // Handle photo upload
-    $fileName = time() . '_' . $request->file('photo')->getClientOriginalName();
-    $path = $request->file('photo')->storeAs('images', $fileName, 'public');
-    $requestData['photo'] = '/storage/' . $path;
-
-    // Retrieve the existing record or create a new one
-    $qrcode = Qrcode::firstOrCreate(['User_Id' => $userId]);
-
-    // Delete the previous photo (if any)
-    if ($qrcode->photo && file_exists(public_path($qrcode->photo))) {
-        unlink(public_path($qrcode->photo)); // Remove old photo
-    }
-
-    // Update the QR code record with the new photo
-    $qrcode->update(['photo' => $requestData['photo']]);
-
-    return redirect('payment')->with('flash_message', 'QR Code updated successfully!');
-}
 }

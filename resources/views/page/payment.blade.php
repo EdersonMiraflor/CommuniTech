@@ -68,45 +68,57 @@
         <!-- User Form End -->
 
         <!-- Right Section: Payment QR and Admin Options -->
-        <div class="image-section">
-            @auth
-                @if ($qrscan->isNotEmpty())
-                    @php
-                        $data = $qrscan->first(); // Get the first record
-                    @endphp
-                    <div class="payment-image">
-                        <h3 class="text-center" style="font-family: arial; color: #28a745;">Scan For Payment</h3>
-                        <img src="{{ asset($data->photo) }}" width="50%" class="img-responsive" style="margin: 50px; border: 5px solid rgb(74, 172, 49); border-radius: 20px;">
-                    </div>
-                @else
-                    <div class="no-qr-message">
-                        <h3 class="text-center" style="font-family: Arial, Helvetica, sans-serif; color: #28a745;">No QR Code Found</h3>
-                        <p class="text-center" style="font-family: Arial, Helvetica, sans-serif; color: #6c757d;">Please insert a QR Code by clicking Choose File from below.</p>
-                        <div class="text-center" style="padding: 20px;">
-                            <img src="{{ asset('images/no-qr-placeholder.png') }}" width="80%" class="img-responsive" style="margin: 20px; border: 2px dashed rgb(74, 172, 49); border-radius: 20px;">
-                        </div>
-                    </div>
-                @endif
+<div class="image-section">
+    @auth
+        <!-- Check if $qrscan has records -->
+        @if ($qrscan->isNotEmpty())
+            @php
+                $data = $qrscan->first(); // Get the first record
+            @endphp
+            <div class="payment-image">
+                <h3 class="text-center" style="font-family: Arial, sans-serif; color: #28a745;">Scan For Payment</h3>
+                <img src="{{ asset('storage/uploads/qrcode/' . $data->photo) }}" 
+                     width="50%" 
+                     class="img-responsive" 
+                     style="margin: 50px; border: 5px solid rgb(74, 172, 49); border-radius: 20px;">
+            </div>
+        @else
+            <!-- No QR Code Available -->
+            <div class="no-qr-message">
+                <h3 class="text-center" style="font-family: Arial, sans-serif; color: #28a745;">No QR Code Found</h3>
+                <p class="text-center" style="font-family: Arial, sans-serif; color: #6c757d;">Please insert a QR Code by clicking Choose File from below.</p>
+                <div class="text-center" style="padding: 20px;">
+                    @foreach($qrcode as $item)
+                        <img src="{{ asset('storage/uploads/qrcode/' . $item->photo) }}" 
+                             width="70px" 
+                             height="70px" 
+                             alt="QR Code Image">
+                    @endforeach
+                </div>
+            </div>
+        @endif
 
-                @if (Auth::user()->Credential === 'admin')
-                    @if(session('error_message'))
-                        <div class="alert alert-danger">
-                            {{ session('error_message') }}
-                        </div>
-                    @endif
-                    <form action="{{ url('payment') }}" method="POST" enctype="multipart/form-data" class="admin-form">
-                        @csrf
-                        <div class="form-group">
-                            <label for="photo">Change QR Photo</label>
-                            <input class="form-control" name="photo" type="file" id="photo">
-                        </div>
-                        <div class="form-group text-center">
-                            <input type="submit" value="Change" class="btn btn-success btn-submit">
-                        </div>
-                    </form>
-                @endif
-            @endauth
-        </div>
+        <!-- Admin Options -->
+        @if (Auth::user()->Credential === 'admin')
+            @if (session('error_message'))
+                <div class="alert alert-danger">
+                    {{ session('error_message') }}
+                </div>
+            @endif
+            <form action="{{ route('payment.store') }}" method="POST" enctype="multipart/form-data" class="admin-form">
+                @csrf
+                <div class="form-group">
+                    <label for="photo">Change QR Photo</label>
+                    <input class="form-control" name="photo" type="file" id="photo">
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Change QR Code</button>
+                </div>
+            </form>
+        @endif
+    @endauth
+</div>
+
     </div>
 </div>
 

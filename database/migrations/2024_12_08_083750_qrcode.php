@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id('Attemp_Id'); 
             $table->unsignedBigInteger('User_Id')->nullable();
             $table->string('photo', 300)->nullable();
-            $table->timestamps(); // Created at and Updated at
+            $table->timestamps(); 
             $table->foreign('User_Id')->references('User_Id')->on('users');
         });
     }

@@ -111,8 +111,9 @@ Route::resource('birth-registration', BirthRegistrationController::class);
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
 
 // Display the payment form (GET request)
-Route::resource('/payment', PaymentController::class);
-Route::post('/payment/create', [PaymentRecordController::class, 'userrecord']);
+Route::get('/payment', [PaymentController::class, 'index'])->middleware('auth');
+Route::get('/payment/create', [PaymentController::class, 'create'])->name('payment.create');
+Route::post('/payment/store', [PaymentController::class, 'store'])->name('payment.store');
 
 // Generate Certificate PDF
 Route::get('/generatebirth', [GeneratePDFController::class, 'generatebirth']);
