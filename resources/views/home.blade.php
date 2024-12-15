@@ -187,7 +187,7 @@
     max-width: 2000px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #95D2B3;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -196,7 +196,9 @@
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
-    color: #333;
+    color:rgb(0, 0, 0);
+    background-color:rgb(255, 255, 255);
+    
 }
 
 .announcement-form,
@@ -222,7 +224,7 @@
 #update-form button {
     padding: 12px 20px;
     border: none;
-    background-color: #4CAF50;
+    background-color:rgb(6, 135, 103);
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -232,7 +234,7 @@
 
 .announcement-form button:hover,
 #update-form button:hover {
-    background-color: #45a049;
+    background-color:rgb(18, 158, 111);
 }
 
 .button-container {
@@ -244,7 +246,7 @@
 
 #edit-announcement-btn {
     padding: 12px;
-    background-color: #4CAF50;
+    background-color:rgb(7, 100, 71);
     border: none;
     color: white;
     font-size: 16px;
@@ -254,13 +256,13 @@
 }
 
 #edit-announcement-btn:hover {
-    background-color: #4CAF50;
+    background-color:rgb(16, 137, 109);
 }
 
 /* Adjust Add Announcement button for consistency */
 .announcement-form button[type="submit"] {
     padding: 12px 20px;
-    background-color: #4CAF50;
+    background-color:rgb(7, 100, 71);
     border: none;
     color: white;
     font-size: 16px;
@@ -270,7 +272,7 @@
 }
 
 .announcement-form button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color:rgb(16, 137, 109);
 }
 
 #update-form {
