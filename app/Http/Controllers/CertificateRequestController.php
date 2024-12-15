@@ -77,7 +77,8 @@ class CertificateRequestController extends Controller
         ]);
 
         $requestedCertificate = "Birth Certificate";
-        $qrscan = Qrcode::all();
+        $qrscan = Qrcode::latest()->first(); 
+        $qrscans = Qrcode::all();
         return view('page.payment', compact('requestedCertificate', 'qrscan')); 
     }
 /*End Live Birth*/
@@ -166,8 +167,9 @@ class CertificateRequestController extends Controller
         'admin_officer_address' => $request->admin_officer_address,
             ]);
             $requestedCertificate = "Marriage Certificate";
-            $qrscan = Qrcode::all();
-            return view('page.payment', compact('requestedCertificate', 'qrscan'));
+            $qrscan = Qrcode::latest()->first(); 
+            $qrscans = Qrcode::all();
+            return view('page.payment', compact('requestedCertificate', 'qrscans', 'qrscan'));
     }
 /*End Marriage*/   
 
@@ -244,8 +246,9 @@ class CertificateRequestController extends Controller
         ]);
 
         $requestedCertificate = "Death Certificate";
-        $qrscan = Qrcode::all();
-        return view('page.payment', compact('requestedCertificate', 'qrscan'));
+        $qrscan = Qrcode::latest()->first(); 
+        $qrscans = Qrcode::all();
+        return view('page.payment', compact('requestedCertificate', 'qrscan', 'qrscans'));
     }
 /*End Death*/ 
 }

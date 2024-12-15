@@ -73,10 +73,8 @@
         @if ($qrscan)
             <div class="payment-image">
                 <h3 class="text-center" style="font-family: Arial, sans-serif; color: #28a745;">Scan For Payment</h3>
-                <img src="{{ asset('storage/uploads/qrcode/' . $qrscan->photo) }}" 
-                    width="50%" 
-                    class="img-responsive" 
-                    style="margin: 50px; border: 5px solid rgb(74, 172, 49); border-radius: 20px;">
+                <img src="{{ asset('storage/uploads/qrcode/' . $qrscan->photo) }}" width="50%" class="img-responsive" 
+style="margin: 50px; border: 5px solid rgb(74, 172, 49); border-radius: 20px;">
             </div>
         @else
             <div class="no-qr-message">
