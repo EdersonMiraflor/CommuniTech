@@ -74,17 +74,17 @@
             <div class="payment-image">
                 <h3 class="text-center" style="font-family: Arial, sans-serif; color: #28a745;">Scan For Payment</h3>
                 <img src="{{ asset('storage/uploads/qrcode/' . $qrscan->photo) }}" 
-                     width="50%" 
-                     class="img-responsive" 
-                     style="margin: 50px; border: 5px solid rgb(74, 172, 49); border-radius: 20px;">
+                    width="50%" 
+                    class="img-responsive" 
+                    style="margin: 50px; border: 5px solid rgb(74, 172, 49); border-radius: 20px;">
             </div>
         @else
-            <!-- No QR Code Available -->
             <div class="no-qr-message">
                 <h3 class="text-center" style="font-family: Arial, sans-serif; color: #28a745;">No QR Code Found</h3>
-                <p class="text-center" style="font-family: Arial, sans-serif; color: #6c757d;">Please insert a QR Code by clicking Choose File from below.</p>
+                <p class="text-center" style="font-family: Arial, sans-serif; color: #6c757d;">Please insert a QR Code by clicking Choose File below.</p>
             </div>
         @endif
+
 
         <!-- Admin Options -->
         @if (Auth::user()->Credential === 'admin')

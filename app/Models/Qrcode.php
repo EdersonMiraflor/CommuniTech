@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Qrcode extends Model
 {
     use HasFactory;
+
+    // No need to specify the primary key and incrementing flag if you're using auto-increment
     protected $table = 'qrcode';
-    protected $primaryKey = 'Attemp_Id';
-    public $incrementing = false;
-    protected $fillable = [
-        'User_Id',
-        'photo'
-    ]; 
+
+    // This will automatically handle the primary key and increments
+    protected $fillable = ['photo'];
 }
+
