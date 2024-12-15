@@ -54,14 +54,10 @@ return new class extends Migration
             $table->timestamps(); // created_at and updated_at columns
         
             // Foreign key constraint
-            $table->foreign('User_Id')
-                  ->references('id') // Assuming primary key in users table is `id`
-                  ->on('users')
-                  ->onDelete('cascade'); // Cascade delete for user-related inquiries
-        });
+            $table->foreign('User_Id')->references('User_Id')->on('users')->onDelete('cascade'); 
         
+    });
     }
-
     /**
      * Reverse the migrations.
      */
