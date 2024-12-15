@@ -15,6 +15,7 @@ use App\Http\Controllers\CertificateDisplayController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentRecordController;
 use App\Http\Controllers\GeneratePDFController;
+use App\Http\Controllers\AnnouncementController;
 
 Auth::routes();
 Auth::routes(['verify' => true]);
@@ -131,3 +132,6 @@ Route::get('/view-birthhonly-cert', function () {
 Route::get('/view-marriageonly-cert', function () {
     return view('page.forms.onlymarriagecert');
 });
+
+Route::get('/home', [AnnouncementController::class, 'displays'])->name('announcement.displays');
+Route::post('/announcements/store', [AnnouncementController::class, 'store'])->name('announcement.store');

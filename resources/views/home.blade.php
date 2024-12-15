@@ -196,45 +196,36 @@
         </section>
       
 <!-- Announcement Section FOR USERS -->
-<!-- PAKI AYOS CREDENTIAL NITO NA VISIBLE LANG SA USERS-->
 <!-- Display Announcements Section -->
 <div class="announcement-display-container">
     <h1 class="announcement-header">Announcements</h1>
-    <div id="display-announcements" class="display-announcements"></div>
+    <div id="display-announcements" class="display-announcements">
+        @foreach ($announcements as $announcement)
+            <div class="announcement-item">
+                <h3>{{ $announcement->announcement_title }}</h3>
+                <p>{{ $announcement->announcement_text }}</p>
+                <small>Posted on {{ $announcement->created_at->format('F j, Y, g:i a') }}</small>
+            </div>
+        @endforeach
+    </div>
 </div>
-
 <!-- END OF Announcement Section FOR USERS -->
 
-<!-- ADMIN LANG MAKAKAKITA NITO, NAKA HIDE TO DAPAT SA USERS-->
 <!--START announcement section FOR ADMIN-->
 <div class="announcement-container">
     <h1 class="announcement-header">Announcements Manager</h1>
 
     <!-- Input Form -->
-    <div class="announcement-form">
-      <input type="text" id="title-input" placeholder="Enter Title" />
-      <textarea id="announcement-input" placeholder="Enter Announcement"></textarea>
-      <button id="add-announcement">Add Announcement</button>
-      <button id="update-announcement" style="display: none;">Update Announcement</button>
-    </div>
+    <form action="{{ route('announcement.store') }}" method="POST" class="announcement-form">
+        @csrf
+        <input type="text" name="announcement_title" id="title-input" placeholder="Enter Title" required />
+        <textarea name="announcement_text" id="announcement-input" placeholder="Enter Announcement" required></textarea>
+        <button type="submit">Add Announcement</button>
+    </form>
+</div>
+<!--END announcement section FOR ADMIN-->
 
-    <!-- View Buttons -->
-    <div class="view-buttons">
-      <button id="view-posts">Posts</button>
-      <button id="view-archived">Archived</button>
-      <button id="view-deleted">Deleted</button>
-    </div>
-
-    <!-- Announcements List -->
-    <div id="announcement-list" class="announcement-list"></div>
-
-    <!-- Pagination -->
-    <div id="pagination" class="pagination"></div>
-  </div>
-  <!--END announcement section FOR ADMIN-->
-
-
-  <!--banner section-->
+<!--banner section-->
   <div class="banners">
     <div class="slideshow-container">
         <img class="mySlides img-16-9" src="{{ asset('img/rider-banner.png') }}">
@@ -384,11 +375,6 @@
 
     @endif
 @endauth
-
-
-
-
-
 <script>
         // Function to hide the success message after 10 seconds
         window.onload = function() {
@@ -422,330 +408,7 @@
 
 
     </script>
-
-    <script> /* script for announcement**/ 
-const announcements = [];
-let currentPage = 1;
-const itemsPerPage = 3;
-let editMode = false;
-let editId = null;
-let viewMode = 'active'; // 'active', 'archived', or 'deleted'
-
-function renderAnnouncements() {
-  const announcementList = document.getElementById('announcement-list');
-  announcementList.innerHTML = '';
-
-  const filteredAnnouncements = announcements.filter(item => item.status === viewMode);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentAnnouncements = filteredAnnouncements.slice(startIndex, endIndex);
-
-  if (currentAnnouncements.length === 0) {
-    announcementList.innerHTML = `<p class="empty-message">No ${viewMode} posts to display.</p>`;
-    return;
-  }
-
-  currentAnnouncements.forEach(({ id, title, text, timestamp, updated }) => {
-    const item = document.createElement('div');
-    item.classList.add('announcement-item');
-
-    const titleElement = document.createElement('h3');
-    titleElement.classList.add('announcement-title');
-    titleElement.textContent = title;
-
-    if (updated) {
-      const updatedLabel = document.createElement('span');
-      updatedLabel.classList.add('updated-label');
-      updatedLabel.textContent = ' (Updated)';
-      titleElement.appendChild(updatedLabel);
-    }
-
-    const textElement = document.createElement('p');
-    textElement.textContent = text;
-
-    const timestampElement = document.createElement('p');
-    timestampElement.classList.add('announcement-timestamp');
-    timestampElement.textContent = `Posted on: ${timestamp}`;
-
-    const actions = document.createElement('div');
-    actions.classList.add('actions');
-
-    const editButton = document.createElement('button');
-    editButton.textContent = 'Edit';
-    editButton.onclick = () => editAnnouncement(id);
-    actions.appendChild(editButton);
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.onclick = () => deleteAnnouncement(id);
-    actions.appendChild(deleteButton);
-
-    const archiveButton = document.createElement('button');
-    archiveButton.textContent = 'Archive';
-    archiveButton.onclick = () => archiveAnnouncement(id);
-    actions.appendChild(archiveButton);
-
-    item.appendChild(titleElement);
-    item.appendChild(textElement);
-    item.appendChild(timestampElement);
-    item.appendChild(actions);
-
-    announcementList.appendChild(item);
-  });
-
-  renderPagination(filteredAnnouncements.length);
-}
-
-function renderPagination(totalItems) {
-  const pagination = document.getElementById('pagination');
-  pagination.innerHTML = '';
-
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-  for (let i = 1; i <= totalPages; i++) {
-    const button = document.createElement('button');
-    button.textContent = i;
-    if (i === currentPage) {
-      button.classList.add('active');
-    }
-    button.addEventListener('click', () => {
-      currentPage = i;
-      renderAnnouncements();
-    });
-    pagination.appendChild(button);
-  }
-}
-
-document.getElementById('add-announcement').addEventListener('click', () => {
-  const titleInput = document.getElementById('title-input');
-  const announcementInput = document.getElementById('announcement-input');
-
-  const title = titleInput.value.trim();
-  const text = announcementInput.value.trim();
-
-  if (!title || !text) {
-    alert('Please fill in both fields.');
-    return;
-  }
-
-  const currentDateTime = new Date().toLocaleString();
-
-  announcements.unshift({
-    id: Date.now(),
-    title,
-    text,
-    timestamp: currentDateTime,
-    updated: false,
-    status: 'active',
-  });
-
-  titleInput.value = '';
-  announcementInput.value = '';
-  currentPage = 1;
-  renderAnnouncements();
-});
-
-function editAnnouncement(id) {
-  const announcement = announcements.find(item => item.id === id);
-  if (!announcement) return;
-
-  document.getElementById('title-input').value = announcement.title;
-  document.getElementById('announcement-input').value = announcement.text;
-
-  editMode = true;
-  editId = id;
-
-  document.getElementById('add-announcement').style.display = 'none';
-  document.getElementById('update-announcement').style.display = 'inline-block';
-}
-
-document.getElementById('update-announcement').addEventListener('click', () => {
-  if (!editMode || !editId) return;
-
-  const titleInput = document.getElementById('title-input');
-  const announcementInput = document.getElementById('announcement-input');
-
-  const title = titleInput.value.trim();
-  const text = announcementInput.value.trim();
-
-  if (!title || !text) {
-    alert('Please fill in both fields.');
-    return;
-  }
-
-  const announcement = announcements.find(item => item.id === editId);
-  if (announcement) {
-    announcement.title = title;
-    announcement.text = text;
-    announcement.updated = true;
-    announcement.timestamp = new Date().toLocaleString();
-  }
-
-  editMode = false;
-  editId = null;
-
-  titleInput.value = '';
-  announcementInput.value = '';
-  document.getElementById('add-announcement').style.display = 'inline-block';
-  document.getElementById('update-announcement').style.display = 'none';
-
-  renderAnnouncements();
-});
-
-function deleteAnnouncement(id) {
-  const announcement = announcements.find(item => item.id === id);
-  if (!announcement) return;
-
-  announcement.status = 'deleted';
-  renderAnnouncements();
-}
-
-function archiveAnnouncement(id) {
-  const announcement = announcements.find(item => item.id === id);
-  if (!announcement) return;
-
-  announcement.status = 'archived';
-  renderAnnouncements();
-}
-
-document.getElementById('view-posts').addEventListener('click', () => {
-  viewMode = 'active';
-  currentPage = 1;
-  renderAnnouncements();
-});
-
-document.getElementById('view-archived').addEventListener('click', () => {
-  viewMode = 'archived';
-  currentPage = 1;
-  renderAnnouncements();
-});
-
-document.getElementById('view-deleted').addEventListener('click', () => {
-  viewMode = 'deleted';
-  currentPage = 1;
-  renderAnnouncements();
-});
-
-// Initial render
-renderAnnouncements();
-
-    </script>
-
-
-
 <script>
-// Updated script to include announcement display functionality
-const displayAnnouncements = () => {
-    const displayContainer = document.getElementById('display-announcements');
-    displayContainer.innerHTML = '';
-
-    const filteredAnnouncements = announcements.filter(item => item.status === viewMode);
-
-    if (filteredAnnouncements.length === 0) {
-        displayContainer.innerHTML = `<p class="empty-message">No ${viewMode} posts to display.</p>`;
-        return;
-    }
-
-    filteredAnnouncements.forEach(({ title, text, timestamp, updated }) => {
-        const displayItem = document.createElement('div');
-        displayItem.classList.add('display-item');
-
-        const titleElement = document.createElement('h3');
-        titleElement.classList.add('announcement-title');
-        titleElement.textContent = title;
-
-        if (updated) {
-            const updatedLabel = document.createElement('span');
-            updatedLabel.classList.add('updated-label');
-            updatedLabel.textContent = ' (Updated)';
-            titleElement.appendChild(updatedLabel);
-        }
-
-        const textElement = document.createElement('p');
-        textElement.textContent = text;
-
-        const timestampElement = document.createElement('p');
-        timestampElement.classList.add('announcement-timestamp');
-        timestampElement.textContent = `Posted on: ${timestamp}`;
-
-        displayItem.appendChild(titleElement);
-        displayItem.appendChild(textElement);
-        displayItem.appendChild(timestampElement);
-
-        displayContainer.appendChild(displayItem);
-    });
-};
-
-// Update renderAnnouncements to also update the display container
-function renderAnnouncements() {
-    const announcementList = document.getElementById('announcement-list');
-    announcementList.innerHTML = '';
-
-    const filteredAnnouncements = announcements.filter(item => item.status === viewMode);
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const currentAnnouncements = filteredAnnouncements.slice(startIndex, endIndex);
-
-    if (currentAnnouncements.length === 0) {
-        announcementList.innerHTML = `<p class="empty-message">No ${viewMode} posts to display.</p>`;
-        displayAnnouncements(); // Update display container
-        return;
-    }
-
-    currentAnnouncements.forEach(({ id, title, text, timestamp, updated }) => {
-        const item = document.createElement('div');
-        item.classList.add('announcement-item');
-
-        const titleElement = document.createElement('h3');
-        titleElement.classList.add('announcement-title');
-        titleElement.textContent = title;
-
-        if (updated) {
-            const updatedLabel = document.createElement('span');
-            updatedLabel.classList.add('updated-label');
-            updatedLabel.textContent = ' (Updated)';
-            titleElement.appendChild(updatedLabel);
-        }
-
-        const textElement = document.createElement('p');
-        textElement.textContent = text;
-
-        const timestampElement = document.createElement('p');
-        timestampElement.classList.add('announcement-timestamp');
-        timestampElement.textContent = `Posted on: ${timestamp}`;
-
-        const actions = document.createElement('div');
-        actions.classList.add('actions');
-
-        const editButton = document.createElement('button');
-        editButton.textContent = 'Edit';
-        editButton.onclick = () => editAnnouncement(id);
-        actions.appendChild(editButton);
-
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.onclick = () => deleteAnnouncement(id);
-        actions.appendChild(deleteButton);
-
-        const archiveButton = document.createElement('button');
-        archiveButton.textContent = 'Archive';
-        archiveButton.onclick = () => archiveAnnouncement(id);
-        actions.appendChild(archiveButton);
-
-        item.appendChild(titleElement);
-        item.appendChild(textElement);
-        item.appendChild(timestampElement);
-        item.appendChild(actions);
-
-        announcementList.appendChild(item);
-    });
-
-    renderPagination(filteredAnnouncements.length);
-    displayAnnouncements(); // Update display container
-}
-</script>
-
-
 <!--rider script-->
 <script>
     function previewProfilePicture(event) {
