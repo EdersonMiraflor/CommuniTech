@@ -541,14 +541,25 @@
     <span class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></span>
     <div class="navbar-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
-        <a href="/home/services" class="{{ Request::is('home/services') ? 'active' : '' }}">SERVICES</a>
         @auth
             {{-- Check if the user is admin --}}
-            @if (Auth::user()->Credential == 'admin')
+            @if (Auth::user()->Credential == 'user')
+        <a href="/home/services" class="{{ Request::is('home/services') ? 'active' : '' }}">SERVICES</a>
+            @endif
+        @endauth
+        
+        @auth
+            {{-- Check if the user is admin --}}
+            @if (Auth::user()->Credential == 'user')
             <a href="/home/transaction" class="{{ Request::is('home/transaction') ? 'active' : '' }}">TRANSACTIONS</a>
             @endif
         @endauth
+        
+        @auth
+        @if (Auth::user()->Credential == 'user')
         <a href="/home/usermanual" class="{{ Request::is('home/usermanual') ? 'active' : '' }}">USER MANUAL</a>
+        @endif
+        @endauth
         <!--
         @auth
             {{-- Check if the user is admin --}}
@@ -566,7 +577,13 @@
     -->
         <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
         <a href="/home/privacy-policy" class="{{ Request::is('home/privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
+       
+        @auth
+        @if (Auth::user()->Credential == 'user')
         <a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
+        @endif
+        @endauth
+
     </div>
     <div class="navbar-search">
     <input type="text" id="searchInput" placeholder="Search" oninput="searchWebsiteText()">
