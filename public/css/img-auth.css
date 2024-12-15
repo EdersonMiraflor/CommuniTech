@@ -594,7 +594,6 @@ body {
 
 .login-description {
     font-size: larger;
-    margin-top: 70px;
 }
 
 .card-login {
@@ -715,6 +714,7 @@ body {
     justify-content: center; /* Centers the text vertically if necessary */
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .text-container .title {

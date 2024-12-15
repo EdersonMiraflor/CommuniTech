@@ -13,7 +13,7 @@
         <br>
         <!-- Responsive Text Container -->
         <div class="text-container">
-            <h1 class="title">CommuniTECH</h1>
+            <h1 style="margin-top: 100px"><b>CommuniTECH</b></h1>
             <h2 class="login-description">A Web-Based Application For Civil Registry Office of Manito, Albay</h2>
         </div>
     </div>
