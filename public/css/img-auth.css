@@ -939,54 +939,18 @@
     }
 }
 
-/* LOGIN mobile css */
+
+/* Prevent the right-login section from overflowing */
+.right-login {
+    max-width: 100%; /* Ensure it stays within the parent container */
+    padding: 1rem; /* Add padding for better spacing */
+    box-sizing: border-box; /* Ensure padding doesn't add to width */
+    overflow: hidden; /* Prevent any overflow */
+}
+
+/* Optional: Reduce the width slightly for smaller screens */
 @media (max-width: 768px) {
-    /* Adjust container padding and alignment */
-    .login-container {
-        padding: 20px;
-        flex-direction: column;
-    }
-
-    /* Make the left and right containers stack */
-    .left-login, .right-login {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    /* Adjust image sizes */
-    .login-logo {
-        width: 150px;
-        height: auto;
-    }
-
-    .login-photo img {
-        width: 60px;
-        height: auto;
-    }
-
-    /* Adjust font sizes */
-    .login-title {
-        font-size: 1.5rem;
-    }
-
-    .login-description, .login-text p {
-        font-size: 1rem;
-    }
-
-    /* Adjust form styles */
-    .form-control-lg {
-        font-size: 1rem;
-        padding: 10px;
-    }
-
-    .btn.custom-btn.btn-lg {
-        font-size: 1rem;
-        padding: 10px;
-    }
-
-    /* Adjust spacing */
-    .mb-4 {
-        margin-bottom: 15px;
+    .right-login {
+        width: 90%; /* Reduce width on smaller screens */
     }
 }
