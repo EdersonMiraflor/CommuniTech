@@ -15,6 +15,10 @@ body {
     min-height: 100vh; /* Ensure the body is at least the height of the viewport */
 }
 
+.container{
+    margin: 0;
+    padding: 0;
+}
 
 /* START OF USER PROFILE OVERRIDE */
 /*Override Bootstrap's primary buttons 
