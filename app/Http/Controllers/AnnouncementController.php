@@ -46,4 +46,24 @@ class AnnouncementController extends Controller
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Announcement deleted successfully!');
     }
+
+    public function update(Request $request)
+    {
+        // Validate the input
+        $request->validate([
+            'announcement_title' => 'required|string|max:255',
+            'announcement_text' => 'required|string',
+        ]);
+    
+        // Find the announcement to update
+        $announcement = Announcement::findOrFail($request->announcement_title);
+    
+        // Update the announcement
+        $announcement->announcement_text = $request->announcement_text;
+        $announcement->save();
+    
+        // Redirect back with a success message
+        return redirect()->route('announcement.displays')->with('success', 'Announcement updated successfully!');
+    }
+    
 }

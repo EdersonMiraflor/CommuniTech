@@ -181,6 +181,152 @@
     color: darkred;
 }
 
+/* Announcement Manager Styles */
+.announcement-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.announcement-header {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.announcement-form,
+#update-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.announcement-form input,
+#update-form select,
+.announcement-form textarea,
+#update-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.announcement-form button,
+#update-form button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.announcement-form button:hover,
+#update-form button:hover {
+    background-color: #45a049;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+}
+
+#edit-announcement-btn {
+    padding: 12px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#edit-announcement-btn:hover {
+    background-color: #4CAF50;
+}
+
+/* Adjust Add Announcement button for consistency */
+.announcement-form button[type="submit"] {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.announcement-form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#update-form {
+    display: none;
+}
+
+#announcement-title-select {
+    font-size: 16px;
+}
+
+/* Optional: Style for input fields when they are focused */
+input:focus, textarea:focus, select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Media Query for small screens */
+@media (max-width: 768px) {
+    .announcement-container {
+        padding: 15px;
+    }
+
+    .announcement-header {
+        font-size: 20px;
+    }
+
+    .announcement-form input,
+    .announcement-form textarea,
+    #update-form select,
+    #update-form textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .announcement-form button,
+    #update-form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #edit-announcement-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    #edit-announcement-btn {
+    padding: 12px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+}
+
 </style>
 
 <!-- Home content -->
@@ -215,9 +361,9 @@
     <div class="announcement-item">
         <h3>{{ $announcement->announcement_title }}</h3>
         <p>{{ $announcement->announcement_text }}</p>
-        <small>Posted on {{ $announcement->created_at->format('F j, Y, g:i a') }}</small>
+        <small>Posted on {{ $announcement->created_at->timezone('Asia/Manila')->format('F j, Y, g:i a') }}</small>
 
-<!-- Delete Button -->
+
 @auth
     {{-- Check if the user is admin --}}
     @if (Auth::user()->Credential == 'admin')
@@ -228,6 +374,7 @@
             ✖
         </button>
     </form>  
+
     @endif
  @endauth
 
@@ -251,7 +398,29 @@
         @csrf
         <input type="text" name="announcement_title" id="title-input" placeholder="Enter Title" required />
         <textarea name="announcement_text" id="announcement-input" placeholder="Enter Announcement" required></textarea>
-        <button type="submit">Add Announcement</button>
+        <div class="button-container">
+            <button type="submit">Add Announcement</button>
+            <button type="button" id="edit-announcement-btn" onclick="showUpdateForm()">Edit Announcement</button>
+        </div>
+    </form>
+
+    <!-- Hidden Update Form -->
+    <form action="{{ route('announcement.update') }}" method="POST" id="update-form" style="display: none;">
+        @csrf
+        @method('PUT')
+
+        <select name="announcement_title" id="announcement-title-select" onchange="populateTextArea()">
+            <option value="">Select Announcement Title</option>
+            @foreach ($announcements as $announcement)
+                <option value="{{ $announcement->Memo_id }}" data-text="{{ $announcement->announcement_text }}">
+                    {{ $announcement->announcement_title }}
+                </option>
+            @endforeach
+        </select><br><br>
+        <textarea name="announcement_text" id="announcement-input-update" placeholder="Enter Announcement" required></textarea>
+        <button type="submit">Update Announcement</button>
+        <button type="button" onclick="window.location.href='/home'">Back</button>
+
     </form>
 </div>
 <!--END announcement section FOR ADMIN-->
@@ -406,6 +575,20 @@
 
     @endif
 @endauth
+<!-- JavaScript Announcement-->
+<script>
+    function showUpdateForm() {
+        document.getElementById('update-form').style.display = 'block';
+        document.getElementById('edit-announcement-btn').style.display = 'none';
+    }
+
+    function populateTextArea() {
+        var selectedOption = document.getElementById('announcement-title-select').selectedOptions[0];
+        var announcementText = selectedOption.getAttribute('data-text');
+        document.getElementById('announcement-input-update').value = announcementText;
+    }
+</script>
+
 <script>
         // Function to hide the success message after 10 seconds
         window.onload = function() {
