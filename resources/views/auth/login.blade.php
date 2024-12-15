@@ -95,11 +95,13 @@
     const passwordInput = document.getElementById('password');
 
     togglePassword.addEventListener('click', function () {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    this.innerHTML = type === 'password' ? '<i class="fas fa-eye-slash"></i>' : '<i class="fas fa-eye"></i>';
     });
-    function validatePassword() {
+
+    /*
+        function validatePassword() {
     const password = document.getElementById('password').value;
     const passwordError = document.getElementById('passwordError');
 
@@ -112,6 +114,8 @@
     }
 }
 
+    */
+    
 
 </script>
 @endsection
