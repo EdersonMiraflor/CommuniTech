@@ -199,7 +199,7 @@ return new class extends Migration
             $table->string('length_of_pregnancy')->nullable();
             $table->string('type_of_birth')->nullable();
             $table->string('multiple_birth_position')->nullable();
-            $table->string('affiant_name');
+            $table->string('affiant_name')->nullable();
             $table->string('legal_status')->nullable();
             $table->string('affiant_address')->nullable();
             $table->string('deceased_name');

@@ -522,11 +522,15 @@
                                 {{ __('Logout') }}
                                 <i class="fas fa-sign-out-alt ms-2"></i>
                             </a>
-    
+      
+                            @auth
+        @if (Auth::user()->Credential == 'user')
                             <hr class="dropdown-divider"> <!-- Horizontal line divider -->
                             <a class="dropdown-item" href="/rider_application">
-                                {{ __('Sign up as a Rider!') }}
+                                {{ __('Apply as a Rider!') }}
                             </a>
+                            @endif
+                            @endauth
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
@@ -543,12 +547,11 @@
     <span class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></span>
     <div class="navbar-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
-        <a href="/home/services" class="{{ Request::is('home/services*') ? 'active' : '' }}">SERVICES</a>
+        
         @auth
-            {{-- Check if the user is admin --}}
-            @if (Auth::user()->Credential == 'user')
-            <a href="/home/transaction" class="{{ Request::is('home/transaction') ? 'active' : '' }}">TRANSACTIONS</a>
-            @endif
+        @if (Auth::user()->Credential == 'user')
+        <a href="/home/services" class="{{ Request::is('home/services*') ? 'active' : '' }}">SERVICES</a>
+        @endif
         @endauth
         
         @auth
@@ -575,10 +578,11 @@
         <a href="/home/privacy-policy" class="{{ Request::is('home/privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
        
         @auth
-        @if (Auth::user()->Credential == 'user')
-        <a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
-        @endif
-        @endauth
+@if (Auth::user()->Credential == 'user' || Auth::user()->Credential == 'rider')
+<a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
+@endif
+@endauth
+
 
     </div>
     <div class="navbar-search">
@@ -591,7 +595,7 @@
     <div class="dropdown-menu" id="dropdown-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
         <a href="/home/services" class="{{ Request::is('home/services*') ? 'active' : '' }}">SERVICES</a>
-        <a href="/home/transaction" class="{{ Request::is('home/transaction') ? 'active' : '' }}">TRANSACTIONS</a>
+       
 <!--
         @auth
             {{-- Check if the user is admin --}}

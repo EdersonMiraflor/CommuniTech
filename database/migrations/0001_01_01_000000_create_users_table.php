@@ -44,19 +44,20 @@ return new class extends Migration
             $table->integer('last_activity')->index();
         });
 
-        Schema::create('contact', function (Blueprint $table) {
-            $table->id('Inquire_No');
-            $table->unsignedBigInteger('User_Id')->nullable();
-            $table->string('First_Name', 255);
-            $table->string('Last_Name', 255);
-            $table->string('Email_Address', 255);
-            $table->text('Query');
-            $table->timestamps();
-            
-            $table->foreign('User_Id')->references('User_Id')->on('users');
-        });
+        Schema::create('contacts', function (Blueprint $table) {
+            $table->id('Inquire_No'); // Primary key
+            $table->unsignedBigInteger('User_Id')->nullable(); // Foreign key to the users table
+            $table->string('First_Name', 255); // First Name column
+            $table->string('Last_Name', 255); // Last Name column
+            $table->string('Email_Address', 255); // Email column
+            $table->text('Query'); // Query column
+            $table->timestamps(); // created_at and updated_at columns
+        
+            // Foreign key constraint
+            $table->foreign('User_Id')->references('User_Id')->on('users')->onDelete('cascade'); 
+        
+    });
     }
-
     /**
      * Reverse the migrations.
      */

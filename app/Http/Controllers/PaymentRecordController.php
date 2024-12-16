@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class PaymentRecordController extends Controller
 {
+    public function index()
+    {
+        return view('page.payment');
+    }
+
      public function userrecord(Request $request)
     {
         // Get the authenticated user's ID
@@ -18,6 +23,7 @@ class PaymentRecordController extends Controller
         $request->validate([
             'name' => 'required|string',
             'requested_certificate' => 'required|string',
+            'email' => 'required|email',
             'quantity' => 'required|integer',
             'address' => 'required|string',
             'mobile' => 'required|string',
@@ -28,8 +34,9 @@ class PaymentRecordController extends Controller
         // Store the payment record data
         PaymentRecord::create([
             'User_Id' => $userId, // Assign the logged-in user's ID as the foreign key
-            'name' => $request->name,
+            'name' => $request->name,   
             'requested_certificate' => $request->requested_certificate,
+            'email' => $request->email,   
             'quantity' => $request->quantity,
             'address' => $request->address,
             'mobile' => $request->mobile,

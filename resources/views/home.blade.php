@@ -197,8 +197,7 @@
     font-size: 24px;
     margin-bottom: 20px;
     color:rgb(0, 0, 0);
-    background-color:rgb(255, 255, 255);
-    
+    background-color:#e8f7ec;   
 }
 
 .announcement-form,

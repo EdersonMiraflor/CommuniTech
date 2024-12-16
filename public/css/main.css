@@ -15,7 +15,6 @@ body {
     min-height: 100vh; /* Ensure the body is at least the height of the viewport */
 }
 
-
 /* START OF USER PROFILE OVERRIDE */
 /*Override Bootstrap's primary buttons 
 .btn-primary {
@@ -215,7 +214,7 @@ body {
     max-width: 100%;
     margin: 20px auto;
     padding: 20px;
-    background: #95D2B3;
+    background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

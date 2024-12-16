@@ -3,41 +3,36 @@
 @section('contents')
 @csrf
 <style>
-    /* Back button */
-    .back-button {
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
+   /* Back button */
+.back-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
 
-    
-        .onlymarriagetop,
+/* Button styles */
 .onlymarriagebottom {
     position: absolute;
     background-color: #04AA6D;
     color: white;
-    padding: 6px 20px;
+    padding: 10px 0; /* Add padding to the top and bottom */
     border: none;
     border-radius: 5px;
     text-align: center;
     font-size: 18px;
     text-decoration: none;
     transition: background-color 0.3s ease;
+    width: 100%; /* Matches the full width of the image */
+    display: block; /* Ensures it stretches across */
 }
 
-.onlymarriagetop:hover,
 .onlymarriagebottom:hover {
     background-color: #bce7c8;
     color: white;
 }
 
-/* Button at the top */
-.onlymarriagetop {
-    top: 170px; /* Adjust as needed */
-    left: 300px;
-    transform: translateX(-50%);
-    
-}
+
 
 /* Button at the bottom */
 .onlymarriagebottom {

@@ -31,7 +31,7 @@ class AdminController extends Controller
         $userdata = auth()->user();
 
         // Fetch only the records of the logged-in user.
-        $records = Paymentrecord::where('User_Id', $userdata->User_Id)->select('name', 'requested_certificate', 'quantity', 'proof')->get();
+        $records = Paymentrecord::where('User_Id', $userdata->User_Id)->select('name', 'address', 'requested_certificate', 'quantity', 'status', 'proof')->get();
 
         // Pass the retrieved data to the 'page.user-profile' view.
         return view('page.user-profile', compact('admins', 'users', 'userlists', 'riderlists', 'userdata', 'records'));

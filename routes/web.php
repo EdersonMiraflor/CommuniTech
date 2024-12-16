@@ -20,6 +20,11 @@ use App\Http\Controllers\AnnouncementController;
 Auth::routes();
 Auth::routes(['verify' => true]);
 
+//scan route
+Route::get('/scan', function () {
+    return view('scan');
+});
+
 // Home Routes
 Route::get('/home/user-profile/report', [CertificateController::class, 'showReport'])->middleware('auth');
 Route::get('/home/privacy-policy', fn() => view('page.privacy-policy'));
@@ -46,7 +51,7 @@ Route::get('/home/rider_user_com', fn() => view('page.rider_user_com'))->middlew
 Route::get('/home/rider_admin_com', fn() => view('page.rider_admin_com'))->middleware('auth');
 Route::get('/home/ridermanagement', fn() => view('page.ridermanagement'))->middleware('auth');
 Route::get('/home/userrequest', fn() => view('page.userrequest'))->middleware('auth');
-
+Route::get('/home/rider_application', fn() => view('page.rider_application'))->middleware('auth');
 // Form Routes Start
     //Birth Start
     Route::get('/home/services/form102', [CertificateRequestController::class, 'birthcreate']);
@@ -101,14 +106,18 @@ Route::get('/generatePDF', [PdfController::class, 'generatePdf'])->middleware('a
 Route::get('/otphome', [OtpHomeController::class, 'index']);
 Route::get('/verify-account', [OtpHomeController::class, 'verifyaccount'])->name('verifyaccount')->middleware('auth');
 Route::post('/verifyotp', [OtpHomeController::class, 'useractivation'])->name('verifyotp');
-Route::get('/otpform', fn() => view('page.otp.otpform'))->middleware('auth');
+Route::get('/otpform', [OtpController::class, 'showRequests'])->middleware('auth');
 Route::post('/otpform', [OtpController::class, 'create'])->name('otpform');
 
 // Birth Registration Routes
 Route::resource('birth-registration', BirthRegistrationController::class);
 
 // Home Routes (after authentication and email verification)
-Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
+
+// Display the payment form (GET request)
+Route::get('/payment', [PaymentController::class, 'index'])->middleware('auth');
+// Store the payment record (POST request)
+Route::post('/payment', [PaymentRecordController::class, 'userrecord'])->name('store.record');
 
 // Display the payment form (GET request)
 Route::get('/payment', [PaymentController::class, 'index'])->middleware('auth');
@@ -119,7 +128,6 @@ Route::post('/payment/store', [PaymentController::class, 'store'])->name('paymen
 Route::get('/generatebirth', [GeneratePDFController::class, 'generatebirth']);
 Route::get('/generatemarriage', [GeneratePDFController::class, 'generatemarriage']);
 Route::get('/generatedeath', [GeneratePDFController::class, 'generatedeath']);
-
 Route::get('/generatedeath/send', [GeneratePDFController::class, 'generatesend']);
 
 Route::get('/view-deathonly-cert', function () {

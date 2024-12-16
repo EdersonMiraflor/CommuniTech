@@ -8,7 +8,7 @@
     <div class="form-and-image">
         <!-- Left Section: User Form -->
         <div class="form-section">
-            <form action="{{ url('/payment/create') }}" method="POST" enctype="multipart/form-data" class="payment-form">
+        <form action="{{ route('store.record') }}" method="POST" enctype="multipart/form-data" class="payment-form">
                 {!! csrf_field() !!}
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -18,7 +18,11 @@
                 </div>
                 <div class="form-group">
                     <label for="requested_certificate">Requested Certificate</label>
-                    <input type="text" name="requested_certificate" id="requested_certificate" class="form-control" value="{{ $requestedCertificate ?? '' }}" readonly>
+                    <input type="text" name="requested_certificate" id="requested_certificate" class="form-control" value="{{ $requestedCertificate ?? '' }}" >
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter email">
                 </div>
                 <div class="form-group">
                     <label for="quantity">Quantity</label>
@@ -73,18 +77,16 @@
         @if ($qrscan)
             <div class="payment-image">
                 <h3 class="text-center" style="font-family: Arial, sans-serif; color: #28a745;">Scan For Payment</h3>
-                <img src="{{ asset('storage/uploads/qrcode/' . $qrscan->photo) }}" 
-                     width="50%" 
-                     class="img-responsive" 
-                     style="margin: 50px; border: 5px solid rgb(74, 172, 49); border-radius: 20px;">
+                <img src="{{ asset('storage/uploads/qrcode/' . $qrscan->photo) }}" width="50%" class="img-responsive" 
+style="margin: 50px; border: 5px solid rgb(74, 172, 49); border-radius: 20px;">
             </div>
         @else
-            <!-- No QR Code Available -->
             <div class="no-qr-message">
                 <h3 class="text-center" style="font-family: Arial, sans-serif; color: #28a745;">No QR Code Found</h3>
-                <p class="text-center" style="font-family: Arial, sans-serif; color: #6c757d;">Please insert a QR Code by clicking Choose File from below.</p>
+                <p class="text-center" style="font-family: Arial, sans-serif; color: #6c757d;">Please insert a QR Code by clicking Choose File below.</p>
             </div>
         @endif
+
 
         <!-- Admin Options -->
         @if (Auth::user()->Credential === 'admin')
