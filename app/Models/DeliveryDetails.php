@@ -13,6 +13,7 @@ class DeliveryDetails extends Model
     protected $fillable = [
         'User_Id',
         'rider',
+        'estimated_delivery_day',
         'name',
         'requested_certificate',
         'quantity',
