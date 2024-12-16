@@ -522,7 +522,7 @@
                                 {{ __('Logout') }}
                                 <i class="fas fa-sign-out-alt ms-2"></i>
                             </a>
-      
+                            <a href="/home/pending-deliveries" class="{{ Request::is('home/pending-deliveries') ? 'active' : '' }}">PENDING DELIVERIES</a>  
                             @auth
         @if (Auth::user()->Credential == 'user')
                             <hr class="dropdown-divider"> <!-- Horizontal line divider -->
@@ -546,32 +546,14 @@
     <nav class="navbar">
     <span class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></span>
     <div class="navbar-menu">
-
-    @auth
-    @if (Auth::user()->Credential == 'user' || Auth::user()->Credential == 'admin')
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
-        @endif
-        @endauth
-
+        
         @auth
         @if (Auth::user()->Credential == 'user')
         <a href="/home/services" class="{{ Request::is('home/services*') ? 'active' : '' }}">SERVICES</a>
         @endif
         @endauth
         
-        @auth
-        @if (Auth::user()->Credential == 'admin')
-        <a href="{{ route('delivery.create') }}" class="{{ Request::is('delivery/create*') ? 'active' : '' }}">RIDER DELIVERY</a>
-        @endif
-        @endauth
-
-        @auth
-    @if (Auth::user()->Credential === 'rider')
-        <a href="{{ route('rider.dashboard') }}" class="{{ Request::is('rider/dashboard*') ? 'active' : '' }}">DASHBOARD</a>
-    @endif
-@endauth
-
-
         @auth
         @if (Auth::user()->Credential == 'user')
         <a href="/home/usermanual" class="{{ Request::is('home/usermanual') ? 'active' : '' }}">USER MANUAL</a>
@@ -593,14 +575,12 @@
         @endauth
     -->
         <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
-        <a href="/home/privacy-policy" class="{{ Request::is('home/privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
-        <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">Pending Deliveries</a>       
+        <a href="/home/privacy-policy" class="{{ Request::is('home/privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>     
         @auth
 @if (Auth::user()->Credential == 'user' || Auth::user()->Credential == 'rider')
 <a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
 @endif
 @endauth
-
 
     </div>
     <div class="navbar-search">
@@ -611,31 +591,14 @@
 
     <!-- Hidden Dropdown Menu for Small Screens -->
     <div class="dropdown-menu" id="dropdown-menu">
-    @auth
-    @if (Auth::user()->Credential == 'user' || Auth::user()->Credential == 'admin')
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
-        @endif
-        @endauth
+
         @auth
         @if (Auth::user()->Credential == 'user')
         <a href="/home/services" class="{{ Request::is('home/services*') ? 'active' : '' }}">SERVICES</a>
         @endif
         @endauth
-
-         
-        @auth
-        @if (Auth::user()->Credential == 'admin')
-        <a href="{{ route('delivery.create') }}" class="{{ Request::is('delivery/create*') ? 'active' : '' }}">RIDER DELIVERY</a>
-        @endif
-        @endauth
-
-        @auth
-    @if (Auth::user()->Credential === 'rider')
-        <a href="{{ route('rider.dashboard') }}" class="{{ Request::is('rider/dashboard*') ? 'active' : '' }}">DASHBOARD</a>
-    @endif
-@endauth
 <!--
-        
         @auth
             {{-- Check if the user is admin --}}
             @if (Auth::user()->Credential == 'admin')

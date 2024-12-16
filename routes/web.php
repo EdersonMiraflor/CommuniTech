@@ -21,6 +21,7 @@ use App\Http\Controllers\DeliveryRequestController;
 use App\Http\Controllers\EmailFileSendingController;
 use App\Http\Controllers\PendingDeliveryController;
 use App\Http\Controllers\RiderController;
+use App\Http\Controllers\UserPdfController;
 
 Auth::routes();
 Auth::routes(['verify' => true]);
@@ -36,6 +37,7 @@ Route::get('/home/pending-deliveries', [PendingDeliveryController::class, 'showP
 
 Route::get('/pending-deliveries', [PendingDeliveryController::class, 'showPendingDeliveries'])->middleware('auth')->name('pending.deliveries');
 
+Route::get('/userpdf', [UserPdfController::class, 'showUserPdf']);
 
 // Home Routes
 Route::get('/home/user-profile/report', [CertificateController::class, 'showReport'])->middleware('auth');
@@ -144,6 +146,7 @@ Route::get('/generatedeath', [GeneratePDFController::class, 'generatedeath']);
 Route::get('/generatedeath/send', [GeneratePDFController::class, 'generatesend']);
 
 Route::get('/view-deathonly-cert', function () {
+    
     return view('page.forms.onlydeathcert');
 });
 
