@@ -1,7 +1,10 @@
 @extends('layouts.layout')
 @section('contents')
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="margin-top:100px; margin-bottom:100px;">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
@@ -32,7 +35,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn green-btn">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>

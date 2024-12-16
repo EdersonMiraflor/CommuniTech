@@ -74,7 +74,7 @@
 
 .nav-pills .nav-link:focus {
     outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25); /* Focus outline */
+    box-shadow: 0 0 0 0.2rem rgba(13, 253, 89, 0.25); /* Focus outline */
 }
 
 /* Disabled tab */
@@ -123,7 +123,7 @@
     border: 1px solid #ced4da; 
     border-radius: 5px;
     padding: 10px 15px;
-    color: #0D52BD; /* Custom blue text color for form fields */
+    color: #28a745; /* Custom blue text color for form fields */
     font-size: 1rem;
     transition: border-color 0.3s ease;
 }
@@ -136,7 +136,7 @@
 #personal-info .form-control[readonly] {
     background-color: #fff; /* Light gray for readonly fields */
     cursor: not-allowed; 
-    color: #0D52BD; /* Blue text color */
+    color: #28a745; /* Blue text color */
 }
 
 #personal-info .form-control::placeholder {
@@ -223,7 +223,7 @@
     border: 1px solid #ced4da; 
     border-radius: 5px;
     padding: 10px 15px;
-    color: #0D52BD; /* Custom blue text color for form fields */
+    color: #28a745; /* Custom blue text color for form fields */
     font-size: 1rem;
     transition: border-color 0.3s ease;
 }
@@ -236,7 +236,7 @@
 #request-history .form-control[readonly] {
     background-color: #e9ecef; /* Light gray for readonly fields */
     cursor: not-allowed; 
-    color: #0D52BD; /* Blue text color */
+    color: #28a745; /* Blue text color */
 }
 
 #request-history .form-control::placeholder {
@@ -580,7 +580,7 @@
                         </div>
                     </div>
                     <div style="padding-left: 30px;">
-                        <a href="/home" class="btn btn-secondary">Home</a>
+                        <a href="/home" class="btn btn-secondary">Back to Home</a>
                         <button type="button" id="edit-button" class="btn btn-primary" >Edit</button>
                     </div>
                 </form>
