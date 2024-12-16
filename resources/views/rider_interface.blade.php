@@ -6,7 +6,7 @@
 
 <div class="container my-5">
     <div class="card shadow">
-        <div class="card-header text-white" style="background-color: #28a745;">
+        <div class="card-header text-white" style="background-color: #04AA6D">
             <h4 class="mb-0 text-center">RIDER DASHBOARD</h4>
         </div>
         <div class="card-body">
@@ -87,4 +87,39 @@
     </div>
 </div>
 
+<style>
+    @media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 2px auto;
+    }
+
+    .card-header h4 {
+        font-size: 1.2rem;
+    }
+
+    .nav-tabs .nav-item .nav-link {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    table thead th {
+        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    table tbody td {
+        font-size: 0.8rem;
+    }
+
+    table tbody td form button {
+        font-size: 0.75rem;
+    }
+}
+
+    </style>
 @endsection

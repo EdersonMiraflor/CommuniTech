@@ -1,11 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.layout')
+
+@section('contents')
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <title>Create Delivery Record</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
+<style>
+    /* General container styling */
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #e8f7ec;
+    border: 2px solid #04AA6D;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgb(196, 193, 193);
+}
+
+/* Heading styling */
+h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form inputs and labels */
+.form-label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #04AA6D;
+    box-shadow: 0 0 5px #04AA6D;
+    outline: none;
+}
+
+/* Error message styling */
+.text-danger {
+    font-size: 0.875rem;
+    color: #dc3545;
+}
+
+/* Success message styling */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* Button styling */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #95D2B3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+}
+
+    </style>
 <body>
     <div class="container mt-5">
         <h1>Create Delivery Record</h1>
@@ -31,7 +123,7 @@
         @endforeach
     </select>
     @error('rider') <small class="text-danger">{{ $message }}</small> @enderror
-</div>
+  </div>
 
 
             <div class="mb-3">
@@ -74,4 +166,4 @@
         </form>
     </div>
 </body>
-</html>
+@endsection

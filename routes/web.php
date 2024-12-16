@@ -167,3 +167,6 @@ use App\Http\Controllers\RiderDashboardController;
 Route::get('/rider/dashboard', [RiderDashboardController::class, 'showRiderDashboard'])->name('rider.dashboard');
 
 Route::post('/update-status/{id}', [RiderDashboardController::class, 'updateDeliveryStatus'])->name('rider.updateStatus');
+
+Route::get('/delivery/create', [DeliveryController::class, 'create'])->name('delivery.create');
+    

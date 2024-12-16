@@ -449,106 +449,66 @@ input:focus, textarea:focus, select:focus {
 
 @auth
     {{-- Check if the user is rider --}}
-    @if (Auth::user()->Credential == 'rider')
-        
-    <div class="container my-5">
-    <div class="card shadow">
+    @if (Auth::user()->Credential === 'rider')
         <div class="card-header text-white" style="background-color: #04aa6d;">
-            <h4 class="mb-3 text-center"><b>RIDER DASHBOARD</b></h4>
+            <h4 class="mb-3 text-center"><b>WELCOME TO RIDER PAGE</b></h4>
         </div>
         <div class="card-body">
-            <ul class="nav nav-tabs mb-4" id="dashboardTabs" role="tablist">
-                <li class="nav-item">
-                    <button style="color: #28a745;" class="nav-link active" id="deliveries-tab" data-bs-toggle="tab" data-bs-target="#deliveries" type="button" role="tab" aria-controls="deliveries" aria-selected="true">
-                        Assigned Deliveries
-                    </button>
-                </li>
-                <li class="nav-item">
-                    <button style="color: #28a745;" class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="false">
-                        Delivery History
-                    </button>
-                </li>
-            </ul>
-
-            <div class="tab-content" id="dashboardTabsContent">
-                <!-- Assigned Deliveries -->
-                <div class="tab-pane fade show active" id="deliveries" role="tabpanel" aria-labelledby="deliveries-tab">
-                    <h5>Assigned Deliveries</h5>
-                    <form>
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Certificate Type</th>
-                                        <th>Client Name</th>
-                                        <th>Delivery Address</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Birth Certificate</td>
-                                        <td>John Doe</td>
-                                        <td>123 Main Street</td>
-                                        <td>
-                                            <select class="form-select" name="status">
-                                                <option value="to_ship">To Ship</option>
-                                                <option value="delivered">Delivered</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <button type="submit" class="btn btn-success btn-sm">Update</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Delivery History -->
-                <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
-                    <h5>Delivery History</h5>
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Certificate Type</th>
-                                    <th>Client Name</th>
-                                    <th>Delivery Address</th>
-                                    <th>Status</th>
-                                    <th>Completed On</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Marriage Certificate</td>
-                                    <td>Jane Smith</td>
-                                    <td>456 Elm Street</td>
-                                    <td>Delivered</td>
-                                    <td>2024-12-01</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            <p class="text-center">
+                The Rider Dashboard is your hub for managing deliveries efficiently. 
+                Here, you can view and update your assigned deliveries, track progress, 
+                and review your delivery history. Stay organized and keep your clients satisfied!
+            </p>
         </div>
-    </div>
-</div>
+        <style>
+            /* General Styling for the Welcome Section */
+.card-header {
+    background-color: #04aa6d;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px 5px 0 0;
+}
 
-<script>
-    document.querySelectorAll('select[name="status"]').forEach(select => {
-        select.addEventListener('change', (event) => {
-            const row = event.target.closest('tr');
-            row.style.backgroundColor = event.target.value === 'delivered' ? '#d4edda' : '';
-        });
-    });
-</script>
+.card-header h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 
+.card-body p {
+    font-size: 2rem;
+    color: #333;
+    line-height: 1.5;
+    margin: 20px 0;
+    text-align: center;
+    padding: 15px; /* Adds space inside the border */
+    border: 2px solid #04aa6d; /* Green border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background for better contrast */
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .card-header h4 {
+        font-size: 1.2rem;
+    }
+
+    .card-body p {
+        font-size: 0.9rem;
+        margin: 15px 10px;
+        line-height: 1.4;
+    }
+
+    .card-header {
+        padding: 10px;
+    }
+}
+
+            </style>
     @endif
 @endauth
+
 <!-- JavaScript Announcement-->
 <script>
     function showUpdateForm() {
