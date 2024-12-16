@@ -150,3 +150,9 @@ Route::put('/announcement/update', [AnnouncementController::class, 'update'])->n
 use App\Http\Controllers\EmailFileSendingController;
 
 Route::post('/send-file-email', [EmailFileSendingController::class, 'sendFileEmail'])->name('send.file.email');
+
+use App\Http\Controllers\RiderController;
+
+Route::get('/rider/application', [RiderController::class, 'create'])->name('riders.create');
+Route::post('/rider/application', [RiderController::class, 'store'])->name('riders.store');
+Route::get('/rider/application/confirmation', [RiderController::class, 'confirmation'])->name('riders.confirmation');
