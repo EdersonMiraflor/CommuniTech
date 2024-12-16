@@ -286,8 +286,9 @@ birth-container input[type="text"], input[type="date"], select {
 </div>
 
             <div class="affidavit-section">
-    <h4 class="text-center">AFFIDAVIT FOR DELAYED REGISTRATION OF DEATH</h4>
-    <p>
+                <br>
+    <h4 class="text-center" style="font-weight: bold;">AFFIDAVIT FOR DELAYED REGISTRATION OF DEATH</h4>
+    <br><p>
         I, <input type="text" name="affiant_name" class="birth-form-control" style="width: 200px;" placeholder="Affiant's Full Name" required>, of legal age, 
         <select name="legal_status" class="birth-form-control" style="width: 150px;" required>
             <option value="">Select Legal Status</option>
@@ -335,8 +336,9 @@ birth-container input[type="text"], input[type="date"], select {
     </p>
     <br>
     
+   
+    <h5 class="text-center" style="font-weight: bold;">SUBSCRIBED AND SWORN</h5>
     <br>
-    <h5 class="text-center">SUBSCRIBED AND SWORN</h5>
     <p>
         Subscribed and sworn to before me this 
         <input type="number" name="day_sworn" class="birth-form-control" style="width: 50px;" placeholder="Day" required> day of 
@@ -431,10 +433,6 @@ birth-container input[type="text"], input[type="date"], select {
         document.getElementById('executedeathstore').submit();
     });
 </script>
-
-
-<!-- SCRIPT FOR ERROR HANDLING -->
-<!-- SCRIPT FOR ERROR HANDLING - CERTIFICATE OF DEATH -->
 
 <!-- SCRIPT FOR ERROR HANDLING - CERTIFICATE OF DEATH -->
 

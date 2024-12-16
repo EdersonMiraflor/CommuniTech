@@ -237,12 +237,13 @@ birth-container input[type="text"], input[type="date"], select {
             </div>
 
             <div class="container">
-        <h4 class="text-center">AFFIDAVIT FOR AWKNOWLEDGMENT/ADMISSION OF PATERNITY</h4>
-            <p> I/We, <div class="field"> <input type="text" name="father_name" placeholder="Mother's Name" required> </div> and
-                    <div class="field"> <input type="text" name="mother_name" placeholder="Father's Name" required> </div> , of legal age, am/are the natural mother and/or father of 
-                    <input type="text" name="name_child" placeholder="Child's Name" required style="width: 60%;">, who was born on 
-                <input type="date" name="birth_date" required> at 
-                <input type="text" name="birth_place" placeholder="Place of Birth" required style="width: 50%;">
+                <br>
+        <h4 class="text-center" style="font-weight: bold;">AFFIDAVIT FOR AWKNOWLEDGMENT/ADMISSION OF PATERNITY</h4>
+            <p> I/We, <div class="field"> <input class="birth-form-control" type="text" name="father_name" placeholder="Mother's Name" required> </div> and
+                    <div class="field"> <input class="birth-form-control" type="text" name="mother_name" placeholder="Father's Name" required> </div> , of legal age, am/are the natural mother and/or father of 
+                    <input class="birth-form-control" type="text" name="name_child" placeholder="Child's Name" required style="width: 60%;">, who was born on 
+                <input class="birth-form-control" type="date" name="birth_date" required> at 
+                <input class="birth-form-control" type="text" name="birth_place" placeholder="Place of Birth" required style="width: 50%;">
             </p>
             <p>
                 I am / We are executing this affidavit to attest to the truthfulness of the foregoing

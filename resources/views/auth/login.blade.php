@@ -8,17 +8,17 @@
 
 <div class="content" style="margin-bottom: 50px; margin-top:50px;">
     <!-- Left Side -->
-    <div class="left-side">
+    <div class="left-side" style="margin-bottom: 50px;">
         <!-- Logo as a background overlay -->
         <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="logo-overlay">
         <br>
         <!-- Responsive Text Container -->
-        <div class="text-container">
-            <h1 style="margin-top: 100px"><b>CommuniTECH</b></h1>
-            <h2 class="login-description">A Web-Based Application For Civil Registry Office of Manito, Albay</h2>
-        </div>
-    </div>
 
+    <div class="text-container">
+        <h1 class="title">CommuniTECH</h1>
+        <h2 class="description">A Web-Based Application For Civil Registry Office of Manito, Albay</h2>
+    </div>
+</div>
     <!-- Right Side -->
     <div class="right-side">
                         <form method="POST" action="{{ route('login') }}">
@@ -90,7 +90,7 @@
     
     </div>
 </div>
-
+</div>
 <script>
     // JavaScript for toggling password visibility
 document.getElementById('togglePassword').addEventListener('click', function () {
