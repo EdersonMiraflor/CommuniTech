@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('delivery_details', function (Blueprint $table) {
             $table->id('Detail_Id');
-            // Assuming the 'users' table has an 'id' column for the primary key.
-            $table->foreignId('User_Id')->constrained('users', 'User_Id'); // Make sure it references the correct column ('id')
+            // Explicitly specify the column to reference in the 'users' table.
+            $table->unsignedBigInteger('User_Id')->nullable();
             $table->string('rider');
             $table->date('estimated_delivery_day');
             $table->string('name');
@@ -25,6 +25,9 @@ return new class extends Migration
             $table->string('barangay');
             $table->enum('status', ['pending', 'completed', 'cancelled'])->default('pending');
             $table->timestamps();
+
+            // Define the foreign key constraint explicitly
+            $table->foreign('User_Id')->references('User_Id')->on('users')->onDelete('cascade');
         });
     }
 

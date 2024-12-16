@@ -576,7 +576,7 @@
     -->
         <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
         <a href="/home/privacy-policy" class="{{ Request::is('home/privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
-       
+        <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">Pending Deliveries</a>       
         @auth
 @if (Auth::user()->Credential == 'user' || Auth::user()->Credential == 'rider')
 <a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>

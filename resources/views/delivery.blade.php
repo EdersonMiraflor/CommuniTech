@@ -70,6 +70,12 @@
                 @error('barangay') <small class="text-danger">{{ $message }}</small> @enderror
             </div>
 
+            <div class="mb-3">
+                <label for="estimated_delivery_day" class="form-label">Day of Delivery</label>
+                <input type="text" class="form-control" id="estimated_delivery_day" name="estimated_delivery_day" value="{{ old('estimated_delivery_day') }}" required>
+                @error('barangay') <small class="text-danger">{{ $message }}</small> @enderror
+            </div>
+
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
