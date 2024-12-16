@@ -1,3 +1,26 @@
+.green-btn {
+    background-color: #28a745; /* Green background */
+    border-color: #c5ffd3; /* Light green border */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid; /* Border size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, border-color 0.3s ease,
+        transform 0.1s ease;
+}
+
+.green-btn:hover {
+    background-color: #218838; /* Slightly darker green */
+    border-color: #b3f5c6; /* Slightly darker border */
+}
+
+.green-btn:active {
+    background-color: #1e7e34; /* Darker green for click effect */
+    border-color: #a9e8bb; /* Darker border for click effect */
+    transform: scale(0.95); /* Slightly shrink the button */
+}
+
 /*OTP CSS
 
 body {

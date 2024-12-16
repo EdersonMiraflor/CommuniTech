@@ -3,7 +3,7 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}">
 
-<div class="reset-container">
+<div class="reset-container" style="margin-top:50px; margin-bottom: 50px;">
     <h1>{{ __('Reset Password') }}</h1>
 
     <form method="POST" action="{{ route('password.update') }}" class="reset-form">
@@ -36,7 +36,7 @@
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="submit-button">{{ __('Reset Password') }}</button>
+        <button type="submit" class="submit-button green-btn">{{ __('Reset Password') }}</button>
     </form>
 </div>
 
