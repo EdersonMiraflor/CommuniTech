@@ -5,7 +5,7 @@
          <!--About Section Start-->
          <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
-        <div class="container">
+        <div class="container" style="margin-bottom: 50px;">
                 <div class="about">
                       <div class="left-content1">
                              <h1><strong>About Us</strong></h1>
@@ -40,22 +40,7 @@
         </div>
             </div>
 
-<br><br>
-
-        <!-- Right Content -->
-        <div class="right-content">
-        
-        </div>
-
-        <!-- Left Content 2 -->
-        <div class="left-content2">
-    
-        </div>
-
-    </div>
-</div>
-
-<!--Form Section End-->
+<br>
 
 
 <!-- Team section -->
@@ -87,6 +72,11 @@
     </div>
 </section>
 <!-- end of Team section -->
+
+    </div>
+</div>
+
+<!--Form Section End-->
 
 
 @endsection
