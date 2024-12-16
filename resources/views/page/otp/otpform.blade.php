@@ -22,7 +22,7 @@
                     <label for="Email" style="width: 100px; text-align: right; margin-right: 10px; font-family: Arial, sans-serif; color: #555;">Email</label>
                     <input type="email" id="Email" name="Email" required style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
                 </div>
-                <button type="submit" style="background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-family: Arial, sans-serif; font-size: 16px;">Submit</button>
+                <button type="submit" style="background-color: #04AA6D; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-family: Arial, sans-serif; font-size: 16px;">Submit</button>
             </form>
         </div>
 
@@ -39,26 +39,26 @@
                     <label for="File" style="width: 100px; text-align: right; margin-right: 10px; font-family: Arial, sans-serif; color: #555;">Attach File</label>
                     <input type="file" id="File" name="File" required style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
                 </div>
-                <button type="submit" style="background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-family: Arial, sans-serif; font-size: 16px;">Submit</button>
+                <button type="submit" style="background-color: #04AA6D; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-family: Arial, sans-serif; font-size: 16px;">Submit</button>
             </form>
         </div>
 
     </div>
 
     <!-- Right Side Container (Pending Users Request Table) -->
-    <div style="background-color: #f2f2f2; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px; text-align: center; display: flex; flex-direction: column; gap: 20px;">
+    <div style="background-color: #E8F7EC; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px; text-align: center; display: flex; flex-direction: column; gap: 20px;">
 
         <h1 style="font-family: Arial, sans-serif; font-size: 28px; color: #333;">Pending Users Request</h1>
         
-        <div style="max-height: 400px; overflow-y: auto; border: 1px solid #ccc; border-radius: 5px; margin-top: 20px;">
+        <div style="max-height: 400px; overflow-y: auto; border: 1px solid #04AA6D; border-radius: 5px; margin-top: 20px;">
             <table style="width: 100%; border-collapse: collapse;">
-                <thead style="position: sticky; top: 0; background-color: #d4edda; z-index: 1;">
+                <thead style="position: sticky; top: 0; background-color: #04AA6D; z-index: 1;">
                     <tr>
-                        <th style="padding: 10px; border: 1px solid #ccc; font-family: Arial, sans-serif; color: #555;">Name</th>
-                        <th style="padding: 10px; border: 1px solid #ccc; font-family: Arial, sans-serif; color: #555;">Email</th>
-                        <th style="padding: 10px; border: 1px solid #ccc; font-family: Arial, sans-serif; color: #555;">Certificate</th>
-                        <th style="padding: 10px; border: 1px solid #ccc; font-family: Arial, sans-serif; color: #555;">Status</th>
-                        <th style="padding: 10px; border: 1px solid #ccc; font-family: Arial, sans-serif; color: #555;">Proof</th>
+                        <th style="padding: 10px; border: 1px solid #ccc; font-family: Arial, sans-serif; color: #fff;">Name</th>
+                        <th style="padding: 10px; border: 1px solid #ccc; font-family: Arial, sans-serif; color: #fff;">Email</th>
+                        <th style="padding: 10px; border: 1px solid #ccc; font-family: Arial, sans-serif; color: #fff;">Certificate</th>
+                        <th style="padding: 10px; border: 1px solid #ccc; font-family: Arial, sans-serif; color: #fff;">Status</th>
+                        <th style="padding: 10px; border: 1px solid #ccc; font-family: Arial, sans-serif; color: #fff;">Proof</th>
                     </tr>
                 </thead>
                 <tbody>
