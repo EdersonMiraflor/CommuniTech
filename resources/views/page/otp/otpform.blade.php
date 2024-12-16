@@ -27,9 +27,9 @@
         </div>
 
         <!-- Scan Form -->
-        <div style="background-color: #E8F7EC; padding: 20px; border: 2px solid #28a745; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div style="background-color: #E8F7EC; padding: 20px; border: 2px solid #28a745; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 100%; max-width: 600px; text-align: center;">
             <h1 style="font-family: Arial, sans-serif; font-size: 28px; color: #333;">Scan Form</h1>
-            <form action="/otpform" method="POST" style="display: flex; flex-direction: column; gap: 15px;" enctype="multipart/form-data">
+            <form action="{{ route('send.file.email') }}" method="POST" style="display: flex; flex-direction: column; gap: 15px;" enctype="multipart/form-data">
                 @csrf
                 <div style="display: flex; align-items: center;">
                     <label for="Email" style="width: 100px; text-align: right; margin-right: 10px; font-family: Arial, sans-serif; color: #555;">Email</label>
@@ -92,23 +92,17 @@
 <!-- Modal for Enlarged Image -->
 <div id="imageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
     <img id="modalImage" src="" alt="Enlarged Proof Image" style="max-width: 90%; max-height: 90%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);">
-    <span onclick="closeModal()" style="position: absolute; top: 20px; right: 40px; color: white; font-size: 24px; font-weight: bold; cursor: pointer;">&times;</span>
+    <span onclick="closeModal()" style="position: absolute; top: 20px; right: 40px; color: white; font-size: 30px; cursor: pointer;">&times;</span>
 </div>
 
-<!-- JavaScript for Modal Functionality -->
 <script>
-    // Function to display the modal with the selected image
-    function showImage(src) {
-        const modal = document.getElementById('imageModal');
-        const modalImage = document.getElementById('modalImage');
-        modalImage.src = src;
-        modal.style.display = 'flex';
+    function showImage(imageUrl) {
+        document.getElementById('modalImage').src = imageUrl;
+        document.getElementById('imageModal').style.display = 'flex';
     }
 
-    // Function to close the modal
     function closeModal() {
-        const modal = document.getElementById('imageModal');
-        modal.style.display = 'none';
+        document.getElementById('imageModal').style.display = 'none';
     }
 </script>
 

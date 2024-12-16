@@ -15,96 +15,76 @@
     <form id="executedeathstore" action="/home/services/deathform" method="POST">
         @csrf
         <div class="row">
-          <!-- Personal Information -->
-<div class="col-md-12">
-    <h4>I. PERSONAL INFORMATION</h4>
-    <div class="form-group">
-        <label for="full_name" class="birth-label">1. Full Name</label>
-        <input type="text" id="full_name" name="full_name" class="birth-form-control" placeholder="Enter full name (First, Middle, Last)" required>
-    </div>
-    <div class="form-group">
-        <label for="sex" class="birth-label">2. Sex</label>
-        <select id="sex" name="sex" class="birth-form-control" required>
-            <option value="">Select Sex</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="date_of_death" class="birth-label">3. Date of Death</label>
-        <input type="date" id="date_of_death" name="date_of_death" class="birth-form-control" required>
-    </div>
-    <div class="form-group">
-        <label for="date_of_birth" class="birth-label">4. Date of Birth</label>
-        <input type="date" id="date_of_birth" name="date_of_birth" class="birth-form-control" required>
-    </div>
-    <!-- Age at the Time of Death -->
-    <h5>Age at the Time of Death</h5>
-    <div class="form-group">
-        <label for="completed_years" class="birth-label">5a. Completed Years (if 1 year or above)</label>
-        <input type="number" id="completed_years" name="completed_years" class="birth-form-control">
-    </div>
-    <div class="form-group">
-        <label for="months_days" class="birth-label">5b. Months/Days (if under 1 year)</label>
-        <input type="text" id="months_days" name="months_days" class="birth-form-control">
-    </div>
-    <div class="form-group">
-        <label for="hours_minutes_seconds" class="birth-label">5c. Hours/Minutes/Seconds (if under 24 hours)</label>
-        <input type="text" id="hours_minutes_seconds" name="hours_minutes_seconds" class="birth-form-control">
-    </div>
-</div>
+            <!-- Personal Information -->
+            <div class="col-md-12">
+                <h4>I. PERSONAL INFORMATION</h4>
+                <div class="form-group">
+                    <label for="full_name" class="birth-label">1. Full Name</label>
+                    <input type="text" id="full_name" name="full_name" class="birth-form-control" placeholder="Enter full name (First, Middle, Last)" required>
+                </div>
+                <div class="form-group">
+                    <label for="sex" class="birth-label">2. Sex</label>
+                    <select id="sex" name="sex" class="birth-form-control" required>
+                        <option value="">Select Sex</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date_of_death" class="birth-label">3. Date of Death</label>
+                    <input type="date" id="date_of_death" name="date_of_death" class="birth-form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="date_of_birth" class="birth-label">4. Date of Birth</label>
+                    <input type="date" id="date_of_birth" name="date_of_birth" class="birth-form-control" required>
+                </div>
+                <!-- Age at the Time of Death -->
+                <h5>Age at the Time of Death</h5>
+                <div class="form-group">
+                    <label for="completed_years" class="birth-label">5a. Completed Years (if 1 year or above)</label>
+                    <input type="number" id="completed_years" name="completed_years" class="birth-form-control">
+                </div>
+                <div class="form-group">
+                    <label for="months_days" class="birth-label">5b. Months/Days (if under 1 year)</label>
+                    <input type="text" id="months_days" name="months_days" class="birth-form-control">
+                </div>
+                <div class="form-group">
+                    <label for="hours_minutes_seconds" class="birth-label">5c. Hours/Minutes/Seconds (if under 24 hours)</label>
+                    <input type="text" id="hours_minutes_seconds" name="hours_minutes_seconds" class="birth-form-control">
+                </div>
+            </div>
 
-<!-- Additional Details -->
-<div class="col-md-12">
-    <h4>II. ADDITIONAL DETAILS</h4>
-    <div class="form-group">
-        <label for="place_of_death" class="birth-label">6. Place of Death</label>
-        <input type="text" id="place_of_death" name="place_of_death" class="birth-form-control" placeholder="Enter place of death" required>
-    </div>
-    <div class="form-group">
-        <label for="civil_status" class="birth-label">7. Civil Status</label>
-        <select id="civil_status" name="civil_status" class="birth-form-control" required>
-            <option value="">Select Civil Status</option>
-            <option value="Single">Single</option>
-            <option value="Married">Married</option>
-            <option value="Widow/Widower">Widow/Widower</option>
-            <option value="Annulled">Annulled</option>
-            <option value="Divorced">Divorced</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="religion" class="birth-label">8. Religion/Religious Sect</label>
-        <input type="text" id="religion" name="religion" class="birth-form-control" placeholder="Enter religion" required>
-    </div>
-    <div class="form-group">
-        <label for="citizenship" class="birth-label">9. Citizenship</label>
-        <input type="text" id="citizenship" name="citizenship" class="birth-form-control" placeholder="Enter citizenship" required>
-    </div>
-    <div class="form-group">
-        <label for="residence" class="birth-label">10. Residence</label>
-        <textarea id="residence" name="residence" class="birth-form-control" placeholder="Enter residence address" rows="3" required></textarea>
-    </div>
-</div>
-
-<script>
-    document.getElementById('date_of_death').addEventListener('input', function () {
-        const dateOfDeath = new Date(this.value);
-        const today = new Date();
-        if (dateOfDeath > today) {
-            alert('Date of Death cannot be in the future.');
-            this.value = '';
-        }
-    });
-
-    document.getElementById('date_of_birth').addEventListener('input', function () {
-        const dateOfBirth = new Date(this.value);
-        const today = new Date();
-        if (dateOfBirth > today) {
-            alert('Date of Birth cannot be in the future.');
-            this.value = '';
-        }
-    });
-</script>
+            <!-- Additional Details -->
+            <div class="col-md-12">
+                <h4>II. ADDITIONAL DETAILS</h4>
+                <div class="form-group">
+                    <label for="place_of_death" class="birth-label">6. Place of Death</label>
+                    <input type="text" id="place_of_death" name="place_of_death" class="birth-form-control" placeholder="Enter place of death" required>
+                </div>
+                <div class="form-group">
+                    <label for="civil_status" class="birth-label">7. Civil Status</label>
+                    <select id="civil_status" name="civil_status" class="birth-form-control" required>
+                        <option value="">Select Civil Status</option>
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Widow/Widower">Widow/Widower</option>
+                        <option value="Annulled">Annulled</option>
+                        <option value="Divorced">Divorced</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="religion" class="birth-label">8. Religion/Religious Sect</label>
+                    <input type="text" id="religion" name="religion" class="birth-form-control" placeholder="Enter religion" required>
+                </div>
+                <div class="form-group">
+                    <label for="citizenship" class="birth-label">9. Citizenship</label>
+                    <input type="text" id="citizenship" name="citizenship" class="birth-form-control" placeholder="Enter citizenship" required>
+                </div>
+                <div class="form-group">
+                    <label for="residence" class="birth-label">10. Residence</label>
+                    <textarea id="residence" name="residence" class="birth-form-control" placeholder="Enter residence address" rows="3" required></textarea>
+                </div>
+            </div>
 
             <!-- Parental Information -->
             <div class="col-md-12">
@@ -177,104 +157,26 @@
                 </div>
             </div>
 
-            <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.querySelector("form");
-
-        form.addEventListener("submit", function (event) {
-            let isValid = true;
-            const errorMessages = [];
-
-            // Validate required fields
-            form.querySelectorAll("input[required]").forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    errorMessages.push(`${input.previousElementSibling.textContent.trim()} is required.`);
-                }
-            });
-
-            // Validate the certification date to ensure it's not in the future
-            const certificationDate = document.getElementById("certification_date");
-            const currentDate = new Date();
-            const selectedDate = new Date(certificationDate.value);
-            if (selectedDate > currentDate) {
-                isValid = false;
-                errorMessages.push("Certification date cannot be in the future.");
-            }
-
-            // Error message display
-            if (!isValid) {
-                event.preventDefault();
-                alert("Form submission failed due to the following errors:\n" + errorMessages.join("\n"));
-            }
-        });
-    });
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Get the form element
-        const form = document.querySelector("form");
-
-        // Set the max date to today
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById("certification_date").setAttribute("max", today);
-
-        // On form submission
-        form.addEventListener("submit", function (event) {
-            let isValid = true;
-            const errorMessages = [];
-
-            // Validate required fields
-            form.querySelectorAll("input[required], select[required]").forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    errorMessages.push(`${input.previousElementSibling.textContent.trim()} is required.`);
-                }
-            });
-
-            // Validate the certification date (ensuring it's not in the future)
-            const certificationDate = document.getElementById("certification_date");
-            const currentDate = new Date();
-            const selectedDate = new Date(certificationDate.value);
-            if (selectedDate > currentDate) {
-                isValid = false;
-                errorMessages.push("Certification date cannot be in the future.");
-            }
-
-            // If there are errors, prevent form submission and alert the user
-            if (!isValid) {
-                event.preventDefault();
-                alert("Form submission failed due to the following errors:\n" + errorMessages.join("\n"));
-            }
-        });
-    });
-</script>
-
-<!-- Attendant Details Form -->
-<form action="#" method="POST">
-    <div class="col-md-12">
-        <h4>IV. ATTENDANT DETAILS</h4>
-        <div class="form-group">
-            <label for="type_of_attendant" class="birth-label">9a. Type of Attendant</label>
-            <input type="text" id="type_of_attendant" name="type_of_attendant" class="birth-form-control" placeholder="e.g., Private Physician, Hospital Authority, etc." required>
-        </div>
-        <div class="form-group">
-            <label for="attendance_duration" class="birth-label">9b. Duration of Attendance</label>
-            <input type="text" id="attendance_duration" name="attendance_duration" class="birth-form-control" placeholder="From [Date] To [Date]" required>
-        </div>
-        <div class="form-group">
-            <label for="certifying_officer" class="birth-label">9c. Certifying Officer's Name and Title</label>
-            <input type="text" id="certifying_officer" name="certifying_officer" class="birth-form-control" placeholder="Enter certifying officer's name and title" required>
-        </div>
-        <div class="form-group">
-            <label for="certification_date" class="birth-label">9d. Date Certified</label>
-            <input type="date" id="certification_date" name="certification_date" class="birth-form-control" required>
-        </div>
-    </div>
-
-</form>
-
+            <!-- Attendant Details -->
+            <div class="col-md-12">
+                <h4>IV. ATTENDANT DETAILS</h4>
+                <div class="form-group">
+                    <label for="type_of_attendant" class="birth-label">9a. Type of Attendant</label>
+                    <input type="text" id="type_of_attendant" name="type_of_attendant" class="birth-form-control" placeholder="e.g., Private Physician, Hospital Authority, etc." required>
+                </div>
+                <div class="form-group">
+                    <label for="attendance_duration" class="birth-label">9b. Duration of Attendance</label>
+                    <input type="text" id="attendance_duration" name="attendance_duration" class="birth-form-control" placeholder="From [Date] To [Date]" required>
+                </div>
+                <div class="form-group">
+                    <label for="certifying_officer" class="birth-label">9c. Certifying Officer's Name and Title</label>
+                    <input type="text" id="certifying_officer" name="certifying_officer" class="birth-form-control" placeholder="Enter certifying officer's name and title" required>
+                </div>
+                <div class="form-group">
+                    <label for="certification_date" class="birth-label">9d. Date Certified</label>
+                    <input type="date" id="certification_date" name="certification_date" class="birth-form-control" required>
+                </div>
+            </div>
 <!-- Corpse Disposal -->
 <div class="col-md-12">
                 <h4>V. CORPSE DISPOSAL</h4>
@@ -352,119 +254,71 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Get the form element
-        const form = document.querySelector("form");
+            <div class="affidavit-section">
+    <h4 class="text-center">AFFIDAVIT FOR DELAYED REGISTRATION OF DEATH</h4>
+    <p>
+        I, <input type="text" name="affiant_name" class="birth-form-control" style="width: 200px;" placeholder="Affiant's Full Name" required>, of legal age, 
+        <select name="legal_status" class="birth-form-control" style="width: 150px;" required>
+            <option value="">Select Legal Status</option>
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Widow/Widower">Widow/Widower</option>
+        </select>, with residence and postal address
+        <input type="text" name="affiant_address" class="birth-form-control" style="width: 300px;" placeholder="Residence and Postal Address" required>, 
+        after being duly sworn in accordance with law, do hereby depose and say:
+    </p>
+    <ol>
+        <li>
+            That <input type="text" name="deceased_name" class="birth-form-control" style="width: 200px;" placeholder="Deceased's Name" required> died on 
+            <input type="date" name="date_of_death" class="birth-form-control" style="width: 180px;" required>, and was buried/cremated in 
+            <input type="text" name="burial_place" class="birth-form-control" style="width: 300px;" placeholder="Burial/Cremation Place" required>.
+        </li>
+        <li>
+            That the deceased at the time of his/her death:
+            <br>
+            <label><input type="checkbox" name="attended_by" value="Attended"> was attended by</label> 
+            <input type="text" name="attended_by_person" class="birth-form-control" style="width: 250px;" placeholder="Name of Attendant">
+            <br>
+            <label><input type="checkbox" name="
+            " value="Not Attended"> was not attended</label>.
+        </li>
+        <li>
+            That the cause of death of the deceased was 
+            <input type="text" name="cause_of_death" class="birth-form-control" style="width: 300px;" placeholder="Cause of Death" required>.
+        </li>
+        <li>
+            That the reason for the delay in registering this death was due to 
+            <input type="text" name="reason_delay" class="birth-form-control" style="width: 300px;" placeholder="Reason for Delay" required>.
+        </li>
+        <li>
+            That I am executing this affidavit to attest to the truthfulness of the foregoing statements for all legal intents and purposes.
+        </li>
+    </ol>
+    <p>
+        In truth whereof, I have affixed my signature below this 
+        <input type="number" name="day_signed" class="birth-form-control" style="width: 50px;" placeholder="Day" required> day of 
+        <input type="text" name="month_signed" class="birth-form-control" style="width: 100px;" placeholder="Month" required>, 
+        <input type="number" name="year_signed" class="birth-form-control" style="width: 80px;" placeholder="Year" required>, at 
+        <input type="text" name="place_signed" class="birth-form-control" style="width: 300px;" placeholder="Place Signed" required>, Philippines.
+    </p>
+    <br>
+    
+    <br>
+    <h5 class="text-center">SUBSCRIBED AND SWORN</h5>
+    <p>
+        Subscribed and sworn to before me this 
+        <input type="number" name="day_sworn" class="birth-form-control" style="width: 50px;" placeholder="Day" required> day of 
+        <input type="text" name="month_sworn" class="birth-form-control" style="width: 100px;" placeholder="Month" required>, 
+        <input type="number" name="year_sworn" class="birth-form-control" style="width: 80px;" placeholder="Year" required>, at 
+        <input type="text" name="place_sworn" class="birth-form-control" style="width: 300px;" placeholder="Place Sworn" required>, Philippines, affiant who exhibited to me his/her Community Tax Cert. issued on 
+        <input type="date" name="tax_cert_date" class="birth-form-control" style="width: 180px;" required> at 
+        <input type="text" name="tax_cert_place" class="birth-form-control" style="width: 300px;" placeholder="Place of Issuance" required>.
+    </p>
+   
+</div>
 
-        // Set the max date to today for date inputs
-        const today = new Date().toISOString().split('T')[0];
-        document.querySelectorAll("input[type='date']").forEach(input => {
-            input.setAttribute("max", today); // Prevent future dates
-        });
-
-        // On form submission
-        form.addEventListener("submit", function (event) {
-            let isValid = true;
-            const errorMessages = [];
-
-            // Validate required fields
-            form.querySelectorAll("input[required], select[required]").forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    errorMessages.push(`${input.previousElementSibling.textContent.trim()} is required.`);
-                }
-            });
-
-            // Validate that date fields are not in the future
-            const dateOfDeath = document.querySelector("input[name='date_of_death']");
-            const taxCertDate = document.querySelector("input[name='tax_cert_date']");
-            const currentDate = new Date();
-
-            if (new Date(dateOfDeath.value) > currentDate) {
-                isValid = false;
-                errorMessages.push("Date of death cannot be in the future.");
-            }
-
-            if (new Date(taxCertDate.value) > currentDate) {
-                isValid = false;
-                errorMessages.push("Tax certificate date cannot be in the future.");
-            }
-
-            // If there are errors, prevent form submission and alert the user
-            if (!isValid) {
-                event.preventDefault();
-                alert("Form submission failed due to the following errors:\n" + errorMessages.join("\n"));
-            }
-        });
-    });
-</script>
-
-<!-- Affidavit for Delayed Registration of Death Form -->
-<form action="#" method="POST">
-    <div class="affidavit-section">
-        <h4 class="text-center">AFFIDAVIT FOR DELAYED REGISTRATION OF DEATH</h4>
-        <p>
-            I, <input type="text" name="affiant_name" class="birth-form-control" style="width: 200px;" placeholder="Affiant's Full Name" required>, of legal age, 
-            <select name="legal_status" class="birth-form-control" style="width: 150px;" required>
-                <option value="">Select Legal Status</option>
-                <option value="Single">Single</option>
-                <option value="Married">Married</option>
-                <option value="Divorced">Divorced</option>
-                <option value="Widow/Widower">Widow/Widower</option>
-            </select>, with residence and postal address
-            <input type="text" name="affiant_address" class="birth-form-control" style="width: 300px;" placeholder="Residence and Postal Address" required>, 
-            after being duly sworn in accordance with law, do hereby depose and say:
-        </p>
-        <ol>
-            <li>
-                That <input type="text" name="deceased_name" class="birth-form-control" style="width: 200px;" placeholder="Deceased's Name" required> died on 
-                <input type="date" name="date_of_death" class="birth-form-control" style="width: 180px;" required>, and was buried/cremated in 
-                <input type="text" name="burial_place" class="birth-form-control" style="width: 300px;" placeholder="Burial/Cremation Place" required>.
-            </li>
-            <li>
-                That the deceased at the time of his/her death:
-                <br>
-                <label><input type="checkbox" name="attended_by" value="Attended"> was attended by</label> 
-                <input type="text" name="attended_by_person" class="birth-form-control" style="width: 250px;" placeholder="Name of Attendant">
-                <br>
-                <label><input type="checkbox" name="not_attended" value="Not Attended"> was not attended</label>.
-            </li>
-            <li>
-                That the cause of death of the deceased was 
-                <input type="text" name="cause_of_death" class="birth-form-control" style="width: 300px;" placeholder="Cause of Death" required>.
-            </li>
-            <li>
-                That the reason for the delay in registering this death was due to 
-                <input type="text" name="reason_delay" class="birth-form-control" style="width: 300px;" placeholder="Reason for Delay" required>.
-            </li>
-            <li>
-                That I am executing this affidavit to attest to the truthfulness of the foregoing statements for all legal intents and purposes.
-            </li>
-        </ol>
-        <p>
-            In truth whereof, I have affixed my signature below this 
-            <input type="number" name="day_signed" class="birth-form-control" style="width: 50px;" placeholder="Day" required> day of 
-            <input type="text" name="month_signed" class="birth-form-control" style="width: 100px;" placeholder="Month" required>, 
-            <input type="number" name="year_signed" class="birth-form-control" style="width: 80px;" placeholder="Year" required>, at 
-            <input type="text" name="place_signed" class="birth-form-control" style="width: 300px;" placeholder="Place Signed" required>, Philippines.
-        </p>
-        <br>
-        
-        <br>
-        <h5 class="text-center">SUBSCRIBED AND SWORN</h5>
-        <p>
-            Subscribed and sworn to before me this 
-            <input type="number" name="day_sworn" class="birth-form-control" style="width: 50px;" placeholder="Day" required> day of 
-            <input type="text" name="month_sworn" class="birth-form-control" style="width: 100px;" placeholder="Month" required>, 
-            <input type="number" name="year_sworn" class="birth-form-control" style="width: 80px;" placeholder="Year" required>, at 
-            <input type="text" name="place_sworn" class="birth-form-control" style="width: 300px;" placeholder="Place Sworn" required>, Philippines, affiant who exhibited to me his/her Community Tax Cert. issued on 
-            <input type="date" name="tax_cert_date" class="birth-form-control" style="width: 180px;" required> at 
-            <input type="text" name="tax_cert_place" class="birth-form-control" style="width: 300px;" placeholder="Place of Issuance" required>.
-        </p>
-    </div>
-</form>
-    <!-- Submit Section -->
+            <!-- Submit Section -->
             <div class="col-md-12 mt-3">
                 <button type="button" class="btn btn-danger" onclick="window.history.back()">Back</button>         
                  <button type="submit" data-bs-toggle="modal" class="btn btn-success" data-bs-target="#submitInfoModal">Submit</button>
