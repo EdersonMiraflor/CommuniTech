@@ -8,20 +8,11 @@ class Rider extends Model
 {
     use HasFactory;
 
-    // The table associated with the model.
-    protected $table = 'riders';
-
-    // The attributes that are mass assignable.
     protected $fillable = [
-        'name',
+        'full_name',
         'email',
-        'phone',
-        'vehicle',
-        'password',
-    ];
-
-    // The attributes that should be hidden for arrays.
-    protected $hidden = [
-        'password',
+        'contact_number',
+        'address',
+        'vehicle_type',
     ];
 }
