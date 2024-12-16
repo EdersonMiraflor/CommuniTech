@@ -13,7 +13,6 @@ class DeliveryController extends Controller
         $riders = User::where('Credential', 'rider')->get();
         return view('delivery', compact('riders'));
     }
-    
 
     public function store(Request $request)
     {
@@ -31,9 +30,9 @@ class DeliveryController extends Controller
         DeliveryDetails::create([
             'User_Id' => auth()->id(),
             'rider' => User::find($request->rider)->name,
+            'estimated_delivery_day' => $request-> estimated_delivery_day,
             'name' => $request->name,
             'requested_certificate' => $request->requested_certificate,
-            'email' => $request->email,
             'quantity' => $request->quantity,
             'address' => $request->address,
             'mobile' => $request->mobile,

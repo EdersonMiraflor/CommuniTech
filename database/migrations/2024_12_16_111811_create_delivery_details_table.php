@@ -16,6 +16,7 @@ return new class extends Migration
             // Assuming the 'users' table has an 'id' column for the primary key.
             $table->foreignId('User_Id')->constrained('users', 'User_Id'); // Make sure it references the correct column ('id')
             $table->string('rider');
+            $table->date('estimated_delivery_day');
             $table->string('name');
             $table->string('requested_certificate');
             $table->integer('quantity');
