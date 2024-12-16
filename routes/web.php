@@ -161,3 +161,9 @@ use App\Http\Controllers\RiderController;
 Route::get('/rider/application', [RiderController::class, 'create'])->name('riders.create');
 Route::post('/rider/application', [RiderController::class, 'store'])->name('riders.store');
 Route::get('/rider/application/confirmation', [RiderController::class, 'confirmation'])->name('riders.confirmation');
+
+use App\Http\Controllers\RiderDashboardController;
+
+Route::get('/rider/dashboard', [RiderDashboardController::class, 'showRiderDashboard'])->name('rider.dashboard');
+
+Route::post('/update-status/{id}', [RiderDashboardController::class, 'updateDeliveryStatus'])->name('rider.updateStatus');

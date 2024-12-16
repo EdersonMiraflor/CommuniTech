@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+
 @section('contents')
 
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
@@ -26,35 +27,33 @@
                 <!-- Assigned Deliveries -->
                 <div class="tab-pane fade show active" id="deliveries" role="tabpanel" aria-labelledby="deliveries-tab">
                     <h5>Assigned Deliveries</h5>
-                    <form>
-                        <table class="table table-hover">
-                            <thead>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Certificate Type</th>
+                                <th>Client Name</th>
+                                <th>Delivery Address</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($records->where('status', '!=', 'completed') as $record)
                                 <tr>
-                                    <th>Certificate Type</th>
-                                    <th>Client Name</th>
-                                    <th>Delivery Address</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Birth Certificate</td>
-                                    <td>John Doe</td>
-                                    <td>123 Main Street</td>
+                                    <td>{{ $record->requested_certificate }}</td>
+                                    <td>{{ $record->name }}</td>
+                                    <td>{{ $record->address }}</td>
+                                    <td>{{ ucfirst($record->status) }}</td>
                                     <td>
-                                        <select class="form-select" name="status">
-                                            <option value="to_ship">To Ship</option>
-                                            <option value="delivered">Delivered</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                                        <form id="update-form-{{ $record->Detail_Id }}" action="{{ route('rider.updateStatus', $record->Detail_Id) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                                        </form>
                                     </td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </form>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
 
                 <!-- Delivery History -->
@@ -71,13 +70,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Marriage Certificate</td>
-                                <td>Jane Smith</td>
-                                <td>456 Elm Street</td>
-                                <td>Delivered</td>
-                                <td>2024-12-01</td>
-                            </tr>
+                            @foreach($records->where('status', 'completed') as $record)
+                                <tr>
+                                    <td>{{ $record->requested_certificate }}</td>
+                                    <td>{{ $record->name }}</td>
+                                    <td>{{ $record->address }}</td>
+                                    <td>{{ ucfirst($record->status) }}</td>
+                                    <td>{{ $record->updated_at->format('Y-m-d') }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -85,14 +86,5 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.querySelectorAll('select[name="status"]').forEach(select => {
-        select.addEventListener('change', (event) => {
-            const row = event.target.closest('tr');
-            row.style.backgroundColor = event.target.value === 'delivered' ? '#d4edda' : '';
-        });
-    });
-</script>
 
 @endsection
