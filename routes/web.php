@@ -16,6 +16,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentRecordController;
 use App\Http\Controllers\GeneratePDFController;
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\DeliveryController;
 
 Auth::routes();
 Auth::routes(['verify' => true]);
@@ -24,6 +25,12 @@ Auth::routes(['verify' => true]);
 Route::get('/scan', function () {
     return view('scan');
 });
+
+
+Route::get('/admin/delivery', [DeliveryController::class, 'index'])->name('admin.delivery');
+Route::post('/admin/delivery', [DeliveryController::class, 'store'])->name('admin.delivery.store');
+
+
 
 // Home Routes
 Route::get('/home/user-profile/report', [CertificateController::class, 'showReport'])->middleware('auth');
@@ -52,6 +59,7 @@ Route::get('/home/rider_admin_com', fn() => view('page.rider_admin_com'))->middl
 Route::get('/home/ridermanagement', fn() => view('page.ridermanagement'))->middleware('auth');
 Route::get('/home/userrequest', fn() => view('page.userrequest'))->middleware('auth');
 Route::get('/rider_application', fn() => view('rider_application'))->middleware('auth');
+Route::get('/rider_interface', fn() => view('rider_interface'))->middleware('auth');
 // Form Routes Start
     //Birth Start
     Route::get('/home/services/form102', [CertificateRequestController::class, 'birthcreate']);
