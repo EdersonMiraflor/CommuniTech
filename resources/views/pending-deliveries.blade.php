@@ -1,9 +1,8 @@
 @extends('layouts.layout')
 @section('contents')
-
 <div class="container mt-5">
     <h1 class="mb-4 text-center">Your Pending Delivery Requests</h1>
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
     @if($pendingDeliveries->isEmpty())
         <div class="alert alert-info text-center">
             <p>You have no pending delivery requests.</p>
