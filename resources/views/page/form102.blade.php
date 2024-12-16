@@ -5,6 +5,32 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+<!--ERROR HANDLING CSS-->
+<head>
+    <style>
+ 
+
+/* Change the style for the fields when they are correctly filled */
+birth-container input:valid {
+    border-color: green;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Restrict the width of the input fields in the affidavit section */
+birth-container input[name="father_name"], input[name="mother_name"], input[name="name_child"], input[name="birth_date"], input[name="birth_place"] {
+    width: 80%;
+}
+
+/* Optional: add some padding and margin for form elements */
+birth-container input[type="text"], input[type="date"], select {
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    width: 100%;
+}
+
+    </style>
+</head>
 
 <br><br>
 <div class="birth-container">
@@ -325,4 +351,65 @@
         document.getElementById('executebirthstore').submit();
     }
 </script>
+
+
+
+<!-- SCRIPT FOR ERROR HANDLING -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Disable dates after today for child birthdate and marriage date
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('child_birthdate').setAttribute('max', today);
+    document.getElementById('marriage_date').setAttribute('max', today);
+
+    // Restrict input to only alphabetical letters for name fields (child, mother, father)
+    const nameFields = document.querySelectorAll('input[name^="child_first"], input[name^="child_middle"], input[name^="child_last"], input[name^="mother_first_name"], input[name^="mother_middle_name"], input[name^="mother_last_name"], input[name^="father_first_name"], input[name^="father_middle_name"], input[name^="father_last_name"], input[name^="father_name"], input[name^="mother_name"]');
+
+    nameFields.forEach(field => {
+        field.addEventListener("input", function(e) {
+            this.value = this.value.replace(/[^A-Za-z\s]/g, ''); // Allow only letters and spaces
+        });
+    });
+
+    // Restrict input to only numerical values for age fields
+    const ageFields = document.querySelectorAll('input[name="mother_age"], input[name="father_age"]');
+    ageFields.forEach(field => {
+        field.addEventListener("input", function(e) {
+            this.value = this.value.replace(/[^0-9]/g, ''); // Allow only numbers
+        });
+    });
+});
+
+
+</script>
+
+
+<script>
+    // Function to validate only alphabetical characters
+    function validateName(input) {
+        // Replace any non-alphabetical characters with an empty string
+        input.value = input.value.replace(/[^a-zA-Z\s]/g, '');
+    }
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Restrict input to only numerical values for specific fields
+    const numericFields = document.querySelectorAll(
+        '#birth_order, #birth_weight, #total_number, #children, #dead_child, #mother_age, #father_age'
+    );
+
+    numericFields.forEach(field => {
+        field.addEventListener("input", function(e) {
+            this.value = this.value.replace(/[^0-9]/g, ''); // Allow only numeric characters
+        });
+    });
+});
+</script>
+
+
+
+
 @endsection
