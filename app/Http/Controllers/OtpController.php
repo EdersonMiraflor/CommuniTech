@@ -76,6 +76,6 @@ class OtpController extends Controller
             ->whereIn('status', [null, 'pending'])  // Only update if status is null or pending
             ->update(['status' => 'verified']);
     
-        return redirect('/verify-account')->with('message', 'Please Check your email for OTP Code');
+        return redirect('/otpform')->with('message_success', 'Please Check your email for OTP Code');
     }
 }

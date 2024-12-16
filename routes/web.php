@@ -51,7 +51,7 @@ Route::get('/home/rider_user_com', fn() => view('page.rider_user_com'))->middlew
 Route::get('/home/rider_admin_com', fn() => view('page.rider_admin_com'))->middleware('auth');
 Route::get('/home/ridermanagement', fn() => view('page.ridermanagement'))->middleware('auth');
 Route::get('/home/userrequest', fn() => view('page.userrequest'))->middleware('auth');
-Route::get('/home/rider_application', fn() => view('page.rider_application'))->middleware('auth');
+Route::get('/rider_application', fn() => view('rider_application'))->middleware('auth');
 // Form Routes Start
     //Birth Start
     Route::get('/home/services/form102', [CertificateRequestController::class, 'birthcreate']);
