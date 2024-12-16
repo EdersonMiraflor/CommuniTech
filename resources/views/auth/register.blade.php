@@ -188,5 +188,34 @@
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Get the Birth_Date input field
+    const birthDateField = document.getElementById("Birth_Date");
+
+    // Get today's date in YYYY-MM-DD format
+    const today = new Date();
+    const maxDate = today.toISOString().split("T")[0];
+
+    // Set the max attribute to today's date
+    birthDateField.setAttribute("max", maxDate);
+
+    // Listen for date changes to ensure no future dates are selected
+    birthDateField.addEventListener("change", function() {
+        const selectedDate = new Date(this.value);
+        const tomorrow = new Date(today);
+        tomorrow.setDate(today.getDate() + 1);
+
+        if (selectedDate >= tomorrow) {
+            alert("You cannot select a future date beyond today.");
+            this.value = ""; // Clear the invalid date
+        }
+    });
+});
+</script>
+
+
+
 @endsection
 
