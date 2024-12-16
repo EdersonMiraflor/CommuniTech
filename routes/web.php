@@ -25,11 +25,8 @@ Auth::routes(['verify' => true]);
 Route::get('/scan', function () {
     return view('scan');
 });
-
-
-Route::get('/admin/delivery', [DeliveryController::class, 'index'])->name('admin.delivery');
-Route::post('/admin/delivery', [DeliveryController::class, 'store'])->name('admin.delivery.store');
-
+Route::get('/delivery/create', [DeliveryController::class, 'create'])->name('delivery.create');
+Route::post('/delivery/store', [DeliveryController::class, 'store'])->name('delivery.store');
 
 
 // Home Routes

@@ -11,15 +11,14 @@ class DeliverRecord extends Model
     protected $table = 'paymentrecord';
     protected $primaryKey = 'Payment_Id';
     protected $fillable = [
-        'User_Id', 
-        'name', 
+        'User_Id',
+        'name',
         'requested_certificate', 
-        'email',
         'quantity', 
         'address', 
         'mobile', 
-        'barangay',
-        'proof', 
+        'barangay', 
         'status'
     ];
+    
 }

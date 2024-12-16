@@ -2,32 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\PaymentRecord; 
+use App\Models\DeliveryDetails;
+use App\Models\User;
 
 class DeliveryController extends Controller
 {
-    // Display the delivery form
-    public function index()
+    public function create()
     {
-        $records = PaymentRecord::where('status', 'pending')->get(); // Show only pending payments
-        return view('admin.delivery', compact('records'));
+        $riders = User::where('Credential', 'rider')->get();
+        return view('delivery', compact('riders'));
     }
+    
 
-    // Handle form submission
     public function store(Request $request)
     {
         $request->validate([
-            'payment_id' => 'required|exists:paymentrecord,Payment_Id',
-            'status' => 'required|in:pending,verified',
+            'rider' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'requested_certificate' => 'required|string|max:255',
+            'quantity' => 'required|integer|min:1',
+            'address' => 'required|string|max:255',
+            'mobile' => 'required|string|max:15',
+            'barangay' => 'required|string|max:255',
+            'proof' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         ]);
-
-        // Update the payment status to 'verified'
-        $record = PaymentRecord::find($request->payment_id);
-        $record->status = $request->status;
-        $record->save();
-
-        return redirect()->route('admin.delivery')->with('success', 'Delivery details updated successfully.');
+    
+        DeliveryDetails::create([
+            'User_Id' => auth()->id(),
+            'rider' => User::find($request->rider)->name,
+            'name' => $request->name,
+            'requested_certificate' => $request->requested_certificate,
+            'email' => $request->email,
+            'quantity' => $request->quantity,
+            'address' => $request->address,
+            'mobile' => $request->mobile,
+            'barangay' => $request->barangay,
+            'status' => 'pending',
+        ]);
+    
+        return redirect()->route('delivery.create')->with('success', 'Delivery record created successfully.');
     }
 }
