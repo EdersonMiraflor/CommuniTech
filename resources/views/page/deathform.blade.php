@@ -5,8 +5,39 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
+<!--ERROR HANDLING CSS-->
+<head>
+    <style>
+        /* Highlight invalid input fields */
+birth-container input:invalid {
+    border-color: red;
+}
+
+/* Change the style for the fields when they are correctly filled */
+birth-container input:valid {
+    border-color: green;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Restrict the width of the input fields in the affidavit section */
+birth-container input[name="father_name"], input[name="mother_name"], input[name="name_child"], input[name="birth_date"], input[name="birth_place"] {
+    width: 80%;
+}
+
+/* Optional: add some padding and margin for form elements */
+birth-container input[type="text"], input[type="date"], select {
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    width: 100%;
+}
+
+</style>
+
+
+
 <br><br>
-<div class="birth-container"> 
+<div class="birth-container" style="margin-bottom: 50px"> 
     <h2 class="text-center birth-heading">
         <img src="{{ asset('/img/manito-logo.png') }}" alt="Manito Logo" class="birth-logo"> CERTIFICATE OF DEATH
     </h2>
@@ -326,6 +357,8 @@
 
             </div>
         </div>
+</form>
+</div>
         <!-- Submit Info Modal -->
 <div class="modal fade" id="submitInfoModal" tabindex="-1" aria-labelledby="submitInfoModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -398,5 +431,131 @@
         document.getElementById('executedeathstore').submit();
     });
 </script>
+
+
+<!-- SCRIPT FOR ERROR HANDLING -->
+<!-- SCRIPT FOR ERROR HANDLING - CERTIFICATE OF DEATH -->
+
+<!-- SCRIPT FOR ERROR HANDLING - CERTIFICATE OF DEATH -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    // Restrict input to only alphabetical letters for name fields (deceased, father, mother)
+    const nameFields = document.querySelectorAll(
+        'input[name^="deceased_first_name"], input[name^="deceased_middle_name"], input[name^="deceased_last_name"], ' +
+        'input[name^="father_first_name"], input[name^="father_middle_name"], input[name^="father_last_name"], ' +
+        'input[name^="mother_first_name"], input[name^="mother_middle_name"], input[name^="mother_last_name"], ' +
+        'input[name^="father_name"], input[name^="mother_name"]'
+    );
+
+    nameFields.forEach(field => {
+        field.addEventListener("input", function(e) {
+            this.value = this.value.replace(/[^A-Za-z\s]/g, ''); // Allow only letters and spaces
+        });
+    });
+
+    // Restrict input to only numerical values for age fields (father_age, mother_age)
+    const ageFields = document.querySelectorAll('input[name="father_age"], input[name="mother_age"]');
+    ageFields.forEach(field => {
+        field.addEventListener("input", function(e) {
+            this.value = this.value.replace(/[^0-9]/g, ''); // Allow only numbers
+        });
+    });
+
+    // Error handling for empty required fields
+    const form = document.getElementById('death_certificate_form');
+    form.addEventListener('submit', function(e) {
+        let isValid = true;
+        
+        // Check for empty required fields
+        const requiredFields = document.querySelectorAll('input[required]');
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.style.borderColor = 'red'; // Highlight empty required fields
+                // Optionally, you can display a custom error message here
+            } else {
+                field.style.borderColor = ''; // Reset border color if valid
+            }
+        });
+
+        // Prevent form submission if validation fails
+        if (!isValid) {
+            e.preventDefault(); // Prevent form submission
+            alert("Please fill in all required fields.");
+        }
+    });
+});
+
+</script>
+
+<!-- SCRIPT TO LIMIT DATE SELECTION TO TODAY ONLY -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Get today's date
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0]; // Format date as YYYY-MM-DD
+
+    // Set the max attribute to today's date for the specified fields
+    document.querySelectorAll('input[type="date"]').forEach(function(input) {
+        input.setAttribute('max', formattedDate);
+    });
+
+    // Additional code to handle specific requirements for the date fields
+    const dateFields = ['tax_cert_date', 'date_of_death', 'certification_date', 'date_of_birth'];
+
+    dateFields.forEach(function(fieldId) {
+        const field = document.getElementById(fieldId);
+        if (field) {
+            field.setAttribute('max', formattedDate); // Disable future dates
+        }
+    });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Restrict input to only alphabetical letters and spaces for full_name
+    const fullNameField = document.getElementById('full_name');
+    
+    fullNameField.addEventListener('input', function(e) {
+        // Replace any non-alphabetical character or character other than space with an empty string
+        this.value = this.value.replace(/[^A-Za-z\s]/g, '');
+    });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Restrict input to only alphabetical letters and spaces for specific fields
+    const nameFields = document.querySelectorAll(
+        '#full_name, #father_name, #mother_maiden_name, #type_of_attendant, #certifying_officer, [name="affiant_name"], [name="deceased_name"]'
+    );
+
+    nameFields.forEach(field => {
+        field.addEventListener("input", function(e) {
+            this.value = this.value.replace(/[^A-Za-z\s]/g, ''); // Allow only letters and spaces
+        });
+    });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Restrict input to only numerical values for specific fields
+    const numericFields = document.querySelectorAll(
+        '#completed_years, #months_days, #hours_minutes_seconds, #age_of_mother',
+    );
+
+    numericFields.forEach(field => {
+        field.addEventListener("input", function(e) {
+            this.value = this.value.replace(/[^0-9]/g, ''); // Allow only numeric characters
+        });
+    });
+});
+</script>
+
 
 @endsection

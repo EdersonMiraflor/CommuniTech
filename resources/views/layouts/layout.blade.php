@@ -594,8 +594,12 @@
     <!-- Hidden Dropdown Menu for Small Screens -->
     <div class="dropdown-menu" id="dropdown-menu">
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
+
+        @auth
+        @if (Auth::user()->Credential == 'user')
         <a href="/home/services" class="{{ Request::is('home/services*') ? 'active' : '' }}">SERVICES</a>
-       
+        @endif
+        @endauth
 <!--
         @auth
             {{-- Check if the user is admin --}}
@@ -615,7 +619,12 @@
     -->
         <a href="/home/privacy-policy" class="{{ Request::is('home/privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
         <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
+
+        @auth
+        @if (Auth::user()->Credential == 'user' || Auth::user()->Credential == 'rider')
         <a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
+        @endif
+        @endauth
     </div>
 </nav>
 
