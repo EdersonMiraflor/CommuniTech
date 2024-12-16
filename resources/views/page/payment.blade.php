@@ -18,7 +18,11 @@
                 </div>
                 <div class="form-group">
                     <label for="requested_certificate">Requested Certificate</label>
-                    <input type="text" name="requested_certificate" id="requested_certificate" class="form-control" value="{{ $requestedCertificate ?? '' }}" readonly>
+                    <input type="text" name="requested_certificate" id="requested_certificate" class="form-control" value="{{ $requestedCertificate ?? '' }}" >
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter email">
                 </div>
                 <div class="form-group">
                     <label for="quantity">Quantity</label>

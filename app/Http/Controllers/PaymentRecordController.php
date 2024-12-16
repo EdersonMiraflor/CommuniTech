@@ -23,6 +23,7 @@ class PaymentRecordController extends Controller
         $request->validate([
             'name' => 'required|string',
             'requested_certificate' => 'required|string',
+            'email' => 'required|email',
             'quantity' => 'required|integer',
             'address' => 'required|string',
             'mobile' => 'required|string',
@@ -35,6 +36,7 @@ class PaymentRecordController extends Controller
             'User_Id' => $userId, // Assign the logged-in user's ID as the foreign key
             'name' => $request->name,   
             'requested_certificate' => $request->requested_certificate,
+            'email' => $request->email,   
             'quantity' => $request->quantity,
             'address' => $request->address,
             'mobile' => $request->mobile,
