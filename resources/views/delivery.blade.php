@@ -163,10 +163,18 @@ h1 {
             </div>
 
             <div class="mb-3">
-                <label for="estimated_delivery_day" class="form-label">Day of Delivery</label>
-                <input type="text" class="form-control" id="estimated_delivery_day" name="estimated_delivery_day" value="{{ old('estimated_delivery_day') }}" required>
-                @error('barangay') <small class="text-danger">{{ $message }}</small> @enderror
-            </div>
+    <label for="estimated_delivery_day" class="form-label">Day of Delivery</label>
+    <input type="text" class="form-control @error('estimated_delivery_day') is-invalid @enderror" 
+           id="estimated_delivery_day" 
+           name="estimated_delivery_day" 
+           value="{{ old('estimated_delivery_day') }}" 
+           placeholder="yyyy/mm/dd" 
+           required>
+    @error('estimated_delivery_day') 
+        <small class="text-danger">{{ $message }}</small> 
+    @enderror
+</div>
+
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

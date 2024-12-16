@@ -519,6 +519,17 @@
                                 {{ __('My Account') }}
                             </a>
 
+                            @auth
+    @if (Auth::user()->Credential == 'user')
+        <a href="/home/pending-deliveries" 
+           class="dropdown-item {{ Request::is('home/pending-deliveries') ? 'active' : '' }}">
+            {{ __('PENDING DELIVERY') }}
+            <i class="fas fa-truck ms-2"></i> <!-- Updated icon to represent deliveries -->
+        </a>
+    @endif
+@endauth
+
+
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
