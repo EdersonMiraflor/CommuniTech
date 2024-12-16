@@ -146,3 +146,7 @@ Route::get('/home', [AnnouncementController::class, 'displays'])->name('announce
 Route::post('/announcements/store', [AnnouncementController::class, 'store'])->name('announcement.store');
 Route::delete('/announcement/{id}', [AnnouncementController::class, 'destroy'])->name('announcement.destroy');
 Route::put('/announcement/update', [AnnouncementController::class, 'update'])->name('announcement.update');
+// routes/web.php
+use App\Http\Controllers\EmailFileSendingController;
+
+Route::post('/send-file-email', [EmailFileSendingController::class, 'sendFileEmail'])->name('send.file.email');
