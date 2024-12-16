@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('contents')
-@vite(['resources/css/app.css', 'resources/js/app.js'])
+@vite('resources/css/app.css')
 
 <div class="container">
     <div class="row justify-content-center">
