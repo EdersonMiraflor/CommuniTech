@@ -6,7 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Basic Pages</title>
+    <title>CommuniTECH</title>
+
+    <!--favicon-->
+    <link rel="icon" href="{{ asset('img/communitechlogo.png') }}" type="image/png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
