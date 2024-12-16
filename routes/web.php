@@ -106,7 +106,7 @@ Route::get('/generatePDF', [PdfController::class, 'generatePdf'])->middleware('a
 Route::get('/otphome', [OtpHomeController::class, 'index']);
 Route::get('/verify-account', [OtpHomeController::class, 'verifyaccount'])->name('verifyaccount')->middleware('auth');
 Route::post('/verifyotp', [OtpHomeController::class, 'useractivation'])->name('verifyotp');
-Route::get('/otpform', fn() => view('page.otp.otpform'))->middleware('auth');
+Route::get('/otpform', [OtpController::class, 'showRequests'])->middleware('auth');
 Route::post('/otpform', [OtpController::class, 'create'])->name('otpform');
 
 // Birth Registration Routes
@@ -128,7 +128,6 @@ Route::post('/payment/store', [PaymentController::class, 'store'])->name('paymen
 Route::get('/generatebirth', [GeneratePDFController::class, 'generatebirth']);
 Route::get('/generatemarriage', [GeneratePDFController::class, 'generatemarriage']);
 Route::get('/generatedeath', [GeneratePDFController::class, 'generatedeath']);
-
 Route::get('/generatedeath/send', [GeneratePDFController::class, 'generatesend']);
 
 Route::get('/view-deathonly-cert', function () {
