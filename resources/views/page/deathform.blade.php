@@ -73,15 +73,15 @@ birth-container input[type="text"], input[type="date"], select {
                 <h5>Age at the Time of Death</h5>
                 <div class="form-group">
                     <label for="completed_years" class="birth-label">5a. Completed Years (if 1 year or above)</label>
-                    <input type="number" id="completed_years" name="completed_years" class="birth-form-control">
+                    <input type="number" id="completed_years" name="completed_years" class="birth-form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="months_days" class="birth-label">5b. Months/Days (if under 1 year)</label>
-                    <input type="text" id="months_days" name="months_days" class="birth-form-control">
+                    <input type="text" id="months_days" name="months_days" class="birth-form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="hours_minutes_seconds" class="birth-label">5c. Hours/Minutes/Seconds (if under 24 hours)</label>
-                    <input type="text" id="hours_minutes_seconds" name="hours_minutes_seconds" class="birth-form-control">
+                    <input type="text" id="hours_minutes_seconds" name="hours_minutes_seconds" class="birth-form-control" required>
                 </div>
             </div>
 
@@ -139,15 +139,15 @@ birth-container input[type="text"], input[type="date"], select {
                 </div>
                 <div class="form-group">
                     <label for="antecedent_cause" class="birth-label">6b. Antecedent Cause</label>
-                    <textarea id="antecedent_cause" name="antecedent_cause" class="birth-form-control" placeholder="Enter antecedent cause of death" rows="2"></textarea>
+                    <textarea id="antecedent_cause" name="antecedent_cause" class="birth-form-control" placeholder="Enter antecedent cause of death" rows="2" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="underlying_cause" class="birth-label">6c. Underlying Cause</label>
-                    <textarea id="underlying_cause" name="underlying_cause" class="birth-form-control" placeholder="Enter underlying cause of death" rows="2"></textarea>
+                    <textarea id="underlying_cause" name="underlying_cause" class="birth-form-control" placeholder="Enter underlying cause of death" rows="2" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="other_conditions" class="birth-label">6d. Other Significant Conditions</label>
-                    <textarea id="other_conditions" name="other_conditions" class="birth-form-control" placeholder="Enter other significant conditions" rows="2"></textarea>
+                    <textarea id="other_conditions" name="other_conditions" class="birth-form-control" placeholder="Enter other significant conditions" rows="2" required></textarea>
                 </div>
             </div>
 
@@ -156,7 +156,7 @@ birth-container input[type="text"], input[type="date"], select {
                 <h5>Maternal Condition (if deceased was female aged 15-49 years old)</h5>
                 <div class="form-group">
                     <label class="birth-label">7. Condition:</label>
-                    <select id="maternal_condition" name="maternal_condition" class="birth-form-control">
+                    <select id="maternal_condition" name="maternal_condition" class="birth-form-control" required>
                         <option value="">Select Maternal Condition</option>
                         <option value="Pregnant">Pregnant</option>
                         <option value="Pregnant, in labor">Pregnant, in labor</option>
@@ -222,7 +222,7 @@ birth-container input[type="text"], input[type="date"], select {
                 </div>
                 <div class="form-group" id="other_disposal_method" style="display:none;">
                     <label for="other_disposal_method_specify" class="birth-label">If Other, Specify</label>
-                    <input type="text" id="other_disposal_method_specify" name="other_disposal_method_specify" class="birth-form-control" placeholder="Specify disposal method">
+                    <input type="text" id="other_disposal_method_specify" name="other_disposal_method_specify" class="birth-form-control" placeholder="Specify disposal method" required>
                 </div>
                 <div class="form-group">
                     <label for="cemetery_or_crematory_name" class="birth-label">11. Name of Cemetery or Crematory</label>
@@ -275,7 +275,7 @@ birth-container input[type="text"], input[type="date"], select {
     <!-- Child's Position in Multiple Birth -->
     <div class="form-group">
         <label for="multiple_birth_position" class="birth-label">5. If Multiple Birth, Child Was</label>
-        <select id="multiple_birth_position" name="multiple_birth_position" class="birth-form-control">
+        <select id="multiple_birth_position" name="multiple_birth_position" class="birth-form-control" required>
             <option value="">Select Position</option>
             <option value="First">First</option>
             <option value="Second">Second</option>
@@ -310,7 +310,7 @@ birth-container input[type="text"], input[type="date"], select {
             That the deceased at the time of his/her death:
             <br>
             <label><input type="checkbox" name="attended_by" value="Attended"> was attended by</label> 
-            <input type="text" name="attended_by_person" class="birth-form-control" style="width: 250px;" placeholder="Name of Attendant">
+            <input type="text" name="attended_by_person" class="birth-form-control" style="width: 250px;" placeholder="Name of Attendant" required>
             <br>
             <label><input type="checkbox" name="
             " value="Not Attended"> was not attended</label>.
@@ -330,7 +330,7 @@ birth-container input[type="text"], input[type="date"], select {
     <p>
         In truth whereof, I have affixed my signature below this 
         <input type="number" name="day_signed" class="birth-form-control" style="width: 50px;" placeholder="Day" required> day of 
-        <input type="text" name="month_signed" class="birth-form-control" style="width: 100px;" placeholder="Month" required>, 
+        <input type="text" id="month_signed" name="month_signed" class="birth-form-control" style="width: 100px;" placeholder="Month" required>, 
         <input type="number" name="year_signed" class="birth-form-control" style="width: 80px;" placeholder="Year" required>, at 
         <input type="text" name="place_signed" class="birth-form-control" style="width: 300px;" placeholder="Place Signed" required>, Philippines.
     </p>
@@ -342,7 +342,7 @@ birth-container input[type="text"], input[type="date"], select {
     <p>
         Subscribed and sworn to before me this 
         <input type="number" name="day_sworn" class="birth-form-control" style="width: 50px;" placeholder="Day" required> day of 
-        <input type="text" name="month_sworn" class="birth-form-control" style="width: 100px;" placeholder="Month" required>, 
+        <input type="text" id="month_sworn" name="month_sworn" class="birth-form-control" style="width: 100px;" placeholder="Month" required>, 
         <input type="number" name="year_sworn" class="birth-form-control" style="width: 80px;" placeholder="Year" required>, at 
         <input type="text" name="place_sworn" class="birth-form-control" style="width: 300px;" placeholder="Place Sworn" required>, Philippines, affiant who exhibited to me his/her Community Tax Cert. issued on 
         <input type="date" name="tax_cert_date" class="birth-form-control" style="width: 180px;" required> at 
@@ -555,5 +555,57 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    // List of input fields to validate
+    const nameInputs = [
+        "place_of_death",
+        "religion",
+        "citizenship",
+        "father_name",
+        "mother_maiden_name",
+        "manner_of_death",
+        "type_of_attendant",
+        "place_signed",
+        "month_signed",
+        "month_sworn",
+        "place_sworn",
+        "tax_cert_place"
+    ];
 
+    // Add input event listener for each field
+    nameInputs.forEach(id => {
+        const input = document.querySelector(`#${id}`);
+        if (input) {
+            input.addEventListener("input", () => {
+                // Remove non-alphabetic characters and allow spaces
+                input.value = input.value.replace(/[^a-zA-Z\s]/g, "");
+            });
+        }
+    });
+});
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    // Targeting the month_sworn and month_signed input fields
+    const monthFields = [
+        "month_signed",
+        "month_sworn"
+    ];
+
+    // Add input event listener for each field
+    monthFields.forEach(id => {
+        const input = document.querySelector(`#${id}`);
+        if (input) {
+            input.addEventListener("input", () => {
+                // Remove any non-alphabetic characters (numbers and special characters)
+                input.value = input.value.replace(/[^a-zA-Z\s]/g, "");
+            });
+        }
+    });
+});
+
+</script>
 @endsection
