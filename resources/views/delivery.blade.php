@@ -160,9 +160,10 @@ h1 {
         @error('barangay') <small class="text-danger">{{ $message }}</small> @enderror
     </div>
 
+<!--changes in input format-->
     <div class="mb-3">
         <label for="estimated_delivery_day" class="form-label">Day of Delivery</label>
-        <input type="text" class="form-control" id="estimated_delivery_day" name="estimated_delivery_day" value="{{ old('estimated_delivery_day') }}" placeholder="ex 2024/12/17" required>
+        <input type="date" class="form-control" id="estimated_delivery_day" name="estimated_delivery_day" value="{{ old('estimated_delivery_day') }}" placeholder="ex 2024/12/17" required>
         @error('barangay') <small class="text-danger">{{ $message }}</small> @enderror
     </div>
 
@@ -200,5 +201,28 @@ h1 {
 
         return true;
     }
+</script>
+
+
+<!--script for calendar restriction-->
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+    // Get the current date
+    const currentDate = new Date();
+    
+    // Format the date as yyyy-mm-dd (the format accepted by the input type="date")
+    const year = currentDate.getFullYear();
+    const month = ("0" + (currentDate.getMonth() + 1)).slice(-2); // Add leading zero to month if necessary
+    const day = ("0" + currentDate.getDate()).slice(-2); // Add leading zero to day if necessary
+    const formattedDate = `${year}-${month}-${day}`;
+
+    // Set the min attribute to the current date
+    const deliveryDateInput = document.getElementById('estimated_delivery_day');
+    if (deliveryDateInput) {
+        deliveryDateInput.setAttribute('min', formattedDate);
+    }
+});
+
+
 </script>
 @endsection
