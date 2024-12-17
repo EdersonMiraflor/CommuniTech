@@ -14,12 +14,16 @@ class RiderDashboardController extends Controller
      */
     public function showRiderDashboard()
     {
-        // Fetch all delivery records
-        $records = DeliveryDetails::all();
-
-        // Pass the data to the view
+        // Ensure the user is authenticated
+        $rider = auth()->user();
+    
+        // Fetch delivery records assigned to the logged-in rider
+        $records = DeliveryDetails::where('rider', $rider->name)->get();
+    
+        // Pass the filtered data to the view
         return view('rider_interface', compact('records'));
     }
+    
 
     /**
      * Update the status of a delivery.

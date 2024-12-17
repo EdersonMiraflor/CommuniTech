@@ -526,8 +526,14 @@
                                 <i class="fas fa-sign-out-alt ms-2"></i>
                             </a>
                             
-                            <a href="/home/pending-deliveries" class="{{ Request::is('home/pending-deliveries') ? 'active' : '' }}">PENDING DELIVERIES</a>  
-                           
+                            
+                            @auth
+        @if (Auth::user()->Credential == 'user')
+                            <a class="dropdown-item" href="home/pending-deliveries">
+                                {{ __('PENDING DELIVERIES!') }}
+                            </a>
+                            @endif
+                            @endauth          
                             @auth
         @if (Auth::user()->Credential == 'user')
                             <hr class="dropdown-divider"> <!-- Horizontal line divider -->
