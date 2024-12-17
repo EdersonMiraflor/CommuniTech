@@ -143,7 +143,6 @@ Route::post('/payment/store', [PaymentController::class, 'store'])->name('paymen
 Route::get('/generatebirth', [GeneratePDFController::class, 'generatebirth']);
 Route::get('/generatemarriage', [GeneratePDFController::class, 'generatemarriage']);
 Route::get('/generatedeath', [GeneratePDFController::class, 'generatedeath']);
-Route::get('/generatedeath/send', [GeneratePDFController::class, 'generatesend']);
 
 Route::get('/view-deathonly-cert', function () {
     

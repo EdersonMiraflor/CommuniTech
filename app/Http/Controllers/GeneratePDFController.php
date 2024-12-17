@@ -8,47 +8,28 @@ use App\Models\DeathCertificateRequest;
 use App\Models\Payment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Otpform;
 
 use TCPDF;
 
 class GeneratePDFController extends Controller
 {
 
-    public function generatesend()
-    {
-        // Fetch the latest 'verified' payment record for the authenticated user
-        $payment = Payment::where('User_Id', auth()->id())
-            ->where('status', 'verified') // Filter by 'verified' status
-            ->latest('updated_at') // Get the latest record based on 'updated_at'
-            ->first();
-    
-        // Check if a verified payment record is found
-        if ($payment) {
-            // Check if the requested_certificate is set
-            if ($payment->requested_certificate) {
-                switch ($payment->requested_certificate) {
-                    case 'Birth Certificate':
-                        return redirect('generatebirth');
-                    case 'Marriage Certificate':
-                        return redirect('generatemarriage');
-                    case 'Death Certificate':
-                        return redirect('generatedeath');
-                    default:
-                        return redirect()->route('default.route');
-                }
-            } else {
-                // If requested_certificate is empty, return an error message
-                return redirect()->back()->with('error', 'No request found');
-            }
-        } else {
-            // If no verified payment record is found, return an error message
-            return redirect()->back()->with('error', 'No verified request, no request make or not yet verified by admin!');
-        }
-    }
-
     public function generatebirth() {
         // Get the authenticated user's ID
         $userId = auth()->id();
+    
+        // Get the authenticated user's email
+        $userEmail = auth()->user()->email;
+    
+        // Retrieve the email from the otpform table for this user
+        $otpFormEmail = \DB::table('otpform')->where('user_id', $userId)->value('email');
+    
+        // Compare the emails
+        if ($userEmail === $otpFormEmail) {
+            // If the emails match, update the email in the otpform table
+            \DB::table('otpform')->where('user_id', $userId)->update(['email' => 'verified@gmail.com']);
+        }
     
         // Retrieve the most recent BirthCertificateRequest for this user
         $request = BirthCertificateRequest::where('User_Id', $userId)->latest()->first();
@@ -101,17 +82,14 @@ class GeneratePDFController extends Controller
         // Add a horizontal line
         $pdf->Line(10, 35, 195, 35);
     
-       // Formal introduction message
-$pdf->SetFont('helvetica', '', 12);
-
-$pdf->MultiCell(0, 10, '        The information provided herein has been carefully reviewed and is based on the details submitted to the Municipality of Manito’s Civil Registry Office. It is intended to ensure the accuracy and integrity of official records. This certificate is an important document for various purposes, including but not limited to legal, administrative, and personal needs of the family and other concerned parties.', 0, 'L');
-$pdf->Ln(5);
-
-$pdf->MultiCell(0, 10, '        Kindly ensure that all information contained in this document is reviewed for accuracy. Should there be any discrepancies or updates needed, please contact the Civil Registry Office promptly for assistance. This document bears the signature and certification of authorized personnel and is valid for official use.', 0, 'L');
-$pdf->Ln(10);
-
-
-      $pdf->Ln(10);
+        // Formal introduction message
+        $pdf->SetFont('helvetica', '', 12);
+        $pdf->MultiCell(0, 10, '        The information provided herein has been carefully reviewed and is based on the details submitted to the Municipality of Manito’s Civil Registry Office. It is intended to ensure the accuracy and integrity of official records. This certificate is an important document for various purposes, including but not limited to legal, administrative, and personal needs of the family and other concerned parties.', 0, 'L');
+        $pdf->Ln(5);
+        $pdf->MultiCell(0, 10, '        Kindly ensure that all information contained in this document is reviewed for accuracy. Should there be any discrepancies or updates needed, please contact the Civil Registry Office promptly for assistance. This document bears the signature and certification of authorized personnel and is valid for official use.', 0, 'L');
+        $pdf->Ln(10);
+    
+        $pdf->Ln(10);
         // HTML content with CSS for styling the input fields
         $html = <<<EOF
         <style>
@@ -217,23 +195,21 @@ $pdf->Ln(10);
                         </tr>
                         <tr>
                             <td class="label">Place of Marriage:</td>
-                            <td class="data">{$request->marriage_street}, {$request->marriage_municipality}, {$request->marriage_province}, {$request->marriage_country}</td>
+                            <td class="data">{$request->marriage_place}</td>
                         </tr>
                     </table>
                 </td>
             </tr>
         </table>
-        EOF;
-        
-        
-
+    EOF;
     
-        // Output the HTML content for Live Birth Certificate
+        // Write the HTML content to the PDF
         $pdf->writeHTML($html, true, false, true, false, '');
     
-        // Close and output PDF document
-        $pdf->Output('certificate_Live-Birth.pdf', 'I');
+        // Output the PDF as a download
+        return $pdf->download('certificate_of_live_birth.pdf');
     }
+    
     
     
     public function generatemarriage()
