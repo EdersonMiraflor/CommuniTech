@@ -87,7 +87,7 @@ birth-container input[type="text"], input[type="date"], select {
 
                 <div class="form-group" id="other_birth_type" style="display:none;">
                     <label for="other_birth_type_specify" class="birth-label">Please Specify</label>
-                    <input type="text" id="other_birth_type_specify" name="birth_type" class="birth-form-control" placeholder="Specify other birth type">
+                    <input type="text" id="other_birth_type_specify" name="birth_type" class="birth-form-control" placeholder="Specify other birth type" required>
                 </div>
 
                 <div class="form-group">
@@ -232,7 +232,7 @@ birth-container input[type="text"], input[type="date"], select {
 
                 <div class="form-group" id="other_attendant_role" style="display:none;">
                     <label for="other_attendant_role_specify" class="birth-label">Please Specify</label>
-                    <input type="text" id="other_attendant_role_specify" name="other_attendant_role" class="birth-form-control" placeholder="Specify other role">
+                    <input type="text" id="other_attendant_role_specify" name="other_attendant_role" class="birth-form-control" placeholder="Specify other role" required>
                 </div>
             </div>
 
@@ -242,8 +242,8 @@ birth-container input[type="text"], input[type="date"], select {
             <p> I/We, <div class="field"> <input class="birth-form-control" type="text" name="father_name" placeholder="Mother's Name" required> </div> and
                     <div class="field"> <input class="birth-form-control" type="text" name="mother_name" placeholder="Father's Name" required> </div> , of legal age, am/are the natural mother and/or father of 
                     <input class="birth-form-control" type="text" name="name_child" placeholder="Child's Name" required style="width: 60%;">, who was born on 
-                <input class="birth-form-control" type="date" name="birth_date" required> at 
-                <input class="birth-form-control" type="text" name="birth_place" placeholder="Place of Birth" required style="width: 50%;">
+                <input id="affi_birthdate" class="birth-form-control" type="date" name="birth_date" required> at 
+                <input id="birth_place1" class="birth-form-control" type="text" name="birth_place" placeholder="Place of Birth" required style="width: 50%;">
             </p>
             <p>
                 I am / We are executing this affidavit to attest to the truthfulness of the foregoing
@@ -364,6 +364,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('child_birthdate').setAttribute('max', today);
     document.getElementById('marriage_date').setAttribute('max', today);
+    document.getElementById('affi_birthdate').setAttribute('max', today);
 
     // Restrict input to only alphabetical letters for name fields (child, mother, father)
     const nameFields = document.querySelectorAll('input[name^="child_first"], input[name^="child_middle"], input[name^="child_last"], input[name^="mother_first_name"], input[name^="mother_middle_name"], input[name^="mother_last_name"], input[name^="father_first_name"], input[name^="father_middle_name"], input[name^="father_last_name"], input[name^="father_name"], input[name^="mother_name"]');
@@ -410,6 +411,48 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    // List of input names to validate
+    const nameInputs = [
+        "child_birthplace",
+        "citizenship",
+        "religion",
+        "occupation",
+        "mother_city",
+        "mother_province",
+        "mother_country",
+        "citizenship2",
+        "religion2",
+        "occupation2",
+        "father_city",
+        "father_province",
+        "father_country",
+        "marriage_municipality",
+        "marriage_province",
+        "marriage_country",
+        "father_name",
+        "mother_name",
+        "name_child",
+        "birth_place",
+        "birth_place1",
+        "signature1",
+        "signature2"
+    ];
+
+    // Add input event listener for each field
+    nameInputs.forEach(name => {
+        const input = document.querySelector(`[name="${name}"]`);
+        if (input) {
+            input.addEventListener("input", () => {
+                // Remove non-alphabetic characters
+                input.value = input.value.replace(/[^a-zA-Z\s]/g, "");
+            });
+        }
+    });
+});
+
+</script>
 
 
 
