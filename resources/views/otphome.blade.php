@@ -35,19 +35,33 @@ Explanation:
         });
     </script>
 @endif
-    <h3>You are logged in as: <strong>{{ auth()->user()->name }}</strong></h3>
+{{-- Display User Information --}}
+        <h3>You are logged in as: <strong>{{ auth()->user()->name }}</strong></h3>
 
-    <a href="{{ url('generatebirth') }}" style="text-decoration: none; color: blue;">
-            Click here to Download your PDF Birth Content
-        </a><br>
+        {{-- Fetch certificate_type directly from the database --}}
+        @php
+            use App\Models\PdfRequester;
+            $certificate = PdfRequester::where('User_Id', auth()->id())->latest()->first();
+        @endphp
 
-    <a href="{{ url('generatemarriage') }}" style="text-decoration: none; color: blue;">
-            Click here to Download your PDF Marriage Content
-    </a><br>
-
-    <a href="{{ url('generatedeath') }}" style="text-decoration: none; color: blue;">
-            Click here to Download your PDF Death Content
-    </a>
+        {{-- Conditional Links based on certificate_type --}}
+        @if ($certificate)
+            @if ($certificate->certificate_type == 'Birth Certificate')
+                <a href="{{ url('generatebirth') }}" style="text-decoration: none; color: blue;">
+                    Click here to Download your PDF Birth Content
+                </a><br>
+            @elseif ($certificate->certificate_type == 'Marriage Certificate')
+                <a href="{{ url('generatemarriage') }}" style="text-decoration: none; color: blue;">
+                    Click here to Download your PDF Marriage Content
+                </a><br>
+            @elseif ($certificate->certificate_type == 'Death Certificate')
+                <a href="{{ url('generatedeath') }}" style="text-decoration: none; color: blue;">
+                    Click here to Download your PDF Death Content
+                </a>
+            @endif
+        @else
+            <p>No certificate type found for your account.</p>
+        @endif
 
 </div>
 </body>
