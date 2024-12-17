@@ -30,20 +30,20 @@ class DeliveryController extends Controller
         ]);
         */
         // Safely retrieve the rider's name
-        $rider = User::findOrFail($request->rider);
+            $rider = User::findOrFail($request->rider);
 
-        DeliveryDetails::create([
-            'User_Id' => auth()->id(),
-            'rider' => $rider->name,
-            'estimated_delivery_day' => $request->estimated_delivery_day,
-            'name' => $request->name,
-            'requested_certificate' => $request->requested_certificate,
-            'quantity' => $request->quantity,
-            'address' => $request->address,
-            'mobile' => $request->mobile,
-            'barangay' => $request->barangay,
-            'status' => 'pending',
-        ]);
+            DeliveryDetails::create([
+                'User_Id' => auth()->id(),
+                'rider' => $rider->name,
+                'estimated_delivery_day' => $request->estimated_delivery_day,
+                'name' => $request->name,
+                'requested_certificate' => $request->requested_certificate,
+                'quantity' => $request->quantity,
+                'address' => $request->address,
+                'mobile' => $request->mobile,
+                'barangay' => $request->barangay,
+                'status' => 'pending',
+            ]);
 
         return redirect()->route('delivery.create')->with('success', 'Delivery record created successfully.');
     }

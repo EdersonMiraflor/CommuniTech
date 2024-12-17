@@ -107,69 +107,98 @@ h1 {
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
-        <!-- Form for Adding Delivery Details -->
-        <form action="{{ route('delivery.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('delivery.store') }}" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 
-            @csrf
+    @csrf
 
-            <div class="mb-3">
-    <label for="rider" class="form-label">Rider</label>
-    <select class="form-control" id="rider" name="rider" required>
-        <option value="">Select a rider</option>
-        @foreach($riders as $rider)
-            <option value="{{ $rider->User_Id }}" {{ old('rider') == $rider->User_Id ? 'selected' : '' }}>
-                {{ $rider->name }}
-            </option>
-        @endforeach
-    </select>
-    @error('rider') <small class="text-danger">{{ $message }}</small> @enderror
-  </div>
+    <div class="mb-3">
+        <label for="rider" class="form-label">Rider</label>
+        <select class="form-control" id="rider" name="rider" required>
+            <option value="">Select a rider</option>
+            @foreach($riders as $rider)
+                <option value="{{ $rider->User_Id }}" {{ old('rider') == $rider->User_Id ? 'selected' : '' }}>
+                    {{ $rider->name }}
+                </option>
+            @endforeach
+        </select>
+        @error('rider') <small class="text-danger">{{ $message }}</small> @enderror
+    </div>
 
+    <div class="mb-3">
+        <label for="requested_certificate" class="form-label">Client</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
+        @error('name') <small class="text-danger">{{ $message }}</small> @enderror
+    </div>
 
-            <div class="mb-3">
-                <label for="requested_certificate" class="form-label">Client</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
-                @error('name') <small class="text-danger">{{ $message }}</small> @enderror
-            </div>
+    <div class="mb-3">
+        <label for="requested_certificate" class="form-label">Requested Certificate</label>
+        <input type="text" class="form-control" id="requested_certificate" name="requested_certificate" value="{{ old('requested_certificate') }}" required>
+        @error('requested_certificate') <small class="text-danger">{{ $message }}</small> @enderror
+    </div>
 
-            <div class="mb-3">
-                <label for="requested_certificate" class="form-label">Requested Certificate</label>
-                <input type="text" class="form-control" id="requested_certificate" name="requested_certificate" value="{{ old('requested_certificate') }}" required>
-                @error('requested_certificate') <small class="text-danger">{{ $message }}</small> @enderror
-            </div>
+    <div class="mb-3">
+        <label for="quantity" class="form-label">Quantity</label>
+        <input type="number" class="form-control" id="quantity" name="quantity" value="{{ old('quantity') }}" required>
+        @error('quantity') <small class="text-danger">{{ $message }}</small> @enderror
+    </div>
 
-            <div class="mb-3">
-                <label for="quantity" class="form-label">Quantity</label>
-                <input type="number" class="form-control" id="quantity" name="quantity" value="{{ old('quantity') }}" required>
-                @error('quantity') <small class="text-danger">{{ $message }}</small> @enderror
-            </div>
+    <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <input type="text" class="form-control" id="address" name="address" value="{{ old('address') }}" required>
+        @error('address') <small class="text-danger">{{ $message }}</small> @enderror
+    </div>
 
-            <div class="mb-3">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" name="address" value="{{ old('address') }}" required>
-                @error('address') <small class="text-danger">{{ $message }}</small> @enderror
-            </div>
+    <div class="mb-3">
+        <label for="mobile" class="form-label">Mobile</label>
+        <input type="text" class="form-control" id="mobile" name="mobile" value="{{ old('mobile') }}" required>
+        @error('mobile') <small class="text-danger">{{ $message }}</small> @enderror
+    </div>
 
-            <div class="mb-3">
-                <label for="mobile" class="form-label">Mobile</label>
-                <input type="text" class="form-control" id="mobile" name="mobile" value="{{ old('mobile') }}" required>
-                @error('mobile') <small class="text-danger">{{ $message }}</small> @enderror
-            </div>
+    <div class="mb-3">
+        <label for="barangay" class="form-label">Barangay</label>
+        <input type="text" class="form-control" id="barangay" name="barangay" value="{{ old('barangay') }}" required>
+        @error('barangay') <small class="text-danger">{{ $message }}</small> @enderror
+    </div>
 
-            <div class="mb-3">
-                <label for="barangay" class="form-label">Barangay</label>
-                <input type="text" class="form-control" id="barangay" name="barangay" value="{{ old('barangay') }}" required>
-                @error('barangay') <small class="text-danger">{{ $message }}</small> @enderror
-            </div>
+    <div class="mb-3">
+        <label for="estimated_delivery_day" class="form-label">Day of Delivery</label>
+        <input type="text" class="form-control" id="estimated_delivery_day" name="estimated_delivery_day" value="{{ old('estimated_delivery_day') }}" placeholder="ex 2024/12/17" required>
+        @error('barangay') <small class="text-danger">{{ $message }}</small> @enderror
+    </div>
 
-            <div class="mb-3">
-                <label for="estimated_delivery_day" class="form-label">Day of Delivery</label>
-                <input type="text" class="form-control" id="estimated_delivery_day" name="estimated_delivery_day" value="{{ old('estimated_delivery_day') }}" required>
-                @error('barangay') <small class="text-danger">{{ $message }}</small> @enderror
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
     </div>
 </body>
+<script>
+    function validateForm() {
+        const currentDate = new Date();
+        const dateInput = document.getElementById('estimated_delivery_day').value;
+        const mobileInput = document.getElementById('mobile').value;
+
+        // Regex for YYYY/MM/DD format
+        const datePattern = /^\d{4}\/\d{2}\/\d{2}$/;
+
+        if (!datePattern.test(dateInput)) {
+            alert("Estimated delivery day must be in the format YYYY/MM/DD.");
+            return false;
+        }
+
+        const enteredDate = new Date(dateInput);
+
+        // Check if the date is in the future
+        if (enteredDate > currentDate) {
+            alert("Estimated delivery day cannot be in the future.");
+            return false;
+        }
+
+        // Validate mobile field for numeric input only
+        if (!/^\d+$/.test(mobileInput)) {
+            alert("Mobile number should contain only numeric characters.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
 @endsection

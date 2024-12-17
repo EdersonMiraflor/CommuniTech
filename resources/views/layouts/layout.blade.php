@@ -525,7 +525,15 @@
                                 {{ __('Logout') }}
                                 <i class="fas fa-sign-out-alt ms-2"></i>
                             </a>
-                            <a href="/home/pending-deliveries" class="{{ Request::is('home/pending-deliveries') ? 'active' : '' }}">PENDING DELIVERIES</a>  
+                            
+                            
+                            @auth
+        @if (Auth::user()->Credential == 'user')
+                            <a class="dropdown-item" href="home/pending-deliveries">
+                                {{ __('PENDING DELIVERIES!') }}
+                            </a>
+                            @endif
+                            @endauth          
                             @auth
         @if (Auth::user()->Credential == 'user')
                             <hr class="dropdown-divider"> <!-- Horizontal line divider -->
@@ -557,6 +565,20 @@
         @endif
         @endauth
         
+        @auth
+    @if (Auth::user()->Credential == 'rider')
+        <a href="/rider/dashboard" class="{{ Request::is('rider/dashboard*') ? 'active' : '' }}">DASHBOARD</a>
+    @endif
+@endauth
+
+@auth
+    @if (Auth::user()->Credential == 'admin')
+        <a href="/delivery/create" class="{{ Request::is('delivery/create*') ? 'active' : '' }}">DELIVERY</a>
+    @endif
+@endauth
+
+
+
         @auth
         @if (Auth::user()->Credential == 'user')
         <a href="/home/usermanual" class="{{ Request::is('home/usermanual') ? 'active' : '' }}">USER MANUAL</a>
@@ -622,12 +644,28 @@
         <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
 
         @auth
+    @if (Auth::user()->Credential == 'rider')
+        <a href="/rider/dashboard" class="{{ Request::is('rider/dashboard*') ? 'active' : '' }}">DASHBOARD</a>
+    @endif
+@endauth
+
+
+@auth
+    @if (Auth::user()->Credential == 'admin')
+        <a href="/delivery/create" class="{{ Request::is('delivery/create*') ? 'active' : '' }}">DELIVERY</a>
+    @endif
+@endauth
+
+
+        @auth
         @if (Auth::user()->Credential == 'user' || Auth::user()->Credential == 'rider')
         <a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
         @endif
         @endauth
     </div>
 </nav>
+
+
 
     <script>
         // JavaScript for Toggling the Dropdown Menu in Mobile View
