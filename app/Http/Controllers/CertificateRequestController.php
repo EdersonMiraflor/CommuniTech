@@ -8,6 +8,7 @@ use App\Models\BirthCertificateRequest;
 use App\Models\MarriageCertificateRequest;
 use App\Models\DeathCertificateRequest;
 use App\Models\Qrcode;
+use App\Models\PdfRequester;
 
 class CertificateRequestController extends Controller
 {
@@ -77,6 +78,11 @@ class CertificateRequestController extends Controller
         ]);
 
         $requestedCertificate = "Birth Certificate";
+        PdfRequester::create([
+            'User_Id' => $userId,
+            'certificate_type' => $requestedCertificate,
+        ]);
+
         $qrscan = Qrcode::latest()->first(); 
         $qrscans = Qrcode::all();
         return view('page.payment', compact('requestedCertificate', 'qrscan')); 
@@ -167,6 +173,11 @@ class CertificateRequestController extends Controller
         'admin_officer_address' => $request->admin_officer_address,
             ]);
             $requestedCertificate = "Marriage Certificate";
+            PdfRequester::create([
+                'User_Id' => $userId,
+                'certificate_type' => $requestedCertificate,
+            ]);
+
             $qrscan = Qrcode::latest()->first(); 
             $qrscans = Qrcode::all();
             return view('page.payment', compact('requestedCertificate', 'qrscans', 'qrscan'));
@@ -246,6 +257,11 @@ class CertificateRequestController extends Controller
         ]);
 
         $requestedCertificate = "Death Certificate";
+        PdfRequester::create([
+            'User_Id' => $userId,
+            'certificate_type' => $requestedCertificate,
+        ]);
+
         $qrscan = Qrcode::latest()->first(); 
         $qrscans = Qrcode::all();
         return view('page.payment', compact('requestedCertificate', 'qrscan', 'qrscans'));

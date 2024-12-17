@@ -37,9 +37,18 @@ Explanation:
 @endif
     <h3>You are logged in as: <strong>{{ auth()->user()->name }}</strong></h3>
 
-    <a href="{{ url('/generatedeath/send') }}" style="text-decoration: none; color: blue;">
-            Click here to Download your Certificate
-        </a>
+    <a href="{{ url('generatebirth') }}" style="text-decoration: none; color: blue;">
+            Click here to Download your PDF Birth Content
+        </a><br>
+
+    <a href="{{ url('generatemarriage') }}" style="text-decoration: none; color: blue;">
+            Click here to Download your PDF Marriage Content
+    </a><br>
+
+    <a href="{{ url('generatedeath') }}" style="text-decoration: none; color: blue;">
+            Click here to Download your PDF Death Content
+    </a>
+
 </div>
 </body>
 </html>

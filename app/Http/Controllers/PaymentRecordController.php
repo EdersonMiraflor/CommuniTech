@@ -44,6 +44,6 @@ class PaymentRecordController extends Controller
             'proof' => $request->hasFile('proof') ? $request->file('proof')->store('proofs', 'public') : null, // Store the proof file if present
         ]);
 
-        return redirect('payment')->with('flash_message', 'Payment record created!');
+        return redirect('payment')->with('flash_message', 'Your Request Has Been Created!, Please Go To Your My Account And Check Request History For Your Request Status');
     }
 }
