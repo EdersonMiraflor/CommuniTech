@@ -188,6 +188,7 @@ h1 {
         @error('barangay') <small class="text-danger">{{ $message }}</small> @enderror
     </div>
 
+<!--changes in input format-->
     <div class="mb-3">
         <label for="estimated_delivery_day" class="form-label">Day of Delivery</label>
         <input type="text" class="form-control" id="estimated_delivery_day" name="estimated_delivery_day" value="{{ old('estimated_delivery_day') }}" placeholder="e.g 2024/12/17" required>

@@ -76,13 +76,13 @@
             <h3>5. Residence</h3>
             <div class="form-group">
                 <label for="husband_residence" class="birth-label">Residence</label>
-                <input type="text" id="husband_residence" name="husband_residence" class="birth-form-control" placeholder="Enter (House No., St., Barangay, City/Municipality, Province, Country)" />
+                <input type="text" id="husband_residence" name="husband_residence" class="birth-form-control" placeholder="Enter (House No., St., Barangay, City/Municipality, Province, Country)" required />
             </div>
 
             <h3>6. Religion/Religious Sect</h3>
             <div class="form-group">
                 <label for="husband_religion" class="birth-label">Religion</label>
-                <input type="text" id="husband_religion" name="husband_religion" class="birth-form-control" placeholder="Enter husband's religion" />
+                <input type="text" id="husband_religion" name="husband_religion" class="birth-form-control" placeholder="Enter husband's religion" required />
             </div>
 
             <h3>7. Name of Father</h3>
@@ -183,7 +183,7 @@
             <h3>5. Residence</h3>
             <div class="form-group">
                 <label for="wife_residence" class="birth-label">Residence</label>
-                <input type="text" id="wife_residence" name="wife_residence" class="birth-form-control" placeholder="Enter (House No., St., Barangay, City/Municipality, Province, Country)" />
+                <input type="text" id="wife_residence" name="wife_residence" class="birth-form-control" placeholder="Enter (House No., St., Barangay, City/Municipality, Province, Country)" required />
             </div>
 
             <h3>6. Religion/Religious Sect</h3>
@@ -276,30 +276,30 @@
     <h4 class="text-center" style="font-weight: bold;">AFFIDAVIT FOR DELAYED REGISTRATION OF MARRIAGE</h4>
     <br>
 
-    <p>
-        I, <input class="birth-form-control" type="text" name="affiant_name" style="width: 300px;" placeholder="Name" required>, of legal age, 
-        <select style="width:180px;" class="birth-form-control" name="civil_status" required>
+    <p> 
+        I, <input class="birth-form-control" type="text" id="affiant_name" name="affiant_name" style="width: 300px;" placeholder="Name" required>, of legal age, 
+        <select style="width:180px;" id="civil_status" class="birth-form-control" name="civil_status" required>
             <option value="" disabled selected>Select Status</option>
             <option value="single">Single</option>
             <option value="married">Married</option>
             <option value="divorced">Divorced</option>
             <option value="widowed">Widowed</option>
         </select>, with residence and postal address 
-        <input class="birth-form-control" type="text" name="address" style="width: 300px;" placeholder="Address" required>,
+        <input id="address" class="birth-form-control" type="text" name="address" style="width: 300px;" placeholder="Address" required>,
     </p>
     <p>
         after having duly sworn in accordance with the law, do hereby depose and say:
     </p>
     <ol>
-        <li>
+        <li> 
             That I am the applicant for the delayed registration of 
-            <input class="birth-form-control" type="text" name="marriage_registration_for" style="width: 300px;" placeholder="Marriage Registration" required> 
+            <input id="marriage_registration_for" class="birth-form-control" type="text" name="marriage_registration_for" style="width: 300px;" placeholder="Marriage Registration" required> 
             with my marriage with <input class="birth-form-control" type="text" name="spouse_name" style="width: 300px;" placeholder="Spouse Name" required> 
-            on <input class="birth-form-control" type="date" name="marriage_date2" style="width: 200px;" required>.
+            on <input id="marriage_date2" class="birth-form-control" type="date" name="marriage_date2" style="width: 200px;" required>.
         </li>
-        <li>
-            That said marriage was solemnized by <input class="birth-form-control" type="text" name="solemnizing_officer" style="width: 300px;" placeholder="Officer Name" required> under
-            <select style="width: 180px;" class="birth-form-control" name="ceremony_type" required>
+        <li> 
+            That said marriage was solemnized by <input id="solemnizing_officer" class="birth-form-control" type="text" name="solemnizing_officer" style="width: 300px;" placeholder="Officer Name" required> under
+            <select id="ceremony_type" style="width: 180px;" class="birth-form-control" name="ceremony_type" required>
                 <option value="" disabled selected>Select Ceremony</option>
                 <option value="religious">Religious Ceremony</option>
                 <option value="civil">Civil Ceremony</option>
@@ -310,21 +310,21 @@
         <li>
             That the marriage was solemnized:
             <label><input type="radio" name="license_required" value="with_license" required> with Marriage License No.</label>
-            <input class="birth-form-control" type="text" name="license_no" style="width: 200px;" placeholder="License No."> issued on 
-            <input class="birth-form-control" type="date" name="license_date" style="width: 200px;"> at 
-            <input class="birth-form-control" type="text" name="license_place" style="width: 200px;" placeholder="Place of Issuance">
+            <input class="birth-form-control" type="text" name="license_no" style="width: 200px;" placeholder="License No." required> issued on 
+            <input class="birth-form-control" type="date" name="license_date" style="width: 200px;" required> at 
+            <input class="birth-form-control" type="text" name="license_place" style="width: 200px;" placeholder="Place of Issuance" required>
             <br>
             <label><input type="radio" name="license_required2" value="exceptional_case"> under Article 
-            <input class="birth-form-control" type="text" name="article_no" style="width: 200px;" placeholder="Article No."></label>.
+            <input id="article_no" class="birth-form-control" type="text" name="article_no" style="width: 200px;" placeholder="Article No." required></label>.
         </li>
         <li>
-            That I am a citizen of <input class="birth-form-control" type="text" name="citizenship" style="width: 300px;" placeholder="Citizenship" required>, 
+            That I am a citizen of <input id="citizenship" class="birth-form-control" type="text" name="citizenship" style="width: 300px;" placeholder="Citizenship" required>, 
             and my spouse is a citizen of 
-            <input class="birth-form-control" type="text" name="spouse_citizenship" style="width: 300px;" placeholder="Spouse Citizenship" required>.
+            <input id="spouse_citizenship" class="birth-form-control" type="text" name="spouse_citizenship" style="width: 300px;" placeholder="Spouse Citizenship" required>.
         </li>
         <li>
             That the reason for the delay in registering the marriage is 
-            <textarea class="birth-form-control" name="delay_reason" style="width: 100%; height: 80px;" placeholder="Reason for delay" required></textarea>.
+            <textarea id="delay_reason" class="birth-form-control" name="delay_reason" style="width: 100%; height: 80px;" placeholder="Reason for delay" required></textarea>.
         </li>
         <li>
             That I am executing this affidavit to attest to the truthfulness of the foregoing statements for all legal intents and purposes.
@@ -333,30 +333,30 @@
     <p>
         In truth whereof, I have affixed my signature below this 
         <input class="birth-form-control" type="text" name="day2" style="width: 50px;" placeholder="Day" required> day of 
-        <input class="birth-form-control" type="text" name="month2" style="width: 150px;" placeholder="Month" required>, 
+        <input id="month2" class="birth-form-control" type="text" name="month2" style="width: 150px;" placeholder="Month" required>, 
         <input class="birth-form-control" type="text" name="year2" style="width: 100px;" placeholder="Year" required>, 
         at <input class="birth-form-control" type="text" name="location" style="width: 300px;" placeholder="Location" required>.
     </p>
     
     <p>
         SUBSCRIBED AND SWORN to before me this <input class="birth-form-control" type="text" name="subscribed_day" style="width: 50px;" placeholder="Day" required> day of 
-        <input type="text" class="birth-form-control"  name="subscribed_month" style="width: 150px;" placeholder="Month" required>, 
+        <input type="text" id="subscribed_month" class="birth-form-control"  name="subscribed_month" style="width: 150px;" placeholder="Month" required>, 
         <input type="text" class="birth-form-control" name="subscribed_year" style="width: 100px;" placeholder="Year" required>, at 
-        <input type="text" class="birth-form-control" name="notary_location" style="width: 300px;" placeholder="Location" required>, Philippines, 
+        <input type="text" id="notary_location" class="birth-form-control" name="notary_location" style="width: 300px;" placeholder="Location" required>, Philippines, 
         affiant who exhibited to me his Community Tax Certificate.
     </p>
    
     <p>
         <label>Position/Title/Designation:</label>
-        <input class="birth-form-control" type="text" name="admin_officer_position" style="width: 300px;" placeholder="Position/Title" required>
+        <input id="admin_officer_position" class="birth-form-control" type="text" name="admin_officer_position" style="width: 300px;" placeholder="Position/Title" required>
     </p>
     <p>
         <label>Name in Print:</label>
-        <input class="birth-form-control" type="text" name="admin_officer_name" style="width: 300px;" placeholder="Name in Print" required>
+        <input id="admin_officer_name" class="birth-form-control" type="text" name="admin_officer_name" style="width: 300px;" placeholder="Name in Print" required>
     </p>
     <p>
         <label>Address:</label>
-        <input class="birth-form-control" type="text" name="admin_officer_address" style="width: 500px;" placeholder="Address" required>
+        <input id="admin_officer_address" class="birth-form-control" type="text" name="admin_officer_address" style="width: 500px;" placeholder="Address" required>
     </p>
 </div>
 
@@ -454,5 +454,125 @@
     storeFormAction('executemarriagestore'); // You can change this to the specific form ID you need
 
 </script>
+
+
+<!--ERROR HANDLING-->
+<script>
+    // List of IDs to apply the validation
+    const letterOnlyFields = [
+        // Husband's fields
+        "husband_first_name",
+        "husband_middle_name",
+        "husband_last_name",
+        "husband_city-municipality",
+        "husband_province",
+        "husband_country",
+        "husband_citizenship",
+        "husband_religion",
+        "husband_father_first_name",
+        "husband_father_middle_name",
+        "husband_father_last_name",
+        "husband_father_citizenship",
+        "husband_mother_first_name",
+        "husband_mother_middle_name",
+        "husband_mother_maiden_last_name",
+        "husband_mother_citizenship",
+        // Wife's fields
+        "wife_first_name",
+        "wife_middle_name",
+        "wife_last_name",
+        "wife_city-municipality",
+        "wife_province",
+        "wife_country",
+        "wife_citizenship",
+        "wife_religion",
+        "wife_father_first_name",
+        "wife_father_middle_name",
+        "wife_father_last_name",
+        "wife_father_citizenship",
+        "wife_mother_first_name",
+        "wife_mother_middle_name",
+        "wife_mother_maiden_last_name",
+        "wife_mother_citizenship",
+        "marriage_place", "officiant_name", "officiant_position", "witnesses",
+        "affiant_name", "civil_status", "address", "marriage_registration_for", "solemnizing_officer", "ceremony_type", "citizenship","spouse_citizenship", "month2", "subscribed_month", "admin_officer_position", "admin_officer_name"
+    ];
+
+    // Function to validate input
+    function allowOnlyLetters(event) {
+        const regex = /^[a-zA-Z\s]*$/; // Allow letters and spaces
+        const value = event.target.value;
+
+        if (!regex.test(value)) {
+            // Remove invalid characters
+            event.target.value = value.replace(/[^a-zA-Z\s]/g, '');
+        }
+    }
+
+    // Attach event listeners to each field
+    letterOnlyFields.forEach(id => {
+        const field = document.getElementById(id);
+        if (field) {
+            field.addEventListener('input', allowOnlyLetters);
+        }
+    });
+</script>
+
+<script>
+    // List of IDs to apply the validation for numbers only
+    const numberOnlyFields = [
+        "husband_age",
+        "wife_age",
+        "year2", "subscribed_year",
+        "day2", "subscribed_day"
+    ];
+
+    // Function to validate input for numbers only
+    function allowOnlyNumbers(event) {
+        const regex = /^[0-9]*$/; // Allow digits only
+        const value = event.target.value;
+
+        if (!regex.test(value)) {
+            // Remove invalid characters
+            event.target.value = value.replace(/[^0-9]/g, '');
+        }
+    }
+
+    // Attach event listeners to each field
+    numberOnlyFields.forEach(id => {
+        const field = document.getElementById(id);
+        if (field) {
+            field.addEventListener('input', allowOnlyNumbers);
+        }
+    });
+</script>
+
+<script>
+    // List of IDs for the date fields
+    const dateFields = [
+        "husband_birthdate",
+        "wife_birthdate"
+    ];
+
+    // Function to set the maximum date
+    function setMaxDateForBirthdate() {
+        // Get today's date in YYYY-MM-DD format
+        const today = new Date();
+        const formattedToday = today.toISOString().split('T')[0];
+
+        // Set the max attribute for each date input field
+        dateFields.forEach(id => {
+            const field = document.getElementById(id);
+            if (field) {
+                field.setAttribute('max', formattedToday);
+            }
+        });
+    }
+
+    // Call the function on page load
+    window.addEventListener('DOMContentLoaded', setMaxDateForBirthdate);
+</script>
+
+
 
 @endsection
