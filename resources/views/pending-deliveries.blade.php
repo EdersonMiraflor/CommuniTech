@@ -14,12 +14,12 @@
                     <tr>
                         <th>#</th>
                         <th>Rider</th>
+                        <th>Rider Number</th>
                         <th>Estimated Delivery Day</th>
                         <th>Name</th>
                         <th>Requested Certificate</th>
                         <th>Quantity</th>
                         <th>Address</th>
-                        <th>Mobile</th>
                         <th>Barangay</th>
                         <th>Status</th>
                     </tr>
@@ -29,12 +29,12 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $delivery->rider }}</td>
+                        <td>{{ $delivery->rider_number }}</td>
                         <td>{{ $delivery->estimated_delivery_day }}</td>
                         <td>{{ $delivery->name }}</td>
                         <td>{{ $delivery->requested_certificate }}</td>
                         <td>{{ $delivery->quantity }}</td>
                         <td>{{ $delivery->address }}</td>
-                        <td>{{ $delivery->mobile }}</td>
                         <td>{{ $delivery->barangay }}</td>
                         <td>
                             <span class="badge {{ $delivery->status == 'pending' ? 'bg-warning' : 'bg-success' }}">
