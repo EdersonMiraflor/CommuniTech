@@ -1,6 +1,95 @@
 @extends('layouts.layout')
 @section('contents')
 
+<head>
+    <style>
+        @media (max-width: 1200px) {
+    /* Adjust right-side container width */
+    div[style*="max-width: 800px;"] {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 992px) {
+    /* Stack containers vertically */
+    div[style*="display: flex; justify-content: space-between; align-items: flex-start;"] {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Adjust widths for inner containers */
+    div[style*="max-width: 600px;"] {
+        width: 90%;
+        max-width: none;
+    }
+
+    div[style*="max-width: 800px;"] {
+        width: 90%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjust padding and spacing for smaller screens */
+    div[style*="padding: 20px;"] {
+        padding: 15px;
+    }
+
+    form div[style*="align-items: center;"] {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    form div[style*="align-items: center;"] label {
+        margin-bottom: 5px;
+        text-align: left;
+        width: 100%;
+    }
+
+    form div[style*="align-items: center;"] input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Further adjustments for mobile phones */
+    h1 {
+        font-size: 24px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    table th, table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    img[style*="max-width: 200px;"] {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}
+
+@media (max-width: 400px) {
+    /* Adjust modal image size for very small screens */
+    #modalImage {
+        max-width: 80%;
+        max-height: 80%;
+    }
+
+    span[onclick="closeModal()"] {
+        font-size: 24px;
+        top: 10px;
+        right: 20px;
+    }
+}
+
+    </style>
+</head>
+
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
 <!-- Main Container -->
@@ -10,7 +99,7 @@
     <div style="background-color: #E8F7EC; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 100%; max-width: 600px; display: flex; flex-direction: column; gap: 20px;">
 
         <!-- Send Request Form -->
-        <div style="background-color: #E8F7EC; padding: 20px; border: 2px solid #28a745; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div style="background-color: #E8F7EC; padding: 20px; border: 2px solid #28a745; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 10px;">
             <h1 style="font-family: Arial, sans-serif; font-size: 28px; color: #333;">Verify Request</h1>
             <form action="/otpform" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
                 @csrf
@@ -28,7 +117,7 @@
 
         <!-- Scan Form -->
         <div style="background-color: #E8F7EC; padding: 20px; border: 2px solid #28a745; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 100%; max-width: 600px; text-align: center;">
-            <h1 style="font-family: Arial, sans-serif; font-size: 28px; color: #333;">Scan Form</h1>
+            <h1 style="font-family: Arial, sans-serif; font-size: 28px; color: #333;margin-bottom: 10px;">Scan Form</h1>
             <form action="{{ route('send.file.email') }}" method="POST" style="display: flex; flex-direction: column; gap: 15px;" enctype="multipart/form-data">
                 @csrf
                 <div style="display: flex; align-items: center;">
@@ -48,7 +137,7 @@
     <!-- Right Side Container (Pending Users Request Table) -->
     <div style="background-color: #f2f2f2; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px; text-align: center; display: flex; flex-direction: column; gap: 20px;">
 
-        <h1 style="font-family: Arial, sans-serif; font-size: 28px; color: #333;">Pending Users Request</h1>
+        <h1 style="font-family: Arial, sans-serif; font-size: 28px; color: #333; margin-bottom: 10px;">Pending Users Request</h1>
         
         <div style="max-height: 400px; overflow-y: auto; border: 1px solid #ccc; border-radius: 5px; margin-top: 20px;">
             <table style="width: 100%; border-collapse: collapse;">

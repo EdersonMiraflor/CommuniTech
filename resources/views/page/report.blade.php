@@ -1,6 +1,89 @@
 @extends('layouts.layout')
 @section('contents')
 
+
+<head>
+<style>
+    .report-container {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        justify-content: center; /* Center-align items */
+        background-color: #e8f7ec;
+        padding: 20px;
+        max-width: 1300px;
+        gap: 20px;
+        margin-left: auto;
+        margin-right: auto; /* Center the container */
+    }
+
+    .pie-container {
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        justify-content: center;
+        align-items: center; /* Center-align chart and text */
+        width: 100%;
+        max-width: 850px;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        background-color: #28a745;
+        margin-left: auto;
+        margin-right: auto; /* Center the container */
+        margin-bottom: 50px;
+    }
+
+    #piechart {
+        width: 100%; /* Ensure the chart fits within the container */
+        height: 400px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 2em;
+        margin-top: 40px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #E8F7EC;
+        font-size: 1.3em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .report-container {
+            flex-direction: column; /* Stack items vertically on smaller screens */
+            padding: 10px;
+            gap: 15px; /* Adjust spacing between items */
+        }
+
+        .pie-container {
+            width: 90%; /* Adjust width to fit the screen */
+            padding: 10px; /* Reduce padding */
+            margin-bottom: 30px; /* Adjust bottom margin */
+        }
+
+        #piechart {
+            height: 150px; /* Adjust chart height for smaller screens */
+            width: 75%;
+        }
+
+        h1 {
+            font-size: 1.5em; /* Adjust font size for smaller screens */
+        }
+
+        h2 {
+            font-size: 1.2em; /* Adjust font size for smaller screens */
+        }
+    }
+</style>
+
+</head>
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
 <!-- Load Google Charts library -->
@@ -36,108 +119,33 @@
         pieChart.draw(pieData, pieOptions);// Draw the pie chart with the data and options provided
 // Pie Chart End
 
-// Line Chart Start
-        var lineData = new google.visualization.DataTable(); // Create a new DataTable for the line chart
-        lineData.addColumn('string', 'Day'); // Column for the days of the week
-        lineData.addColumn('number', 'Birth Certificate'); // Column for the count of birth certificates
-        lineData.addColumn('number', 'Marriage Certificate'); // Column for the count of marriage certificates
-        lineData.addColumn('number', 'Death Certificate'); // Column for the count of death certificates
-
-        // Populate the line chart with data for each weekday
-        lineData.addRows([
-            ['Monday', lineChartData['Birth Certificate'][0], lineChartData['Marriage Certificate'][0], lineChartData['Death Certificate'][0]],
-            ['Tuesday', lineChartData['Birth Certificate'][1], lineChartData['Marriage Certificate'][1], lineChartData['Death Certificate'][1]],
-            ['Wednesday', lineChartData['Birth Certificate'][2], lineChartData['Marriage Certificate'][2], lineChartData['Death Certificate'][2]],
-            ['Thursday', lineChartData['Birth Certificate'][3], lineChartData['Marriage Certificate'][3], lineChartData['Death Certificate'][3]],
-            ['Friday', lineChartData['Birth Certificate'][4], lineChartData['Marriage Certificate'][4], lineChartData['Death Certificate'][4]],
-        ]);
-
-        // Options for the line chart display
-        var options = {
-            title: 'Appointments per Day',// Title of the line chart
-            hAxis: { title: 'Day' },// Title for the horizontal axis
-            vAxis: {
-                title: 'Number of Appointments',// Title for the vertical axis
-                ticks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], // Specify ticks on the vertical axis
-                gridlines: { count: 11 },// Number of gridlines on the vertical axis
-                viewWindow: { min: 0, max: 10 }// Set the view window for the vertical axis
-            },
-            legend: { position: 'right', alignment: 'center' },// Position and alignment of the legend
-            colors: ['#bce7c8', '#90d7a4', '#4ebf6e'] // Define colors for the line chart
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('line_chart_div'));// Create a new LineChart instance
-        chart.draw(lineData, options);// Draw the line chart with the data and options provided
-// Line Chart End
     }
 </script>
 
-<!-- Inline CSS for styling the page and chart containers -->
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center; /* Center-align text on the page */
-        margin: 0;
-        padding: 0;
-    }
-    
-    .pie-container {
-        width: 100%;
-        max-width: 850px;
-        padding: 20px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        align-items: center;
-        background-color: #E8F7EC;
-        margin-left: 190px;
-        margin-bottom: 50px;
-      
-    }
-
-    .line-container {
-        width: 100%;
-        max-width: 850px;
-        padding: 20px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        align-items: center;
-        background-color: #E8F7EC;
-        margin-left: 190px;
-        margin-bottom: 20px;
-    }
-
-    #chart_div, #piechart, #line_chart_div {
-        width: 100%; /* Adjust chart containers to fit the container */
-        height: 400px;
-    }
-    h1 {
-        font-size: 2em;
-        margin-top: 40px;
-        font-weight: bold;
-        margin-left: 110px;
-        margin-bottom: 20px;
-    }
-    h2 {
-        font-size: 1.3em;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
-</style>
-</head>
 
 <body>
 
-    <h1>Weekly Certificates Report</h1>
+<div class="report-container">
+
+<center>
+    <h1 style="text-align:center;">Weekly Certificates Report</h1>
+</center>
 
         <div class="pie-container">
             <h2>Issued Certificates by Users</h2>
-            <div id="piechart"></div> <!-- Pie chart container -->
+            <div id="piechart" class="pieclass"></div> <!-- Pie chart container -->
         </div>
-        <div class="line-container">
+
+<!--
+
+    <div class="line-container">
             <h2>Users Appointment Day</h2>
-            <div id="line_chart_div"></div> <!-- Line chart container -->
-        </div>
+            <div id="line_chart_div"></div> r 
+            </div>
+
+-->
+        
+</div>
    
 </body>
 
