@@ -239,29 +239,8 @@ birth-container input[type="text"], input[type="date"], select {
                 </div>
             </div>
 
-            <div class="container">
-                <br>
-        <h4 class="text-center" style="font-weight: bold;">AFFIDAVIT FOR AWKNOWLEDGMENT/ADMISSION OF PATERNITY</h4>
-            <p> I/We, <div class="field"> <input class="birth-form-control" type="text" name="father_name" placeholder="Mother's Name" required> </div> and
-                    <div class="field"> <input class="birth-form-control" type="text" name="mother_name" placeholder="Father's Name" required> </div> , of legal age, am/are the natural mother and/or father of 
-                    <input class="birth-form-control" type="text" name="name_child" placeholder="Child's Name" required style="width: 60%;">, who was born on 
-                <input id="affi_birthdate" class="birth-form-control" type="date" name="birth_date" required> at 
-                <input id="birth_place1" class="birth-form-control" type="text" name="birth_place" placeholder="Place of Birth" required style="width: 50%;">
-            </p>
-            <p>
-                I am / We are executing this affidavit to attest to the truthfulness of the foregoing
-                statements and for purposes of acknowledging my/our child.
-            </p>
 
-                <div>
-                    <label for="signature" class="birth-label">Father's Name</label>
-                    <input type="text" id="signature" name="signature1" class="birth-form-control" required>
-                </div>
-                <div>
-                    <label for="signature" class="birth-label">Mother's Name</label>
-                    <input type="text" id="signature" name="signature2" class="birth-form-control" required>
-                </div>
-               </div>
+
             <!-- Submit Section -->
             <div class="col-md-12 mt-3">
                 <button type="button" class="btn btn-danger" onclick="window.history.back()">Back</button>          
