@@ -70,59 +70,7 @@
                     </div>
                 </form>
             </div>
-            @if(session('flash_message'))
-            @if(session('flash_message'))
-<!-- Overlay -->
-<div id="overlay" style="
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black */
-    z-index: 9998; /* Below the flash message but above the content */
-"></div>
 
-<!-- Flash Message -->
-<div id="flashMessage" style="
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    color: black;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    z-index: 9999; /* Above the overlay */
-">
-    <p>{{ session('flash_message') }}</p>
-</div>
-@endif
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const overlay = document.getElementById('overlay');
-        const flashMessage = document.getElementById('flashMessage');
-        
-        if (overlay && flashMessage) {
-            // Set timeout to remove overlay and flash message after 20 seconds
-            setTimeout(() => {
-                overlay.remove(); // Remove overlay
-                flashMessage.remove(); // Remove flash message
-            }, 20000); // 20000 milliseconds = 20 seconds
-        }
-    });
-    // Make the flash message disappear after 20 seconds
-    setTimeout(function() {
-        const flashMessage = document.getElementById('flashMessage');
-        if (flashMessage) {
-            flashMessage.style.transition = "opacity 1s ease";
-            flashMessage.style.opacity = "0";
-            setTimeout(() => flashMessage.remove(), 1000); // Remove the element after fading out
-        }
-    }, 10000); // 20 seconds
-</script>
-@endif
             <!-- User Form End -->
 
             <div class="image-section">
@@ -156,6 +104,7 @@
                         <input class="form-control" name="photo" type="file" id="photo">
                     </div>
                     <div class="form-group text-center">
+                        <a href="/home" class="btn btn-warning">Return Home</a>
                         <button type="submit" class="btn btn-primary">Change QR Code</button>
                     </div>
                 </form>

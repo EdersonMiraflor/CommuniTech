@@ -340,7 +340,7 @@
     <thead>
     <tr>
         <th>#</th>
-        <th>user_name</th>
+        <th>user_name</th>f
         <th>Full Name</th>
         <th>Date of Death</th>
         <th>Place of Death</th>
