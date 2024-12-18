@@ -33,7 +33,7 @@ class AutoAddSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        // New Admin Users
+        // New Admin Users with password "12345678"
         DB::table('users')->insert([
             'Credential' => 'admin', 
             'name' => 'AdminUser1', 
@@ -43,7 +43,7 @@ class AutoAddSeeder extends Seeder
             'Sex' => 'female', 
             'Mobile_Number' => '09012345678',
             'email' => 'admin1@example.com', 
-            'password' => Hash::make('admin1234'), 
+            'password' => Hash::make('12345678'), 
             'Address' => 'Address 1, City', 
             'Request_Id' => null, 
             'email_verified_at' => now(),
@@ -60,7 +60,7 @@ class AutoAddSeeder extends Seeder
             'Sex' => 'male', 
             'Mobile_Number' => '09023456789',
             'email' => 'admin2@example.com', 
-            'password' => Hash::make('admin5678'), 
+            'password' => Hash::make('12345678'), 
             'Address' => 'Address 2, City', 
             'Request_Id' => null, 
             'email_verified_at' => now(),
@@ -86,7 +86,7 @@ class AutoAddSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        // New User Users
+        // New User Users with password "12345678"
         DB::table('users')->insert([
             'Credential' => 'user', 
             'name' => 'User1', 
@@ -96,7 +96,7 @@ class AutoAddSeeder extends Seeder
             'Sex' => 'male', 
             'Mobile_Number' => '09034567890',
             'email' => 'user1@example.com', 
-            'password' => Hash::make('user1234'), 
+            'password' => Hash::make('12345678'), 
             'Address' => 'User Address 1, City', 
             'Request_Id' => null, 
             'email_verified_at' => now(),
@@ -113,7 +113,7 @@ class AutoAddSeeder extends Seeder
             'Sex' => 'female', 
             'Mobile_Number' => '09045678901',
             'email' => 'user2@example.com', 
-            'password' => Hash::make('user5678'), 
+            'password' => Hash::make('12345678'), 
             'Address' => 'User Address 2, City', 
             'Request_Id' => null, 
             'email_verified_at' => now(),
@@ -139,7 +139,7 @@ class AutoAddSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        // New Rider Users
+        // New Rider Users with password "12345678"
         DB::table('users')->insert([
             'Credential' => 'rider', 
             'name' => 'Rider1', 
@@ -149,7 +149,7 @@ class AutoAddSeeder extends Seeder
             'Sex' => 'female', 
             'Mobile_Number' => '09134567890',
             'email' => 'rider1@example.com', 
-            'password' => Hash::make('rider1234'), 
+            'password' => Hash::make('12345678'), 
             'Address' => 'Rider Address 1, City', 
             'Request_Id' => null, 
             'email_verified_at' => now(),
@@ -166,7 +166,7 @@ class AutoAddSeeder extends Seeder
             'Sex' => 'male', 
             'Mobile_Number' => '09145678901',
             'email' => 'rider2@example.com', 
-            'password' => Hash::make('rider5678'), 
+            'password' => Hash::make('12345678'), 
             'Address' => 'Rider Address 2, City', 
             'Request_Id' => null, 
             'email_verified_at' => now(),
