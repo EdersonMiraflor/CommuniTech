@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('requested_certificate');
             $table->integer('quantity');
             $table->string('address');
-            $table->string('mobile');
             $table->string('barangay');
             $table->enum('status', ['pending', 'completed', 'cancelled'])->default('pending');
             $table->timestamps();

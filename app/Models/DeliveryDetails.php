@@ -19,7 +19,6 @@ class DeliveryDetails extends Model
         'requested_certificate',
         'quantity',
         'address',
-        'mobile',
         'barangay',
         'status',
     ];
