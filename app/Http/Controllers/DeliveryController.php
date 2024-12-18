@@ -39,21 +39,26 @@ class DeliveryController extends Controller
         ]);
         
         // Safely retrieve the rider's name
-            $rider = User::findOrFail($request->rider);
-
-            DeliveryDetails::create([
-                'User_Id' => auth()->id(),
-                'rider' => $rider->name,
-                'rider_number' => $rider->Mobile_Number,
-                'estimated_delivery_day' => $request->estimated_delivery_day,
-                'name' => $request->name,
-                'requested_certificate' => $request->requested_certificate,
-                'quantity' => $request->quantity,
-                'address' => $request->address,
-                'barangay' => $request->barangay,
-                'status' => 'pending',
-            ]);
-
+        $rider = User::findOrFail($request->rider);
+        
+        // Safely retrieve the client based on the provided 'name' (or 'User_Id' if that's used)
+        $client = User::findOrFail($request->name); // or use 'name' to retrieve the client
+    
+        // Create the delivery record
+        DeliveryDetails::create([
+            'User_Id' => auth()->id(),
+            'rider' => $rider->name,
+            'rider_number' => $rider->Mobile_Number,
+            'estimated_delivery_day' => $request->estimated_delivery_day,
+            'name' => $client->name, // Now this will work because $client is defined
+            'requested_certificate' => $request->requested_certificate,
+            'quantity' => $request->quantity,
+            'address' => $request->address,
+            'barangay' => $request->barangay,
+            'status' => 'pending',
+        ]);
+    
         return redirect()->route('delivery.create')->with('success', 'Delivery record created successfully.');
     }
+    
 }
