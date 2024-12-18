@@ -17,32 +17,34 @@ class DisplayRecordsController extends Controller
 
     public function search(Request $request)
     {
-        $category = $request->input('category');
-        $search = $request->input('search');
+        $category = $request->input('category'); // Selected category from dropdown
+        $search = $request->input('search'); // Search keyword entered by admin
         $records = [];
-    
-        // Dynamically select the model and search the database
+
+        // Fetch data based on selected category
         switch ($category) {
             case '1': // Birth Certificate
                 $records = BirthCertificateRequest::where('user_name', 'LIKE', "%$search%")
                     ->get();
                 break;
-    
+
             case '2': // Marriage Certificate
                 $records = MarriageCertificateRequest::where('user_name', 'LIKE', "%$search%")
                     ->get();
                 break;
-    
+
             case '3': // Death Certificate
-                    $records = DeathCertificateRequest::where('user_name', 'LIKE', "%$search%")
+                $records = DeathCertificateRequest::where('user_name', 'LIKE', "%$search%")
                     ->get();
                 break;
-    
+
             default:
+                // If no valid category is selected, return an empty result
                 $records = [];
                 break;
         }
-    
+
+        // Pass the data back to the view
         return view('displayRecords', [
             'records' => $records,
             'category' => $category,
