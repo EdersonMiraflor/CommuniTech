@@ -538,7 +538,7 @@
                 {{-- Check if the user is admin --}}
                 @if (Auth::user()->Credential == 'admin')
                     <li class="nav-item">
-                        <a class="nav-link" href="/home/user-profile/report" style="color: #1DBC60;">Report Generator</a>
+                        <a class="nav-link" href="/payment" style="color: #1DBC60;">Change Qr Image</a>
                     </li>
                 </ul>
                 @endif

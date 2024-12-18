@@ -70,7 +70,7 @@ class PaymentRecordController extends Controller
         }
     }
 
-    return redirect('payment')->with('flash_message', 'Your Request Has Been Created!, Please Go To Your My Account And Check Request History For Your Request Status');
+    return redirect('home')->with('flash_message', 'Your Request Has Been Created!, Please go to your "My Account" And Check "Request History" for your request status');
 }
 
 }

@@ -207,7 +207,7 @@ class GeneratePDFController extends Controller
         $pdf->writeHTML($html, true, false, true, false, '');
     
         // Output the PDF as a download
-        return $pdf->download('certificate_of_live_birth.pdf');
+        $pdf->Output('certificate_Birth', 'I');
     }
     
     

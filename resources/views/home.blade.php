@@ -345,6 +345,42 @@ input:focus, textarea:focus, select:focus {
         {{ session('success') }}
     </div>
 @endif
+
+@if(session('flash_message'))
+<!-- Flash Message -->
+<div id="flashMessage" style="
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: green; /* Text color set to green */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid green; /* Added green border */
+    border-radius: 8px;
+     text-align: center;
+    z-index: 9999; /* Make sure it's above content */
+">
+    <p>{{ session('flash_message') }}</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const flashMessage = document.getElementById('flashMessage');
+        
+        if (flashMessage) {
+            // Set timeout to remove flash message after 20 seconds
+            setTimeout(() => {
+                flashMessage.style.transition = "opacity 1s ease";
+                flashMessage.style.opacity = "0";
+                setTimeout(() => flashMessage.remove(), 1000); // Remove the element after fading out
+            }, 20000); // 20000 milliseconds = 20 seconds
+        }
+    });
+</script>
+@endif
+
         <!-- Intro section -->
         <section class="intro-container">
             <div class="intro">

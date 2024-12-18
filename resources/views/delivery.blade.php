@@ -7,7 +7,7 @@
 <style>
     /* General container styling */
 .container {
-    max-width: 600px;
+    max-width: 850px;
     margin: 40px auto;
     padding: 20px;
     background-color: #e8f7ec;

@@ -27,13 +27,14 @@ use App\Http\Controllers\DisplayRecordsController;
 
 Auth::routes();
 Auth::routes(['verify' => true]);
-
+Route::get('/home', fn() => view('home'))->middleware('auth');
 //scan route
 Route::get('/scan', function () {
     return view('scan');
 });
 Route::get('/delivery/create', [DeliveryController::class, 'create'])->name('delivery.create');
 Route::post('/delivery/store', [DeliveryController::class, 'store'])->name('delivery.store');
+
 
 Route::get('/home/pending-deliveries', [PendingDeliveryController::class, 'showPendingDeliveries'])->name('pending.deliveries');
 

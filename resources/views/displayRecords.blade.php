@@ -3,6 +3,32 @@
 <head>
     <title>Display Records</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <style>
+        .table-container {
+            overflow-x: auto;
+            max-height: 400px; /* Adjust the height as needed */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;  /* Reduce border size */
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .cell-grid {
+            background-image: linear-gradient(to right, #ccc 1px, transparent 1px),
+                              linear-gradient(to bottom, #ccc 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
@@ -28,11 +54,17 @@
                 </div>
             </div>
         </form>
+    <div class="table-wrapper">
+    <!-- Scrollbar at the top -->
+    <div class="scroll-wrapper">
+        <div class="scroll-area"></div>
+    </div>
 
-        @if ($category == '1' && count($records) > 0)
-            <h3>Birth Certificate Records</h3>
-            <table class="table table-bordered mt-3">
-            <thead>
+ @if ($category == '1' && count($records) > 0)
+    <h3>Birth Certificate Records</h3>
+    <div class="table-container">
+    <table class="table table-bordered mt-3">
+    <thead>
     <tr>
         <th>#</th>
         <th>User Name</th>
@@ -93,7 +125,7 @@
         <tr>
             <td>{{ $index + 1 }}</td>
             <td>{{ $record->user_name }}</td>
-            <td>{{ $record->child_first }} {{ $record->child_middle_name }} {{ $record->child_last }}</td>
+            <td>{{ $record->child_middle_name }} {{ $record->child_first }}  {{ $record->child_last }}</td>
             <td>{{ $record->mother_first_name }} {{ $record->mother_middle_name }} {{ $record->mother_last_name }}</td>
             <td>{{ $record->father_first_name }} {{ $record->father_middle_name }} {{ $record->father_last_name }}</td>
             <td>{{ $record->child_birthdate }}</td>
@@ -140,12 +172,15 @@
     @endforeach
 </tbody>
 
-            </table>
+</table>
+</div>
         @elseif ($category == '2' && count($records) > 0)
             <h3>Marriage Certificate Records</h3>
+            <div class="table-container">
             <table class="table table-bordered mt-3">
             <thead>
     <tr>
+    <th>#</th>
         <th>user_name</th>
         <th>husband_first_name</th>
         <th>husband_middle_name</th>
@@ -219,8 +254,9 @@
 </thead>
 
 <tbody>
-    @foreach ($records as $record)
+@foreach ($records as $index => $record)
         <tr>
+        <td>{{ $index + 1 }}</td>
             <td>{{ $record->user_name }}</td>
             <td>{{ $record->husband_first_name }} </td>
             <td>{{ $record->husband_middle_name }}</td>
@@ -295,14 +331,16 @@
         </tr>
     @endforeach
 </tbody>
-
-        </table>
+</table>
+</div>
     @elseif ($category == '3' && count($records) > 0)
     <h3>Death Certificate Records</h3>
+    <div class="table-container">
     <table class="table table-bordered mt-3">
     <thead>
     <tr>
         <th>#</th>
+        <th>user_name</th>f
         <th>Full Name</th>
         <th>Date of Death</th>
         <th>Place of Death</th>
@@ -354,6 +392,7 @@
     @foreach ($records as $index => $record)
         <tr>
             <td>{{ $index + 1 }}</td>
+            <td>{{ $record->user_name }}</td>
             <td>{{ $record->full_name }}</td>
             <td>{{ $record->date_of_death }}</td>
             <td>{{ $record->place_of_death }}</td>
@@ -401,8 +440,8 @@
         </tr>
     @endforeach
 </tbody>
-
-    </table>
+</table>
+</div>
     @else
         <p class="text-center">No records found.</p>
     @endif

@@ -1,4 +1,5 @@
 * {
+    font-family: Arial, sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -214,7 +215,7 @@ body {
     max-width: 100%;
     margin: 20px auto;
     padding: 20px;
-    background: #fff;
+    background: #95D2B3;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -295,6 +296,7 @@ h1 {
 }
 
 .announcement-item {
+    margin-bottom: 10px;
     padding: 15px;
     background-color: #f8f9fa;
     border: 1px solid #ddd;
@@ -304,7 +306,7 @@ h1 {
 
 .announcement-title {
     font-size: 18px;
-    font-weight: bold;
+    font-weight:bolder;
     color: #333;
     margin: 0;
 }
