@@ -1,6 +1,63 @@
 @extends('layouts.layout')
 @section('contents')
-<div class="container mt-5">
+
+<head>  
+<style>
+    .body{
+        font-family: Arial, sans-serif;
+    }
+    .pd .container {
+        margin-top: 5rem;
+    }
+
+    .pd h1 {
+        margin-bottom: 2rem;
+        text-align: center;
+        color: #04aa6d;
+    }
+
+    .pd .alert-info {
+        background-color: #e8f7ec;
+        color: #28a745;
+        border: 1px solid #28a745;
+    }
+
+    .pd .table {
+        border: 1px solid #28a745;
+    }
+
+    .pd .table thead {
+        background-color: #04aa6d;
+        color: white;
+    }
+
+    .pd .table-hover tbody tr:hover {
+        background-color: #e8f7ec;
+    }
+
+    .pd .badge {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .pd .bg-warning {
+        background-color: #ffc107 !important;
+        color: #212529 !important;
+    }
+
+    .pd .bg-success {
+        background-color: #28a745 !important;
+        color: white !important;
+    }
+</style>
+</head>
+<body>
+    
+
+<div class="pd">
+
+
+<div class="container mt-5" style="margin-bottom:100px;">
     <h1 class="mb-4 text-center">Your Pending Delivery Requests</h1>
 
     @if($pendingDeliveries->isEmpty())
@@ -48,4 +105,9 @@
         </div>
     @endif
 </div>
+
+
+</div>
+
+</body>
 @endsection

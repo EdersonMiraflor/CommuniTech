@@ -13,7 +13,6 @@ class MarriageCertificateRequest extends Model
     protected $fillable = [
    'User_Id',
    'user_name',
-   // Husband's information
    'husband_first_name',
    'husband_middle_name',
    'husband_last_name',
@@ -33,7 +32,6 @@ class MarriageCertificateRequest extends Model
    'husband_mother_middle_name',
    'husband_mother_maiden_last_name',
    'husband_mother_citizenship',
-   // Wife's information
    'wife_first_name',
    'wife_middle_name',
    'wife_last_name',
@@ -53,7 +51,6 @@ class MarriageCertificateRequest extends Model
    'wife_mother_middle_name',
    'wife_mother_maiden_last_name',
    'wife_mother_citizenship',
-   // Marriage details
    'marriage_date1',
    'marriage_place',
    'officiant_name',

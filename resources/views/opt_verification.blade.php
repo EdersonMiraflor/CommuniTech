@@ -27,10 +27,13 @@ Explanation:
             <form action="{{ route('verifyotp') }}" method="POST" style="margin-top: 20px;">
                 @csrf
                 <div class="form-group" style="margin-bottom: 15px;">
-                    <label for="token" style="display: block; font-weight: bold; color: #555;">Enter OTP</label>
-                    <input type="number" name="token" class="form-control" placeholder="Enter Code" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    <label for="token" style="display: block; font-weight: bold; color: #555;"><center>Enter the OTP verification code sent in your email.</center></label>
+                    <input type="text" name="token" class="form-control" placeholder="Enter Code" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
                 </div>
+                <center>
                 <button type="submit" class="btn btn-primary" style="background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Submit</button>
+                </center>  
+               
             </form>
         </div>
     </div>
