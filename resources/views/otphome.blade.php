@@ -17,16 +17,6 @@
     padding: 0;
 }
 
-/* Card Body Styling */
-.otphome .card-body {
-    background-color: #ffffff;
-    border: 2px solid #28a745;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 600px;
-}
 
 /* Alert Styling */
 .otphome .alert {
