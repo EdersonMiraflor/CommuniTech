@@ -172,15 +172,15 @@ Explanation:
         {{-- Conditional Links based on certificate_type --}}
         @if ($certificate)
             @if ($certificate->certificate_type == 'Birth Certificate')
-                <a href="{{ url('generatebirth') }}" style="text-decoration: none; color: blue;">
+                <a href="{{ url('generatebirth') }}" style="text-decoration: none; color: #28a745;">
                     Click here to Download your PDF Birth Content
                 </a><br>
             @elseif ($certificate->certificate_type == 'Marriage Certificate')
-                <a href="{{ url('generatemarriage') }}" style="text-decoration: none; color: blue;">
+                <a href="{{ url('generatemarriage') }}" style="text-decoration: none; color: #28a745;">
                     Click here to Download your PDF Marriage Content
                 </a><br>
             @elseif ($certificate->certificate_type == 'Death Certificate')
-                <a href="{{ url('generatedeath') }}" style="text-decoration: none; color: blue;">
+                <a href="{{ url('generatedeath') }}" style="text-decoration: none; color: #28a745;">
                     Click here to Download your PDF Death Content
                 </a>
             @endif
