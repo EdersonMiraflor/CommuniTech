@@ -36,7 +36,7 @@ class AutoAddSeeder extends Seeder
         // New Admin Users with password "12345678"
         DB::table('users')->insert([
             'Credential' => 'admin', 
-            'name' => 'AdminUser1', 
+            'name' => 'Mayor Joe', 
             'Middle_Name' => 'Middle1', 
             'Last_Name' => 'Admin', 
             'Birth_Date' => '1990-05-15', 
@@ -89,11 +89,11 @@ class AutoAddSeeder extends Seeder
         // New User Users with password "12345678"
         DB::table('users')->insert([
             'Credential' => 'user', 
-            'name' => 'User1', 
+            'name' => 'Jennie', 
             'Middle_Name' => 'Middle1', 
             'Last_Name' => 'Test', 
             'Birth_Date' => '1995-03-12', 
-            'Sex' => 'male', 
+            'Sex' => 'female', 
             'Mobile_Number' => '09034567890',
             'email' => 'user1@example.com', 
             'password' => Hash::make('12345678'), 
@@ -106,7 +106,7 @@ class AutoAddSeeder extends Seeder
 
         DB::table('users')->insert([
             'Credential' => 'user', 
-            'name' => 'User2', 
+            'name' => 'Luoise', 
             'Middle_Name' => 'Middle2', 
             'Last_Name' => 'Test', 
             'Birth_Date' => '1998-07-21', 
@@ -142,7 +142,7 @@ class AutoAddSeeder extends Seeder
         // New Rider Users with password "12345678"
         DB::table('users')->insert([
             'Credential' => 'rider', 
-            'name' => 'Rider1', 
+            'name' => 'stever', 
             'Middle_Name' => 'Stylish', 
             'Last_Name' => 'Motor1', 
             'Birth_Date' => '1999-06-30', 
@@ -159,7 +159,7 @@ class AutoAddSeeder extends Seeder
 
         DB::table('users')->insert([
             'Credential' => 'rider', 
-            'name' => 'Rider2', 
+            'name' => 'john', 
             'Middle_Name' => 'Fashion', 
             'Last_Name' => 'Motor2', 
             'Birth_Date' => '1997-09-15', 
