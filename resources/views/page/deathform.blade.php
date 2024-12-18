@@ -330,7 +330,6 @@ birth-container input[type="text"], input[type="date"], select {
             <div class="modal-body">
                 You have successfully filled up the form. Please proceed with the payment process here.
                 <br>
-                <a href="#">Click here to download a copy of your responses</a>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
