@@ -48,6 +48,10 @@ birth-container input[type="text"], input[type="date"], select {
         <div class="row">
             <!-- Personal Information -->
             <div class="col-md-12">
+            <div class="form-group">
+                    <label for="user_name" class="birth-label">User Name</label>
+                    <input type="text" id="user_name" name="user_name" class="birth-form-control" value="{{ auth()->user()->name }}" readonly>
+                </div>
                 <h4>I. PERSONAL INFORMATION</h4>
                 <div class="form-group">
                     <label for="full_name" class="birth-label">1. Full Name</label>

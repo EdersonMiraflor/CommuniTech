@@ -112,23 +112,41 @@ h1 {
     @csrf
 
     <div class="mb-3">
-        <label for="rider" class="form-label">Rider</label>
-        <select class="form-control" id="rider" name="rider" required>
-            <option value="">Select a rider</option>
-            @foreach($riders as $rider)
-                <option value="{{ $rider->User_Id }}" {{ old('rider') == $rider->User_Id ? 'selected' : '' }}>
-                    {{ $rider->name }}
-                </option>
-            @endforeach
-        </select>
-        @error('rider') <small class="text-danger">{{ $message }}</small> @enderror
-    </div>
+    <label for="rider" class="form-label">Rider</label>
+    <select class="form-control" id="rider" name="rider" required>
+        <option value="">Select a rider</option>
+        @foreach($riders as $rider)
+            <option value="{{ $rider->User_Id }}" 
+                    {{ old('rider') == $rider->User_Id ? 'selected' : '' }}>
+                {{ $rider->name }}
+            </option>
+        @endforeach
+    </select>
+    @error('rider') <small class="text-danger">{{ $message }}</small> @enderror
+</div>
+
+<div class="mb-3">
+    <label for="rider_number" class="form-label">Rider Number</label>
+    <input type="text" class="form-control" id="rider_number" name="rider_number" 
+           value="{{ old('rider_number') }}" readonly required>
+    @error('rider_number') <small class="text-danger">{{ $message }}</small> @enderror
+</div>
+
+
 
     <div class="mb-3">
-        <label for="requested_certificate" class="form-label">Client</label>
-        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
+    <label for="client" class="form-label">Client</label>
+    <select class="form-control" id="client" name="name" required>
+        <option value="">Select a client</option>
+        @foreach($clients as $client)
+            <option value="{{ $client->User_Id }}" {{ old('name') == $client->User_Id ? 'selected' : '' }}>
+                {{ $client->name }}
+            </option>
+        @endforeach
+    </select>
         @error('name') <small class="text-danger">{{ $message }}</small> @enderror
     </div>
+
 
     <div class="mb-3">
         <label for="requested_certificate" class="form-label">Requested Certificate</label>
@@ -162,7 +180,7 @@ h1 {
 
     <div class="mb-3">
         <label for="estimated_delivery_day" class="form-label">Day of Delivery</label>
-        <input type="text" class="form-control" id="estimated_delivery_day" name="estimated_delivery_day" value="{{ old('estimated_delivery_day') }}" placeholder="ex 2024/12/17" required>
+        <input type="text" class="form-control" id="estimated_delivery_day" name="estimated_delivery_day" value="{{ old('estimated_delivery_day') }}" placeholder="e.g 2024/12/17" required>
         @error('barangay') <small class="text-danger">{{ $message }}</small> @enderror
     </div>
 

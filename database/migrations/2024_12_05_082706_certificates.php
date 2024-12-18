@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('birth_registrations', function (Blueprint $table) {
             $table->id('Birth_Id');
+            $table->string('user_name', 60)->nullable();
+
             $table->unsignedBigInteger('User_Id')->nullable();
             // Child's Details
             $table->string('child_first', 60);
@@ -81,6 +83,7 @@ return new class extends Migration
 
         Schema::create('marriage_registrations', function (Blueprint $table) {
             $table->id('Marriage_Id'); // Primary key (Auto-increment)
+            $table->string('user_name', 60)->nullable();
             $table->unsignedBigInteger('User_Id')->nullable();
             // Husband's information
             $table->string('husband_first_name', 60)->nullable();
@@ -126,6 +129,7 @@ return new class extends Migration
             
             // Marriage details
             $table->date('marriage_date1')->nullable(); // Fixed: date should not have a length
+            $table->string('name', 60)->nullable();
             $table->string('marriage_place', 60)->nullable();
             $table->string('officiant_name', 60)->nullable();
             $table->string('officiant_position', 60)->nullable();
@@ -163,6 +167,7 @@ return new class extends Migration
 
         Schema::create('death_registrations', function (Blueprint $table) {
             $table->id('Death_Id');
+            $table->string('user_name', 60)->nullable();
             $table->unsignedBigInteger('User_Id')->nullable();
             $table->string('full_name');
             $table->string('sex');

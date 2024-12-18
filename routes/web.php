@@ -22,7 +22,8 @@ use App\Http\Controllers\EmailFileSendingController;
 use App\Http\Controllers\PendingDeliveryController;
 use App\Http\Controllers\RiderController;
 use App\Http\Controllers\UserPdfController;
-
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\RegistrationController;
 Auth::routes();
 Auth::routes(['verify' => true]);
 
@@ -178,3 +179,4 @@ Route::post('/update-status/{id}', [RiderDashboardController::class, 'updateDeli
 
 Route::get('/delivery/create', [DeliveryController::class, 'create'])->name('delivery.create');
     
+Route::get('/search', [RegistrationController::class, 'search'])->name('searchUser');

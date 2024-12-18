@@ -18,6 +18,10 @@
             
             <!-- Groom's Information -->
             <div class="col-md-12">
+            <div class="form-group">
+                    <label for="user_name" class="birth-label">User Name</label>
+                    <input type="text" id="user_name" name="user_name" class="birth-form-control" value="{{ auth()->user()->name }}" readonly>
+                </div>
             <h4>I. HUSBAND'S INFORMATION</h4>
             <h3>1. Name of Contracting Parties</h3>
             <div class="form-group">

@@ -10,10 +10,12 @@ use App\Models\DeliveryDetails;
 class PendingDeliveryController extends Controller
 {
     public function showPendingDeliveries()
-    {
-        // Fetch pending delivery requests for the authenticated user
-        $userId = Auth::id(); // Get the logged-in user's ID
-        $pendingDeliveries = DeliveryDetails::where('User_Id', $userId)->where('status', 'pending')->get();
+        {
+        // Fetch logged-in user's name
+        $userName = Auth::user()->name; 
+
+        // Fetch delivery records based on user's name
+        $pendingDeliveries = DeliveryDetails::where('name', $userName)->get();
 
         // Pass data to the view
         return view('pending-deliveries', compact('pendingDeliveries'));

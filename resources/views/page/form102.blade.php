@@ -46,8 +46,11 @@ birth-container input[type="text"], input[type="date"], select {
         <div class="row">
             <!-- Child's Information -->
             <div class="col-md-12">
+            <div class="form-group">
+                    <label for="user_name" class="birth-label">User Name</label>
+                    <input type="text" id="user_name" name="user_name" class="birth-form-control" value="{{ auth()->user()->name }}" readonly>
+                </div>
                 <h4>I. CHILD'S INFORMATION</h4>
-
                 <div class="form-group">
                     <label for="child_name" class="birth-label">1. Child's Name</label>
                     <input type="text" id="child_name" name="child_first" class="birth-form-control" placeholder="Enter child's first name" required>

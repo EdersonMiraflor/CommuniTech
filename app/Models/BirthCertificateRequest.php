@@ -13,13 +13,14 @@ class BirthCertificateRequest extends Model
 
     protected $fillable = [
         'User_Id',
+        'user_name',
         'child_first',
         'child_middle',
         'child_last',
         'child_sex',
         'child_birthdate',
         'child_birthplace',
-        'multiple_birth',
+        'multiple_birth',   
         'birth_type',
         'birth_order',
         'birth_weight',

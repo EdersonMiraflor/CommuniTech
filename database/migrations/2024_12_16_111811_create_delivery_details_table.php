@@ -16,6 +16,7 @@ return new class extends Migration
             // Explicitly specify the column to reference in the 'users' table.
             $table->unsignedBigInteger('User_Id')->nullable();
             $table->string('rider');
+            $table->string('rider_number');
             $table->date('estimated_delivery_day');
             $table->string('name');
             $table->string('requested_certificate');

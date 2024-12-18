@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Enter email">
+                        <input type="email" name="email" id="email" class="form-control" value="{{ auth()->user()->email }}" readonly>
                     </div>
                     <div class="form-group">
                         <label for="quantity">Quantity</label>

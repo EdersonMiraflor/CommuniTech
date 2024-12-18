@@ -529,7 +529,7 @@
                             
                             @auth
         @if (Auth::user()->Credential == 'user')
-                            <a class="dropdown-item" href="home/pending-deliveries">
+                            <a class="dropdown-item" href="/home/pending-deliveries">
                                 {{ __('PENDING DELIVERIES!') }}
                             </a>
                             @endif
