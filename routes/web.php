@@ -23,7 +23,8 @@ use App\Http\Controllers\PendingDeliveryController;
 use App\Http\Controllers\RiderController;
 use App\Http\Controllers\UserPdfController;
 use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\DisplayRecordsController;
+
 Auth::routes();
 Auth::routes(['verify' => true]);
 
@@ -39,6 +40,9 @@ Route::get('/home/pending-deliveries', [PendingDeliveryController::class, 'showP
 Route::get('/pending-deliveries', [PendingDeliveryController::class, 'showPendingDeliveries'])->middleware('auth')->name('pending.deliveries');
 
 Route::get('/userpdf', [UserPdfController::class, 'showUserPdf']);
+
+Route::get('/display-records', [DisplayRecordsController::class, 'index'])->name('display.records');
+Route::post('/display-records/search', [DisplayRecordsController::class, 'search'])->name('display.records.search');
 
 // Home Routes
 Route::get('/home/user-profile/report', [CertificateController::class, 'showReport'])->middleware('auth');
@@ -125,8 +129,6 @@ Route::post('/verifyotp', [OtpHomeController::class, 'useractivation'])->name('v
 Route::get('/otpform', [OtpController::class, 'showRequests'])->middleware('auth');
 Route::post('/otpform', [OtpController::class, 'create'])->name('otpform');
 
-// Birth Registration Routes
-Route::resource('birth-registration', BirthRegistrationController::class);
 
 // Home Routes (after authentication and email verification)
 
@@ -179,4 +181,3 @@ Route::post('/update-status/{id}', [RiderDashboardController::class, 'updateDeli
 
 Route::get('/delivery/create', [DeliveryController::class, 'create'])->name('delivery.create');
     
-Route::get('/search', [RegistrationController::class, 'search'])->name('searchUser');
