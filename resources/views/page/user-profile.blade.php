@@ -516,11 +516,21 @@
                 @endif
             @endauth
 
+            
             @auth
                 {{-- Check if the user is admin --}}
                 @if (Auth::user()->Credential == 'admin')
                     <li class="nav-item">
                         <a class="nav-link" id="riders-tab" data-bs-toggle="tab" href="#riders" role="tab">Change Rider</a>
+                    </li>
+                    @endif
+            @endauth
+
+            @auth
+                {{-- Check if the user is admin --}}
+                @if (Auth::user()->Credential == 'admin')
+                    <li class="nav-item">
+                        <a class="nav-link" href="/display-records" style="color: #1DBC60;">Request Information</a>
                     </li>
                     @endif
             @endauth
