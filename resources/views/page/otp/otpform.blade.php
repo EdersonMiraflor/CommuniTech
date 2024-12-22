@@ -117,8 +117,8 @@
 
         <!-- Scan Form -->
         <div style="background-color: #E8F7EC; padding: 20px; border: 2px solid #28a745; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 100%; max-width: 600px; text-align: center;">
-            <h1 style="font-family: Arial, sans-serif; font-size: 28px; color: #333;margin-bottom: 10px;">Scan Form</h1>
-            <form action="{{ route('send.file.email') }}" method="POST" style="display: flex; flex-direction: column; gap: 15px;" enctype="multipart/form-data">
+            <h1 style="font-family: Arial, sans-serif; font-size: 28px; color: #333;margin-bottom: 10px;">Scan Documents</h1>
+            <form action="/scaninsert" method="POST" style="display: flex; flex-direction: column; gap: 15px;" enctype="multipart/form-data">
                 @csrf
                 <div style="display: flex; align-items: center;">
                     <label for="Email" style="width: 100px; text-align: right; margin-right: 10px; font-family: Arial, sans-serif; color: #555;">Email</label>
@@ -132,8 +132,13 @@
             </form>
         </div>
 
-    </div>
+    @if (session('success_scan'))
+        <div style="background-color: #d4edda; padding: 10px; border: 1px solid #c3e6cb; color: #155724; border-radius: 5px; margin-bottom: 10px;">
+            {{ session('success') }}
+        </div>
+    @endif
 
+    </div>
     <!-- Right Side Container (Pending Users Request Table) -->
     <div style="background-color: #f2f2f2; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px; text-align: center; display: flex; flex-direction: column; gap: 20px;">
 

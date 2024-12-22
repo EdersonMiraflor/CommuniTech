@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CertificateController;
-use App\Http\Controllers\PdfController;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\OtpHomeController;
 use App\Http\Controllers\AdminController;
@@ -15,6 +14,7 @@ use App\Http\Controllers\CertificateDisplayController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentRecordController;
 use App\Http\Controllers\GeneratePDFController;
+use App\Http\Controllers\GenerateScanPDFController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\DeliveryRequestController;
@@ -28,6 +28,8 @@ use App\Http\Controllers\DisplayRecordsController;
 Auth::routes();
 Auth::routes(['verify' => true]);
 Route::get('/home', fn() => view('home'))->middleware('auth');
+Route::get('/users', [UsersController::class, 'index']);
+
 //scan route
 Route::get('/scan', function () {
     return view('scan');
@@ -120,9 +122,6 @@ Route::get('/transactionform', [FormsController::class, 'displaydocument']);
 Route::get('/transactionform/creates', [FormsController::class, 'createuserform']);
 Route::get('/transactionform/{id}', [FormsController::class, 'showuserform']);
 
-// PDF Generator Route
-Route::get('/generatePDF', [PdfController::class, 'generatePdf'])->middleware('auth');
-
 // OTP Routes
 Route::get('/otphome', [OtpHomeController::class, 'index']);
 Route::get('/verify-account', [OtpHomeController::class, 'verifyaccount'])->name('verifyaccount')->middleware('auth');
@@ -148,6 +147,9 @@ Route::get('/generatebirth', [GeneratePDFController::class, 'generatebirth']);
 Route::get('/generatemarriage', [GeneratePDFController::class, 'generatemarriage']);
 Route::get('/generatedeath', [GeneratePDFController::class, 'generatedeath']);
 
+Route::get('/scans', [GenerateScanPDFController::class, 'scandocument']);
+Route::post('/scaninsert', [GenerateScanPDFController::class, 'scaninsert'])->name('scan.store');
+
 Route::get('/view-deathonly-cert', function () {
     
     return view('page.forms.onlydeathcert');
@@ -166,9 +168,6 @@ Route::post('/announcements/store', [AnnouncementController::class, 'store'])->n
 Route::delete('/announcement/{id}', [AnnouncementController::class, 'destroy'])->name('announcement.destroy');
 Route::put('/announcement/update', [AnnouncementController::class, 'update'])->name('announcement.update');
 // routes/web.php
-
-Route::post('/send-file-email', [EmailFileSendingController::class, 'sendFileEmail'])->name('send.file.email');
-
 
 Route::get('/rider/application', [RiderController::class, 'create'])->name('riders.create');
 Route::post('/rider/application', [RiderController::class, 'store'])->name('riders.store');
