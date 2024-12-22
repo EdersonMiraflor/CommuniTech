@@ -1,8 +1,9 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.layout')
+@section('contents')
 <head>
     <title>Display Records</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <style>
         .table-container {
             overflow-x: auto;
@@ -447,4 +448,4 @@
     @endif
     </div>
 </body>
-</html>
+@endsection

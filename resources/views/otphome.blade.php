@@ -187,6 +187,17 @@ Explanation:
         @else
             <p>No certificate type found for your account.</p>
         @endif
+        
+    
+        @if(Auth::check() && \App\Models\Scan::where('user_id', Auth::user()->id)->exists())
+        <!-- Display the link if a record exists -->
+        <a href="{{ url('scans') }}" style="text-decoration: none; color: #28a745;">
+            View My Scans
+        </a>
+        @else
+            <!-- Display a message if no record exists -->
+            <p>No scans available for this user.</p>
+        @endif
 
 </div>
 
