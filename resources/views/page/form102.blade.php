@@ -156,12 +156,52 @@ birth-container input[type="text"], input[type="date"], select {
                 </div>
 
                 <div class="form-group">
-                    <label for="mother_place" class="birth-label">13. Residence *</label>
-                    <input type="text" id="mother_place" name="mother_street" class="birth-form-control" placeholder="House No./Street/Barangay" required>
-                    <input type="text" id="mother_place" name="mother_city" class="birth-form-control" placeholder="City/Municipality" required>
-                    <input type="text" id="mother_place" name="mother_province" class="birth-form-control" placeholder="Province" required>
-                    <input type="text" id="mother_place" name="mother_country" class="birth-form-control" placeholder="Country" required>
+                <label for="mother_place" class="birth-label">13. Residence *</label>
+
+                <!-- Street -->
+                <div class="d-flex">
+                    <select id="mother_place" name="mother_street" class="birth-form-control me-2" required>
+                        <option value="">Select Barangay</option>
+                        <option value="Balabagon">Balabagon</option>
+                        <option value="Balasbas">Balasbas</option>
+                        <option value="Bamban">Bamban</option>
+                        <option value="Buyo">Buyo</option>
+                        <option value="Cabacongan">Cabacongan</option>
+                        <option value="Cabit">Cabit</option>
+                        <option value="Cawayan">Cawayan</option>
+                        <option value="Cawit">Cawit</option>
+                        <option value="Holugan">Holugan</option>
+                        <option value="It-ba">It-ba</option>
+                        <option value="Malobago">Malobago</option>
+                        <option value="Manumbalay">Manumbalay</option>
+                        <option value="Nagotgot">Nagotgot</option>
+                        <option value="Pawa">Pawa</option>
+                        <option value="Tinapian">Tinapian</option>
+                        <option value="Other">Other (Specify below)</option>
+                    </select>
+                    <input type="text" id="mother_place_input" name="mother_street_input" class="birth-form-control" placeholder="Specify Barangay or Street" required>
                 </div>
+
+                <!-- City/Municipality -->
+                <select id="mother_place" name="mother_city" class="birth-form-control" required>
+                    <option value="">Select City/Municipality</option>
+                    <option value="Manito">Manito</option>
+                </select>
+
+                <!-- Province -->
+                <select id="mother_place" name="mother_province" class="birth-form-control" required>
+                    <option value="">Select Province</option>
+                    <option value="Albay">Albay</option>
+                </select>
+
+                <!-- Country -->
+                <select id="mother_place" name="mother_country" class="birth-form-control" required>
+                    <option value="">Select Country</option>
+                    <option value="Philippines">Philippines</option>
+                </select>
+            </div>
+
+
             </div>
 
             <!-- Father's Information -->
@@ -196,12 +236,51 @@ birth-container input[type="text"], input[type="date"], select {
                 </div>
 
                 <div class="form-group">
-                    <label for="mother_place" class="birth-label">19. Residence *</label>
-                    <input type="text" id="mother_place" name="father_street" class="birth-form-control" placeholder="House No./Street/Barangay" required>
-                    <input type="text" id="mother_place" name="father_city" class="birth-form-control" placeholder="City/Municipality" required>
-                    <input type="text" id="mother_place" name="father_province" class="birth-form-control" placeholder="Province" required>
-                    <input type="text" id="mother_place" name="father_country" class="birth-form-control" placeholder="Country" required>
+                <label for="father_place" class="birth-label">19. Residence *</label>
+
+                <!-- Street -->
+                <div class="d-flex">
+                    <select id="father_place" name="father_street" class="birth-form-control me-2" required>
+                        <option value="">Select Barangay</option>
+                        <option value="Balabagon">Balabagon</option>
+                        <option value="Balasbas">Balasbas</option>
+                        <option value="Bamban">Bamban</option>
+                        <option value="Buyo">Buyo</option>
+                        <option value="Cabacongan">Cabacongan</option>
+                        <option value="Cabit">Cabit</option>
+                        <option value="Cawayan">Cawayan</option>
+                        <option value="Cawit">Cawit</option>
+                        <option value="Holugan">Holugan</option>
+                        <option value="It-ba">It-ba</option>
+                        <option value="Malobago">Malobago</option>
+                        <option value="Manumbalay">Manumbalay</option>
+                        <option value="Nagotgot">Nagotgot</option>
+                        <option value="Pawa">Pawa</option>
+                        <option value="Tinapian">Tinapian</option>
+                        <option value="Other">Other (Specify below)</option>
+                    </select>
+                    <input type="text" id="father_place_input" name="father_street_input" class="birth-form-control" placeholder="Specify Barangay or Street" required>
                 </div>
+
+                <!-- City/Municipality -->
+                <select id="father_place" name="father_city" class="birth-form-control" required>
+                    <option value="">Select City/Municipality</option>
+                    <option value="Manito">Manito</option>
+                </select>
+
+                <!-- Province -->
+                <select id="father_place" name="father_province" class="birth-form-control" required>
+                    <option value="">Select Province</option>
+                    <option value="Albay">Albay</option>
+                </select>
+
+                <!-- Country -->
+                <select id="father_place" name="father_country" class="birth-form-control" required>
+                    <option value="">Select Country</option>
+                    <option value="Philippines">Philippines</option>
+                </select>
+            </div>
+
             </div>
 
             <!-- Marriage of Parents -->
@@ -215,11 +294,50 @@ birth-container input[type="text"], input[type="date"], select {
 
                 <div class="form-group">
                     <label for="marriage_place" class="birth-label">20b. Place *</label>
-                    <input type="text" id="mother_place" name="marriage_street" class="birth-form-control" placeholder="House No./Street/Barangay" required>
-                    <input type="text" id="mother_place" name="marriage_municipality" class="birth-form-control" placeholder="City/Municipality" required>
-                    <input type="text" id="mother_place" name="marriage_province" class="birth-form-control" placeholder="Province" required>
-                    <input type="text" id="mother_place" name="marriage_country" class="birth-form-control" placeholder="Country" required>
+
+                    <!-- Street -->
+                    <div class="d-flex">
+                        <select id="marriage_place" name="marriage_street" class="birth-form-control me-2" required>
+                            <option value="">Select Barangay</option>
+                            <option value="Balabagon">Balabagon</option>
+                            <option value="Balasbas">Balasbas</option>
+                            <option value="Bamban">Bamban</option>
+                            <option value="Buyo">Buyo</option>
+                            <option value="Cabacongan">Cabacongan</option>
+                            <option value="Cabit">Cabit</option>
+                            <option value="Cawayan">Cawayan</option>
+                            <option value="Cawit">Cawit</option>
+                            <option value="Holugan">Holugan</option>
+                            <option value="It-ba">It-ba</option>
+                            <option value="Malobago">Malobago</option>
+                            <option value="Manumbalay">Manumbalay</option>
+                            <option value="Nagotgot">Nagotgot</option>
+                            <option value="Pawa">Pawa</option>
+                            <option value="Tinapian">Tinapian</option>
+                            <option value="Other">Other (Specify below)</option>
+                        </select>
+                        <input type="text" id="marriage_place_input" name="marriage_street_input" class="birth-form-control" placeholder="Specify Barangay or Street" required>
+                    </div>
+
+                    <!-- City/Municipality -->
+                    <select id="marriage_place" name="marriage_municipality" class="birth-form-control" required>
+                        <option value="">Select City/Municipality</option>
+                        <option value="Manito">Manito</option>
+                    </select>
+
+                    <!-- Province -->
+                    <select id="marriage_place" name="marriage_province" class="birth-form-control" required>
+                        <option value="">Select Province</option>
+                        <option value="Albay">Albay</option>
+                    </select>
+
+                    <!-- Country -->
+                    <select id="marriage_place" name="marriage_country" class="birth-form-control" required>
+                        <option value="">Select Country</option>
+                        <option value="Philippines">Philippines</option>
+                    </select>
                 </div>
+
             </div>
 
             <!-- Attendant Information -->
@@ -525,7 +643,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     </script>
 
+<!--script for select options-->
+<script>
+document.getElementById('mother_place').addEventListener('change', function () {
+    const input = document.getElementById('mother_place_input');
+    input.disabled = this.value !== 'Other';
+    if (input.disabled) input.value = ''; // Clear input if not enabled
+});
 
+</script>
 <!--
 <script>
     // Function to check if all required fields are filled
