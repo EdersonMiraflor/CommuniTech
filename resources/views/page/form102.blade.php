@@ -177,7 +177,7 @@ birth-container input[type="text"], input[type="date"], select {
                         <option value="Nagotgot">Nagotgot</option>
                         <option value="Pawa">Pawa</option>
                         <option value="Tinapian">Tinapian</option>
-                        <option value="Other">Other (Specify below)</option>
+                        <option value="Other">Other (Please specify)</option>
                     </select>
                     <input type="text" id="mother_place_input" name="mother_street_input" class="birth-form-control" placeholder="Specify Barangay or Street" required>
                 </div>
@@ -257,7 +257,7 @@ birth-container input[type="text"], input[type="date"], select {
                         <option value="Nagotgot">Nagotgot</option>
                         <option value="Pawa">Pawa</option>
                         <option value="Tinapian">Tinapian</option>
-                        <option value="Other">Other (Specify below)</option>
+                        <option value="Other">Other (Please Specify)</option>
                     </select>
                     <input type="text" id="father_place_input" name="father_street_input" class="birth-form-control" placeholder="Specify Barangay or Street" required>
                 </div>
@@ -314,7 +314,7 @@ birth-container input[type="text"], input[type="date"], select {
                             <option value="Nagotgot">Nagotgot</option>
                             <option value="Pawa">Pawa</option>
                             <option value="Tinapian">Tinapian</option>
-                            <option value="Other">Other (Specify below)</option>
+                            <option value="Other">Other (Please Specify)</option>
                         </select>
                         <input type="text" id="marriage_place_input" name="marriage_street_input" class="birth-form-control" placeholder="Specify Barangay or Street" required>
                     </div>
@@ -445,7 +445,7 @@ birth-container input[type="text"], input[type="date"], select {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-success" id="submitButton">Submit</button>
+                <button type="button" class="btn btn-success" id="submitButton" disabled>Submit</button>
             </div>
         </div>
     </div>
@@ -593,13 +593,13 @@ document.addEventListener("DOMContentLoaded", function() {
         "marriage_municipality",
         "marriage_province",
         "marriage_country",
-        "father_name",
-        "mother_name",
-        "name_child",
-        "birth_place",
-        "birth_place1",
-        "signature1",
-        "signature2"
+        //"father_name",
+        //"mother_name",
+        //"name_child",
+        //"birth_place",
+        //"birth_place1",
+        //"signature1",
+        //"signature2"
     ];
 
     // Add input event listener for each field
@@ -647,6 +647,15 @@ document.addEventListener("DOMContentLoaded", function() {
 <script>
 document.getElementById('mother_place').addEventListener('change', function () {
     const input = document.getElementById('mother_place_input');
+    input.disabled = this.value !== 'Other';
+    if (input.disabled) input.value = ''; // Clear input if not enabled
+});
+
+</script>
+
+<script>
+document.getElementById('father_place').addEventListener('change', function () {
+    const input = document.getElementById('father_place_input');
     input.disabled = this.value !== 'Other';
     if (input.disabled) input.value = ''; // Clear input if not enabled
 });
