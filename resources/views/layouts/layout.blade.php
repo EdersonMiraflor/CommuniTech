@@ -564,7 +564,7 @@
         <a href="/home/services" class="{{ Request::is('home/services*') ? 'active' : '' }}">SERVICES</a>
         @endif
         @endauth
-        
+
         @auth
     @if (Auth::user()->Credential == 'rider')
         <a href="/rider/dashboard" class="{{ Request::is('rider/dashboard*') ? 'active' : '' }}">DASHBOARD</a>
@@ -602,10 +602,30 @@
         <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
         <a href="/home/privacy-policy" class="{{ Request::is('home/privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>     
         @auth
-@if (Auth::user()->Credential == 'user' || Auth::user()->Credential == 'rider')
-<a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
-@endif
-@endauth
+            @if (Auth::user()->Credential == 'user' || Auth::user()->Credential == 'rider')
+            <a href="/home/contact" class="{{ Request::is('home/contact') ? 'active' : '' }}">CONTACT</a>
+            @endif
+        @endauth
+
+    @auth
+        @if (Auth::user()->Credential == 'admin')
+        <a href="/display-records" class="{{ Request::is('display-records') ? 'active' : '' }}">REQUEST INFORMATION</a>
+        @endif
+    @endauth
+
+    @auth
+        @if (Auth::user()->Credential == 'admin')
+        <a href="/otpform" class="{{ Request::is('otpform') ? 'active' : '' }}">REQUEST MANAGEMENT</a>
+        @endif
+    @endauth
+
+    @auth
+        @if (Auth::user()->Credential == 'admin')
+        <a href="/payment" class="{{ Request::is('payment') ? 'active' : '' }}">CHANGE QR CODE</a>
+        @endif
+    @endauth
+
+    <a href="/home/credential" class="{{ Request::is('home/credential') ? 'active' : '' }}">CREDENTIAL</a>
 
     </div>
     <div class="navbar-search">

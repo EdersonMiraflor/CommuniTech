@@ -24,6 +24,7 @@ use App\Http\Controllers\RiderController;
 use App\Http\Controllers\UserPdfController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DisplayRecordsController;
+use App\Http\Controllers\CredentialController;
 
 Auth::routes();
 Auth::routes(['verify' => true]);
@@ -53,13 +54,16 @@ Route::get('/home/privacy-policy', fn() => view('page.privacy-policy'));
 Route::get('/home/usermanual', fn() => view('page.usermanual'));
 Route::get('/home/usermanagement', fn() => view('page.usermanagement'))->middleware('auth');
 Route::get('/home/user-profile', [AdminController::class, 'UserProfile'])->name('user.profile')->middleware('auth');
-Route::patch('/change-credential', [AdminController::class, 'changeCredential'])->name('change.credential');
-Route::patch('/change-rider-credential', [AdminController::class, 'changeRiderCredential'])->name('change.ridercredential');
 Route::get('/home/user-personal', [UsersController::class, 'showPersonalInfo'])->name('personal.info')->middleware('auth');
 Route::post('/user/update', [AdminController::class, 'dataupdate'])->name('user.update');
 Route::get('/home/transactionhistory', fn() => view('page.transactionhistory'))->middleware('auth');
 Route::get('/home/about', fn() => view('page.about'))->middleware('auth');
 Route::get('/', fn() => view('index'));
+
+// Credential Routes
+Route::get('/home/credential', [CredentialController::class, 'UserProfile'])->name('credential')->middleware('auth');
+Route::patch('/change-credential', [CredentialController::class, 'changeCredential'])->name('change.credential');
+Route::patch('/change-rider-credential', [CredentialController::class, 'changeRiderCredential'])->name('change.ridercredential');
 
 // Contact Routes
 Route::post('/home/contact', [ContactController::class, 'store'])->middleware('auth');

@@ -21,7 +21,7 @@
                 $table->string('address');
                 $table->string('mobile');
                 $table->string('barangay');
-                $table->string('proof')->nullable();
+                $table->string('proof');
                 $table->enum('status', ['pending', 'verified'])->default('pending'); 
                 $table->timestamps();
 

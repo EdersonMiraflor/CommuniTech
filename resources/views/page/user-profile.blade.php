@@ -506,55 +506,7 @@
                     <li class="nav-item">
                         <a class="nav-link" id="edit-personal-info-tab" data-bs-toggle="tab" href="#edit-personal-info" role="tab" style="pointer-events: none; cursor: not-allowed; color: #FFFFFF;">Edit Profile</a>
                     </li>
-
-            @auth
-                {{-- Check if the user is admin --}}
-                @if (Auth::user()->Credential == 'admin')
-                    <li class="nav-item">
-                        <a class="nav-link" id="admin-tab" data-bs-toggle="tab" href="#admin" role="tab">Change Admin</a>
-                    </li>
-                @endif
-            @endauth
-
-            
-            @auth
-                {{-- Check if the user is admin --}}
-                @if (Auth::user()->Credential == 'admin')
-                    <li class="nav-item">
-                        <a class="nav-link" id="riders-tab" data-bs-toggle="tab" href="#riders" role="tab">Change Rider</a>
-                    </li>
-                    @endif
-            @endauth
-
-            @auth
-                {{-- Check if the user is admin --}}
-                @if (Auth::user()->Credential == 'admin')
-                    <li class="nav-item">
-                        <a class="nav-link" href="/display-records" style="color: #1DBC60;">Request Information</a>
-                    </li>
-                    @endif
-            @endauth
-
-            @auth
-                {{-- Check if the user is admin --}}
-                @if (Auth::user()->Credential == 'admin')
-                    <li class="nav-item">
-                        <a class="nav-link" href="/otpform" style="color: #1DBC60;">Request Management</a>
-                    </li>
-                    @endif
-            @endauth
-
-            @auth
-                {{-- Check if the user is admin --}}
-                @if (Auth::user()->Credential == 'admin')
-                    <li class="nav-item">
-                        <a class="nav-link" href="/payment" style="color: #1DBC60;">Change Qr Image</a>
-                    </li>
-                </ul>
-                @endif
-            @endauth
             </div>
-
             <!-- Content Section -->
             <div class="col-md-9">
                 <div class="tab-content" id="myTabContent">
@@ -694,76 +646,6 @@
                 </div>
             </div>
 
-
-
-                    <!-- Admin Management Tab -->
-                    <div class="tab-pane fade" id="admin" role="tabpanel">
-                        <h5>Admin Management</h5>
-                        <form method="POST" action="{{ route('change.credential') }}">
-                            @csrf
-                            @method('PATCH')
-                            <!-- Admin Lists -->
-                            <div class="mb-3">
-                                <label for="admin-lists" class="form-label">Admin Lists</label>
-                                <select class="form-select" id="admin-lists" name="user_id">
-                                    <option style="color: grey;">Select user</option>
-                                    @if(isset($admins) && count($admins) > 0)
-                                        @foreach ($admins as $admin)
-                                            <option value="{{ $admin->User_Id }}">
-                                                {{ $admin->name ?? 'N/A' }} {{ $admin->Middle_Name ?? '' }} {{ $admin->Last_Name ?? '' }}
-                                                - {{ $admin->created_at->format('Y-m-d') ?? 'N/A' }}
-                                                - {{ $admin->Credential ?? 'N/A' }}
-                                            </option>
-                                        @endforeach
-                                    @else
-                                        <option style="color: red;">No Admins Found</option>
-                                    @endif
-                                </select>
-                            </div>
-                            <!-- User Lists -->
-                            <div class="mb-3">
-                                <label for="user-lists" class="form-label">User Lists</label>
-                                <select class="form-select" id="user-lists" name="user_id">
-                                    <option style="color: grey;">Select user</option>
-                                    @if(isset($users) && count($users) > 0)
-                                        @foreach ($users as $user)
-                                            <option value="{{ $user->User_Id }}">
-                                                {{ $user->name ?? 'N/A' }} {{ $user->Middle_Name ?? '' }} {{ $user->Last_Name ?? '' }}
-                                                - {{ $user->created_at->format('Y-m-d') ?? 'N/A' }}
-                                                - {{ $user->Credential ?? 'N/A' }}
-                                            </option>
-                                        @endforeach
-                                    @else
-                                        <option style="color: red;">No User Found</option>
-                                    @endif
-                                </select>
-                            </div>
-                            <!-- All Lists -->
-                            <div class="mb-3">
-                                <label for="user-credential" class="form-label">All Lists</label>
-                                <select class="form-select" id="user-credential" name="user_id">
-                                    <option style="color: grey;">Select user</option>
-                                    @if(isset($userlists) && count($userlists) > 0)
-                                        @foreach ($userlists as $user)
-                                            <option value="{{ $user->User_Id }}">
-                                                {{ $user->name ?? 'N/A' }} {{ $user->Middle_Name ?? '' }} {{ $user->Last_Name ?? '' }}
-                                                - {{ $user->created_at->format('Y-m-d') ?? 'N/A' }}
-                                                - {{ $user->Credential ?? 'N/A' }}
-                                            </option>
-                                        @endforeach
-                                    @else
-                                        <option style="color: red;">No Users or Admin Found</option>
-                                    @endif
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="change-credential" class="form-label">Change Credential (All Lists)</label><br>
-                                <button type="submit" name="credential" value="admin" class="btn btn-primary">Make Admin</button>
-                                <button type="submit" name="credential" value="user" class="btn btn-warning" style="color: #fcfcff; background-color: #008080; border-color: #008080;">Make User</button>
-                            </div>
-                        </form>
-                    </div>
-
                     <div class="tab-pane fade" id="request" role="tabpanel">
                         <h5>Request Management</h5>
                         @if ($records->isEmpty())
@@ -806,39 +688,6 @@
                             </table>
                         @endforeach
                     @endif
-                    </div>
-
-
-                    <!-- Rider Management Tab -->
-                    <div class="tab-pane fade" id="riders" role="tabpanel">
-                        <h5>Rider Management</h5>
-                        <form method="POST" action="{{ route('change.ridercredential') }}">
-                            @csrf
-                            @method('PATCH')
-                            <!-- All Lists -->
-                            <div class="mb-3">
-                                <label for="user-credential" class="form-label">Users Lists</label>
-                                <select class="form-select" id="user-credential" name="rider_id" required>
-                                    <option style="color: grey;">Select user</option>
-                                    @if(isset($riderlists) && count($riderlists) > 0)
-                                        @foreach ($riderlists as $rider)
-                                            <option value="{{ $rider->User_Id }}">
-                                                {{ $rider->name ?? 'N/A' }} {{ $rider->Middle_Name ?? '' }} {{ $rider->Last_Name ?? '' }}
-                                                - {{ $rider->created_at->format('Y-m-d') ?? 'N/A' }}
-                                                - {{ $rider->Credential ?? 'N/A' }}
-                                            </option>
-                                        @endforeach
-                                    @else
-                                        <option style="color: red;">No Users or Rider Found</option>
-                                    @endif
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="change-credential" class="form-label">Change Credential (All Lists)</label><br>
-                                <button type="submit" name="rider_credential" value="rider" class="btn btn-primary">Make Rider</button>
-                                <button type="submit" name="rider_credential" value="user" class="btn btn-warning" style="color: #fcfcff; background-color: #008080; border-color: #008080;">Make User</button>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
