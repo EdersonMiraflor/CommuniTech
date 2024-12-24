@@ -56,12 +56,5 @@ class BirthCertificateRequest extends Model
         'marriage_country',
         'attendant_role',
         'other_attendant_role',
-        'father_name',
-        'mother_name',
-        'name_child',
-        'birth_date',
-        'birth_place',
-        'signature1',
-        'signature2',
     ];
 }

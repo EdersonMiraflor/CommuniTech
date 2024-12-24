@@ -67,16 +67,6 @@ return new class extends Migration
             // Attendant Details
             $table->enum('attendant_role', ['Physician', 'Nurse', 'Midwife', 'Hilot', 'Other'])->nullable();
             $table->string('other_attendant_role', 60)->nullable(); 
-
-            // Miscellaneous
-            $table->string('father_name', 60)->nullable();
-            $table->string('mother_name', 60)->nullable();
-            $table->string('name_child', 60)->nullable();
-            $table->date('birth_date')->nullable();
-            $table->string('birth_place', 60)->nullable();
-            $table->string('signature1', 60)->nullable();
-            $table->string('signature2', 60)->nullable();
-
             $table->timestamps();
             $table->foreign('User_Id')->references('User_Id')->on('users');
         });
@@ -134,32 +124,6 @@ return new class extends Migration
             $table->string('officiant_name', 60)->nullable();
             $table->string('officiant_position', 60)->nullable();
             $table->text('witnesses', 60)->nullable(); 
-            $table->string('affiant_name', 60)->nullable();
-            $table->string('address', 60)->nullable();
-            $table->string('marriage_registration_for', 60)->nullable();
-            $table->string('marriage_date2', 60)->nullable();
-            $table->string('ceremony_type', 60)->nullable(); // Fixed: missing quote for string type
-            $table->string('license_required', 60)->nullable();
-            $table->string('license_no', 60)->nullable();
-            $table->date('license_date')->nullable(); // Fixed: date should not have a length
-            $table->string('license_place', 60)->nullable();
-            $table->string('license_required2', 60)->nullable();
-            $table->string('article_no', 60)->nullable();
-            $table->string('citizenship', 60)->nullable();
-            $table->string('spouse_citizenship', 60)->nullable();
-            $table->string('delay_reason', 60)->nullable();
-            $table->string('day2', 60)->nullable();
-            $table->string('month2', 60)->nullable();
-            $table->string('year2', 60)->nullable();
-            $table->string('location', 60)->nullable();
-            $table->string('subscribed_day', 60)->nullable();
-            $table->string('subscribed_month', 60)->nullable();
-            $table->string('subscribed_year', 60)->nullable();
-            $table->string('notary_location', 60)->nullable();
-            $table->string('admin_officer_position', 60)->nullable();
-            $table->string('admin_officer_name', 60)->nullable();
-            $table->string('admin_officer_address', 60)->nullable();
-            
             $table->timestamps(); // For created_at and updated_at
             $table->foreign('User_Id')->references('User_Id')->on('users');
         });
@@ -204,27 +168,6 @@ return new class extends Migration
             $table->string('length_of_pregnancy')->nullable();
             $table->string('type_of_birth')->nullable();
             $table->string('multiple_birth_position')->nullable();
-            $table->string('affiant_name')->nullable();
-            $table->string('legal_status')->nullable();
-            $table->string('affiant_address')->nullable();
-            $table->string('deceased_name');
-            $table->string('burial_place')->nullable();
-            $table->string('attended_by')->nullable();
-            $table->string('attended_by_person')->nullable();
-            $table->boolean('not_attended')->nullable();
-            $table->text('cause_of_death')->nullable();
-            $table->text('reason_delay')->nullable();
-            $table->integer('day_signed')->nullable();
-            $table->string('month_signed')->nullable();
-            $table->integer('year_signed')->nullable();
-            $table->string('place_signed')->nullable();
-            $table->integer('day_sworn')->nullable();
-            $table->string('month_sworn')->nullable();
-            $table->integer('year_sworn')->nullable();
-            $table->string('place_sworn')->nullable();
-            $table->date('tax_cert_date')->nullable();
-            $table->string('tax_cert_place')->nullable();
-
             $table->timestamps();
             $table->foreign('User_Id')->references('User_Id')->on('users');
         });
