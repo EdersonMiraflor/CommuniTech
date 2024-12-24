@@ -9,6 +9,10 @@
 <head>
     <style>
  
+ .birth-container input:invalid {
+    border-color: red;
+    
+}
 
 /* Change the style for the fields when they are correctly filled */
 birth-container input:valid {
@@ -50,16 +54,17 @@ birth-container input[type="text"], input[type="date"], select {
                     <label for="user_name" class="birth-label">User Name</label>
                     <input type="text" id="user_name" name="user_name" class="birth-form-control" value="{{ auth()->user()->name }}" readonly>
                 </div>
+                <p style="color:#333"><em>The red color indicates a required field.</em></p>
                 <h4>I. CHILD'S INFORMATION</h4>
                 <div class="form-group">
-                    <label for="child_name" class="birth-label">1. Child's Name</label>
-                    <input type="text" id="child_name" name="child_first" class="birth-form-control" placeholder="Enter child's first name" required>
-                    <input type="text" id="child_name" name="child_middle" class="birth-form-control" placeholder="Enter child's middle name" required>
-                    <input type="text" id="child_name" name="child_last" class="birth-form-control" placeholder="Enter child's last name" required>
+                    <label for="child_name" class="birth-label">1. Child's Name *</label>
+                    <input type="text" id="child_name" name="child_first" class="birth-form-control" placeholder="Enter child's first name" required> 
+                    <input type="text" id="child_name" name="child_middle" class="birth-form-control" placeholder="Enter child's middle name" required> 
+                    <input type="text" id="child_name" name="child_last" class="birth-form-control" placeholder="Enter child's last name" required> 
                 </div>
 
                 <div class="form-group">
-                    <label for="child_sex" class="birth-label">2. Sex</label>
+                    <label for="child_sex" class="birth-label">2. Sex *</label>
                     <select id="child_sex" name="child_sex" class="birth-form-control" required>
                         <option value="">Select Sex</option>
                         <option value="Male">Male</option>
@@ -68,17 +73,17 @@ birth-container input[type="text"], input[type="date"], select {
                 </div>
 
                 <div class="form-group">
-                    <label for="child_birthdate" class="birth-label">3. Date of Birth</label>
+                    <label for="child_birthdate" class="birth-label">3. Date of Birth *</label>
                     <input type="date" id="child_birthdate" name="child_birthdate" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="child_birthplace" class="birth-label">4. Place of Birth</label>
+                    <label for="child_birthplace" class="birth-label">4. Place of Birth *</label>
                     <input type="text" id="child_birthplace" name="child_birthplace" class="birth-form-control" placeholder="Enter place of birth" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="multiple_birth" class="birth-label">5a. Type of Birth</label>
+                    <label for="multiple_birth" class="birth-label">5a. Type of Birth *</label>
                     <select id="multiple_birth" name="multiple_birth" class="birth-form-control" required>
                         <option value="">Select Birth Type</option>
                         <option value="Single">Single</option>
@@ -94,13 +99,13 @@ birth-container input[type="text"], input[type="date"], select {
                 </div>
 
                 <div class="form-group">
-                    <label for="birth_order" class="birth-label">5b. Birth Order (if Multiple Births)</label>
+                    <label for="birth_order" class="birth-label">5b. Birth Order (if Multiple Births) *</label>
                     <input type="number" id="birth_order" name="birth_order" class="birth-form-control" placeholder="Enter birth order" required>
                 </div>
             </div>
 
                 <div class="form-group">
-                    <label for="birth_weight" class="birth-label">6. Birth Weight (kg)</label>
+                    <label for="birth_weight" class="birth-label">6. Birth Weight (kg) *</label>
                     <input type="number" id="birth_weight" name="birth_weight" class="birth-form-control" placeholder="Enter birth weight" required>
                 </div>
 
@@ -109,54 +114,94 @@ birth-container input[type="text"], input[type="date"], select {
                 <h4>II. MOTHER'S INFORMATION</h4>
 
                 <div class="form-group">
-                    <label for="mother_maiden_name" class="birth-label">7. Mother's Maiden Name</label>
+                    <label for="mother_maiden_name" class="birth-label">7. Mother's Maiden Name *</label>
                     <input type="text" id="mother_maiden_name" name="mother_first_name" class="birth-form-control" placeholder="Enter mother's first name" required>
                     <input type="text" id="mother_maiden_name" name="mother_middle_name" class="birth-form-control" placeholder="Enter mother's middle name" required>
                     <input type="text" id="mother_maiden_name" name="mother_last_name" class="birth-form-control" placeholder="Enter mother's last name" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="citizenship" class="birth-label">8. Citizenship</label>
+                    <label for="citizenship" class="birth-label">8. Citizenship *</label>
                     <input type="text" id="citizenship" name="citizenship" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="religion" class="birth-label">9. Religion/Religious Sect</label>
+                    <label for="religion" class="birth-label">9. Religion/Religious Sect *</label>
                     <input type="text" id="religion" name="religion" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="total_number" class="birth-label">10a. Total number of children born alive</label>
+                    <label for="total_number" class="birth-label">10a. Total number of children born alive *</label>
                     <input type="text" id="total_number" name="total_number" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="children" class="birth-label">10b. Number of children still living including this birth</label>
+                    <label for="children" class="birth-label">10b. Number of children still living including this birth *</label>
                     <input type="text" id="children" name="children" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="dead_child" class="birth-label">10c. No. of children born alive but are now dead </label>
+                    <label for="dead_child" class="birth-label">10c. No. of children born alive but are now dead *</label>
                     <input type="text" id="dead_child" name="dead_child" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="occupation" class="birth-label">11. Occupation</label>
+                    <label for="occupation" class="birth-label">11. Occupation *</label>
                     <input type="text" id="occupation" name="occupation" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="mother_age" class="birth-label">12. Age</label>
+                    <label for="mother_age" class="birth-label">12. Age *</label>
                     <input type="text" id="mother_age" name="mother_age" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="mother_place" class="birth-label">13. Residence</label>
-                    <input type="text" id="mother_place" name="mother_street" class="birth-form-control" placeholder="House No./Street/Barangay" required>
-                    <input type="text" id="mother_place" name="mother_city" class="birth-form-control" placeholder="City/Municipality" required>
-                    <input type="text" id="mother_place" name="mother_province" class="birth-form-control" placeholder="Province" required>
-                    <input type="text" id="mother_place" name="mother_country" class="birth-form-control" placeholder="Country" required>
+                <label for="mother_place" class="birth-label">13. Residence *</label>
+
+                <!-- Street -->
+                <div class="d-flex">
+                    <select id="mother_place" name="mother_street" class="birth-form-control me-2" required>
+                        <option value="">Select Barangay</option>
+                        <option value="Balabagon">Balabagon</option>
+                        <option value="Balasbas">Balasbas</option>
+                        <option value="Bamban">Bamban</option>
+                        <option value="Buyo">Buyo</option>
+                        <option value="Cabacongan">Cabacongan</option>
+                        <option value="Cabit">Cabit</option>
+                        <option value="Cawayan">Cawayan</option>
+                        <option value="Cawit">Cawit</option>
+                        <option value="Holugan">Holugan</option>
+                        <option value="It-ba">It-ba</option>
+                        <option value="Malobago">Malobago</option>
+                        <option value="Manumbalay">Manumbalay</option>
+                        <option value="Nagotgot">Nagotgot</option>
+                        <option value="Pawa">Pawa</option>
+                        <option value="Tinapian">Tinapian</option>
+                        <option value="Other">Other (Please specify)</option>
+                    </select>
+                    <input type="text" id="mother_place_input" name="mother_street_input" class="birth-form-control" placeholder="Specify Barangay or Street" required>
                 </div>
+
+                <!-- City/Municipality -->
+                <select id="mother_place" name="mother_city" class="birth-form-control" required>
+                    <option value="">Select City/Municipality</option>
+                    <option value="Manito">Manito</option>
+                </select>
+
+                <!-- Province -->
+                <select id="mother_place" name="mother_province" class="birth-form-control" required>
+                    <option value="">Select Province</option>
+                    <option value="Albay">Albay</option>
+                </select>
+
+                <!-- Country -->
+                <select id="mother_place" name="mother_country" class="birth-form-control" required>
+                    <option value="">Select Country</option>
+                    <option value="Philippines">Philippines</option>
+                </select>
+            </div>
+
+
             </div>
 
             <!-- Father's Information -->
@@ -164,39 +209,78 @@ birth-container input[type="text"], input[type="date"], select {
                 <h4>III. FATHER'S INFORMATION</h4>
 
                 <div class="form-group">
-                    <label for="father's_name" class="birth-label">14. Father's Name</label>
+                    <label for="father's_name" class="birth-label">14. Father's Name *</label>
                     <input type="text" id="father_maiden_name" name="father_first_name" class="birth-form-control" placeholder="Enter father's first name" required>
                     <input type="text" id="father_middle_name" name="father_middle_name" class="birth-form-control" placeholder="Enter father's middle name" required>
                     <input type="text" id="father_last_name" name="father_last_name" class="birth-form-control" placeholder="Enter father's last name" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="citizenship" class="birth-label">15. Citizenship</label>
+                    <label for="citizenship" class="birth-label">15. Citizenship *</label>
                     <input type="text" id="citizenship" name="citizenship2" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="religion" class="birth-label">16. Religion/Religious Sect</label>
+                    <label for="religion" class="birth-label">16. Religion/Religious Sect *</label>
                     <input type="text" id="religion" name="religion2" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="occupation" class="birth-label">17. Occupation</label>
+                    <label for="occupation" class="birth-label">17. Occupation *</label>
                     <input type="text" id="occupation" name="occupation2" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="mother_age" class="birth-label">18. Age</label>
+                    <label for="mother_age" class="birth-label">18. Age *</label>
                     <input type="text" id="mother_age" name="father_age" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="mother_place" class="birth-label">19. Residence</label>
-                    <input type="text" id="mother_place" name="father_street" class="birth-form-control" placeholder="House No./Street/Barangay" required>
-                    <input type="text" id="mother_place" name="father_city" class="birth-form-control" placeholder="City/Municipality" required>
-                    <input type="text" id="mother_place" name="father_province" class="birth-form-control" placeholder="Province" required>
-                    <input type="text" id="mother_place" name="father_country" class="birth-form-control" placeholder="Country" required>
+                <label for="father_place" class="birth-label">19. Residence *</label>
+
+                <!-- Street -->
+                <div class="d-flex">
+                    <select id="father_place" name="father_street" class="birth-form-control me-2" required>
+                        <option value="">Select Barangay</option>
+                        <option value="Balabagon">Balabagon</option>
+                        <option value="Balasbas">Balasbas</option>
+                        <option value="Bamban">Bamban</option>
+                        <option value="Buyo">Buyo</option>
+                        <option value="Cabacongan">Cabacongan</option>
+                        <option value="Cabit">Cabit</option>
+                        <option value="Cawayan">Cawayan</option>
+                        <option value="Cawit">Cawit</option>
+                        <option value="Holugan">Holugan</option>
+                        <option value="It-ba">It-ba</option>
+                        <option value="Malobago">Malobago</option>
+                        <option value="Manumbalay">Manumbalay</option>
+                        <option value="Nagotgot">Nagotgot</option>
+                        <option value="Pawa">Pawa</option>
+                        <option value="Tinapian">Tinapian</option>
+                        <option value="Other">Other (Please Specify)</option>
+                    </select>
+                    <input type="text" id="father_place_input" name="father_street_input" class="birth-form-control" placeholder="Specify Barangay or Street" required>
                 </div>
+
+                <!-- City/Municipality -->
+                <select id="father_place" name="father_city" class="birth-form-control" required>
+                    <option value="">Select City/Municipality</option>
+                    <option value="Manito">Manito</option>
+                </select>
+
+                <!-- Province -->
+                <select id="father_place" name="father_province" class="birth-form-control" required>
+                    <option value="">Select Province</option>
+                    <option value="Albay">Albay</option>
+                </select>
+
+                <!-- Country -->
+                <select id="father_place" name="father_country" class="birth-form-control" required>
+                    <option value="">Select Country</option>
+                    <option value="Philippines">Philippines</option>
+                </select>
+            </div>
+
             </div>
 
             <!-- Marriage of Parents -->
@@ -204,17 +288,56 @@ birth-container input[type="text"], input[type="date"], select {
                 <h4>IV. MARRIAGE OF PARENTS</h4>
 
                 <div class="form-group">
-                    <label for="marriage_date" class="birth-label">20a. Date of Marriage</label>
+                    <label for="marriage_date" class="birth-label">20a. Date of Marriage *</label>
                     <input type="date" id="marriage_date" name="marriage_date" class="birth-form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="marriage_place" class="birth-label">20b. Place</label>
-                    <input type="text" id="mother_place" name="marriage_street" class="birth-form-control" placeholder="House No./Street/Barangay" required>
-                    <input type="text" id="mother_place" name="marriage_municipality" class="birth-form-control" placeholder="City/Municipality" required>
-                    <input type="text" id="mother_place" name="marriage_province" class="birth-form-control" placeholder="Province" required>
-                    <input type="text" id="mother_place" name="marriage_country" class="birth-form-control" placeholder="Country" required>
+                    <label for="marriage_place" class="birth-label">20b. Place *</label>
+
+                    <!-- Street -->
+                    <div class="d-flex">
+                        <select id="marriage_place" name="marriage_street" class="birth-form-control me-2" required>
+                            <option value="">Select Barangay</option>
+                            <option value="Balabagon">Balabagon</option>
+                            <option value="Balasbas">Balasbas</option>
+                            <option value="Bamban">Bamban</option>
+                            <option value="Buyo">Buyo</option>
+                            <option value="Cabacongan">Cabacongan</option>
+                            <option value="Cabit">Cabit</option>
+                            <option value="Cawayan">Cawayan</option>
+                            <option value="Cawit">Cawit</option>
+                            <option value="Holugan">Holugan</option>
+                            <option value="It-ba">It-ba</option>
+                            <option value="Malobago">Malobago</option>
+                            <option value="Manumbalay">Manumbalay</option>
+                            <option value="Nagotgot">Nagotgot</option>
+                            <option value="Pawa">Pawa</option>
+                            <option value="Tinapian">Tinapian</option>
+                            <option value="Other">Other (Please Specify)</option>
+                        </select>
+                        <input type="text" id="marriage_place_input" name="marriage_street_input" class="birth-form-control" placeholder="Specify Barangay or Street" required>
+                    </div>
+
+                    <!-- City/Municipality -->
+                    <select id="marriage_place" name="marriage_municipality" class="birth-form-control" required>
+                        <option value="">Select City/Municipality</option>
+                        <option value="Manito">Manito</option>
+                    </select>
+
+                    <!-- Province -->
+                    <select id="marriage_place" name="marriage_province" class="birth-form-control" required>
+                        <option value="">Select Province</option>
+                        <option value="Albay">Albay</option>
+                    </select>
+
+                    <!-- Country -->
+                    <select id="marriage_place" name="marriage_country" class="birth-form-control" required>
+                        <option value="">Select Country</option>
+                        <option value="Philippines">Philippines</option>
+                    </select>
                 </div>
+
             </div>
 
             <!-- Attendant Information -->
@@ -222,7 +345,7 @@ birth-container input[type="text"], input[type="date"], select {
                 <h4>IV. ATTENDANT INFORMATION</h4>
 
                 <div class="form-group">
-                    <label for="attendant_role" class="birth-label">21a. Attendant</label>
+                    <label for="attendant_role" class="birth-label">21a. Attendant *</label>
                     <select id="attendant_role" name="attendant_role" class="birth-form-control" required>
                         <option value="">Select Role</option>
                         <option value="Physician">Physician</option>
@@ -241,10 +364,10 @@ birth-container input[type="text"], input[type="date"], select {
 
 
 
-            <!-- Submit Section -->
+            <!-- Submit Section data-bs-toggle="modal", data-bs-target="#termsModal" -->
             <div class="col-md-12 mt-3">
                 <button type="button" class="btn btn-danger" onclick="window.history.back()">Back</button>          
-                <button type="submit" data-bs-toggle="modal" class="btn btn-success" data-bs-target="#submitInfoModal">Submit</button>
+                <button type="submit"  class="btn btn-success" data-bs-toggle="modal" data-bs-target="#termsModal"  id="submitBtn">Submit</button>
 
 
             </div>
@@ -276,6 +399,58 @@ birth-container input[type="text"], input[type="date"], select {
 </script>
 
 
+<!-- input error modal-->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="termsModalLabel">Reminder</h5>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Please fill out all required fields.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="okBtn">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Terms and Agreement Modal -->
+<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="termsModalLabel">Terms and Agreement</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6><b>Data Privacy Act</b></h6>
+                <p>
+                    By using this service, you acknowledge that your personal information will be collected, processed, 
+                    and stored in compliance with the Data Privacy Act of 2012. This includes your civil registry data 
+                    for certification purposes.
+                </p>
+                <h6><b>Terms and Agreement</b></h6>
+                <p>
+                    Please read the terms and conditions carefully before proceeding. Your submission signifies your agreement 
+                    to abide by the rules and policies of the Manito Civil Registry Online Services.
+                </p>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="agreeCheckbox">
+                    <label class="form-check-label" for="agreeCheckbox">I agree to the Terms and Agreement and Data Privacy Act</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success" id="submitButton" disabled>Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Submit Info Modal -->
 <div class="modal fade" id="submitInfoModal" tabindex="-1" aria-labelledby="submitInfoModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -294,6 +469,9 @@ birth-container input[type="text"], input[type="date"], select {
         </div>
     </div>
 </div>
+
+
+
 
 <!-- Payment Modal -->
 <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
@@ -415,13 +593,13 @@ document.addEventListener("DOMContentLoaded", function() {
         "marriage_municipality",
         "marriage_province",
         "marriage_country",
-        "father_name",
-        "mother_name",
-        "name_child",
-        "birth_place",
-        "birth_place1",
-        "signature1",
-        "signature2"
+        //"father_name",
+        //"mother_name",
+        //"name_child",
+        //"birth_place",
+        //"birth_place1",
+        //"signature1",
+        //"signature2"
     ];
 
     // Add input event listener for each field
@@ -438,6 +616,92 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </script>
 
+
+<!--  TERMS TO SUBMITINFO MODAL TRANS  -->
+<script> 
+    document.addEventListener("DOMContentLoaded", function () {
+    const agreeCheckbox = document.getElementById("agreeCheckbox");
+    const submitButton = document.getElementById("submitButton");
+
+    // Enable the "Submit" button when the checkbox is checked
+    agreeCheckbox.addEventListener("change", function () {
+        submitButton.disabled = !agreeCheckbox.checked;
+    });
+
+    document.getElementById('submitButton').addEventListener('click', function() {
+        // Close the terms modal
+        let termsModal = bootstrap.Modal.getInstance(document.getElementById('termsModal'));
+        termsModal.hide();
+
+        // Open the submit  Modal
+        let submitInfoModal = new bootstrap.Modal(document.getElementById('submitInfoModal'));
+        submitInfoModal.show();
+    });
+
+   
+});
+
+    </script>
+
+<!--script for select options-->
+<script>
+document.getElementById('mother_place').addEventListener('change', function () {
+    const input = document.getElementById('mother_place_input');
+    input.disabled = this.value !== 'Other';
+    if (input.disabled) input.value = ''; // Clear input if not enabled
+});
+
+</script>
+
+<script>
+document.getElementById('father_place').addEventListener('change', function () {
+    const input = document.getElementById('father_place_input');
+    input.disabled = this.value !== 'Other';
+    if (input.disabled) input.value = ''; // Clear input if not enabled
+});
+
+</script>
+<!--
+<script>
+    // Function to check if all required fields are filled
+    function checkFormCompletion() {
+        const inputs = document.querySelectorAll('.birth-container input[required]');
+        let allFilled = true;
+
+        // Loop through all required inputs and check if any are empty
+        inputs.forEach(function(input) {
+            if (!input.value.trim()) {
+                allFilled = false; // If any required input is empty, set allFilled to false
+            }
+        });
+
+        return allFilled; // Return true if all fields are filled, false otherwise
+    }
+
+    // Handle the form submission and check required fields
+    document.getElementById('submitBtn').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the form from submitting immediately
+        
+        const allFilled = checkFormCompletion(); // Check if all required inputs are filled
+        
+        if (!allFilled) {
+            // Show a popup notification if not all required fields are filled
+            alert('Please fill out all required fields.');
+            // Do not proceed to #termsModal, form will not be submitted
+        } else {
+            // If all required fields are filled, proceed to show the modal
+            $('#termsModal').modal('show');
+        }
+    });
+
+    // Initial check on page load to disable/enable submit button
+    window.onload = function() {
+        const submitBtn = document.getElementById('submitBtn');
+        const allFilled = checkFormCompletion();
+    };
+</script>
+
+-->
 
 
 @endsection
