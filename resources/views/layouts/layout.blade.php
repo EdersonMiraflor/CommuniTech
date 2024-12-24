@@ -625,8 +625,12 @@
         @endif
     @endauth
 
-    <a href="/home/credential" class="{{ Request::is('home/credential') ? 'active' : '' }}">CREDENTIAL</a>
-
+    @auth
+        @if (Auth::user()->Credential == 'admin')
+        <a href="/home/credential" class="{{ Request::is('home/credential') ? 'active' : '' }}">CREDENTIAL</a>
+        @endif
+    @endauth
+    
     </div>
     <div class="navbar-search">
     <input type="text" id="searchInput" placeholder="Search" oninput="searchWebsiteText()">
