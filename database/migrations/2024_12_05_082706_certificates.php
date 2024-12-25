@@ -40,6 +40,7 @@ return new class extends Migration
             $table->string('occupation', 60)->nullable();
             $table->integer('mother_age')->nullable();
             $table->string('mother_street', 60)->nullable();
+            $table->string('mother_street_input', 60)->nullable();
             $table->string('mother_city', 60)->nullable();
             $table->string('mother_province', 60)->nullable();
             $table->string('mother_country', 60)->nullable();
@@ -53,6 +54,7 @@ return new class extends Migration
             $table->string('occupation2', 60)->nullable();
             $table->integer('father_age')->nullable();
             $table->string('father_street', 60)->nullable();
+            $table->string('father_street_input', 60)->nullable();
             $table->string('father_city', 60)->nullable();
             $table->string('father_province', 60)->nullable();
             $table->string('father_country', 60)->nullable();
@@ -60,6 +62,7 @@ return new class extends Migration
             // Marriage Details
             $table->date('marriage_date')->nullable();
             $table->string('marriage_street', 60)->nullable();
+            $table->string('marriage_street_input', 60)->nullable();
             $table->string('marriage_municipality', 60)->nullable();
             $table->string('marriage_province', 60)->nullable();
             $table->string('marriage_country', 60)->nullable();
@@ -81,9 +84,12 @@ return new class extends Migration
             $table->string('husband_last_name', 60)->nullable();
             $table->date('husband_birthdate')->nullable(); // Fixed: date should not have a length
             $table->integer('husband_age')->nullable(); // Fixed: age should be an integer, no length needed
-            $table->string('husband_city_municipality', 60)->nullable();
+            $table->string('husband_city', 60)->nullable();
+            $table->string('husband_city_input', 60)->nullable();
             $table->string('husband_province', 60)->nullable();
+            $table->string('husband_province_input', 60)->nullable();
             $table->string('husband_country', 60)->nullable();
+            $table->string('husband_country_input', 60)->nullable();
             $table->string('husband_citizenship', 60)->nullable();
             $table->string('husband_residence', 60)->nullable();
             $table->string('husband_religion', 60)->nullable();
@@ -102,9 +108,12 @@ return new class extends Migration
             $table->string('wife_last_name', 60)->nullable();
             $table->date('wife_birthdate')->nullable(); // Fixed: date should not have a length
             $table->integer('wife_age')->nullable(); // Fixed: age should be an integer, no length needed
-            $table->string('wife_city_municipality', 60)->nullable();
+            $table->string('wife_city', 60)->nullable();
+            $table->string('wife_city_input', 60)->nullable();
             $table->string('wife_province', 60)->nullable();
+            $table->string('wife_province_input', 60)->nullable();
             $table->string('wife_country', 60)->nullable();
+            $table->string('wife_country_input', 60)->nullable();
             $table->string('wife_citizenship', 60)->nullable();
             $table->string('wife_residence', 60)->nullable();
             $table->string('wife_religion', 60)->nullable();
@@ -118,8 +127,7 @@ return new class extends Migration
             $table->string('wife_mother_citizenship', 60)->nullable();
             
             // Marriage details
-            $table->date('marriage_date1')->nullable(); // Fixed: date should not have a length
-            $table->string('name', 60)->nullable();
+            $table->date('marriage_date')->nullable(); // Fixed: date should not have a length
             $table->string('marriage_place', 60)->nullable();
             $table->string('officiant_name', 60)->nullable();
             $table->string('officiant_position', 60)->nullable();
