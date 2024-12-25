@@ -90,6 +90,7 @@
         <th>Mother's Occupation</th>
         <th>Mother's Age</th>
         <th>Mother's Street</th>
+        <th>Specify Mother's Street</th>
         <th>Mother's City</th>
         <th>Mother's Province</th>
         <th>Mother's Country</th>
@@ -101,11 +102,13 @@
         <th>Father's Occupation</th>
         <th>Father's Age</th>
         <th>Father's Street</th>
+        <th>Specify Father's Street</th>
         <th>Father's City</th>
         <th>Father's Province</th>
         <th>Father's Country</th>
         <th>Marriage Date</th>
         <th>Marriage Street</th>
+        <th>Specify Marriage Street</th>
         <th>Marriage Municipality</th>
         <th>Marriage Province</th>
         <th>Marriage Country</th>
@@ -140,6 +143,7 @@
             <td>{{ $record->occupation }}</td>
             <td>{{ $record->mother_age }}</td>
             <td>{{ $record->mother_street }}</td>
+            <td>{{ $record->mother_street_input }}</td>
             <td>{{ $record->mother_city }}</td>
             <td>{{ $record->mother_province }}</td>
             <td>{{ $record->mother_country }}</td>
@@ -151,11 +155,13 @@
             <td>{{ $record->occupation2 }}</td>
             <td>{{ $record->father_age }}</td>
             <td>{{ $record->father_street }}</td>
+            <td>{{ $record->father_street_input }}</td>
             <td>{{ $record->father_city }}</td>
             <td>{{ $record->father_province }}</td>
             <td>{{ $record->father_country }}</td>
             <td>{{ $record->marriage_date }}</td>
             <td>{{ $record->marriage_street }}</td>
+            <td>{{ $record->marriage_street_input }}</td>
             <td>{{ $record->marriage_municipality }}</td>
             <td>{{ $record->marriage_province }}</td>
             <td>{{ $record->marriage_country }}</td>
@@ -182,9 +188,12 @@
         <th>husband_last_name</th>
         <th>husband_birthdate</th>
         <th>husband_age</th>
-        <th>husband_city_municipality</th>
+        <th>husband_city</th>
+        <th>specify_husband_city</th>
         <th>husband_province</th>
+        <th>specify_husband_province</th>
         <th>husband_country</th>
+        <th>specify_husband_country</th>
         <th>husband_citizenship</th>
         <th>husband_residence</th>
         <th>husband_religion</th>
@@ -201,9 +210,12 @@
         <th>wife_last_name</th>
         <th>wife_birthdate</th>
         <th>wife_age</th>
-        <th>wife_city_municipality</th>
+        <th>wife_city</th>
+        <th>specify_wife_city</th>
         <th>wife_province</th>
+        <th>specify_wife_province</th>
         <th>wife_country</th>
+        <th>specify_wife_country</th>
         <th>wife_citizenship</th>
         <th>wife_residence</th>
         <th>wife_religion</th>
@@ -215,7 +227,7 @@
         <th>wife_mother_middle_name</th>
         <th>wife_mother_maiden_last_name</th>
         <th>wife_mother_citizenship</th>
-        <th>marriage_date1</th>
+        <th>marriage_date</th>
         <th>marriage_place</th>
         <th>officiant_name</th>
         <th>officiant_position</th>
@@ -233,9 +245,12 @@
             <td>{{ $record->husband_last_name }}</td>
             <td>{{ $record->husband_birthdate }}</td>
             <td>{{ $record->husband_age }}</td>
-            <td>{{ $record->husband_city_municipality }}</td>
+            <td>{{ $record->husband_city }}</td>
+            <td>{{ $record->husband_city_input }}</td>
             <td>{{ $record->husband_province }}</td>
+            <td>{{ $record->husband_province_input }}</td>
             <td>{{ $record->husband_country }} </td>
+            <td>{{ $record->husband_country_input }} </td>
             <td>{{ $record->husband_citizenship }}</td>
             <td>{{ $record->husband_residence }}</td>
             <td>{{ $record->husband_religion }}</td>
@@ -252,9 +267,12 @@
             <td>{{ $record->wife_last_name }}</td>
             <td>{{ $record->wife_birthdate }}</td>
             <td>{{ $record->wife_age }}</td>
-            <td>{{ $record->wife_city_municipality }}</td>
+            <td>{{ $record->wife_city }}</td>
+            <td>{{ $record->wife_city_input }}</td>
             <td>{{ $record->wife_province }} </td>
+            <td>{{ $record->wife_province_input }} </td>
             <td>{{ $record->wife_country }}</td>
+            <td>{{ $record->wife_country_input }}</td>
             <td>{{ $record->wife_citizenship }}</td>
             <td>{{ $record->wife_residence }}</td>
             <td>{{ $record->wife_religion }}</td>
@@ -266,7 +284,7 @@
             <td>{{ $record->wife_mother_middle_name }}</td>
             <td>{{ $record->wife_mother_maiden_last_name }}</td>
             <td>{{ $record->wife_mother_citizenship }}</td>
-            <td>{{ $record->marriage_date1 }} </td>
+            <td>{{ $record->marriage_date }} </td>
             <td>{{ $record->marriage_place }}</td>
             <td>{{ $record->officiant_name }}</td>
             <td>{{ $record->officiant_position }}</td>
