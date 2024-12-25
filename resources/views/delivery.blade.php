@@ -104,18 +104,136 @@ h1 {
 
         <!-- Success Message -->
         @if(session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
+<!-- Success Flash Message -->
+<div id="flashMessage" style="
+    position: fixed;
+    width: 70%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: green; /* Text color set to green */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid green; /* Added green border */
+    border-radius: 8px;
 
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+    display: flex; /* Use flexbox to align text */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    text-align: center;
+
+    font-size: 20px; /* Make text bigger */
+    font-weight: bold; /* Optional: make it bold */
+    z-index: 9999; /* Make sure it's above content */
+">
+    <p>{{ session('success') }}</p>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const flashMessage = document.getElementById('flashMessage');
+        
+        if (flashMessage) {
+            // Set timeout to remove flash message after 20 seconds
+            setTimeout(() => {
+                flashMessage.style.transition = "opacity 1s ease";
+                flashMessage.style.opacity = "0";
+                setTimeout(() => flashMessage.remove(), 2000); // Remove the element after fading out
+            }, 2000); 
+        }
+    });
+</script>
 @endif
+
+@if ($errors->any())
+<!-- Error Flash Message -->
+<div id="flashMessage" style="
+    position: fixed;
+    width: 70%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: red; /* Text color set to red */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid red; /* Added red border */
+    border-radius: 8px;
+
+    display: flex; /* Use flexbox to align text */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    text-align: center;
+
+    font-size: 20px; /* Make text bigger */
+    font-weight: bold; /* Optional: make it bold */
+    z-index: 9999; /* Make sure it's above content */
+">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const flashMessage = document.getElementById('flashMessage');
+
+        if (flashMessage) {
+            setTimeout(() => {
+                flashMessage.style.transition = "opacity 1s ease";
+                flashMessage.style.opacity = "0";
+                setTimeout(() => flashMessage.remove(), 2000); // Remove the element after fading out
+            }, 2000);
+        }
+    });
+</script>
+@endif
+
+@if(session('error'))
+<div id="flashMessage" style="
+    position: fixed;
+    width: 70%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: red; /* Text color set to red for errors */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid red; /* Added red border */
+    border-radius: 8px;
+
+    display: flex; /* Use flexbox to align text */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    text-align: center;
+
+    font-size: 20px; /* Make text bigger */
+    font-weight: bold; /* Optional: make it bold */
+    z-index: 9999; /* Make sure it's above content */
+">
+    <p>{{ session('error') }}</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const flashMessage = document.getElementById('flashMessage');
+
+        if (flashMessage) {
+            setTimeout(() => {
+                flashMessage.style.transition = "opacity 1s ease";
+                flashMessage.style.opacity = "0";
+                setTimeout(() => flashMessage.remove(), 1000);
+            }, 5000);
+        }
+    });
+</script>
+@endif
+
 
         <form action="{{ route('delivery.store') }}" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 
@@ -190,7 +308,7 @@ h1 {
 
 <!--changes in input format-->
     <div class="mb-3">
-        <label for="estimated_delivery_day" class="form-label">Day of Delivery</label>
+        <label for="estimated_delivery_day" class="form-label">Day of Delivery (3 day advance today)</label>
         <input type="text" class="form-control" id="estimated_delivery_day" name="estimated_delivery_day" value="{{ old('estimated_delivery_day') }}" placeholder="e.g 2024/12/17" required>
         @error('barangay') <small class="text-danger">{{ $message }}</small> @enderror
     </div>

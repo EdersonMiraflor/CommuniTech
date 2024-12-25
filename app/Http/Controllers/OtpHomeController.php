@@ -40,13 +40,17 @@ Explanation:
             $get_token->is_activated = 1;
             $get_token->save();
 
+            if ($get_token->email !== auth()->user()->email) {
+                return redirect('/verify-account')->with('error', 'This OTP is not yours. Please use the OTP sent to your email!');
+            }
+
             $user = Otpform::where('email', $get_token->email)->first();
             $user->is_activated = 1;
             $user->save();
 
             $getting_token = Verifytoken::where('token', $get_token->token)->first();
             $getting_token->delete();
-            return redirect('/otphome')->with('activated', 'Your Otp code has been Verified !');
+            return redirect('/otphome')->with('Correct', 'You have recieve your request, please view them !');
         }
         else{
             return redirect('/verify-account')->with('Incorrect', 'Your Otp is incorrect, please check your Code Again!!');

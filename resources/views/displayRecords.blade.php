@@ -38,7 +38,7 @@
             @csrf
             <div class="row mb-3">
                 <div class="col-md-4">
-                    <label for="category">Select Category:</label>
+                    <label for="category">Select Certificate Category:</label>
                     <select name="category" id="category" class="form-control" required>
                         <option value="">Select Category</option>
                         <option value="1" {{ $category == '1' ? 'selected' : '' }}>Birth Certificate</option>
@@ -47,7 +47,7 @@
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <label for="search">Search:</label>
+                    <label for="search">Search User Name:</label>
                     <input type="text" name="search" id="search" class="form-control" value="{{ $search }}">
                 </div>
                 <div class="col-md-4 d-flex align-items-end">
