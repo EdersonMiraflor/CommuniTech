@@ -2,6 +2,89 @@
 @section('contents')
 
 <link rel="stylesheet" href="{{ asset('css/img-auth.css') }}">
+@if(session('Incorrect'))
+<div id="flashMessage" style="
+    position: fixed;
+    width: 70%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: red; /* Text color set to red for errors */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid red; /* Added red border */
+    border-radius: 8px;
+
+    display: flex; /* Use flexbox to align text */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    text-align: center;
+
+    font-size: 20px; /* Make text bigger */
+    font-weight: bold; /* Optional: make it bold */
+    z-index: 9999; /* Make sure it's above content */
+">
+    <p>{{ session('Incorrect') }}</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const flashMessage = document.getElementById('flashMessage');
+
+        if (flashMessage) {
+            setTimeout(() => {
+                flashMessage.style.transition = "opacity 1s ease";
+                flashMessage.style.opacity = "0";
+                setTimeout(() => flashMessage.remove(), 2000);
+            }, 3000);
+        }
+    });
+</script>
+@endif
+
+@if(session('error'))
+<div id="flashMessage" style="
+    position: fixed;
+    width: 70%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: red; /* Text color set to red for errors */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid red; /* Added red border */
+    border-radius: 8px;
+
+    display: flex; /* Use flexbox to align text */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    text-align: center;
+
+    font-size: 20px; /* Make text bigger */
+    font-weight: bold; /* Optional: make it bold */
+    z-index: 9999; /* Make sure it's above content */
+">
+    <p>{{ session('error') }}</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const flashMessage = document.getElementById('flashMessage');
+
+        if (flashMessage) {
+            setTimeout(() => {
+                flashMessage.style.transition = "opacity 1s ease";
+                flashMessage.style.opacity = "0";
+                setTimeout(() => flashMessage.remove(), 2000);
+            }, 3000);
+        }
+    });
+</script>
+@endif
 
 <div class="container" style="display: flex; justify-content: center; align-items: center; min-height: 50vh; background-color: #f8f9fa;">
     <div class="row" style="width: 100%; max-width: 600px; background-color: #E8F7EC; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">

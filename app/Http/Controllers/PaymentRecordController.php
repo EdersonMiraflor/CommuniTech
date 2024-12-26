@@ -18,7 +18,7 @@ class PaymentRecordController extends Controller
 {
     // Get the authenticated user's ID
     $userId = Auth::id();
-
+try{
     // Validate the incoming data (you can add more rules as needed)
     $request->validate([
         'name' => 'required|string',
@@ -71,6 +71,14 @@ class PaymentRecordController extends Controller
     }
 
     return redirect('home')->with('flash_message', 'Your Request Has Been Created!, Please go to your "My Account" And Check "Request History" for your request status');
-}
+}catch (\Illuminate\Validation\ValidationException $e) {
+    $errors = $e->validator->errors();
 
+    return redirect()->back()->withErrors($errors)->withInput()->with('error_announcement', 'Invalid input or empty fields. Please correct them and try again.');
+} catch (\Exception $e) {
+    \Log::error($e->getMessage());
+
+    return redirect()->back()->with('error_announcement', 'An unexpected error occurred. Please try again later.');
+}
+}
 }

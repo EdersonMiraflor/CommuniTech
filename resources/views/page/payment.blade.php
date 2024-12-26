@@ -1,12 +1,53 @@
-    @extends('layouts.layout')
+@extends('layouts.layout')
 
-    @section('contents')
+@section('contents')
 
-    <br>
+<br>
+@if(session('error_announcement'))
+<div id="flashMessage" style="
+    position: fixed;
+    width: 70%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: red; /* Text color set to red for errors */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid red; /* Added red border */
+    border-radius: 8px;
+
+    display: flex; /* Use flexbox to align text */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    text-align: center;
+
+    font-size: 20px; /* Make text bigger */
+    font-weight: bold; /* Optional: make it bold */
+    z-index: 9999; /* Make sure it's above content */
+">
+    <p>{{ session('error_announcement') }}</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const flashMessage = document.getElementById('flashMessage');
+
+        if (flashMessage) {
+            setTimeout(() => {
+                flashMessage.style.transition = "opacity 1s ease";
+                flashMessage.style.opacity = "0";
+                setTimeout(() => flashMessage.remove(), 1000);
+            }, 5000);
+        }
+    });
+</script>
+@endif
+
     <div class="container form-container" style="margin-bottom: 50px">
         <h1 class="text-center form-title"><b>Payment</b></h1>
         <div class="form-and-image">
-
             <!-- Left Section: User Form -->
             <div class="form-section">
             <form action="{{ route('store.record') }}" method="POST" enctype="multipart/form-data" class="payment-form">
@@ -19,7 +60,7 @@
                     </div>
                     <div class="form-group">
                         <label for="requested_certificate">Requested Certificate</label>
-                        <input type="text" name="requested_certificate" id="requested_certificate" class="form-control" value="{{ $requestedCertificate ?? '' }}" readonly>
+                        <input type="text" name="requested_certificate" id="requested_certificate" class="form-control" value="{{ $requestedCertificate ?? '' }}" >
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>

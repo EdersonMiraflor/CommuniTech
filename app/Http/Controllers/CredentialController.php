@@ -54,11 +54,11 @@ class CredentialController extends Controller
         // Save the updated user record to the database and check if the operation was successful.
         if ($user->save()) {
             // If the save operation is successful, redirect back with a success message.
-            return redirect()->back()->with('success', 'User credential updated successfully.');
+            return redirect()->back()->with('success_change', 'Credential updated successfully.');
         }
 
         // If the save operation fails, redirect back with an error message.
-        return redirect()->back()->with('error', 'Failed to update user credential.');
+        return redirect()->back()->with('fail_change', 'Failed to update credential.');
     }
 
     /*Rider Start*/
@@ -78,8 +78,8 @@ class CredentialController extends Controller
             $user->Credential = $request->rider_credential;
     
             if ($user->save()) {
-                return redirect()->back()->with('success', 'User credential updated successfully.');
+                return redirect()->back()->with('success_change', 'Credential updated successfully.');
             }
-            return redirect()->back()->with('error', 'Failed to update user credential.');
+            return redirect()->back()->with('fail_change', 'Failed to update credential.');
     }
 }

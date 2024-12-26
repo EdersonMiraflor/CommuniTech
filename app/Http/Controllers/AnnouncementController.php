@@ -32,7 +32,7 @@ class AnnouncementController extends Controller
         ]);
 
         // Redirect back with success message
-        return redirect()->route('announcement.displays')->with('success', 'Announcement added successfully!');
+        return redirect()->route('announcement.displays')->with('success_announcement', 'Announcement added successfully!');
     }
 
     public function destroy($id)
@@ -44,7 +44,7 @@ class AnnouncementController extends Controller
         $announcement->delete();
     
         // Redirect back with a success message
-        return redirect()->back()->with('success', 'Announcement deleted successfully!');
+        return redirect()->back()->with('success_announcement', 'Announcement deleted successfully!');
     }
 
     public function update(Request $request)
@@ -63,7 +63,7 @@ class AnnouncementController extends Controller
         $announcement->save();
     
         // Redirect back with a success message
-        return redirect()->route('announcement.displays')->with('success', 'Announcement updated successfully!');
+        return redirect()->route('announcement.displays')->with('success_announcement', 'Announcement updated successfully!');
     }
     
 }

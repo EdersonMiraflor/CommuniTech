@@ -17,6 +17,7 @@ class DeliveryController extends Controller
 
     public function store(Request $request)
     {
+    try{
         // Validate the request data
         $request->validate([
             'rider' => 'required|exists:users,User_Id', // Ensure a rider is selected and exists in the 'users' table
@@ -59,6 +60,10 @@ class DeliveryController extends Controller
         ]);
     
         return redirect()->route('delivery.create')->with('success', 'Delivery record created successfully.');
-    }
+    }catch (\Exception $e) {
+        \Log::error($e->getMessage());
     
+        return redirect()->back()->with('error', 'An unexpected error occurred. Please check your inputs or try again later.');
+    }
+}
 }

@@ -10,7 +10,6 @@
                 <div class="verify-card-header">
                     {{ __('Verify Your Email Address') }}
                 </div>
-
                 <div class="verify-card-body">
                     @if (session('resent'))
                         <div class="verify-alert">

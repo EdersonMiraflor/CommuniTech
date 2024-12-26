@@ -35,7 +35,7 @@ class GenerateScanPDFController extends Controller
       
         $user = Auth::user();
     
-        $scan = Scan::where('User_Id', $user->User_Id)->latest()->first();
+        $scan = Scan::where('email', $user->email)->latest()->first();
     
         if (!$scan) {
             return response()->json(['error' => 'No scan found for the logged-in user.'], 404);

@@ -136,15 +136,51 @@ Explanation:
 
 <div class="otphome">
 
+@if(session('Correct'))
+<!-- Flash Message -->
+<div id="flashMessage" style="
+    position: fixed;
+    width: 70%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: green; /* Text color set to green */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid green; /* Added green border */
+    border-radius: 8px;
+
+    display: flex; /* Use flexbox to align text */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    text-align: center;
+
+    font-size: 20px; /* Make text bigger */
+    font-weight: bold; /* Optional: make it bold */
+    z-index: 9999; /* Make sure it's above content */
+">
+    <p>{{ session('Correct') }}</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const flashMessage = document.getElementById('flashMessage');
+        
+        if (flashMessage) {
+            // Set timeout to remove flash message after 20 seconds
+            setTimeout(() => {
+                flashMessage.style.transition = "opacity 1s ease";
+                flashMessage.style.opacity = "0";
+                setTimeout(() => flashMessage.remove(), 1000); // Remove the element after fading out
+            }, 6000); 
+        }
+    });
+</script>
+@endif
 
 
-<div class="card-body">
-        @if (session('activated'))
-            <div class="alert alert-success" role="alert">
-                {{ session('activated') }}
-            </div>
-        @endif
-    </div>
 {{-- Display SweetAlert2 if there's an error message in the session --}}
 @if(session('error'))
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
