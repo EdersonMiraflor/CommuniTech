@@ -258,7 +258,6 @@ birth-container input[type="text"], input[type="date"], select {
             <option value="Normal spontaneous vertex">Normal spontaneous vertex</option>
             <option value="Caesarean section">Caesarean section</option>
             <option value="Assisted vaginal delivery">Assisted vaginal delivery</option>
-            <option value="Other">Other (Specify)</option>
         </select>
     </div>
 
@@ -276,7 +275,6 @@ birth-container input[type="text"], input[type="date"], select {
             <option value="Single">Single</option>
             <option value="Twin">Twin</option>
             <option value="Triplet">Triplet</option>
-            <option value="Other">Other (Specify)</option>
         </select>
     </div>
 
@@ -288,7 +286,6 @@ birth-container input[type="text"], input[type="date"], select {
             <option value="First">First</option>
             <option value="Second">Second</option>
             <option value="Third">Third</option>
-            <option value="Other">Other (Specify)</option>
         </select>
     </div>
 </div>
