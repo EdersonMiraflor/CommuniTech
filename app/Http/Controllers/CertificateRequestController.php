@@ -86,7 +86,7 @@ class CertificateRequestController extends Controller
         return view('page.payment', compact('requestedCertificate', 'qrscan')); 
     }catch (\Exception $e) {
         \Log::error($e->getMessage());
-        return redirect()->back()->with('error_input', 'An unexpected error occurred. Please check your input if its correct or try again later.');
+        return redirect()->back()->with('error_input', 'Please ensure all required fields are completed correctly before proceeding.');
     }
 }
 /*End Live Birth*/
@@ -167,7 +167,7 @@ class CertificateRequestController extends Controller
             return view('page.payment', compact('requestedCertificate', 'qrscans', 'qrscan'));
     }catch (\Exception $e) {
         \Log::error($e->getMessage());
-        return redirect()->back()->with('error_input2', 'An unexpected error occurred. Please check your input if its correct or try again later.');
+        return redirect()->back()->with('error_input2', 'Please ensure all required fields are completed correctly before proceeding.');
     }
 }
 /*End Marriage*/   
@@ -236,7 +236,9 @@ class CertificateRequestController extends Controller
         return view('page.payment', compact('requestedCertificate', 'qrscan', 'qrscans'));
     }catch (\Exception $e) {
         \Log::error($e->getMessage());
-        return redirect()->back()->with('error_input3', 'An unexpected error occurred. Please check your input if its correct or try again later.');
+        return redirect()->back()->with('error_input3', 'Error: Incomplete or Invalid Input
+
+Please ensure all required fields are completed correctly before proceeding.');
     }
 }
 /*End Death*/ 
