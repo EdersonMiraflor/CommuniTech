@@ -385,8 +385,12 @@ input:focus, textarea:focus, select:focus {
         <section class="intro-container">
             <div class="intro">
                 <h1 style="color:black;">Manito Civil Registry Online Services</h1>
-                <p>Welcome to Communitech, a dedicated platform for the citizens of Manito. At Communitech, you can easily apply for vital records, including Certificates of Live Birth, Death Certificates, and Marriage Certificates. Our goal is to simplify the process, ensuring you can access these essential documents quickly and conveniently. Thank you for choosing Communitech, where your vital records are just a few clicks away.</p>
+                <p>Welcome to Communitech, a dedicated platform for the citizens of Manito. At Communitech, you can easily apply for vital records, including Certificates of Live Birth, Death Certificates, and Marriage Certificates. Our goal is to simplify the process, ensuring you can access these essential documents quickly and conveniently. Thank you for choosing Communitech, where your vital records are just a few clicks away.</p>  
+            @auth
+                @if (Auth::user()->Credential == 'user')
                 <a href="/home/services" class="btn-apply">Apply Certificate</a>
+                @endif
+            @endauth
             </div>
         </section>
       
