@@ -574,40 +574,29 @@
         @endauth
 
         @auth
-    @if (Auth::user()->Credential == 'rider')
-        <a href="/rider/dashboard" class="{{ Request::is('rider/dashboard*') ? 'active' : '' }}">DASHBOARD</a>
-    @endif
-@endauth
+        @if (Auth::user()->Credential == 'rider')
+                <a href="/rider/dashboard" class="{{ Request::is('rider/dashboard*') ? 'active' : '' }}">DASHBOARD</a>
+            @endif
+        @endauth
 
-@auth
-    @if (Auth::user()->Credential == 'admin')
-        <a href="/delivery/create" class="{{ Request::is('delivery/create*') ? 'active' : '' }}">DELIVERY</a>
-    @endif
-@endauth
-
-
+        @auth
+            @if (Auth::user()->Credential == 'admin')
+                <a href="/delivery/create" class="{{ Request::is('delivery/create*') ? 'active' : '' }}">DELIVERY</a>
+            @endif
+        @endauth
 
         @auth
         @if (Auth::user()->Credential == 'user')
         <a href="/home/usermanual" class="{{ Request::is('home/usermanual') ? 'active' : '' }}">USER MANUAL</a>
         @endif
         @endauth
-        <!--
+
         @auth
-            {{-- Check if the user is admin --}}
-            @if (Auth::user()->Credential == 'admin')
-                <a href="/home/transactionhistory" class="{{ Request::is('home/transactionhistory') ? 'active' : '' }}">TRANSACTION HISTORY</a>
-            @endif
-        @endauth
-  
-        @auth
-            {{-- Check if the user is admin --}}
-            @if (Auth::user()->Credential == 'admin')
-                <a href="/home/usermanagement" class="{{ Request::is('home/usermanagement') ? 'active' : '' }}">USER MANAGEMENT</a>
-            @endif
-        @endauth
-    -->
+            @if (Auth::user()->Credential == 'user')
         <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
+            @endif
+        @endauth
+
         <a href="/home/privacy-policy" class="{{ Request::is('home/privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>     
         @auth
             @if (Auth::user()->Credential == 'user' || Auth::user()->Credential == 'rider')
@@ -652,43 +641,54 @@
         <a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">HOME</a>
 
         @auth
-        @if (Auth::user()->Credential == 'user')
-        <a href="/home/services" class="{{ Request::is('home/services*') ? 'active' : '' }}">SERVICES</a>
-        @endif
-        @endauth
-<!--
-        @auth
-            {{-- Check if the user is admin --}}
-            @if (Auth::user()->Credential == 'admin')
-                <a href="/home/transactionhistory" class="{{ Request::is('home/transactionhistory') ? 'active' : '' }}">TRANSACTION HISTORY</a>
+        @if (Auth::user()->Credential == 'admin')
+                <a href="/delivery/create" class="{{ Request::is('delivery/create*') ? 'active' : '' }}">DELIVERY</a>
             @endif
         @endauth
 
-        <a href="/home/usermanual" class="{{ Request::is('home/usermanual') ? 'active' : '' }}">USER MANUAL</a>
-  
         @auth
-            {{-- Check if the user is admin --}}
-            @if (Auth::user()->Credential == 'admin')
-                <a href="/home/usermanagement" class="{{ Request::is('home/usermanagement') ? 'active' : '' }}">USER MANAGEMENT</a>
+            @if (Auth::user()->Credential == 'user')
+                <a href="/home/services" class="{{ Request::is('home/services*') ? 'active' : '' }}">SERVICES</a>
             @endif
         @endauth
-    -->
+
         <a href="/home/privacy-policy" class="{{ Request::is('home/privacy-policy') ? 'active' : '' }}">PRIVACY POLICY</a>
-        <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
+
+         @auth
+            @if (Auth::user()->Credential == 'user')
+                <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
+            @endif
+        @endauth
 
         @auth
-    @if (Auth::user()->Credential == 'rider')
-        <a href="/rider/dashboard" class="{{ Request::is('rider/dashboard*') ? 'active' : '' }}">DASHBOARD</a>
-    @endif
-@endauth
+        @if (Auth::user()->Credential == 'rider')
+                <a href="/rider/dashboard" class="{{ Request::is('rider/dashboard*') ? 'active' : '' }}">DASHBOARD</a>
+            @endif
+        @endauth
 
+        @auth
+            @if (Auth::user()->Credential == 'admin')
+        <a href="/display-records" class="{{ Request::is('display-records') ? 'active' : '' }}">REQUEST INFORMATION</a>
+            @endif
+        @endauth
 
-@auth
-    @if (Auth::user()->Credential == 'admin')
-        <a href="/delivery/create" class="{{ Request::is('delivery/create*') ? 'active' : '' }}">DELIVERY</a>
-    @endif
-@endauth
+        @auth
+            @if (Auth::user()->Credential == 'admin')
+        <a href="/otpform" class="{{ Request::is('otpform') ? 'active' : '' }}">REQUEST MANAGEMENT</a>
+            @endif
+        @endauth
 
+        @auth
+            @if (Auth::user()->Credential == 'admin')
+        <a href="/payment" class="{{ Request::is('payment') ? 'active' : '' }}">CHANGE QR CODE</a>
+            @endif
+        @endauth
+
+        @auth
+            @if (Auth::user()->Credential == 'admin')
+        <a href="/home/credential" class="{{ Request::is('home/credential') ? 'active' : '' }}">CREDENTIAL</a>
+            @endif
+        @endauth
 
         @auth
         @if (Auth::user()->Credential == 'user' || Auth::user()->Credential == 'rider')
