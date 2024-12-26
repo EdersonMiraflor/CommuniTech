@@ -592,7 +592,7 @@
         @endauth
 
         @auth
-            @if (Auth::user()->Credential == 'user')
+            @if (Auth::user()->Credential == 'user' || Auth::user()->Credential == 'rider')
         <a href="/home/about" class="{{ Request::is('home/about') ? 'active' : '' }}">ABOUT</a>
             @endif
         @endauth
