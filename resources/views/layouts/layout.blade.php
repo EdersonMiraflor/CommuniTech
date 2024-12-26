@@ -515,6 +515,17 @@
                             <i class="fas fa-user ms-2"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+
+                        @auth
+        @if (Auth::user()->Credential == 'user')
+                            <a class="dropdown-item" href="/home/pending-deliveries">
+                                {{ __('My Deliveries') }}
+                            </a>
+                            @endif
+                            @endauth 
+                            
+
                             <a class="dropdown-item" href="/home/user-profile">
                                 {{ __('My Account') }}
                             </a>
@@ -527,13 +538,10 @@
                             </a>
                             
                             
-                            @auth
-        @if (Auth::user()->Credential == 'user')
-                            <a class="dropdown-item" href="/home/pending-deliveries">
-                                {{ __('PENDING DELIVERIES!') }}
-                            </a>
-                            @endif
-                            @endauth          
+                           
+                            
+                            
+                                   
                             @auth
         @if (Auth::user()->Credential == 'user')
                             <hr class="dropdown-divider"> <!-- Horizontal line divider -->

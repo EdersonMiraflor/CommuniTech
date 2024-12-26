@@ -8,6 +8,7 @@
     }
     .pd .container {
         margin-top: 5rem;
+        font-family: Arial, sans-serif;
     }
 
     .pd h1 {
