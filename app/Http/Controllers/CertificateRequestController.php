@@ -22,6 +22,7 @@ class CertificateRequestController extends Controller
 
     public function birthstore(Request $request)
     {
+    try{
         // Get the logged-in user's ID
         $userId = auth()->id();
         BirthCertificateRequest::create([
@@ -83,7 +84,11 @@ class CertificateRequestController extends Controller
         $qrscan = Qrcode::latest()->first(); 
         $qrscans = Qrcode::all();
         return view('page.payment', compact('requestedCertificate', 'qrscan')); 
+    }catch (\Exception $e) {
+        \Log::error($e->getMessage());
+        return redirect()->back()->with('error_input', 'An unexpected error occurred. Please check your input if its correct or try again later.');
     }
+}
 /*End Live Birth*/
  
 /*Marriage*/
@@ -95,6 +100,7 @@ class CertificateRequestController extends Controller
 
     public function marriagestore(Request $request)
     {  
+    try{
         // Get the logged-in user's ID
         $userId = auth()->id();
         MarriageCertificateRequest::create([
@@ -159,7 +165,11 @@ class CertificateRequestController extends Controller
             $qrscan = Qrcode::latest()->first(); 
             $qrscans = Qrcode::all();
             return view('page.payment', compact('requestedCertificate', 'qrscans', 'qrscan'));
+    }catch (\Exception $e) {
+        \Log::error($e->getMessage());
+        return redirect()->back()->with('error_input2', 'An unexpected error occurred. Please check your input if its correct or try again later.');
     }
+}
 /*End Marriage*/   
 
 /*Death*/
@@ -171,6 +181,7 @@ class CertificateRequestController extends Controller
 
     public function deathstore(Request $request)
     {
+    try{
         // Get the logged-in user's ID
         $userId = auth()->id();
         // Store the data directly in the database
@@ -223,6 +234,10 @@ class CertificateRequestController extends Controller
         $qrscan = Qrcode::latest()->first(); 
         $qrscans = Qrcode::all();
         return view('page.payment', compact('requestedCertificate', 'qrscan', 'qrscans'));
+    }catch (\Exception $e) {
+        \Log::error($e->getMessage());
+        return redirect()->back()->with('error_input3', 'An unexpected error occurred. Please check your input if its correct or try again later.');
     }
+}
 /*End Death*/ 
 }

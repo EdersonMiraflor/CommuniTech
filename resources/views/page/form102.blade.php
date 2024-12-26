@@ -43,7 +43,50 @@ birth-container input[type="text"], input[type="date"], select {
     </h2>
 
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-  
+
+    <br>
+@if(session('error_input'))
+<div id="flashMessage" style="
+    position: fixed;
+    width: 70%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: red; /* Text color set to red for errors */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid red; /* Added red border */
+    border-radius: 8px;
+
+    display: flex; /* Use flexbox to align text */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    text-align: center;
+
+    font-size: 20px; /* Make text bigger */
+    font-weight: bold; /* Optional: make it bold */
+    z-index: 9999; /* Make sure it's above content */
+">
+    <p>{{ session('error_input') }}</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const flashMessage = document.getElementById('flashMessage');
+
+        if (flashMessage) {
+            setTimeout(() => {
+                flashMessage.style.transition = "opacity 1s ease";
+                flashMessage.style.opacity = "0";
+                setTimeout(() => flashMessage.remove(), 1000);
+            }, 5000);
+        }
+    });
+</script>
+@endif
+
     <form id="executebirthstore" action="/home/services/form102" method="POST">
         @csrf
 
