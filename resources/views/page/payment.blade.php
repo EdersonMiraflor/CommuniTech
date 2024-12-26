@@ -1,6 +1,24 @@
 @extends('layouts.layout')
 
 @section('contents')
+<style>
+    .btn-primary{
+        background-color: #28a745;
+        border: #28a745;
+    }
+    .btn-primary:hover{
+        background-color:rgb(62, 205, 95);
+        border: #28a745;
+    }
+    .btn-warning{
+        background-color: #04aa6d;
+        border: #04aa6d;
+    }
+    .btn-warning:hover{
+        background-color:rgb(29, 209, 143);
+        border: #04aa6d;
+    }
+</style>
 
 <br>
 @if(session('error_announcement'))
@@ -140,14 +158,17 @@
                 @endif
                 <form action="{{ route('payment.store') }}" method="POST" enctype="multipart/form-data" class="admin-form">
                     @csrf
+                
                     <div class="form-group">
                         <label for="photo">Change QR Photo</label>
                         <input class="form-control" name="photo" type="file" id="photo">
                     </div>
                     <div class="form-group text-center">
+                    <br>
                         <a href="/home" class="btn btn-warning">Return Home</a>
                         <button type="submit" class="btn btn-primary">Change QR Code</button>
                     </div>
+                    
                 </form>
             @endif
         @endauth

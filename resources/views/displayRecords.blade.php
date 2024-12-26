@@ -9,30 +9,55 @@
             overflow-x: auto;
             max-height: 400px; /* Adjust the height as needed */
         }
-        table {
+        .container table {
             width: 100%;
             border-collapse: collapse;
         }
 
-        th, td {
-            border: 1px solid #ccc;  /* Reduce border size */
+        .container th, td {
             padding: 8px;
             text-align: left;
         }
 
-        th {
-            background-color: #f2f2f2;
+        .container th {
+            background-color: #28a745; /* Add green header color */
+            color: white; /* Ensure text is visible */
         }
+
+        .container td {
+        background-color: #e8f7ec; /* Light green background for cells */
+    }
 
         .cell-grid {
             background-image: linear-gradient(to right, #ccc 1px, transparent 1px),
                               linear-gradient(to bottom, #ccc 1px, transparent 1px);
             background-size: 20px 20px;
         }
+
+        tr:hover {
+        background-color: #04aa6d; /* Highlight row with a darker green */
+        color: white; /* Ensure text visibility on hover */
+    }
+    .table-container::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    .table-container::-webkit-scrollbar-thumb {
+        background-color: #28a745; /* Green scroll thumb */
+        border-radius: 4px;
+    }
+    .table-container::-webkit-scrollbar-track {
+        background-color: #e8f7ec; /* Light green scrollbar track */
+    }
+
+    .text-center{
+        color:#28a745;
+        font-weight: bold;
+    }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
+    <div style="margin-top:20px; margin-bottom:40px;" class="container mt-5">
         <h1 class="text-center">Display Records</h1>
         <form method="POST" action="{{ route('display.records.search') }}">
             @csrf
@@ -51,7 +76,7 @@
                     <input type="text" name="search" id="search" class="form-control" value="{{ $search }}">
                 </div>
                 <div class="col-md-4 d-flex align-items-end">
-                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="submit" class="btn btn-success">Search</button>
                 </div>
             </div>
         </form>
@@ -388,6 +413,7 @@
     @else
         <p class="text-center">No records found.</p>
     @endif
+    </div>
     </div>
 </body>
 @endsection

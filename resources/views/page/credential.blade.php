@@ -23,8 +23,13 @@
 
     /* General container styling */
     .container {
-        margin-top: 5px;
-        margin-bottom: 30px;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        background-color: #e8f7ec;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     .row {
@@ -37,6 +42,7 @@
         border-radius: 8px;
         padding: 20px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        
     }
 
     .nav-pills .nav-link {
@@ -92,7 +98,7 @@
         transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    button.btn-primary {
+    button.btn-success {
         background-color: #04AA6D;
         color: #ffffff;
     }
@@ -199,7 +205,7 @@
 
                     <!-- Admin Management Tab -->
                     <div class="tab-pane" id="admin" role="tabpanel">
-                        <h5>Admin Management</h5>
+                        <h3>Admin Management</h3>
                         <form method="POST" action="{{ route('change.credential') }}">
                             @csrf
                             @method('PATCH')
@@ -259,7 +265,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="change-credential" class="form-label">Change Credential (All Lists)</label><br>
-                                <button type="submit" name="credential" value="admin" class="btn btn-primary">Make Admin</button>
+                                <button type="submit" name="credential" value="admin" class="btn btn-success">Make Admin</button>
                                 <button type="submit" name="credential" value="user" class="btn btn-warning" style="color: #fcfcff; background-color: #008080; border-color: #008080;">Make User</button>
                             </div>
                         </form>
@@ -291,7 +297,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="change-credential" class="form-label">Change Credential (All Lists)</label><br>
-                                <button type="submit" name="rider_credential" value="rider" class="btn btn-primary">Make Rider</button>
+                                <button type="submit" name="rider_credential" value="rider" class="btn btn-success">Make Rider</button>
                                 <button type="submit" name="rider_credential" value="user" class="btn btn-warning" style="color: #fcfcff; background-color: #008080; border-color: #008080;">Make User</button>
                             </div>
                         </form>
